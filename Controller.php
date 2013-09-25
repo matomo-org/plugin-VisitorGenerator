@@ -21,6 +21,7 @@ use Piwik\View;
 use Piwik\Url;
 use Piwik\Timer;
 use Piwik\Site;
+use Piwik\SettingsServer;
 use Piwik\Plugins\CoreAdminHome\API as CoreAdminHomeAPI;
 use Piwik\Plugins\SitesManager\API as SitesManagerAPI;
 
@@ -73,7 +74,7 @@ class Controller extends Admin
         $idSite = Common::getRequestVar('idSite', false, 'int', $_GET);
         $idSite = Common::getRequestVar('idSite', $idSite, 'int', $_POST);
 
-        Piwik::setMaxExecutionTime(0);
+        SettingsServer::setMaxExecutionTime(0);
 
         $timer = new Timer;
         $time = time() - ($daysToCompute - 1) * 86400;
