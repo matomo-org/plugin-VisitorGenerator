@@ -11,19 +11,19 @@
 namespace Piwik\Plugins\VisitorGenerator;
 
 use Piwik\ArchiveProcessor\Rules;
-use Piwik\Controller\Admin;
-use Piwik\Piwik;
 use Piwik\Common;
+use Piwik\Controller\Admin;
 use Piwik\Date;
 use Piwik\Http;
 use Piwik\Nonce;
-use Piwik\View;
-use Piwik\Url;
-use Piwik\Timer;
-use Piwik\Site;
-use Piwik\SettingsServer;
+use Piwik\Piwik;
 use Piwik\Plugins\CoreAdminHome\API as CoreAdminHomeAPI;
 use Piwik\Plugins\SitesManager\API as SitesManagerAPI;
+use Piwik\SettingsServer;
+use Piwik\Site;
+use Piwik\Timer;
+use Piwik\Url;
+use Piwik\View;
 
 /**
  *
