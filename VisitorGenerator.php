@@ -25,7 +25,7 @@ class VisitorGenerator extends \Piwik\Plugin
     public function getListHooksRegistered()
     {
         return array(
-            'Menu.MenuAdmin.addItems' => 'addMenu',
+            'Menu.Admin.addItems' => 'addMenu',
         );
     }
 
