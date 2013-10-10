@@ -12,11 +12,11 @@ namespace Piwik\Plugins\VisitorGenerator;
 
 use Piwik\ArchiveProcessor\Rules;
 use Piwik\Common;
-use Piwik\Controller\Admin;
 use Piwik\Date;
 use Piwik\Http;
 use Piwik\Nonce;
 use Piwik\Piwik;
+use Piwik\Plugin\ControllerAdmin;
 use Piwik\Plugins\CoreAdminHome\API as CoreAdminHomeAPI;
 use Piwik\Plugins\SitesManager\API as SitesManagerAPI;
 use Piwik\SettingsServer;
@@ -29,7 +29,7 @@ use Piwik\View;
  *
  * @package VisitorGenerator
  */
-class Controller extends Admin
+class Controller extends ControllerAdmin
 {
     public function index()
     {
