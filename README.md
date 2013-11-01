@@ -12,4 +12,4 @@ You can overwrite the log file that is used to generate fake visits in [plugins/
 
 ## Support
 
-Please direct any feedback to hello@piwik.org
+Please direct any feedback to [hello@piwik.org](mailto:hello@piwik.org)
