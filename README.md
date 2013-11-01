@@ -2,7 +2,9 @@
 
 ## Description
 
-This plugin is a developer tool that will generate fake visits. It's only useful if you're creating your own Piwik plugin or theme.
+Plugin to create fake visits. This can be used by Piwik users or developers as an easy way to generate fake data to populate Piwik reports.
+
+You can overwrite the log file that is used to generate fake visits in [plugins/VisitorGenerator/data/access.log](https://github.com/piwik/plugin-VisitorGenerator/blob/master/data/access.log).
 
 ## Changelog
 
