@@ -43,7 +43,7 @@ class Controller extends ControllerAdmin
         $view->nonce = Nonce::getNonce('VisitorGenerator.generate');
         $view->countActionsPerRun = count($this->getAccessLog());
         $view->accessLogPath = $this->getAccessLogPath();
-        echo $view->render();
+        return $view->render();
     }
 
     private function getAccessLogPath()
@@ -102,7 +102,7 @@ class Controller extends ControllerAdmin
         $view->assign('nbActionsTotal', $nbActionsTotal);
         $view->assign('nbRequestsPerSec', round($nbActionsTotal / $timer->getTime(), 0));
         $view->assign('siteName', Site::getNameFor($idSite));
-        echo $view->render();
+        return $view->render();
     }
 
     private function generateVisits($time = false, $idSite = 1)
