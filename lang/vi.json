@@ -1,0 +1,14 @@
+{
+    "VisitorGenerator": {
+        "AreYouSure": "Bạn có chắc chắn bạn muốn tạo các lượt truy cập giả?",
+        "ChoiceYes": "Đúng vậy, tôi chắc chắn!",
+        "DaysToCompute": "Các ngày cần tính",
+        "NbRequestsPerSec": "Các yêu cầu mỗi giây",
+        "NotReversible": "Nó sẽ %s %s không có thể dễ dàng xóa các truy cập từ các bản ghi Piwik.",
+        "PluginDescription": "Plugin để tạo ra các lượt truy cập giả. Điều này có thể được sử dụng bởi người dùng Piwik hoặc các nhà phát triển như là một cách dễ dàng để tạo ra dữ liệu giả mạo để điền vào báo cáo Piwik.",
+        "SelectWebsite": "Chọn website",
+        "Submit": "Trình (submit)",
+        "VisitorGenerator": "Người tạo khách truy cập",
+        "Warning": "Bạn muốn tạo ra truy cập giả mạo sẽ được ghi lại trong cơ sở dữ liệu Piwik của bạn."
+    }
+}
