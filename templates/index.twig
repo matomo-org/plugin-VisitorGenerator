@@ -3,9 +3,7 @@
 {% block content %}
     <h2>{{ 'VisitorGenerator_VisitorGenerator'|translate }}</h2>
     <p>{{ 'VisitorGenerator_PluginDescription'|translate }}</p>
-    <p>You can overwrite the log file that is used to generate fake visits (change {{ accessLogPath }}). This is a log file of requests to "piwik.php" in the
-        format
-        "Apache combined log".</p>
+    <p>{{ 'VisitorGenerator_OverwriteLogFile'|translate(accessLogPath) }}</p>
     <form method="POST" action="{{ linkTo({'module':'VisitorGenerator', 'action':'generate'}) }}">
         <table class="adminTable" style="width: 600px;">
             <tr>
@@ -23,7 +21,7 @@
         {{ 'VisitorGenerator_Warning'|translate }}<br/>
         {{ 'VisitorGenerator_NotReversible'|translate('<b>','</b>')|raw }}<br/><br/>
 
-        <p><strong>This will generate approximately {{ countActionsPerRun }} fake actions on this site for each day</strong>.<br/>
+        <p><strong>{{ 'VisitorGenerator_GenerateFakeActions'|translate(countActionsPerRun) }}</strong><br/>
         </p>
         {{ 'VisitorGenerator_AreYouSure'|translate }}<br/><br/>
         <input type="checkbox" name="choice" id="choice" value="yes"/> <label for="choice">{{ 'VisitorGenerator_ChoiceYes'|translate }}</label>
@@ -32,9 +30,8 @@
         <input type="hidden" value="{{ nonce }}" name="form_nonce"/>
         <br/>
 
-        <p>NOTE: It might take a few minutes to generate visits and actions, please be patient...<br/>
-            There is also a faster tool that will import large test data in Piwik, see the <a
-                    href='https://github.com/piwik/piwik/tree/master/tests#testing-data'>README</a>.</p>
+        <p>{{ 'VisitorGenerator_PleaseBePatient'|translate }}<br/>
+            {{ 'VisitorGenerator_LogImporterNote'|translate('<a href="https://github.com/piwik/piwik/tree/master/tests#testing-data">', '</a>')|raw }}</p>
         <br/>
         <input type="submit" value="{{ 'VisitorGenerator_Submit'|translate }}" name="submit" class="submit"/>
     </form>

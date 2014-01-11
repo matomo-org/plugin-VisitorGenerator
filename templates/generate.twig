@@ -3,16 +3,15 @@
 {% block content %}
     <h2>{{ 'VisitorGenerator_VisitorGenerator'|translate }}</h2>
 
-    Generated visits for {{ siteName }} and for {{ 'General_LastDays'|translate(days) }}.<br/>
-    Generated {{ 'General_NbActions'|translate }}: {{ nbActionsTotal }}<br/>
+    {{ 'VisitorGenerator_GeneratedVisitsFor'|translate(siteName, days) }}<br/>
+    {{ 'VisitorGenerator_NumberOfGeneratedActions'|translate }}: {{ nbActionsTotal }}<br/>
     {{ 'VisitorGenerator_NbRequestsPerSec'|translate }}: {{ nbRequestsPerSec }}<br/>
     {{ timer }}<br/>
     <p><strong>
             {% if browserArchivingEnabled %}
-                The reports will be reprocessed the next time you visit the Piwik reports, it might take a few minutes.
+                {{ 'VisitorGenerator_AutomaticReprocess'|translate }}
             {% else %}
-                Please re-run the archive.php Piwik script in the crontab to refresh the reports.
-                <a href="http://piwik.org/docs/setup-auto-archiving/">See "How to Set up Auto-Archiving of Your Reports"</a>
+                {{ 'VisitorGenerator_ReRunArchiveScript'|translate('<a href="http://piwik.org/docs/setup-auto-archiving/">', '</a>')|raw }}
             {% endif %}
         </strong>
     </p>

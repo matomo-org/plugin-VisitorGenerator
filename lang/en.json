@@ -9,6 +9,14 @@
         "Submit": "Submit",
         "SelectWebsite": "Select Website",
         "NbRequestsPerSec": "Requests per second",
-        "DaysToCompute": "Days to compute"
+        "DaysToCompute": "Days to compute",
+        "GenerateFakeActions": "This will generate approximately %d fake actions on this site for each day.",
+        "OverwriteLogFile": "You can overwrite the log file that is used to generate fake visits (change %s). This is a log file of requests to \"piwik.php\" in the format \"Apache combined log\".",
+        "PleaseBePatient": "NOTE: It might take a few minutes to generate visits and actions, please be patient...",
+        "LogImporterNote": "There is also a faster tool that will import large test data in Piwik, see the %sREADME%s.",
+        "AutomaticReprocess": "The reports will be reprocessed the next time you visit the Piwik reports, it might take a few minutes.",
+        "GeneratedVisitsFor": "Generated visits for %1$s and for the last %2$s days",
+        "ReRunArchiveScript": "Please re-run the archive.php Piwik script in the crontab to refresh the reports. %sSee \"How to Set up Auto-Archiving of Your Reports\"%s",
+        "NumberOfGeneratedActions": "Number of generated actions"
     }
 }
