@@ -6,7 +6,7 @@
         "NbRequestsPerSec": "Požadavků za sekundu",
         "NotReversible": "Tyto návštěvy %s nebude%s možné jednoduše vymazat z logů Piwiku",
         "PluginDescription": "Zásuvný modul pro vytvoření falešných návštěv. Může být použit vývojaři, nebo uživateli Piwiku jako jednoduchá cesta k vygenerování testovacích návštěv k naplnění hlášení Piwiku.",
-        "SelectWebsite": "Zvolte sídlo",
+        "SelectWebsite": "Zvolte web",
         "Submit": "Odeslat",
         "VisitorGenerator": "Generátor návštěv",
         "Warning": "Chystáte se vygenerovat falešné návštěvy, které budou zaznamenány do vaší databáze Piwiku"
