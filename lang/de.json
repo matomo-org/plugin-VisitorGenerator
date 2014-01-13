@@ -1,10 +1,13 @@
 {
     "VisitorGenerator": {
         "AreYouSure": "Wollen Sie wirklich fingierte Besucherzahlen generieren?",
+        "AutomaticReprocess": "Die Berichte werden neu berechnet sobald Sie das nächste mal die Piwik Berichte öffnen, dies könnte einige Minuten dauern.",
         "ChoiceYes": "Ja, ich bin mir sicher!",
         "DaysToCompute": "Zu berechnende Tage",
         "NbRequestsPerSec": "Anfragen pro Sekunde",
         "NotReversible": "Es ist %s nicht%s einfach möglich, diese Besuche aus den Piwik-Logs zu löschen.",
+        "NumberOfGeneratedActions": "Anzahl der generierten Aktionen",
+        "PleaseBePatient": "Hinweis: Es könnte einige Minuten dauern um die Besuche und Aktionen zu generieren, bitte haben Sie Geduld...",
         "PluginDescription": "Plugin, mit dem fingierte Besuche generiert werden können. Dies kann von Piwik-Benutzern oder -Entwicklern genutzt werden, um fingierte Daten zu erzeugen, um die Piwik-Berichte zu füllen.",
         "SelectWebsite": "Wählen Sie die Webseite",
         "Submit": "Abschicken",
