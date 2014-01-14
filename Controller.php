@@ -43,7 +43,7 @@ class Controller extends ControllerAdmin
         $view->nonce = Nonce::getNonce('VisitorGenerator.generate');
         $view->countActionsPerRun = count($this->getAccessLog());
         $view->accessLogPath = $this->getAccessLogPath();
-        return $view->render();
+        echo $view->render();
     }
 
     private function getAccessLogPath()
@@ -68,8 +68,17 @@ class Controller extends ControllerAdmin
         }
         Nonce::discardNonce('VisitorGenerator.generate');
 
-        $daysToCompute = Common::getRequestVar('daysToCompute', 1, 'int');
+        $daysToCompute = Common::getRequestVar('daysToCompute', false, 'int');
+	
+	if ($daysToCompute == false) {
+           throw new \Exception('Days to compute must be an integer');
+        }
 
+        if ($daysToCompute < 1) {
+           throw new \Exception('Days to compute must be greater or equal to 1.');
+        }
+
+	
         // get idSite from POST with fallback to GET
         $idSite = Common::getRequestVar('idSite', false, 'int', $_GET);
         $idSite = Common::getRequestVar('idSite', $idSite, 'int', $_POST);
@@ -102,7 +111,7 @@ class Controller extends ControllerAdmin
         $view->assign('nbActionsTotal', $nbActionsTotal);
         $view->assign('nbRequestsPerSec', round($nbActionsTotal / $timer->getTime(), 0));
         $view->assign('siteName', Site::getNameFor($idSite));
-        return $view->render();
+        echo $view->render();
     }
 
     private function generateVisits($time = false, $idSite = 1)
