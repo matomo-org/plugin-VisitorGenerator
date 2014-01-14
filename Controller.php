@@ -69,15 +69,10 @@ class Controller extends ControllerAdmin
         Nonce::discardNonce('VisitorGenerator.generate');
 
         $daysToCompute = Common::getRequestVar('daysToCompute', false, 'int');
-	
-	if ($daysToCompute == false) {
-           throw new \Exception('Days to compute must be an integer');
-        }
 
         if ($daysToCompute < 1) {
            throw new \Exception('Days to compute must be greater or equal to 1.');
         }
-
 	
         // get idSite from POST with fallback to GET
         $idSite = Common::getRequestVar('idSite', false, 'int', $_GET);
