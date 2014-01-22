@@ -5,6 +5,7 @@
         "DaysToCompute": "Aantal dagen",
         "NbRequestsPerSec": "Verzoeken per seconde",
         "NotReversible": "Het is %s niet%s mogelijk om deze testgegevens weer makkelijk te verwijderen uit de Piwik logs.",
+        "NumberOfGeneratedActions": "Aantal gegenereerde acties",
         "PluginDescription": "Plugin om bezoekersdata creëren. Dit kan worden gebruikt door Piwikgebruikers of ontwikkelaars als een makkelijke manier om Piwik te vullen met testgegevens.",
         "SelectWebsite": "Selecteer Website",
         "Submit": "Verzend",

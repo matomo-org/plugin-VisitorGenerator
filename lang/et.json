@@ -1,5 +1,6 @@
 {
     "VisitorGenerator": {
+        "SelectWebsite": "Vali veebileht",
         "Warning": "Sa oled genereerimas võltse külastusi, mis salvestatakse sinu Piwiku andmebaasis."
     }
 }
