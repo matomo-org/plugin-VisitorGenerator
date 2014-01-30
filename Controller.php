@@ -33,7 +33,7 @@ class Controller extends ControllerAdmin
 {
     public function index()
     {
-        Piwik::checkUserIsSuperUser();
+        Piwik::checkUserHasSuperUserAccess();
 
         $sitesList = SitesManagerAPI::getInstance()->getSitesWithAdminAccess();
 
@@ -59,7 +59,7 @@ class Controller extends ControllerAdmin
 
     public function generate()
     {
-        Piwik::checkUserIsSuperUser();
+        Piwik::checkUserHasSuperUserAccess();
         $nonce = Common::getRequestVar('form_nonce', '', 'string', $_POST);
         if (Common::getRequestVar('choice', 'no') != 'yes' ||
             !Nonce::verifyNonce('VisitorGenerator.generate', $nonce)

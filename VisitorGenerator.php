@@ -34,7 +34,7 @@ class VisitorGenerator extends \Piwik\Plugin
         MenuAdmin::getInstance()->add(
             'CoreAdminHome_MenuDiagnostic', 'VisitorGenerator_VisitorGenerator',
             array('module' => 'VisitorGenerator', 'action' => 'index'),
-            Piwik::isUserIsSuperUser(),
+            Piwik::hasUserSuperUserAccess(),
             $order = 20
         );
     }
