@@ -5,8 +5,6 @@
  * @link http://piwik.org
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
  *
- * @category Piwik_Plugins
- * @package VisitorGenerator
  */
 namespace Piwik\Plugins\VisitorGenerator;
 
@@ -15,7 +13,6 @@ use Piwik\Piwik;
 
 /**
  *
- * @package VisitorGenerator
  */
 class VisitorGenerator extends \Piwik\Plugin
 {
