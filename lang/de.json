@@ -6,6 +6,7 @@
         "DaysToCompute": "Zu berechnende Tage",
         "GeneratedVisitsFor": "Die Besuche für %1$s für die letzten %2$s Tage wurden generiert",
         "GenerateFakeActions": "Es werden etwa %d gefälschte Aktionen pro Tag für diese Website generiert.",
+        "LogImporterNote": "Es gibt auch ein schnelleres Tool das große Testdaten in Piwik importieren kann, siehe dieses %sREADME%s.",
         "NbRequestsPerSec": "Anfragen pro Sekunde",
         "NotReversible": "Es ist %s nicht%s einfach möglich, diese Besuche aus den Piwik-Logs zu löschen.",
         "NumberOfGeneratedActions": "Anzahl der generierten Aktionen",
