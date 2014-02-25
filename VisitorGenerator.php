@@ -11,7 +11,6 @@ namespace Piwik\Plugins\VisitorGenerator;
 use Piwik\Menu\MenuAdmin;
 use Piwik\Piwik;
 
-
 class VisitorGenerator extends \Piwik\Plugin
 {
     public function getListHooksRegistered()

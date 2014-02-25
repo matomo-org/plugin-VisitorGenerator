@@ -9,8 +9,11 @@
             <tr>
                 <td><label for="idSite">{{ 'General_ChooseWebsite'|translate }}</label></td>
                 <td>
-                    {% include "@CoreHome/_siteSelect.twig" with {
-                    'showAllSitesItem':false,'showSelectedSite':true,'switchSiteOnSelect':false,'inputName':'idSite' } %}
+                    <div piwik-siteselector
+                         class="sites_autocomplete"
+                         show-selected-site="true"
+                         switch-site-on-select="false"
+                         name="idSite"></div>
                 </td>
             </tr>
             <tr>

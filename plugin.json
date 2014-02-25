@@ -1,12 +1,12 @@
 {
     "name": "VisitorGenerator",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "This plugin is a developer tool that will generate fake visits. It's only useful if you're creating your own Piwik plugin or theme.",
     "keywords": ["development", "tools"],
     "license": "GPL v3+",
     "homepage": "http://piwik.org",
     "require": {
-        "piwik": ">=2.0.4-b5",
+        "piwik": ">=2.2.0-b1",
         "php": ">=5.3.0"
     },
     "authors": [

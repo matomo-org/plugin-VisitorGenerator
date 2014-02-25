@@ -8,6 +8,7 @@
  */
 namespace Piwik\Plugins\VisitorGenerator;
 
+use Piwik\Access;
 use Piwik\ArchiveProcessor\Rules;
 use Piwik\Common;
 use Piwik\Date;
@@ -70,27 +71,41 @@ class Controller extends ControllerAdmin
         if ($daysToCompute < 1) {
            throw new \Exception('Days to compute must be greater or equal to 1.');
         }
-	
-        // get idSite from POST with fallback to GET
-        $idSite = Common::getRequestVar('idSite', false, 'int', $_GET);
-        $idSite = Common::getRequestVar('idSite', $idSite, 'int', $_POST);
 
         SettingsServer::setMaxExecutionTime(0);
 
+        $idSite = Common::getRequestVar('idSite', false, 'string', $_POST);
+
+        if ('all' == $idSite) {
+            $idSites  = SitesManagerAPI::getInstance()->getSitesIdWithAtLeastViewAccess();
+            $siteName = Piwik::translate('General_MultiSitesSummary');
+        } else {
+            // get idSite from POST with fallback to GET
+            $idSite   = Common::getRequestVar('idSite', false, 'int', $_GET);
+            $idSite   = Common::getRequestVar('idSite', $idSite, 'int', $_POST);
+            $idSites  = array($idSite);
+            $siteName = Site::getNameFor($idSite);
+        }
+
+
         $timer = new Timer;
-        $time = time() - ($daysToCompute - 1) * 86400;
+        $time  = time() - ($daysToCompute - 1) * 86400;
 
         $nbActionsTotal = 0;
         $dates = array();
         while ($time <= time()) {
-            $nbActionsTotalThisDay = $this->generateVisits($time, $idSite);
+
+            foreach ($idSites as $idSite) {
+                $nbActionsTotal += $this->generateVisits($time, $idSite);
+            }
+
             $dates[] = date("Y-m-d", $time);
             $time += 86400;
-            $nbActionsTotal += $nbActionsTotalThisDay;
         }
 
-        $api = CoreAdminHomeAPI::getInstance();
-        $api->invalidateArchivedReports($idSite, implode($dates, ","));
+        foreach ($idSites as $idSite) {
+            CoreAdminHomeAPI::getInstance()->invalidateArchivedReports($idSite, implode($dates, ","));
+        }
 
         $browserArchiving = Rules::isBrowserTriggerEnabled();
 
@@ -102,7 +117,7 @@ class Controller extends ControllerAdmin
         $view->assign('days', $daysToCompute);
         $view->assign('nbActionsTotal', $nbActionsTotal);
         $view->assign('nbRequestsPerSec', round($nbActionsTotal / $timer->getTime(), 0));
-        $view->assign('siteName', Site::getNameFor($idSite));
+        $view->assign('siteName', $siteName);
         return $view->render();
     }
 
