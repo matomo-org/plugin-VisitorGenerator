@@ -4,6 +4,7 @@
         "ChoiceYes": "Da, sunt sigut(ă)!",
         "NbRequestsPerSec": "Cereri pe secundă",
         "SelectWebsite": "Alege site-ul",
+        "Submit": "Trimite",
         "VisitorGenerator": "Generatorul de vizite"
     }
 }

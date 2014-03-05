@@ -1,12 +1,16 @@
 {
     "VisitorGenerator": {
         "AreYouSure": " Er du sikker på at du vil generere kunstige besøg?",
+        "AutomaticReprocess": "Rapporterne vil genbehandlet næste gang du besøger Piwik rapporter, det kan tage et par minutter.",
         "ChoiceYes": "Ja, jeg er sikker!",
         "DaysToCompute": "Antal dage",
+        "GeneratedVisitsFor": "Genererede besøg for %1$s og i de sidste %2$s dage",
+        "GenerateFakeActions": "Dette vil ca. generere %d falske handlinger for hjemmesiden hver dag.",
         "LogImporterNote": "Der er også et hurtigere værktøj, til at importere store testdata i Piwik, se %sLÆSMIG%s.",
         "NbRequestsPerSec": "Anmodninger pr sekund",
         "NotReversible": "Det er %s ikke%s muligt nemt at slette disse besøg fra Piwiks log.",
         "NumberOfGeneratedActions": "Antallet af genererede handlinger",
+        "OverwriteLogFile": "Du kan overskrive logfilen, der bruges til at generere falske besøg (ændre %s). Dette er en logfil af anmodninger til \"piwik.php\" i formatet \"Apache kombineret log\".",
         "PleaseBePatient": "BEMÆRK: Det kan tage et par minutter at generere besøg og handlinger, vær tålmodig ...",
         "PluginDescription": "Programudvidelse til at generer kunstige besøg. Kan bruges af Piwik brugere eller udviklere som en let måde at generere kunstige data til at udfylde Piwik rapporter.",
         "ReRunArchiveScript": "Kør archive.php Piwik script igen i crontab for at opdatere rapporterne. %sSe \"How to Set up Auto-Archiving of Your Reports\"%s",
