@@ -18,6 +18,7 @@ use Piwik\Piwik;
 use Piwik\Plugin\ControllerAdmin;
 use Piwik\Plugins\CoreAdminHome\API as CoreAdminHomeAPI;
 use Piwik\Plugins\SitesManager\API as SitesManagerAPI;
+use Piwik\SettingsPiwik;
 use Piwik\SettingsServer;
 use Piwik\Site;
 use Piwik\Timer;
@@ -141,7 +142,7 @@ class Controller extends ControllerAdmin
             "fr-ch",
             "fr",
         );
-        $prefix = Url::getCurrentUrlWithoutFileName() . "piwik.php";
+        $prefix = SettingsPiwik::getPiwikUrl() . "piwik.php";
         $count = 0;
         foreach ($logs as $log) {
             if (!preg_match('/^(\S+) \S+ \S+ \[(.*?)\] "GET (\S+.*?)" \d+ \d+ "(.*?)" "(.*?)"/', $log, $m)) {
