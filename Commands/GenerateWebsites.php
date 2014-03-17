@@ -17,14 +17,12 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-/**
- */
 class GenerateWebsites extends ConsoleCommand
 {
     protected function configure()
     {
         $this->setName('visitorgenerator:generate-websites');
-        $this->setDescription('This command is intended for developers. Generates many websites');
+        $this->setDescription('Generates many websites. This command is intended for developers.');
         $this->addOption('limit', null, InputOption::VALUE_REQUIRED, 'Defines how many websites should be generated', 10);
     }
 

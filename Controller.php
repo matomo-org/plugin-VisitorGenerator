@@ -114,11 +114,13 @@ class Controller extends ControllerAdmin
     private function checkNonce()
     {
         $nonce = Common::getRequestVar('form_nonce', '', 'string', $_POST);
+
         if (Common::getRequestVar('choice', 'no') != 'yes' ||
             !Nonce::verifyNonce('VisitorGenerator.generate', $nonce)
         ) {
             Piwik::redirectToModule('VisitorGenerator', 'index');
         }
+
         Nonce::discardNonce('VisitorGenerator.generate');
     }
 

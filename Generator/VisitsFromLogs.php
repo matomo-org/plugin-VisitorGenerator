@@ -17,6 +17,9 @@ use Piwik\SettingsPiwik;
 use Piwik\View;
 use Piwik\Plugins\CoreAdminHome\API as CoreAdminHomeAPI;
 
+/**
+ * Replays all *.log files within the data directory.
+ */
 class VisitsFromLogs extends Generator
 {
     public function generate($time = false, $idSite = 1)

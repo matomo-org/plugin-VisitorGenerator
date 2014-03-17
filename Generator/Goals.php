@@ -13,16 +13,13 @@ use Piwik\Plugins\VisitorGenerator\Generator;
 use Piwik\Plugins\Goals\API as GoalsAPI;
 use Piwik\View;
 
-/**
- *
- */
 class Goals extends Generator
 {
     private $goals = array(
-        array('name' => 'Download Software', 'match' => 'url', 'pattern' => 'download', 'patternType' => 'contains', 'revenue' => 0.10),
+        array('name' => 'Download Software',  'match' => 'url', 'pattern' => 'download',   'patternType' => 'contains', 'revenue' => 0.10),
         array('name' => 'Download Software2', 'match' => 'url', 'pattern' => 'latest.zip', 'patternType' => 'contains', 'revenue' => 0.05),
-        array('name' => 'Opens Contact Form', 'match' => 'url', 'pattern' => 'contact', 'patternType' => 'contains', 'revenue' => false),
-        array('name' => 'Visit Docs', 'match' => 'url', 'pattern' => 'docs', 'patternType' => 'contains', 'revenue' => false),
+        array('name' => 'Opens Contact Form', 'match' => 'url', 'pattern' => 'contact',    'patternType' => 'contains', 'revenue' => false),
+        array('name' => 'Visit Docs',         'match' => 'url', 'pattern' => 'docs',       'patternType' => 'contains', 'revenue' => false),
     );
 
     public function generate($idSite)
@@ -35,7 +32,7 @@ class Goals extends Generator
                     continue;
                 }
 
-                $goalIds[] = GoalsAPI::getInstance()->addGoal($idSite, $goal['name'], $goal['match'], $goal['pattern'], $goal['patternType'], $caseSensitive = false, $goal['revenue'], $allowMultipleConversionsPerVisit = false);
+                $goalIds[] = $this->getApi()->addGoal($idSite, $goal['name'], $goal['match'], $goal['pattern'], $goal['patternType'], $caseSensitive = false, $goal['revenue'], $allowMultipleConversionsPerVisit = false);
             } catch (\Exception $e) {
                 Log::debug('Failed to generate a goal for idSite ' . $idSite . ': ' . $e->getMessage());
             }
@@ -46,7 +43,7 @@ class Goals extends Generator
 
     private function hasGoal($idSite, $goalName)
     {
-        $existingGoals = GoalsAPI::getInstance()->getGoals($idSite);
+        $existingGoals = $this->getApi()->getGoals($idSite);
 
         foreach ($existingGoals as $goal) {
             if ($goal['name'] == $goalName) {
@@ -55,5 +52,10 @@ class Goals extends Generator
         }
 
         return false;
+    }
+
+    private function getApi()
+    {
+        return GoalsAPI::getInstance();
     }
 }

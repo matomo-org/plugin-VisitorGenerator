@@ -776,7 +776,7 @@ class Request extends \Faker\Provider\Base
 
     public function gender()
     {
-        return static::randomElement(array('male', 'female'));
+        return static::randomElement(array('male', 'female', ''));
     }
 
     public function searchEngine()
@@ -795,7 +795,8 @@ class Request extends \Faker\Provider\Base
             'http://www.bing.com/search?q=',
             'http://uk.search.yahoo.com/search?ei=UTF-8&fr=moz35&q=',
             'http://search.yahoo.com/search;?p=',
-            'http://uk.ask.com/web?l=dis&prt=NIS&chn=retail&geo=GB&ver=19&odn=&dm=all&q='));
+            'http://uk.ask.com/web?l=dis&prt=NIS&chn=retail&geo=GB&ver=19&odn=&dm=all&q='
+        ));
 
         return $url . $keyword;
     }

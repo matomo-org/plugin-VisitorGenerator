@@ -18,14 +18,12 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-/**
- */
 class GenerateGoals extends ConsoleCommand
 {
     protected function configure()
     {
         $this->setName('visitorgenerator:generate-goals');
-        $this->setDescription('This command is intended for developers. Generates a few predefined goals for a specific site. If one of the predefined goals already exist they will not be created again.');
+        $this->setDescription('Generates a few predefined goals for a specific site. If one of the predefined goals already exist they will not be created again. This command is intended for developers.');
         $this->addOption('idsite', null, InputOption::VALUE_REQUIRED, 'Defines the site the goals should be generated for');
     }
 

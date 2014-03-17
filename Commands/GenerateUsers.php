@@ -17,14 +17,12 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-/**
- */
 class GenerateUsers extends ConsoleCommand
 {
     protected function configure()
     {
         $this->setName('visitorgenerator:generate-users');
-        $this->setDescription('This command is intended for developers. Generates many users');
+        $this->setDescription('Generates many users. This command is intended for developers.');
         $this->addOption('limit', null, InputOption::VALUE_REQUIRED, 'Defines how many users should be generated', 10);
     }
 

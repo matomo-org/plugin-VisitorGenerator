@@ -18,9 +18,6 @@ use Piwik\View;
 
 include_once __DIR__ . '/../../../libs/PiwikTracker/PiwikTracker.php';
 
-/**
- *
- */
 class VisitsFake extends Generator
 {
     public function generate($time = false, $idSite = 1, $limit = 1000)

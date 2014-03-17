@@ -13,9 +13,6 @@ use Piwik\Plugins\VisitorGenerator\Generator;
 use Piwik\Plugins\UsersManager\API as UsersManagerApi;
 use Piwik\View;
 
-/**
- *
- */
 class Users extends Generator
 {
     public function generate($limit)
