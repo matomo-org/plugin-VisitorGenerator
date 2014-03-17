@@ -70,7 +70,7 @@ class GenerateVisits extends ConsoleCommand
 
     private function checkDays(InputInterface $input)
     {
-        $days = $input->getOption('days');
+        $days = (int) $input->getOption('days');
 
         if ($days < 1) {
             throw new \InvalidArgumentException('Days to compute must be greater or equal to 1.');
