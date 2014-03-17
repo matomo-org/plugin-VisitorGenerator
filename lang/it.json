@@ -10,7 +10,6 @@
         "NbRequestsPerSec": "Richieste per secondo",
         "NotReversible": "%s Non%s è possibile cancellare facilmente le visite false che hai creato dai log di Piwik.",
         "NumberOfGeneratedActions": "Numero di azioni generate",
-        "OverwriteLogFile": "Puoi sovrascrivere il file log utilizzato per generare false visite (cambia %s). Si tratta di un file log di richieste a \"piwik.php\" nel formato \"Apache combined log\".",
         "PleaseBePatient": "NOTA: Generare visite e azioni potrebbe richiedere qualche minuto, sii paziente...",
         "PluginDescription": "Questo è un plugin per creare visite false. Può essere impiegato dagli utilizzatori di Piwik per generare dati falsi per popolare i report di Piwik.",
         "ReRunArchiveScript": "Si prega di riavviare lo script di Piwik archive.php nel crontab per rigenerare i reports. %sVedi: \"How to Setup Auto-Archiving of your Reports\"%s",

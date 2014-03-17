@@ -10,7 +10,6 @@
         "NbRequestsPerSec": "Anfragen pro Sekunde",
         "NotReversible": "Es ist %s nicht%s einfach möglich, diese Besuche aus den Piwik-Logs zu löschen.",
         "NumberOfGeneratedActions": "Anzahl der generierten Aktionen",
-        "OverwriteLogFile": "Sie können die Log-Datei überschreiben die verwendet wird um Besuche zu generieren (ändern Sie %s). Dies ist eine Log-Datei mit Anfragen auf \"piwik.php\" im Format \"Apache combined log\".",
         "PleaseBePatient": "Hinweis: Es könnte einige Minuten dauern um die Besuche und Aktionen zu generieren, bitte haben Sie Geduld...",
         "PluginDescription": "Plugin, mit dem fingierte Besuche generiert werden können. Dies kann von Piwik-Benutzern oder -Entwicklern genutzt werden, um fingierte Daten zu erzeugen, um die Piwik-Berichte zu füllen.",
         "SelectWebsite": "Wählen Sie die Webseite",
