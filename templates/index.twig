@@ -3,7 +3,16 @@
 {% block content %}
     <h2>{{ 'VisitorGenerator_VisitorGenerator'|translate }}</h2>
     <p>{{ 'VisitorGenerator_PluginDescription'|translate }}</p>
-    <p>{{ 'VisitorGenerator_OverwriteLogFile'|translate(accessLogPath) }}</p>
+    <div id="advancedUsageInfo" style="margin-right: 50px;">
+        {% set advancedUsageInfo %}
+            {{ 'VisitorGenerator_CliToolUsage'|translate('<a target="_blank" href="http://developer.piwik.org/guides/piwik-on-the-command-line">', '</a>')|raw }}
+            <br />
+            <br />
+            {{ 'VisitorGenerator_OverwriteLogFile'|translate(accessLogPath) }}
+        {% endset %}
+    </div>
+    {{ advancedUsageInfo|notification({'noclear': true, 'raw': true, 'context': 'info', 'placeat': '#advancedUsageInfo'}) }}
+
     <form method="POST" action="{{ linkTo({'module':'VisitorGenerator', 'action':'generate'}) }}">
         <table class="adminTable" style="width: 600px;">
             <tr>
@@ -21,21 +30,31 @@
                 <td><input type="text" value="1" name="daysToCompute"/></td>
             </tr>
         </table>
-        {{ 'VisitorGenerator_Warning'|translate }}<br/>
-        {{ 'VisitorGenerator_NotReversible'|translate('<b>','</b>')|raw }}<br/><br/>
 
-        <p><strong>{{ 'VisitorGenerator_GenerateFakeActions'|translate(countActionsPerRun) }}</strong><br/>
-        </p>
+        <p><strong>{{ 'VisitorGenerator_GenerateFakeActions'|translate(countActionsPerRun) }}</strong><br/></p>
+
         {{ 'VisitorGenerator_AreYouSure'|translate }}<br/><br/>
+
+        <div id="warning" style="margin-right: 50px;"></div>
+        {% set warningIfSubmit %}
+        {{ 'VisitorGenerator_Warning'|translate }}
+        <br/>
+        <br/>
+        {{ 'VisitorGenerator_NotReversible'|translate('<b>','</b>')|raw }}<br/>
+        {% endset %}
+
         <input type="checkbox" name="choice" id="choice" value="yes"/> <label for="choice">{{ 'VisitorGenerator_ChoiceYes'|translate }}</label>
         <br/>
         <input type="hidden" value="{{ token_auth }}" name="token_auth"/>
         <input type="hidden" value="{{ nonce }}" name="form_nonce"/>
         <br/>
 
+        {{ warningIfSubmit|notification({'noclear': true, 'raw': true, 'context': 'warning', 'placeat': '#warning'}) }}
+
         <p>{{ 'VisitorGenerator_PleaseBePatient'|translate }}<br/>
             {{ 'VisitorGenerator_LogImporterNote'|translate('<a href="https://github.com/piwik/piwik/tree/master/tests#testing-data">', '</a>')|raw }}</p>
         <br/>
+
         <input type="submit" value="{{ 'VisitorGenerator_Submit'|translate }}" name="submit" class="submit"/>
     </form>
 {% endblock %}

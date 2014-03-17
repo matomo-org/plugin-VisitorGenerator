@@ -17,6 +17,7 @@ class VisitorGenerator extends \Piwik\Plugin
     {
         return array(
             'Menu.Admin.addItems' => 'addMenu',
+            'Console.addCommands' => 'addConsoleCommands'
         );
     }
 
@@ -28,5 +29,13 @@ class VisitorGenerator extends \Piwik\Plugin
             Piwik::hasUserSuperUserAccess(),
             $order = 20
         );
+    }
+
+    public function addConsoleCommands(&$commands)
+    {
+        $commands[] = __NAMESPACE__ . '\Commands\GenerateWebsites';
+        $commands[] = __NAMESPACE__ . '\Commands\GenerateUsers';
+        $commands[] = __NAMESPACE__ . '\Commands\GenerateGoals';
+        $commands[] = __NAMESPACE__ . '\Commands\GenerateVisits';
     }
 }
