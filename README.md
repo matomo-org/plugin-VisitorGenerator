@@ -4,7 +4,7 @@
 
 Plugin to create fake visits, websites, users and goals. This can be used by Piwik users or developers as an easy way to generate fake data to populate Piwik reports.
 
-You can overwrite the log file that is used to generate fake visits in [plugins/VisitorGenerator/data/access.log](https://github.com/piwik/plugin-VisitorGenerator/blob/master/data/access.log).
+You can overwrite the log files that are used to generate fake visits in [plugins/VisitorGenerator/data](https://github.com/piwik/plugin-VisitorGenerator/blob/master/data) or add new logs to the `data` directory. All files ending with `*.log` will be replayed.
 
 The plugin adds a new item to the Piwik admin UI visible only for users having Super User access.
 
@@ -25,7 +25,10 @@ It also adds the following commands to the [Piwik CLI tool](http://developer.piw
 ## Changelog
 
 - 1.0 Initial release
-- 1.1 Added CLI commands and possibility to generate websites, users and goals
+- 1.1 New features:
+   * Added CLI commands
+   * Added possibility to generate websites, users and goals
+   * Replay all log files within the data directory
 
 ## Support
 

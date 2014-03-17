@@ -9,6 +9,7 @@
 namespace Piwik\Plugins\VisitorGenerator\Generator;
 
 use Piwik\Date;
+use Piwik\Filesystem;
 use Piwik\Http;
 use Piwik\Piwik;
 use Piwik\Plugins\VisitorGenerator\Generator;
@@ -16,9 +17,6 @@ use Piwik\SettingsPiwik;
 use Piwik\View;
 use Piwik\Plugins\CoreAdminHome\API as CoreAdminHomeAPI;
 
-/**
- * TODO once we have more logs (eg ecommerce etc) read all logs from data dir and replay them, not just access.log
- */
 class VisitsFromLogs extends Generator
 {
     public function generate($time = false, $idSite = 1)
@@ -58,13 +56,20 @@ class VisitsFromLogs extends Generator
 
     public function getAccessLogPath()
     {
-        return PIWIK_INCLUDE_PATH . "/plugins/VisitorGenerator/data/access.log";
+        return PIWIK_INCLUDE_PATH . "/plugins/VisitorGenerator/data";
     }
 
     public function getAccessLog()
     {
-        $log = file($this->getAccessLogPath());
-        return $log;
+        $files = Filesystem::globr($this->getAccessLogPath(), '*.log');
+
+        $logs = array();
+        foreach ($files as $file) {
+            $log  = file($file);
+            $logs = array_merge($logs, $log);
+        }
+
+        return $logs;
     }
 
     private function getAcceptLanguages()
