@@ -6,21 +6,25 @@ Plugin to create fake visits, websites, users and goals. This can be used by Piw
 
 You can overwrite the log files that are used to generate fake visits in [plugins/VisitorGenerator/data](https://github.com/piwik/plugin-VisitorGenerator/blob/master/data) or add new logs to the `data` directory. All files ending with `*.log` will be replayed.
 
-The plugin adds a new item to the Piwik admin UI visible only for users having Super User access.
+### Usage 
 
+#### UI
+The plugin adds a new item to the Piwik admin UI visible only for users having Super User access under the section "Diagnostic". There you can select a site and for how many days in the past you want to generate new visits.
+
+#### CLI
 It also adds the following commands to the [Piwik CLI tool](http://developer.piwik.org/guides/piwik-on-the-command-line):
 
-* `visitorgenerator:generate-goals`
-* `visitorgenerator:generate-users`
-* `visitorgenerator:generate-visits`
-* `visitorgenerator:generate-websites`
+* Generate visits
+* Generate goals
+* Generate users
+* Generate websites
 
-### Example Usage
-* `./console visitorgenerator:generate-goals --idsite 5`   // generates some predefined goals for site with id 5
-* `./console visitorgenerator:generate-users --limit 100`  // generates 100 users
-* `./console visitorgenerator:generate-websites --limit 100`  // generates 100 websites
-* `./console visitorgenerator:generate-visits --idsite 5`  // generates many visits for site with id 5 for today
-* `./console visitorgenerator:generate-visits --idsite 5 --days 2`  // generates many visits for site with id 5 for today and yesterday
+##### Examples
+* `./console visitorgenerator:generate-goals --idsite 5` generates some predefined goals for site with id 5
+* `./console visitorgenerator:generate-users --limit 100`  generates 100 users
+* `./console visitorgenerator:generate-websites --limit 100` generates 100 websites
+* `./console visitorgenerator:generate-visits --idsite 5`  generates many visits for site with id 5 for today
+* `./console visitorgenerator:generate-visits --idsite 5 --days 2` generates many visits for site with id 5 for today and yesterday
 
 ## Changelog
 
