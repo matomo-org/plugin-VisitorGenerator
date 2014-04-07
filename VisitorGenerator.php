@@ -37,5 +37,6 @@ class VisitorGenerator extends \Piwik\Plugin
         $commands[] = __NAMESPACE__ . '\Commands\GenerateUsers';
         $commands[] = __NAMESPACE__ . '\Commands\GenerateGoals';
         $commands[] = __NAMESPACE__ . '\Commands\GenerateVisits';
+        $commands[] = __NAMESPACE__ . '\Commands\AnonymizeLog';
     }
 }
