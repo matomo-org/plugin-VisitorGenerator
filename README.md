@@ -41,7 +41,7 @@ It also adds the following commands to the [Piwik CLI tool](http://developer.piw
    * Replay all log files within the data directory
 - 1.2 New features:
    * New log file added
-   * Added possibility to anonymize log files
+   * Added possibility to shorten and anonymize log files
    * Added possibility to let plugins define their own log files
    * Replay only log entries having the same day of the month
 

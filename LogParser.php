@@ -10,16 +10,16 @@ namespace Piwik\Plugins\VisitorGenerator;
 
 class LogParser
 {
-    private $files = array();
+    private $file = array();
 
     /**
-     * An array of absoulte paths to log files that should be parsed.
+     * An absoulte path to a log file that should be parsed.
      *
-     * @param string[] $files
+     * @param string $file
      */
-    public function __construct($files)
+    public function __construct($file)
     {
-        $this->files = $files;
+        $this->file = $file;
     }
 
     /**
@@ -29,11 +29,7 @@ class LogParser
      */
     public function getLogLines()
     {
-        $logs = array();
-        foreach ($this->files as $file) {
-            $log  = file($file);
-            $logs = array_merge($logs, $log);
-        }
+        $logs = file($this->file);
 
         return $logs;
     }

@@ -45,7 +45,7 @@ Keeps 500 log lines per day as well as all lines containing the term "ec_id"
         $numLines  = $input->getOption('num-lines');
         $forceKeep = $input->getOption('force-keep');
 
-        $logParser = new LogParser(array($file));
+        $logParser = new LogParser($file);
         $lines     = $logParser->getLogLines();
 
         $shortened = '';

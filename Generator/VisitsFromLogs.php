@@ -36,25 +36,28 @@ class VisitsFromLogs extends Generator
     public function generate($time = false, $idSite = 1)
     {
         if (empty($time)) $time = time();
-        $date = date("Y-m-d", $time);
+        $date  = date("Y-m-d", $time);
+        $count = 0;
 
-        $logParser = new LogParser($this->getLogFiles());
-        $logs      = $logParser->getParsedLogLines();
+        foreach ($this->getLogFiles() as $logFile) {
 
-        $prefix     = SettingsPiwik::getPiwikUrl() . "piwik.php";
-        $dayOfMonth = $this->findDayOfMonthToUseToMakeSureWeGenerateAtLeastOneVisit($time, $logs);
-        $count      = 0;
+            $logParser = new LogParser($logFile);
+            $logs      = $logParser->getParsedLogLines();
 
-        foreach ($logs as $log) {
-            if (!$this->isSameDayOfMonth($dayOfMonth, $log['time'])) {
-                continue;
-            }
+            $prefix     = SettingsPiwik::getPiwikUrl() . "piwik.php";
+            $dayOfMonth = $this->findDayOfMonthToUseToMakeSureWeGenerateAtLeastOneVisit($time, $logs);
 
-            $url  = $this->manipulateRequestUrl($log['time'], $idSite, $log['url'], $date, $log['ip'], $prefix);
-            $lang = $this->faker->acceptLanguage;
+            foreach ($logs as $log) {
+                if (!$this->isSameDayOfMonth($dayOfMonth, $log['time'])) {
+                    continue;
+                }
 
-            if ($output = Http::sendHttpRequest($url, $timeout = 5, $log['ua'], $path = null, $follow = 0, $lang)) {
-                $count++;
+                $url  = $this->manipulateRequestUrl($log['time'], $idSite, $log['url'], $date, $log['ip'], $prefix);
+                $lang = $this->faker->acceptLanguage;
+
+                if ($output = Http::sendHttpRequest($url, $timeout = 5, $log['ua'], $path = null, $follow = 0, $lang)) {
+                    $count++;
+                }
             }
         }
 
