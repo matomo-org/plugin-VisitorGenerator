@@ -21,12 +21,9 @@ use Piwik\Site;
 use Piwik\Timer;
 use Piwik\View;
 
-/**
- *
- */
 class Controller extends ControllerAdmin
 {
-    private $numFakeVisits = 300;
+    private $numFakeVisits = 250;
 
     public function index()
     {
@@ -39,9 +36,8 @@ class Controller extends ControllerAdmin
         $view->sitesList = $sitesList;
         $view->nonce = Nonce::getNonce('VisitorGenerator.generate');
 
-        $generatorFromLogs = new VisitsFromLogs();
-        $view->countActionsPerRun = count($generatorFromLogs->getAccessLog()) + $this->numFakeVisits;
-        $view->accessLogPath = $generatorFromLogs->getAccessLogPath();
+        $view->countMinActionsPerRun = $this->numFakeVisits;
+        $view->accessLogPath = PIWIK_INCLUDE_PATH . '/plugins/VisitorGenerator/data';
 
         return $view->render();
     }

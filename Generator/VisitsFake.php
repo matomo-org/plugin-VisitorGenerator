@@ -32,7 +32,6 @@ class VisitsFake extends Generator
         $numSearches = rand(floor($limit / 40), ceil($limit / 20));
         $numSearchesDone = 0;
 
-        // read logs
         $i = 0;
         while ($i < $limit) {
             $pageUrl = $this->faker->pageURL;
@@ -42,6 +41,7 @@ class VisitsFake extends Generator
             $tracker->setUserAgent($this->faker->userAgent);
             $tracker->setBrowserLanguage($this->faker->locale);
             $tracker->setCity($this->faker->city);
+            $tracker->setRegion($this->faker->region);
             $tracker->setCountry(strtolower($this->faker->countryCode));
             $tracker->setLatitude($this->faker->latitude);
             $tracker->setLongitude($this->faker->longitude);

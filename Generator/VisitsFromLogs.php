@@ -13,6 +13,7 @@ use Piwik\Filesystem;
 use Piwik\Http;
 use Piwik\Piwik;
 use Piwik\Plugins\VisitorGenerator\Generator;
+use Piwik\Plugins\VisitorGenerator\LogParser;
 use Piwik\SettingsPiwik;
 use Piwik\View;
 use Piwik\Plugins\CoreAdminHome\API as CoreAdminHomeAPI;
@@ -22,32 +23,37 @@ use Piwik\Plugins\CoreAdminHome\API as CoreAdminHomeAPI;
  */
 class VisitsFromLogs extends Generator
 {
+
+    /**
+     * All log lines will be replayed having the same day of the month as the one of the given time. If the same day of
+     * the month is not present in any log line then one of the following days will be used.
+     *
+     * @param string|boolean $time  If false, defaults to "now"
+     * @param int $idSite
+     *
+     * @return int
+     */
     public function generate($time = false, $idSite = 1)
     {
-        $logs = $this->getAccessLog();
         if (empty($time)) $time = time();
         $date = date("Y-m-d", $time);
 
-        $acceptLanguages = $this->getAcceptLanguages();
+        $logParser = new LogParser($this->getLogFiles());
+        $logs      = $logParser->getParsedLogLines();
 
-        $prefix = SettingsPiwik::getPiwikUrl() . "piwik.php";
-        $count = 0;
+        $prefix     = SettingsPiwik::getPiwikUrl() . "piwik.php";
+        $dayOfMonth = $this->findDayOfMonthToUseToMakeSureWeGenerateAtLeastOneVisit($time, $logs);
+        $count      = 0;
+
         foreach ($logs as $log) {
-            if (!preg_match('/^(\S+) \S+ \S+ \[(.*?)\] "GET (\S+.*?)" \d+ \d+ "(.*?)" "(.*?)"/', $log, $m)) {
+            if (!$this->isSameDayOfMonth($dayOfMonth, $log['time'])) {
                 continue;
             }
 
-            $ip   = $m[1];
-            $time = $m[2];
-            $url  = $m[3];
-            $referrer = $m[4];
-            $ua   = $m[5];
+            $url  = $this->manipulateRequestUrl($log['time'], $idSite, $log['url'], $date, $log['ip'], $prefix);
+            $lang = $this->faker->acceptLanguage;
 
-            $url = $this->manipulateRequestUrl($time, $idSite, $url, $date, $ip, $prefix);
-
-            $acceptLanguage = $acceptLanguages[$count % count($acceptLanguages)];
-
-            if ($output = Http::sendHttpRequest($url, $timeout = 5, $ua, $path = null, $follow = 0, $acceptLanguage)) {
+            if ($output = Http::sendHttpRequest($url, $timeout = 5, $log['ua'], $path = null, $follow = 0, $lang)) {
                 $count++;
             }
         }
@@ -57,47 +63,16 @@ class VisitsFromLogs extends Generator
         return $count;
     }
 
-    public function getAccessLogPath()
+    private function getLogFiles()
     {
-        return PIWIK_INCLUDE_PATH . "/plugins/VisitorGenerator/data";
-    }
-
-    public function getAccessLog()
-    {
-        $files = Filesystem::globr($this->getAccessLogPath(), '*.log');
-
-        $logs = array();
-        foreach ($files as $file) {
-            $log  = file($file);
-            $logs = array_merge($logs, $log);
-        }
-
-        return $logs;
-    }
-
-    private function getAcceptLanguages()
-    {
-        return array(
-            "el,fi;q=0.5",
-            "de-de,de;q=0.8,en-us",
-            "pl,en-us;q=0.7,en;q=",
-            "zh-cn",
-            "fr-ca",
-            "en-us",
-            "en-gb",
-            "fr-be",
-            "fr,de-ch;q=0.5",
-            "fr",
-            "fr-ch",
-            "fr",
-        );
+        return Filesystem::globr(PIWIK_INCLUDE_PATH . '/plugins/*/data', '*.log');
     }
 
     private function manipulateRequestUrl($time, $idSite, $url, $date, $ip, $prefix)
     {
         $start = strpos($url, 'piwik.php?') + strlen('piwik.php?');
         $url   = substr($url, $start, strrpos($url, " ") - $start);
-        $ip    = strlen($ip) < 10 ? "13.5.111.3" : $ip;
+        $ip    = strlen($ip) < 9 ? "13.5.111.3" : $ip;
         $datetime = $date . " " . Date::factory($time)->toString("H:i:s");
 
         // Force date/ip & authenticate
@@ -107,7 +82,7 @@ class VisitsFromLogs extends Generator
         }
 
         $url .= "&token_auth=" . Piwik::getCurrentUserTokenAuth();
-        $url = $prefix . "?" . $url;
+        $url  = $prefix . "?" . $url;
 
         // Make order IDs unique per day
         $url = str_replace("ec_id=", "ec_id=$date-", $url);
@@ -115,10 +90,44 @@ class VisitsFromLogs extends Generator
         // Disable provider plugin
         $url .= "&dp=1";
 
-        // Replace idsite
         $url = preg_replace("/idsite=[0-9]+/", "idsite=$idSite", $url);
 
         return $url;
+    }
+
+    private function isSameDayOfMonth($dayOfMonth, $timeToCheck)
+    {
+        return (int) $dayOfMonth === $this->getDayOfMonthFromTime($timeToCheck);
+    }
+
+    private function getDayOfMonthFromTime($time)
+    {
+        return (int) Date::factory($time)->toString('j');
+    }
+
+    private function findDayOfMonthToUseToMakeSureWeGenerateAtLeastOneVisit($time, $parsedLogs)
+    {
+        $dayOfMonth  = $this->getDayOfMonthFromTime($time);
+        $daysInMonth = (int) Date::factory($time)->toString('t');
+
+        $numTriedDays = 1;
+        while (!$this->isDayOfMonthPresentInLogs($dayOfMonth, $parsedLogs) && $numTriedDays < 32) {
+            $dayOfMonth = ($dayOfMonth + 1) % $daysInMonth;
+            $numTriedDays++;
+        }
+
+        return $dayOfMonth;
+    }
+
+    private function isDayOfMonthPresentInLogs($dayOfMonth, $parsedLogs)
+    {
+        foreach ($parsedLogs as $log) {
+            if ($this->isSameDayOfMonth($dayOfMonth, $log['time'])) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
 }

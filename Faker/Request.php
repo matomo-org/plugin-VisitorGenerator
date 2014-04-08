@@ -779,6 +779,31 @@ class Request extends \Faker\Provider\Base
         return static::randomElement(array('male', 'female', ''));
     }
 
+    public function acceptLanguage()
+    {
+        return static::randomElement(array(
+            "el,fi;q=0.5",
+            "de-de,de;q=0.8,en-us",
+            "pl,en-us;q=0.7,en;q=",
+            "zh-cn",
+            "fr-ca",
+            "en-us",
+            "en-gb",
+            "fr-be",
+            "fr,de-ch;q=0.5",
+            "fr",
+            "fr-ch",
+            "fr",
+        ));
+    }
+
+    public function region()
+    {
+        return static::randomElement(array(
+            '13', 'TX', 'CA', '07', '09', 'E4', 'B7', '01', '46', '01', 'AL', '16', 'B7', 'CA', '78', 'B8', '04', '04', 'B8', 'TX', 'NY', '15', '04', 'FL', 'PA', 'C9', '01', 'P8', '29', '56', '02', '29', 'CA', '27', 'BC', '09', 'NE', '13', 'TX', 'TX', 'B8', 'FL', 'E7', 'PA', '12', '14', '27', 'M3', '02', '09', '29', '42', 'QC', 'C9', '02', '01', 'WV', 'AL', '51', 'H5', '07', 'MD', '34', '16', 'CA', 'E7', 'NY', '08', 'GA',
+        ));
+    }
+
     public function searchEngine()
     {
         return static::randomElement(array('', 'DuckDuckGo', 'Google', 'Bing', 'Baidu', 'Yahoo!', 'Ask', 'Babylon'));

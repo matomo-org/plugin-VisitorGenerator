@@ -10,7 +10,9 @@
 namespace Piwik\Plugins\VisitorGenerator\Commands;
 
 use Piwik\Common;
+use Piwik\Filesystem;
 use Piwik\Plugin\ConsoleCommand;
+use Piwik\Plugins\VisitorGenerator\LogParser;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -18,49 +20,75 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class AnonymizeLog extends ConsoleCommand
 {
-    private $domain = 'http://example.org';
-    private $domainReferrer = 'http://example.com';
-
     protected function configure()
     {
         $this->setName('visitorgenerator:anonymize-log');
         $this->setHelp('Example usage:
-./console visitorgenerator:anonymize-log /path/to/file.log --replace MyCompanyName:Example --replace MyTitle:ExampleTitle
+<comment>./console visitorgenerator:anonymize-log --replace MyCompanyName:Example --replace MyTitle:ExampleTitle /path/to/file.log</comment>
 
 This will read the log file, replace all occurrences of "MyCompanyName" with "Example" and "MyTitle" with "ExampleTitle".
-It will replace the last 2 bits of all IP addresses with "0" and replace all url domains with "example.org" and all referrers with "example.com"');
-        $this->setDescription('Anonymizes an Apache log file by anonymizing IPs and domains. It will not replace any search terms, paths or url queries. The original file will not be altered but a new file will be created within the "plugins/VisitorGenerator/data" directory having the same file name.');
-        $this->addArgument('file', InputArgument::REQUIRED, 'Path to the file. Either absolute or relative to the Piwik directory');
-        $this->addOption('replace', null, InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY, 'Optional words to replace. For instance "MyName:NewName" will replace all occurrences of "MyName" with "NewName". Multiple replace options are possible');
+It will replace the last 2 bits of all IP addresses with "0" and replace domains with "*.example.org".
+
+<comment>./console visitorgenerator:anonymize-log --pluginname=CustomVariables /path/to/file.log</comment>
+
+This will anonymize the log file and place the log in the plugins/CustomVariables/data directory. The data directory will be created if needed.
+');
+        $this->setDescription('Anonymizes an Apache log file by anonymizing IPs and domains. It will not replace any search terms, paths or url queries. The original file will not be altered.');
+        $this->addArgument('file', InputArgument::REQUIRED, 'Path to the log file. Either an absolute path or a path relative to the Piwik directory');
+        $this->addOption('replace', null, InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY, 'Words to replace. For instance "MyName:NewName" will replace all occurrences of "MyName" with "NewName", "myname" with "newname" and "MYNAME" with "NEWNAME" (case sensitive). Multiple replace options are possible.');
+        $this->addOption('pluginname', null, InputOption::VALUE_REQUIRED, 'If defined, the log file will be placed in the specified plugin instead of the VisitorGenerator plugin', 'VisitorGenerator');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $file  = $this->getPathToFile($input);
-        $lines = file($file);
+        $file    = $this->getPathToFile($input);
+        $replace = $this->getReplace($input);
+        $plugin  = $this->getPluginName($input);
+
+        $logParser = new LogParser(array($file));
+        $lines     = $logParser->getLogLines();
 
         $anonymized = array();
         foreach ($lines as $line) {
-            $line        = $this->replaceWords($line, $input->getOption('replace'));
-            $anonymized .= $this->anonymizeLogLine($line, $anonymized);
+            $line = $this->replaceWords($line, $replace);
+            $line = $this->anonymizeIp($line);
+            $line = $this->anonymizeDomains($line);
+
+            $anonymized .= $line;
         }
 
-        $this->saveFile($output, $file, $anonymized);
+        $target = $this->buildTargetFileName($plugin, $file);
+        $this->saveFile($output, $target, $anonymized);
     }
 
-    private function replaceWords($string, $replace)
+    private function getReplace(InputInterface $input)
     {
-        foreach ($replace as $pair) {
-            $words = explode(':', $pair);
+        $parsedReplace = array();
 
-            if (2 === count($words)) {
-                $string = str_replace($words[0], $words[1], $string);
-            } else {
-                throw new \InvalidArgumentException('Each replace option needs exactly one separator ":". For example "oldValue:newValue"');
+        $replaces = $input->getOption('replace');
+        foreach ($replaces as $replace) {
+            $words = explode(':', $replace);
+
+            if (2 !== count($words)) {
+                throw new \InvalidArgumentException('Each replace option needs exactly one ":" separator. For example "oldValue:newValue"');
             }
+
+            $parsedReplace[] = $words;
         }
 
-        return $string;
+        return $parsedReplace;
+    }
+
+    private function getPluginName(InputInterface $input)
+    {
+        $pluginName  = $input->getOption('pluginname');
+        $pathToCheck = PIWIK_INCLUDE_PATH . '/plugins/' . $pluginName;
+
+        if (!is_dir($pathToCheck) || !is_writable($pathToCheck) || !is_readable($pathToCheck)) {
+            throw new \Exception('Invalid plugin name or plugin directory is not readable/writeable');
+        }
+
+        return $pluginName;
     }
 
     private function getPathToFile(InputInterface $input)
@@ -75,15 +103,18 @@ It will replace the last 2 bits of all IP addresses with "0" and replace all url
             return PIWIK_INCLUDE_PATH . '/' . $file;
         }
 
-        throw new \InvalidArgumentException('Cannot find file');
+        throw new \InvalidArgumentException('Cannot find file, please specify an absoulute path and make sure the file is readable.');
     }
 
-    private function anonymizeLogLine($line)
+    private function replaceWords($subject, $wordsToBeReplaced)
     {
-        $line = $this->anonymizeIp($line);
-        $line = $this->anonymizeDomains($line);
+        foreach ($wordsToBeReplaced as $words) {
+            $subject = str_replace($words[0], $words[1], $subject);
+            $subject = str_replace(strtolower($words[0]), strtolower($words[1]), $subject);
+            $subject = str_replace(strtoupper($words[0]), strtoupper($words[1]), $subject);
+        }
 
-        return $line;
+        return $subject;
     }
 
     private function anonymizeIp($line)
@@ -93,37 +124,36 @@ It will replace the last 2 bits of all IP addresses with "0" and replace all url
 
     private function anonymizeDomains($line)
     {
-        if (!preg_match('/^(\S+) \S+ \S+ \[(.*?)\] "GET (\S+.*?)" \d+ \d+ "(.*?)" "(.*?)"/', $line, $m)) {
+        $log = LogParser::parseLogLine($line);
+
+        if (empty($log)) {
             return $line;
         }
 
-        $url      = $m[3];
-        $referrer = $m[4];
-
-        $url = parse_url($url);
+        $url = parse_url($log['url']);
 
         if (!empty($url['query'])) {
 
             $params = array();
             parse_str($url['query'], $params);
 
-            if (!empty($params['url'])) {
-                $newUrl = $this->replaceDomainName($params['url'], $this->domain);
-                $line   = str_replace(urlencode($params['url']), urlencode($newUrl), $line);
+            $toBeReplaced = array('link' => 'outlink', 'urlref' => 'referrer', 'url' => '', 'download' => 'download');
+            foreach ($toBeReplaced as $param => $subdomain) {
+                if (!empty($params[$param])) {
+                    $newUrl = $this->replaceDomainName($params[$param], $subdomain);
+                    $line   = str_replace(urlencode($params[$param]), urlencode($newUrl), $line);
+                }
             }
 
-            if (!empty($params['urlref'])) {
-                $newUrlRef = $this->replaceDomainName($params['urlref'], $this->domainReferrer);
-                $line      = str_replace(urlencode($params['urlref']), urlencode($newUrlRef), $line);
-            }
         }
 
-        $newReferrer = $this->replaceDomainName($referrer, $this->domainReferrer);
+        $referrer    = $log['referrer'];
+        $newReferrer = $this->replaceDomainName($referrer, 'referrer');
 
         return str_replace($referrer, $newReferrer, $line);
     }
 
-    private function replaceDomainName($url, $newDomain)
+    private function replaceDomainName($url, $subdomain)
     {
         if (0 !== strpos($url, 'http')) {
             return $url;
@@ -137,27 +167,29 @@ It will replace the last 2 bits of all IP addresses with "0" and replace all url
 
         $oldDomain = substr($url, 0, $startPosOfPath);
 
+        $newDomain = 'http://example.org';
+        if (!empty($subdomain)) {
+            $newDomain = 'http://' . $subdomain . '.example.org';
+        }
+
         return str_replace($oldDomain, $newDomain, $url);
     }
 
-    private function saveFile(OutputInterface $output, $file, $content)
+    private function saveFile(OutputInterface $output, $target, $content)
     {
-        $target = __DIR__ . '/../data/' . basename($file);
-
-        if (!Common::stringEndsWith($target, '.log')) {
-            $target = $target . '.log';
-        }
-
         if (file_exists($target) && !$this->confirmOverwrite($output, $target)) {
             $output->writeln('File not written');
             return;
         }
 
+        Filesystem::mkdir(dirname($target));
+
         file_put_contents($target, $content);
 
         $this->writeSuccessMessage($output, array(
             'Log anonymized and saved in file ' . $target,
-            'You can replay this log by executing "<comment>./console visitorgenerator:generate-visits --no-fake</comment>"'
+            'You can replay this log - among others - by executing ',
+            '"<comment>./console visitorgenerator:generate-visits --no-fake --idsite=?</comment>"'
         ));
     }
 
@@ -171,5 +203,16 @@ It will replace the last 2 bits of all IP addresses with "0" and replace all url
             sprintf('<question>File "%s" already exists, overwrite? (y/N)</question>', $target),
             false
         );
+    }
+
+    private function buildTargetFileName($pluginName, $file)
+    {
+        $target = PIWIK_INCLUDE_PATH . '/plugins/' . $pluginName . '/data/' . basename($file);
+
+        if (!Common::stringEndsWith($target, '.log')) {
+            $target = $target . '.log';
+        }
+
+        return $target;
     }
 }
