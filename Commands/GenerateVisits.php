@@ -73,7 +73,7 @@ class GenerateVisits extends ConsoleCommand
             return $input->getOption('limit-fake-visits');
         }
 
-        return rand(500, 1100);
+        return rand(400, 1000);
     }
 
     private function checkDays(InputInterface $input)
