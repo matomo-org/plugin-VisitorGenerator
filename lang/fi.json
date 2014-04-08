@@ -5,7 +5,6 @@
         "ChoiceYes": "Kyllä, olen varma!",
         "DaysToCompute": "Päivien määrä",
         "GeneratedVisitsFor": "Tehdyt käynnit %1$s:lla viimeisten %2$s päivän aikana",
-        "GenerateFakeActions": "Tämä tuottaa arviolta %d epäaitoa toimintoa verkkosivulla joka päivä.",
         "LogImporterNote": "On olemassa myös nopeampi työkalu, joka tuo suuria testidatoja Piwikiin, katso myös %sREADME%s.",
         "NbRequestsPerSec": "Pyyntöä \/ sekunti",
         "NotReversible": "Näitä käyntejä %sei voi%s helposti poistaa Piwikin logeista.",

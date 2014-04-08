@@ -5,7 +5,6 @@
         "ChoiceYes": "Ja, jag är säker!",
         "DaysToCompute": "Dagar att beräkna",
         "GeneratedVisitsFor": "Genererade besök för %1$s och för de senaste %2$s dagarna",
-        "GenerateFakeActions": "Det här kommer i genomsnitt %d falska handlingar på din webbsida varje dag.",
         "LogImporterNote": "Det finns också ett snabbare verktyg som kommer att importera stor testdata i Piwik, se också %sREADME%s.",
         "NbRequestsPerSec": "Förfrågningar per sekund",
         "NotReversible": "Det kommer %s inte%s vara möjligt att enkelt ta bort dessa besök från Piwik's logg.",
