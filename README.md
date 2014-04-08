@@ -20,6 +20,7 @@ It also adds the following commands to the [Piwik CLI tool](http://developer.piw
 * Generate goals
 * Generate users
 * Generate websites
+* Shorten log file
 * Anonymize log file
 
 ##### Examples
@@ -29,6 +30,7 @@ It also adds the following commands to the [Piwik CLI tool](http://developer.piw
 * `./console visitorgenerator:generate-visits --idsite 5`  generates many visits for site with id 5 for today
 * `./console visitorgenerator:generate-visits --idsite 5 --days 2` generates many visits for site with id 5 for today and yesterday
 * `./console visitorgenerator:anonymize-log /path/to/log` takes an Apache log file, anonymizes it and places it in a data directory so it will be replayed the next time "generate-visits" is executed
+* `./console visitorgenerator:shorten-log /path/to/file.log > file.short.log` takes a large Apache log file and keeps only a small number of logs per day
 
 ## Changelog
 

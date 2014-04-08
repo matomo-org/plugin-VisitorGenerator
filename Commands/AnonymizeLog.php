@@ -48,7 +48,7 @@ This will anonymize the log file and place the log in the plugins/CustomVariable
         $logParser = new LogParser(array($file));
         $lines     = $logParser->getLogLines();
 
-        $anonymized = array();
+        $anonymized = '';
         foreach ($lines as $line) {
             $line = $this->replaceWords($line, $replace);
             $line = $this->anonymizeIp($line);
