@@ -35,7 +35,7 @@ This will anonymize the log file and place the log in the plugins/CustomVariable
 ');
         $this->setDescription('Anonymizes an Apache log file by anonymizing IPs and domains. It will not replace any search terms, paths or url queries. The original file will not be altered.');
         $this->addArgument('file', InputArgument::REQUIRED, 'Path to the log file. Either an absolute path or a path relative to the Piwik directory');
-        $this->addOption('replace', null, InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY, 'Words to replace. For instance "MyName:NewName" will replace all occurrences of "MyName" with "NewName", "myname" with "newname" and "MYNAME" with "NEWNAME" (case sensitive). Multiple replace options are possible.');
+        $this->addOption('replace', null, InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY, 'Words to replace. For instance "MyName:NewName" will replace all occurrences of "MyName" with "NewName", "myname" with "newname" and "MYNAME" with "NEWNAME" (case sensitive).');
         $this->addOption('pluginname', null, InputOption::VALUE_REQUIRED, 'If defined, the log file will be placed in the specified plugin instead of the VisitorGenerator plugin', 'VisitorGenerator');
     }
 
@@ -137,7 +137,7 @@ This will anonymize the log file and place the log in the plugins/CustomVariable
             $params = array();
             parse_str($url['query'], $params);
 
-            $toBeReplaced = array('link' => 'outlink', 'urlref' => 'referrer', 'url' => '', 'download' => 'download');
+            $toBeReplaced = array('link' => 'outlink', 'urlref' => 'referrer', '_ref' => 'referrer', 'url' => '', 'download' => 'download');
             foreach ($toBeReplaced as $param => $subdomain) {
                 if (!empty($params[$param])) {
                     $newUrl = $this->replaceDomainName($params[$param], $subdomain);

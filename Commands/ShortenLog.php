@@ -25,16 +25,25 @@ class ShortenLog extends ConsoleCommand
     {
         $this->setName('visitorgenerator:shorten-log');
         $this->setHelp('Example usage:
-<comment>./console visitorgenerator:shorten-log /path/to/file.log > file.short.log</comment>');
+<comment>./console visitorgenerator:shorten-log /path/to/file.log > file.short.log</comment>
+
+Keeps only the default number of log lines per day.
+
+<comment>./console visitorgenerator:shorten-log /path/to/file.log --num-lines=500 --force-keep=ec_id > file.short.log</comment>
+
+Keeps 500 log lines per day as well as all lines containing the term "ec_id"
+');
         $this->setDescription('Shortens an Apache log file by keeping only a small number of logs per day.');
         $this->addArgument('file', InputArgument::REQUIRED, 'Path to the log file. Either an absolute path or a path relative to the Piwik directory');
-        $this->addOption('num-lines', null, InputOption::VALUE_REQUIRED, 'Max number of log lines to keep per day', 250);
+        $this->addOption('num-lines', null, InputOption::VALUE_REQUIRED, 'Max number of log lines to keep per day', 200);
+        $this->addOption('force-keep', null, InputOption::VALUE_IS_ARRAY | InputOption::VALUE_REQUIRED, 'Forces to keep a log line if the given terms is present.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $file     = $this->getPathToFile($input);
-        $numLines = $input->getOption('num-lines');
+        $file      = $this->getPathToFile($input);
+        $numLines  = $input->getOption('num-lines');
+        $forceKeep = $input->getOption('force-keep');
 
         $logParser = new LogParser(array($file));
         $lines     = $logParser->getLogLines();
@@ -51,7 +60,7 @@ class ShortenLog extends ConsoleCommand
                 $lastDate = $this->getDateFromTime($parsed);
             }
 
-            if ($counter > $numLines) {
+            if ($counter > $numLines && !$this->containsTerm($line, $forceKeep)) {
                 continue;
             }
 
@@ -60,6 +69,17 @@ class ShortenLog extends ConsoleCommand
         }
 
         echo $shortened;
+    }
+
+    private function containsTerm($line, $terms)
+    {
+        foreach ($terms as $term) {
+            if (false !== strpos($line, $term)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private function getPathToFile(InputInterface $input)
