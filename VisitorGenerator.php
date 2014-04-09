@@ -16,8 +16,7 @@ class VisitorGenerator extends \Piwik\Plugin
     public function getListHooksRegistered()
     {
         return array(
-            'Menu.Admin.addItems' => 'addMenu',
-            'Console.addCommands' => 'addConsoleCommands'
+            'Menu.Admin.addItems' => 'addMenu'
         );
     }
 
@@ -29,15 +28,5 @@ class VisitorGenerator extends \Piwik\Plugin
             Piwik::hasUserSuperUserAccess(),
             $order = 20
         );
-    }
-
-    public function addConsoleCommands(&$commands)
-    {
-        $commands[] = __NAMESPACE__ . '\Commands\GenerateWebsites';
-        $commands[] = __NAMESPACE__ . '\Commands\GenerateUsers';
-        $commands[] = __NAMESPACE__ . '\Commands\GenerateGoals';
-        $commands[] = __NAMESPACE__ . '\Commands\GenerateVisits';
-        $commands[] = __NAMESPACE__ . '\Commands\AnonymizeLog';
-        $commands[] = __NAMESPACE__ . '\Commands\ShortenLog';
     }
 }
