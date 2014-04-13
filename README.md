@@ -20,10 +20,12 @@ It also adds the following commands to the [Piwik CLI tool](http://developer.piw
 * Generate goals
 * Generate users
 * Generate websites
+* Generate annotation
 * Shorten log file
 * Anonymize log file
 
 ##### Examples
+* `./console visitorgenerator:generate-annotation --idsite 5` generate one annotation for the current day for site with id 5
 * `./console visitorgenerator:generate-goals --idsite 5` generates some predefined goals for site with id 5
 * `./console visitorgenerator:generate-users --limit 100`  generates 100 users
 * `./console visitorgenerator:generate-websites --limit 100` generates 100 websites
@@ -43,6 +45,7 @@ It also adds the following commands to the [Piwik CLI tool](http://developer.piw
    * New log file added
    * Added possibility to shorten and anonymize log files
    * Added possibility to let plugins define their own log files
+   * Added possibility to generate annotations
    * Replay only log entries having the same day of the month
 
 ## Support
