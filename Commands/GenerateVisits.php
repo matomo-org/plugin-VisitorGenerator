@@ -61,6 +61,7 @@ class GenerateVisits extends ConsoleCommand
         }
 
         $this->writeSuccessMessage($output, array(
+            'idsite = ' . $idSite,
             $nbActionsTotal . ' Visits generated',
             round($nbActionsTotal / $timer->getTime(), 0) . ' requests per second'
         ));

@@ -41,7 +41,7 @@ class GenerateGoals extends ConsoleCommand
         $goalIds = $goalsGenerator->generate($idSite);
 
         $this->writeSuccessMessage($output, array(
-            sprintf('%d goals generated (idgoal from %d to %d)', count($goalIds), reset($goalIds), end($goalIds))
+            sprintf('idsite=%d, %d goals generated (idgoal from %d to %d)', $idSite, count($goalIds), reset($goalIds), end($goalIds))
         ));
     }
 
