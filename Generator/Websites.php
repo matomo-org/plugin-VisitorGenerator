@@ -9,8 +9,8 @@
 namespace Piwik\Plugins\VisitorGenerator\Generator;
 
 use Piwik\Log;
-use Piwik\Plugins\VisitorGenerator\Generator;
 use Piwik\Plugins\SitesManager\API as SitesManagerAPI;
+use Piwik\Plugins\VisitorGenerator\Generator;
 use Piwik\View;
 
 class Websites extends Generator

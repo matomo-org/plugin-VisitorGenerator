@@ -12,11 +12,11 @@ use Piwik\Date;
 use Piwik\Filesystem;
 use Piwik\Http;
 use Piwik\Piwik;
+use Piwik\Plugins\CoreAdminHome\API as CoreAdminHomeAPI;
 use Piwik\Plugins\VisitorGenerator\Generator;
 use Piwik\Plugins\VisitorGenerator\LogParser;
 use Piwik\SettingsPiwik;
 use Piwik\View;
-use Piwik\Plugins\CoreAdminHome\API as CoreAdminHomeAPI;
 
 /**
  * Replays all *.log files within the data directory.

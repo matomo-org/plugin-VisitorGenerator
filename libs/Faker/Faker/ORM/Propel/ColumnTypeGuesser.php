@@ -2,8 +2,8 @@
 
 namespace Faker\ORM\Propel;
 
-use \PropelColumnTypes;
-use \ColumnMap;
+use ColumnMap;
+use PropelColumnTypes;
 
 class ColumnTypeGuesser
 {

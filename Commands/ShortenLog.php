@@ -9,9 +9,7 @@
 
 namespace Piwik\Plugins\VisitorGenerator\Commands;
 
-use Piwik\Common;
 use Piwik\Date;
-use Piwik\Filesystem;
 use Piwik\Plugin\ConsoleCommand;
 use Piwik\Plugins\VisitorGenerator\LogParser;
 use Symfony\Component\Console\Input\InputArgument;

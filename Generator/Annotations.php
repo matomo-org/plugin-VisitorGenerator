@@ -9,8 +9,8 @@
 namespace Piwik\Plugins\VisitorGenerator\Generator;
 
 use Piwik\Date;
-use Piwik\Plugins\VisitorGenerator\Generator;
 use Piwik\Plugins\Annotations\API as AnnotationAPI;
+use Piwik\Plugins\VisitorGenerator\Generator;
 use Piwik\View;
 
 class Annotations extends Generator
