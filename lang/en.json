@@ -16,7 +16,7 @@
         "LogImporterNote": "There is also a faster tool that will import large test data in Piwik, see the %sREADME%s.",
         "AutomaticReprocess": "The reports will be reprocessed the next time you visit the Piwik reports, it might take a few minutes.",
         "GeneratedVisitsFor": "Generated visits for %1$s and for the last %2$s days",
-        "ReRunArchiveScript": "Please re-run the archive.php Piwik script in the crontab to refresh the reports. %sSee \"How to Set up Auto-Archiving of Your Reports\"%s",
+        "ReRunArchiveScript": "Please re-run the crontab './console core:archive' command to refresh the reports. %sSee \"How to Set up Auto-Archiving of Your Reports\"%s",
         "NumberOfGeneratedActions": "Number of generated actions",
         "CliToolUsage": "By using the %sPiwik CLI tool%s you can not only generate even more visits but also users, websites and goals."
     }
