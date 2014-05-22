@@ -47,6 +47,8 @@ It also adds the following commands to the [Piwik CLI tool](http://developer.piw
    * Added possibility to let plugins define their own log files
    * Added possibility to generate annotations
    * Replay only log entries having the same day of the month
+- 1.2.1 New workaround:
+   * When force_ssl is enabled, and visits are generated on `localhost`, force to use HTTP instead of HTTPS
 
 ## Support
 
