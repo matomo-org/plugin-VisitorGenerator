@@ -44,7 +44,7 @@ class VisitsFromLogs extends Generator
             $logParser = new LogParser($logFile);
             $logs      = $logParser->getParsedLogLines();
 
-            $prefix     = SettingsPiwik::getPiwikUrl() . "piwik.php";
+            $prefix     = $this->getPiwikUrl() . "piwik.php";
             $dayOfMonth = $this->findDayOfMonthToUseToMakeSureWeGenerateAtLeastOneVisit($time, $logs);
 
             foreach ($logs as $log) {
