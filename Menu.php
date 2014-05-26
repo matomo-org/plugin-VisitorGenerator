@@ -11,19 +11,13 @@ namespace Piwik\Plugins\VisitorGenerator;
 use Piwik\Menu\MenuAdmin;
 use Piwik\Piwik;
 
-class VisitorGenerator extends \Piwik\Plugin
+class Menu extends \Piwik\Plugin\Menu
 {
-    public function getListHooksRegistered()
+    public function configureAdminMenu(MenuAdmin $menu)
     {
-        return array(
-            'Menu.Admin.addItems' => 'addMenu'
-        );
-    }
-
-    public function addMenu()
-    {
-        MenuAdmin::getInstance()->add(
-            'CoreAdminHome_MenuDiagnostic', 'VisitorGenerator_VisitorGenerator',
+        $menu->add(
+            'CoreAdminHome_MenuDiagnostic',
+            'VisitorGenerator_VisitorGenerator',
             array('module' => 'VisitorGenerator', 'action' => 'index'),
             Piwik::hasUserSuperUserAccess(),
             $order = 20
