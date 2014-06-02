@@ -9,6 +9,7 @@
 
 namespace Piwik\Plugins\VisitorGenerator\Commands;
 
+use Piwik\Date;
 use Piwik\Piwik;
 use Piwik\Plugin\ConsoleCommand;
 use Piwik\Plugins\VisitorGenerator\Generator\VisitsFake;
@@ -45,6 +46,9 @@ class GenerateVisits extends ConsoleCommand
 
         $nbActionsTotal = 0;
         while ($time <= time()) {
+            $output->writeln(array(
+                sprintf("Generating visits for %s...", Date::factory($time)->toString())
+            ));
 
             if (!$input->getOption('no-fake')) {
                 $limit = $this->getLimitFakeVisits($input);

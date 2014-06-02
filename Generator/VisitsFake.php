@@ -8,6 +8,8 @@
  */
 namespace Piwik\Plugins\VisitorGenerator\Generator;
 
+use Piwik\Common;
+use Piwik\Db;
 use Piwik\Piwik;
 use Piwik\Plugins\CoreAdminHome\API as CoreAdminHomeApi;
 use Piwik\Plugins\SitesManager\API as SitesManagerApi;
@@ -26,7 +28,7 @@ class VisitsFake extends Generator
 
         $tracker = new \PiwikTracker(1, $this->getPiwikUrl());
         $tracker->enableBulkTracking();
-        $user = $this->getCurrentUser();
+        $user = $this->getAnySuperUser();
         $site = $this->getCurrentSite($idSite);
 
         $numSearches = rand(floor($limit / 40), ceil($limit / 20));
@@ -101,9 +103,13 @@ class VisitsFake extends Generator
         return SitesManagerApi::getInstance()->getSiteFromId($idSite);
     }
 
-    private function getCurrentUser()
+    private function getAnySuperUser()
     {
-        return UsersManagerApi::getInstance()->getUser(Piwik::getCurrentUserLogin());
+        $superUser = Db::get()->fetchRow("SELECT login, token_auth
+                                          FROM " . Common::prefixTable("user") . "
+                                          WHERE superuser_access = 1
+                                          ORDER BY date_registered ASC");
+        return $superUser;
     }
 
 }
