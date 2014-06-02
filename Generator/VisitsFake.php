@@ -105,6 +105,9 @@ class VisitsFake extends Generator
 
     private function getAnySuperUser()
     {
+        // The visitor generator may be executed in the command line
+        // in the command line there is token_auth set to the user running the command line
+        // so we manually fetch a super user token_auth.
         $superUser = Db::get()->fetchRow("SELECT login, token_auth
                                           FROM " . Common::prefixTable("user") . "
                                           WHERE superuser_access = 1
