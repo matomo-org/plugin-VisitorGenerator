@@ -5,6 +5,7 @@
         "DaysToCompute": "Dni do obliczeń",
         "NbRequestsPerSec": "Zapytań na sekundę",
         "NotReversible": "Usunięcie informacji z logów o takich odwiedzinach %s nie%s będzie takie łatwe, proste czy nawet możliwe.",
+        "PleaseBePatient": "UWAGA: Generowanie wizyt i akcji może zająć kilka minut. Prosimy o cierpliwość.",
         "PluginDescription": "Wtyczka generatora symulowanych odwiedzin. Może być wykorzystywana do wygenerowania symulowanych danych jako prosta metoda sprawdzania Piwik w działaniu, pomocna w zapoznawaniu się z analityką statystyczną użytkowników Piwik.",
         "SelectWebsite": "Wybierz stronę",
         "Submit": "Potwierdź",

@@ -6,6 +6,7 @@
         "NbRequestsPerSec": "Verzoeken per seconde",
         "NotReversible": "Het is %s niet%s mogelijk om deze testgegevens weer makkelijk te verwijderen uit de Piwik logs.",
         "NumberOfGeneratedActions": "Aantal gegenereerde acties",
+        "PleaseBePatient": "Let op: Het kan enkele minuten duren om bezoeken en acties te genereren. Wees geduldig....",
         "PluginDescription": "Plugin om bezoekersdata creëren. Dit kan worden gebruikt door Piwikgebruikers of ontwikkelaars als een makkelijke manier om Piwik te vullen met testgegevens.",
         "SelectWebsite": "Selecteer Website",
         "Submit": "Verzend",
