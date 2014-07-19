@@ -8,6 +8,8 @@
  */
 namespace Piwik\Plugins\VisitorGenerator\Faker;
 
+use Piwik\Plugins\UserCountry\LocationProvider\GeoIp;
+
 class Request extends \Faker\Provider\Base
 {
     protected static $pageUrls = array(
@@ -797,8 +799,17 @@ class Request extends \Faker\Provider\Base
         ));
     }
 
-    public function region()
+    public function region($countryCode)
     {
+        $regions = GeoIp::getRegionNames();
+
+        if (!empty($regions[$countryCode])) {
+            $regionCodes = array_keys($regions[$countryCode]);
+            $regionCode  = static::randomElement($regionCodes);
+
+            return strtoupper($regionCode);
+        }
+
         return static::randomElement(array(
             '13', 'TX', 'CA', '07', '09', 'E4', 'B7', '01', '46', '01', 'AL', '16', 'B7', 'CA', '78', 'B8', '04', '04', 'B8', 'TX', 'NY', '15', '04', 'FL', 'PA', 'C9', '01', 'P8', '29', '56', '02', '29', 'CA', '27', 'BC', '09', 'NE', '13', 'TX', 'TX', 'B8', 'FL', 'E7', 'PA', '12', '14', '27', 'M3', '02', '09', '29', '42', 'QC', 'C9', '02', '01', 'WV', 'AL', '51', 'H5', '07', 'MD', '34', '16', 'CA', 'E7', 'NY', '08', 'GA',
         ));

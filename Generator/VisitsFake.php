@@ -43,8 +43,9 @@ class VisitsFake extends Generator
             $tracker->setUserAgent($this->faker->userAgent);
             $tracker->setBrowserLanguage($this->faker->locale);
             $tracker->setCity($this->faker->city);
-            $tracker->setRegion($this->faker->region);
-            $tracker->setCountry(strtolower($this->faker->countryCode));
+            $countryCode = $this->faker->countryCode;
+            $tracker->setCountry(strtolower($countryCode));
+            $tracker->setRegion($this->faker->region($countryCode));
             $tracker->setLatitude($this->faker->latitude);
             $tracker->setLongitude($this->faker->longitude);
             $tracker->setIp($this->faker->ipv4);
