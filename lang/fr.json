@@ -3,6 +3,7 @@
         "AreYouSure": "Êtes-vous sûrs de vouloir générer de fausses visites?",
         "AutomaticReprocess": "Les rapports seront calculés à nouveau la prochaine fois que afficherez les rapports Piwik, cela peut prendre quelques minutes.",
         "ChoiceYes": "Oui, je suis sûr!",
+        "CliToolUsage": "En utilisation %sl'outil en ligne de commande Piwik%s vous pouvez non seulement générer encore plus de visites mais aussi d'utilisateurs, sites web et objectifs.",
         "DaysToCompute": "Jours à calculer",
         "GeneratedVisitsFor": "Visites générées pour %1$s et pour les derniers %2$s jours",
         "LogImporterNote": "Il existe un outil plus rapide pour importer des données de test volumineuses dans Piwik, consultez le fichier %sLISEZ-MOI%s.",
