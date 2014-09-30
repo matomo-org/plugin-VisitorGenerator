@@ -79,6 +79,30 @@ class VisitsFake extends Generator
                 $tracker->doTrackPageView($this->faker->sentence());
             }
 
+            if ($this->faker->boolean(10)) {
+                $tracker->doTrackContentImpression('Product 1', '/path/product1.jpg', 'http://product1.example.com');
+                $tracker->doTrackContentImpression('Product 1', 'Buy Product 1 Now!', 'http://product1.example.com');
+                $tracker->doTrackContentImpression('Product 2', '/path/product2.jpg', $site['main_url'] . '/product2');
+                $tracker->doTrackContentImpression('Product 3', 'Product 3 on sale', 'http://product3.example.com');
+                $tracker->doTrackContentImpression('Product 4');
+
+                if ($this->faker->boolean(50)) {
+                    $tracker->doTrackContentInteraction('click', 'Product 1', '/path/product1.jpg', 'http://product1.example.com');
+                }
+
+                if ($this->faker->boolean(35)) {
+                    $tracker->doTrackContentInteraction('click', 'Product 1', 'Buy Product 1 Now!', 'http://product1.example.com');
+                }
+
+                if ($this->faker->boolean(60)) {
+                    $tracker->doTrackContentInteraction('submit', 'Product 2', '/path/product2.jpg', $site['main_url'] . '/product2');
+                }
+
+                if ($this->faker->boolean(40)) {
+                    $tracker->doTrackContentInteraction('click', 'Product 4');
+                }
+            }
+
             if ($numSearchesDone < $numSearches) {
                 $tracker->doTrackSiteSearch($this->faker->word, $this->faker->searchEngine, $this->faker->randomNumber(0, 10));
                 $numSearchesDone++;
