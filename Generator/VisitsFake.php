@@ -80,6 +80,7 @@ class VisitsFake extends Generator
             }
 
             if ($this->faker->boolean(10)) {
+                $i++;
                 $tracker->doTrackContentImpression('Product 1', '/path/product1.jpg', 'http://product1.example.com');
                 $tracker->doTrackContentImpression('Product 1', 'Buy Product 1 Now!', 'http://product1.example.com');
                 $tracker->doTrackContentImpression('Product 2', '/path/product2.jpg', $site['main_url'] . '/product2');
@@ -100,6 +101,24 @@ class VisitsFake extends Generator
 
                 if ($this->faker->boolean(40)) {
                     $tracker->doTrackContentInteraction('click', 'Product 4');
+                }
+            }
+
+            if ($this->faker->boolean(10)) {
+                $i++;
+                $tracker->doTrackEvent('Movies', 'play', 'Movie Name');
+
+                if ($this->faker->boolean(50)) {
+                    $tracker->doTrackEvent('Movies', 'stop', 'Movie Name');
+                }
+            }
+
+            if ($this->faker->boolean(10)) {
+                $i++;
+                $tracker->doTrackEvent('Movies', 'play', 'Another Movie');
+
+                if ($this->faker->boolean(50)) {
+                    $tracker->doTrackEvent('Movies', 'stop', 'Another Movie');
                 }
             }
 
