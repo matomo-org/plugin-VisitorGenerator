@@ -9,6 +9,7 @@
 
 namespace Piwik\Plugins\VisitorGenerator\Commands;
 
+use Piwik\Access;
 use Piwik\Piwik;
 use Piwik\Plugin\ConsoleCommand;
 use Piwik\Plugins\VisitorGenerator\Generator\Users;
@@ -28,12 +29,12 @@ class GenerateUsers extends ConsoleCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        Piwik::setUserHasSuperUserAccess();
-
         $limit = $input->getOption('limit');
 
-        $websiteGenerator = new Users();
-        $userLogins       = $websiteGenerator->generate((int) $limit);
+        $userLogins = Access::doAsSuperUser(function () use ($limit) {
+            $websiteGenerator = new Users();
+            return $websiteGenerator->generate((int) $limit);
+        });
 
         $this->writeSuccessMessage($output, array(count($userLogins) . ' Users generated'));
     }
