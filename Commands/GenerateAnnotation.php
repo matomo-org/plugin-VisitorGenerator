@@ -9,6 +9,7 @@
 
 namespace Piwik\Plugins\VisitorGenerator\Commands;
 
+use Piwik\Access;
 use Piwik\Piwik;
 use Piwik\Plugin\ConsoleCommand;
 use Piwik\Plugins\VisitorGenerator\Generator\Annotations;
@@ -29,16 +30,16 @@ class GenerateAnnotation extends ConsoleCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        Piwik::setUserHasSuperUserAccess();
-
         $idSite = (int) $input->getOption('idsite');
 
-        if (!Site::getSite($idSite)) {
-            throw new \InvalidArgumentException('idsite is not a valid, no such site found');
-        }
+        Access::doAsSuperUser(function () use ($idSite) {
+            if (!Site::getSite($idSite)) {
+                throw new \InvalidArgumentException('idsite is not a valid, no such site found');
+            }
 
-        $annotations = new Annotations();
-        $annotations->generate($idSite);
+            $annotations = new Annotations();
+            $annotations->generate($idSite);
+        });
 
         $this->writeSuccessMessage($output, array('1 Annotation for today generated'));
     }

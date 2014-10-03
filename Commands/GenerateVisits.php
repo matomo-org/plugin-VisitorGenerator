@@ -9,6 +9,7 @@
 
 namespace Piwik\Plugins\VisitorGenerator\Commands;
 
+use Piwik\Access;
 use Piwik\Date;
 use Piwik\Piwik;
 use Piwik\Plugin\ConsoleCommand;
@@ -36,8 +37,6 @@ class GenerateVisits extends ConsoleCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        Piwik::setUserHasSuperUserAccess();
-
         $timer  = new Timer();
         $days   = $this->checkDays($input);
         $idSite = $this->checkIdSite($input);
@@ -52,13 +51,17 @@ class GenerateVisits extends ConsoleCommand
 
             if (!$input->getOption('no-fake')) {
                 $limit = $this->getLimitFakeVisits($input);
-                $fakeVisits = new VisitsFake();
-                $nbActionsTotal += $fakeVisits->generate($time, $idSite, $limit);
+                Access::doAsSuperUser(function () use ($time, $idSite, $limit, &$nbActionsTotal) {
+                    $fakeVisits = new VisitsFake();
+                    $nbActionsTotal += $fakeVisits->generate($time, $idSite, $limit);
+                });
             }
 
             if (!$input->getOption('no-logs')) {
-                $fromLogs = new VisitsFromLogs();
-                $nbActionsTotal += $fromLogs->generate($time, $idSite);
+                Access::doAsSuperUser(function () use ($time, $idSite, &$nbActionsTotal) {
+                    $fromLogs = new VisitsFromLogs();
+                    $nbActionsTotal += $fromLogs->generate($time, $idSite);
+                });
             }
 
             $time += 86400;
@@ -96,11 +99,12 @@ class GenerateVisits extends ConsoleCommand
     {
         $idSite = (int)$input->getOption('idsite');
 
-        if (!Site::getSite($idSite)) {
-            throw new \InvalidArgumentException('idsite is not a valid, no such site found');
-        }
+        return Access::doAsSuperUser(function () use ($idSite) {
+            if (!Site::getSite($idSite)) {
+                throw new \InvalidArgumentException('idsite is not a valid, no such site found');
+            }
 
-        return $idSite;
+            return $idSite;
+        });
     }
-
 }

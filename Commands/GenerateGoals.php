@@ -9,6 +9,7 @@
 
 namespace Piwik\Plugins\VisitorGenerator\Commands;
 
+use Piwik\Access;
 use Piwik\Piwik;
 use Piwik\Plugin\ConsoleCommand;
 use Piwik\Plugins\VisitorGenerator\Generator\Goals;
@@ -29,16 +30,16 @@ class GenerateGoals extends ConsoleCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        Piwik::setUserHasSuperUserAccess();
-
         $idSite = (int) $input->getOption('idsite');
 
-        if (!Site::getSite($idSite)) {
-            throw new \InvalidArgumentException('idsite is not a valid, no such site found');
-        }
+        $goalIds = Access::doAsSuperUser(function () use ($idSite) {
+            if (!Site::getSite($idSite)) {
+                throw new \InvalidArgumentException('idsite is not a valid, no such site found');
+            }
 
-        $goalsGenerator = new Goals();
-        $goalIds = $goalsGenerator->generate($idSite);
+            $goalsGenerator = new Goals();
+            return $goalsGenerator->generate($idSite);
+        });
 
         $this->writeSuccessMessage($output, array(
             sprintf('idsite=%d, %d goals generated (idgoal from %d to %d)', $idSite, count($goalIds), reset($goalIds), end($goalIds))
