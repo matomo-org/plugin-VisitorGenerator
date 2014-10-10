@@ -14,6 +14,7 @@ use Piwik\Piwik;
 use Piwik\Plugins\CoreAdminHome\API as CoreAdminHomeApi;
 use Piwik\Plugins\SitesManager\API as SitesManagerApi;
 use Piwik\Plugins\UsersManager\API as UsersManagerApi;
+use Piwik\Plugins\UsersManager\Model;
 use Piwik\Plugins\VisitorGenerator\Generator;
 use Piwik\SettingsPiwik;
 use Piwik\View;

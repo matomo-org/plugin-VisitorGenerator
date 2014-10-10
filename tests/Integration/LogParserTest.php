@@ -6,13 +6,12 @@
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
  */
 
-namespace Piwik\Plugins\VisitorGenerator\tests;
+namespace Piwik\Plugins\VisitorGenerator\tests\Integration;
 use Piwik\Plugins\VisitorGenerator\LogParser;
 
 /**
  * @group VisitorGenerator
  * @group LogParserTest
- * @group Unit
  */
 class LogParserTest extends \PHPUnit_Framework_TestCase
 {
@@ -25,7 +24,7 @@ class LogParserTest extends \PHPUnit_Framework_TestCase
     {
         parent::setUp();
 
-        $this->logParser = new LogParser(__DIR__ . '/../data/access.log');
+        $this->logParser = new LogParser(__DIR__ . '/../../data/access.log');
     }
 
     public function test_getLogLines()
