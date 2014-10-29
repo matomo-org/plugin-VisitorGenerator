@@ -1,5 +1,7 @@
 # Piwik VisitorGenerator Plugin
 
+[![Build Status](https://travis-ci.org/piwik/plugin-VisitorGenerator.svg?branch=master)](https://travis-ci.org/piwik/plugin-VisitorGenerator)
+
 ## Description
 
 Plugin to create fake visits, websites, users and goals. This can be used by Piwik users or developers as an easy way to generate fake data to populate Piwik reports.
