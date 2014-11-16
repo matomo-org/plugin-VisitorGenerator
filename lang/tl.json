@@ -1,0 +1,23 @@
+{
+    "VisitorGenerator": {
+        "AreYouSure": "Sigurado ka bang gusto mong lumikha ng pekeng bisita?",
+        "AutomaticReprocess": "Ang mga ulat ay muling isinaproseso sa susunod na oras na pagbisita sa mga ulat ng Piwik ito ay maaaring tumagal ng ilang minuto.",
+        "ChoiceYes": "Oo ako ay sigurado!",
+        "CliToolUsage": "Sa pamamagitan ng paggamit ng %sPiwik CLI tool na%s ay hindi ka lamang maaaring makabuo ng mas maraming mga pagbisita kundi pati narin ng users. websites at mga goals.",
+        "DaysToCompute": "Mga araw na i-cocompute",
+        "GeneratedVisitsFor": "Ang nilikhang mga pagbisita para sa %1$s at para sa huling %2$s mga araw.",
+        "GenerateFakeActions": "Ito ay bubuo ng hindi bababa sa %d na mga pekeng mga pagkilos sa site na ito bawat araw.",
+        "LogImporterNote": "Mayroon ding isang mas mabilis na tool na mag ii-import ng malaking data sa Piwik tingnan ang %s README %s.",
+        "NbRequestsPerSec": "Request sa bawat segundo",
+        "NotReversible": "Ang mga pagbisitang ito ay %s hindi %s madaling matanggal sa Piwik logs.",
+        "NumberOfGeneratedActions": "Bilang ng mga nabuong mga pagkilos",
+        "OverwriteLogFiles": "Pwede mong palitan ang log files na ginagamit upang maka-likha ng mga pekeng visits (palitan o mag-dagdag ng files sa %s). Merong mga log-files na mula sa \"piwik.php\" na naka format sa \"Apache combined log\". Plugin developers ay maaaring magbigay ng kanilang sariling mga file ng log sa pamamagitan ng paglagay '*.log' files sa loob na mismo ng 'data' kung saan nakalagay ang kanilang plugin.",
+        "PleaseBePatient": "TANDAAN: Maaaring mag-tagal ng ilang minuto upang bumuo ng mga pagbisita at mga aksyon",
+        "PluginDescription": "Ang plugin na gumagawa ng mga pekeng pagbisita sa website. Ito ay maaring gamitin ng Piwik users or devleopers sa madaling paraan upang bumuo ng mga pekeng data para maparahi ang mga ulat.",
+        "ReRunArchiveScript": "Mangyarin patakbuhin muli ang crontab '.\/console core archive' command upang i-refresh ang mga ulat. %s tignan \"Kung paano sine-setup ang Auto-Archiving para sa iyong mga Ulat\" %s",
+        "SelectWebsite": "Pumili ng Website",
+        "Submit": "Isumite",
+        "VisitorGenerator": "Visitor Generator",
+        "Warning": "Ikaw ay gagawa ng mga pekeng mga pagbisita na ilalagay sa iyong Piwik database."
+    }
+}
