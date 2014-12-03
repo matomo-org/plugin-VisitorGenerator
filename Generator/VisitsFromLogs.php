@@ -13,6 +13,7 @@ use Piwik\Filesystem;
 use Piwik\Http;
 use Piwik\Piwik;
 use Piwik\Plugins\CoreAdminHome\API as CoreAdminHomeAPI;
+use Piwik\Plugins\UsersManager\Model;
 use Piwik\Plugins\VisitorGenerator\Faker\Request;
 use Piwik\Plugins\VisitorGenerator\Generator;
 use Piwik\Plugins\VisitorGenerator\LogParser;
@@ -23,6 +24,7 @@ use Piwik\View;
  */
 class VisitsFromLogs extends Generator
 {
+    private $authToken;
 
     /**
      * All log lines will be replayed having the same day of the month as the one of the given time. If the same day of
@@ -86,7 +88,7 @@ class VisitsFromLogs extends Generator
             $url .= "&cip=" . $ip;
         }
 
-        $url .= "&token_auth=" . Piwik::getCurrentUserTokenAuth();
+        $url .= "&token_auth=" . $this->getTokenAuth();
         $url  = $prefix . "?" . $url;
 
         // Make order IDs unique per day
@@ -98,6 +100,24 @@ class VisitsFromLogs extends Generator
         $url = preg_replace("/idsite=[0-9]+/", "idsite=$idSite", $url);
 
         return $url;
+    }
+
+    private function getTokenAuth()
+    {
+        if (empty($this->authToken)) {
+            $token = Piwik::getCurrentUserTokenAuth();
+
+            if (!empty($token)) {
+                $this->authToken = $token;
+            } else {
+                $model = new Model();
+                $users = $model->getUsersHavingSuperUserAccess();
+                $user  = reset($users);
+                $this->authToken = $user['token_auth'];
+            }
+        }
+
+        return $this->authToken;
     }
 
     private function isSameDayOfMonth($dayOfMonth, $timeToCheck)
