@@ -781,9 +781,9 @@ class Request extends \Faker\Provider\Base
         return static::randomElement(array('male', 'female', ''));
     }
 
-    public function acceptLanguage()
+    public static function getAcceptLanguages()
     {
-        return static::randomElement(array(
+        return array(
             "el,fi;q=0.5",
             "de-de,de;q=0.8,en-us",
             "pl,en-us;q=0.7,en;q=",
@@ -796,7 +796,12 @@ class Request extends \Faker\Provider\Base
             "fr",
             "fr-ch",
             "fr",
-        ));
+        );
+    }
+
+    public function acceptLanguage()
+    {
+        return static::randomElement(self::getAcceptLanguages());
     }
 
     public function region($countryCode)

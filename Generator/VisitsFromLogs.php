@@ -13,9 +13,9 @@ use Piwik\Filesystem;
 use Piwik\Http;
 use Piwik\Piwik;
 use Piwik\Plugins\CoreAdminHome\API as CoreAdminHomeAPI;
+use Piwik\Plugins\VisitorGenerator\Faker\Request;
 use Piwik\Plugins\VisitorGenerator\Generator;
 use Piwik\Plugins\VisitorGenerator\LogParser;
-use Piwik\SettingsPiwik;
 use Piwik\View;
 
 /**
@@ -47,17 +47,19 @@ class VisitsFromLogs extends Generator
             $prefix     = $this->getPiwikUrl() . "piwik.php";
             $dayOfMonth = $this->findDayOfMonthToUseToMakeSureWeGenerateAtLeastOneVisit($time, $logs);
 
-            foreach ($logs as $log) {
+            $languages = Request::getAcceptLanguages();
+            $numLanguages = count($languages);
+
+            foreach ($logs as $index => $log) {
                 if (!$this->isSameDayOfMonth($dayOfMonth, $log['time'])) {
                     continue;
                 }
 
                 $url  = $this->manipulateRequestUrl($log['time'], $idSite, $log['url'], $date, $log['ip'], $prefix);
-                $lang = $this->faker->acceptLanguage;
+                $lang = $languages[$index % $numLanguages];
 
-                if ($output = Http::sendHttpRequest($url, $timeout = 5, $log['ua'], $path = null, $follow = 0, $lang)) {
-                    $count++;
-                }
+                Http::sendHttpRequest($url, $timeout = 5, $log['ua'], $path = null, $follow = 0, $lang);
+                $count++;
             }
         }
 
