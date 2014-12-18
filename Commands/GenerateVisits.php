@@ -11,16 +11,16 @@ namespace Piwik\Plugins\VisitorGenerator\Commands;
 
 use Piwik\Access;
 use Piwik\Date;
-use Piwik\Piwik;
 use Piwik\Plugin\ConsoleCommand;
 use Piwik\Plugins\VisitorGenerator\Generator\VisitsFake;
 use Piwik\Plugins\VisitorGenerator\Generator\VisitsFromLogs;
 use Piwik\Site;
 use Piwik\Timer;
-use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Helper\QuestionHelper;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Question\Question;
 
 class GenerateVisits extends ConsoleCommand
 {
@@ -39,7 +39,7 @@ class GenerateVisits extends ConsoleCommand
     {
         $timer  = new Timer();
         $days   = $this->checkDays($input);
-        $idSite = $this->checkIdSite($input);
+        $idSite = $this->getIdSite($input, $output);
 
         $time = time() - ($days - 1) * 86400;
 
@@ -95,9 +95,17 @@ class GenerateVisits extends ConsoleCommand
         return $days;
     }
 
-    private function checkIdSite(InputInterface $input)
+    private function getIdSite(InputInterface $input, OutputInterface $output)
     {
-        $idSite = (int)$input->getOption('idsite');
+        $idSite = $input->getOption('idsite');
+
+        if ($idSite === null) {
+            /** @var QuestionHelper $helper */
+            $helper = $this->getHelperSet()->get('question');
+            $idSite = $helper->ask($input, $output, new Question('ID of the site in which to generate the visits: '));
+        }
+
+        $idSite = (int) $idSite;
 
         return Access::doAsSuperUser(function () use ($idSite) {
             if (!Site::getSite($idSite)) {
