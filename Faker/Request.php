@@ -10,6 +10,8 @@ namespace Piwik\Plugins\VisitorGenerator\Faker;
 
 use Piwik\Plugins\UserCountry\LocationProvider\GeoIp;
 
+include_once __DIR__ . '/../libs/Faker/autoload.php';
+
 class Request extends \Faker\Provider\Base
 {
     protected static $pageUrls = array(
