@@ -15,8 +15,7 @@ class Menu extends \Piwik\Plugin\Menu
 {
     public function configureAdminMenu(MenuAdmin $menu)
     {
-        $menu->add(
-            'CoreAdminHome_MenuDiagnostic',
+        $menu->addDevelopmentItem(
             'VisitorGenerator_VisitorGenerator',
             array('module' => 'VisitorGenerator', 'action' => 'index'),
             Piwik::hasUserSuperUserAccess(),
