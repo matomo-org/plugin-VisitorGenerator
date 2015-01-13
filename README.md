@@ -13,7 +13,7 @@ Plugin developers can provide their own log files by placing '*.log' files withi
 ### Usage 
 
 #### UI
-The plugin adds a new item to the Piwik admin UI visible only for users having Super User access under the section "Diagnostic". There you can select a site and for how many days in the past you want to generate new visits.
+The plugin adds a new item to the Piwik admin UI visible only for users having Super User access under the section "Development". There you can select a site and for how many days in the past you want to generate new visits.
 
 #### CLI
 It also adds the following commands to the [Piwik CLI tool](http://developer.piwik.org/guides/piwik-on-the-command-line):
