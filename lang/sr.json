@@ -13,7 +13,6 @@
         "NumberOfGeneratedActions": "Broj generisanih akcija",
         "OverwriteLogFiles": "Možete postaviti velike zapise koji služe za generisanje lažnih poseta (izmenite ili dodajte datoteke u %s). U pitanju su zapisi pristupa fajlu \"piwik.php\" u \"Apache combined log\" formatu. Ako razvijate dodatke za Piwik, možete sopstvene '*.log' zapise smestiti u 'data' direktorijume dodataka.",
         "PleaseBePatient": "Generisanje poseta i akcija može potrajati nekoliko inuta, molimo vas da budete strpljivi...",
-        "PluginDescription": "Dodatak za generisanje lažnih poseta. Ovaj dodatak mogu koistiti Piwik korisnici ili ljudi koji rade na razvoju kako bi na lak način generisali lažne podatke i popunili izveštaje.",
         "ReRunArchiveScript": "Molimo vas da ponovo pokrenete archive.php pomoću Krona kako bi se ažurirali izveštaji. %sPogledajte kako da podesite automatsko arhiviranje vaših izveštaja.%s",
         "SelectWebsite": "Izaberite sajt",
         "Submit": "Prosledi",

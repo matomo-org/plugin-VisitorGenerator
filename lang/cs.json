@@ -13,7 +13,7 @@
         "NumberOfGeneratedActions": "Počet generovaných akcí",
         "OverwriteLogFiles": "Můžete přepsat log soubory, které jsou použity pro generování smyšlených návštěv (změňte nebo přidejte soubory v adresáři %s). Zde jsou log soubory požadavků na piwik.php ve formátu kombinovaného Apache logu. Vývojáři zásuvných modulů mohou poskytnout vlastní log soubory, když umístí *.log soubory do podadresáře data svého zásuvného modulu.",
         "PleaseBePatient": "Poznámka: Generování návštěv a akcí může pár minut trvat, buďte trpělivý...",
-        "PluginDescription": "Zásuvný modul pro vytvoření falešných návštěv. Může být použit vývojaři, nebo uživateli Piwiku jako jednoduchá cesta k vygenerování testovacích návštěv k naplnění hlášení Piwiku.",
+        "PluginDescription": "Vytvořte v Piwiku falešné návštěvy a akce. To může být užitečné pro uživatele nebo vývojáře, kteří chtějí naplnit hlášení daty.",
         "ReRunArchiveScript": "Prosím spusťte znovu skript archive.php na záložce cron. %sZjistěte více o nastavení automatického archivování%s.",
         "SelectWebsite": "Zvolte web",
         "Submit": "Odeslat",

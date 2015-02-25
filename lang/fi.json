@@ -11,7 +11,6 @@
         "NotReversible": "Näitä käyntejä %sei voi%s helposti poistaa Piwikin logeista.",
         "NumberOfGeneratedActions": "Toimeenpantujen toimintojen lukumäärä",
         "PleaseBePatient": "Huom: Käyntien ja toimintojen luonti saattaa kestää joitakin minuutteja, pyydämme kärsivällisyyttä...",
-        "PluginDescription": "Lisäosa valheellisten käyntien luomiseen. Tätä voi käyttää helppona tapana luoda Piwikiin valheellisia tietoja testaamista varten.",
         "ReRunArchiveScript": "Ole hyvä ja aja uudelleen archive.php Piwik komentosarja crontabissa päivittääksesi raportit. %sKatso \"Miten asennan automaattisen raporttien arkistoinnin\"%s",
         "SelectWebsite": "Valitse verkkosivu",
         "Submit": "Lähetä",

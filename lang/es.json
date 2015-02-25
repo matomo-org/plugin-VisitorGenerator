@@ -12,7 +12,6 @@
         "NumberOfGeneratedActions": "Numero de acciones generadas",
         "OverwriteLogFiles": "Puedes sobrescribir los archivos de registro que se utilizan para generar visitas falsas (cambia o añade archivos en %s). Existen registros de solicitudes a \"piwik.php\" con el formato \"Apache combined log\". Los desarrolladores de plugins pueden crear sus propios archivos de registro colocando los archivos '*.log' en un directorio de datos en sus plugins.",
         "PleaseBePatient": "NOTA: Generar visitas y acciones puede tardar unos minutos, por favor tenga paciencia...",
-        "PluginDescription": "Plugin para crear visitas falsas. Puede ser usado por los usuarios o desarrolladores de de Piwik como una manera fácil de generar datos falsos para rellenar los informes de Piwik.",
         "ReRunArchiveScript": "Por favor vuelve a ejecutar el script archive.php de Piwik en el crontab para actualizar los informes. %sVer \"Como configurar el archivo automático de tus informes\"%s",
         "SelectWebsite": "Seleccionar Sitio Web",
         "Submit": "Enviar",

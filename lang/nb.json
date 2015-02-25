@@ -2,6 +2,7 @@
     "VisitorGenerator": {
         "ChoiceYes": "Ja, jeg er sikker!",
         "NbRequestsPerSec": "Forespørsler per sekund",
-        "SelectWebsite": "Velg nettsted"
+        "SelectWebsite": "Velg nettsted",
+        "Submit": "Send"
     }
 }

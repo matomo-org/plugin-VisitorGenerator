@@ -11,7 +11,6 @@
         "NotReversible": "Il sera %s impossible%s de supprimer facilement ces données des logs Piwik.",
         "NumberOfGeneratedActions": "Nombre d'actions générées",
         "PleaseBePatient": "Note : cela peut prendre plusieurs minutes de générer des visites et des actions, veuillez patienter...",
-        "PluginDescription": "Plugin visant à créer de fausses visites. Il peut être utilisé par les utilisateurs Piwik ou par les développeurs comme un moyen aisé de générer de fausses données de manière à peupler les rapports Piwik.",
         "ReRunArchiveScript": "Veuillez ré-exécuter le script d'archivage Piwik archive.php via la crontab afin de rafraîchir les rapports. %sConsultez \"Comment mettre en place l'archivage automatique de vos rapports\"%s",
         "SelectWebsite": "Sélectionner le site Web",
         "Submit": "Soumettre",

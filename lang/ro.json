@@ -13,7 +13,6 @@
         "NumberOfGeneratedActions": "Numărul de acțiuni generate",
         "OverwriteLogFiles": "Puteți suprascrie fișierele jurnal care sunt utilizate pentru a genera vizite false (de schimbare sau a adăuga fișiere în %s). Există fișiere jurnal de cereri de la \"piwik.php\" în formatul \"log Apache combinat\". Dezvoltatorii plugin poate oferi propriile fișiere jurnal prin plasarea \"*. Log\" fișiere într-un director \"de date\", a plugin lor.",
         "PleaseBePatient": "NOTĂ: S-ar putea să dureze câteva minute pentru a genera vizite și acțiuni, vă rog să aveți răbdare ...",
-        "PluginDescription": "Plugin pentru a crea vizite false. Acest lucru poate fi folosit de către utilizatori Piwik sau dezvoltatori ca o modalitate ușoară de a genera date false pentru a popula rapoarte Piwik.",
         "ReRunArchiveScript": "Vă rugăm să se ruleze script-ul Piwik archive.php în crontab pentru a reîmprospăta rapoartele. %svezi \"Cum se creaza auto-arhivare a rapoartelor dvs.\"%s",
         "SelectWebsite": "Alege site-ul",
         "Submit": "Trimite",

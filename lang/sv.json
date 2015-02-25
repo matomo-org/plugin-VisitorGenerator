@@ -13,7 +13,6 @@
         "NumberOfGeneratedActions": "Antal generade handlingar",
         "OverwriteLogFiles": "Du kan skriva över loggiflerna som används för att generera fiktiva besök (ändra eller lägg till filer i %s). Det finns loggfiler för föfrågningar till \"piwik.php\" i formatet \"Apache combined log\". Utvecklare som skapar tillägg kan skapa sina egna loggfiler genom att skapa '*.log'-filer i en 'data'-katalog i tilläggets mapp.",
         "PleaseBePatient": "Observera: Det kan ta några minuter att generera besökare och handlingar, så vi ber dig ha tålamod...",
-        "PluginDescription": "Plugin för att skapa falska besök. Detta kan användas av Piwik användare eller utvecklare som på ett enkelt sätt kan generera falska uppgifter för att befolka Piwik rapporter.",
         "ReRunArchiveScript": "Var snäll och kör om ditt archive.php Piwikscript i tabben i hörnet för att förnya rapporterna. %s Se \"Att sätta upp Automatisk-Arkivering för dina rapporter\"%s",
         "SelectWebsite": "Välj webbplats",
         "Submit": "Skicka",

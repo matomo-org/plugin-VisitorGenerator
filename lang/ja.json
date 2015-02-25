@@ -13,7 +13,6 @@
         "NumberOfGeneratedActions": "生成されたアクション数",
         "OverwriteLogFiles": "フェイクビジットを生成するために使われているログファイルは、上書きすることができます (%s でファイルを変更または追加) 。 \"Apache combined log\" フォーマットに、\"piwik.php\" へのリクエストのログファイルがあります。プラグイン開発者は、プラグインの 'data' ディレクトリー内に 'log' ファイルを設置することにより、独自のログファイルを、提供することができます。",
         "PleaseBePatient": "注) ビジットとアクションを生成するには、数分かかる場合があります。今しばらくお待ちください。",
-        "PluginDescription": "偽のビジットを作成するプラグインです。 Piwik のユーザーや開発者が、Piwik リポートに偽のデータを生成する簡単な方法として使用することができます。",
         "ReRunArchiveScript": "レポート更新のため、クーロンタブ '.\/console core:archive' コマンドを再実行してください。%sSee \"How to Set up Auto-Archiving of Your Reports\"%s",
         "SelectWebsite": "ウェブサイトの選択",
         "Submit": "実行",

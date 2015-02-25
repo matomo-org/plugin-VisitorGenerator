@@ -5,7 +5,6 @@
         "DaysToCompute": "計算天數",
         "NbRequestsPerSec": "每秒請求數",
         "NotReversible": "它可能%s無法%s簡單地從 piwik 記錄中刪除。",
-        "PluginDescription": "這個外掛用於建立假的訪客。這可以讓 Piwik 使用者或開發人員輕鬆產生假的資料來填充 Piwik 報表。",
         "SelectWebsite": "選擇網站",
         "Submit": "送出",
         "VisitorGenerator": "訪客產生器",
