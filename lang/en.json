@@ -18,6 +18,7 @@
         "GeneratedVisitsFor": "Generated visits for %1$s and for the last %2$s days",
         "ReRunArchiveScript": "Please re-run the crontab './console core:archive' command to refresh the reports. %sSee \"How to Set up Auto-Archiving of Your Reports\"%s",
         "NumberOfGeneratedActions": "Number of generated actions",
-        "CliToolUsage": "By using the %sPiwik CLI tool%s you can not only generate even more visits but also users, websites and goals."
+        "CliToolUsage": "By using the %sPiwik CLI tool%s you can not only generate even more visits but also users, websites and goals.",
+        "CustomPiwikUrl": "Custom Piwik URL"
     }
 }
