@@ -12,7 +12,7 @@ use Piwik\ArchiveProcessor\Rules;
 use Piwik\Common;
 use Piwik\Nonce;
 use Piwik\Piwik;
-use Piwik\Tracker\PageUrl;
+use Piwik\UrlHelper;
 use Piwik\Plugin\ControllerAdmin;
 use Piwik\Plugins\SitesManager\API as SitesManagerAPI;
 use Piwik\Plugins\VisitorGenerator\Generator\VisitsFake;
@@ -115,7 +115,7 @@ class Controller extends ControllerAdmin
     {
         $customPiwikUrl = Common::getRequestVar('customPiwikUrl', false, 'string');
 
-        if (!$customPiwikUrl = PageUrl::getUrlIfLookValid($customPiwikUrl)) {
+        if (!UrlHelper::isLookLikeUrl($customPiwikUrl)) {
             throw new \Exception("The Custom Piwik Tracker Url you entered doesn't seem to be valid.");
         }
 
