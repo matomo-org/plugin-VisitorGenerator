@@ -15,11 +15,23 @@ include_once __DIR__ . '/libs/Faker/autoload.php';
 class Generator
 {
     protected $faker;
+    protected $piwikUrl;
 
-    public function __construct()
+    /**
+     * @param null $piwikUrl
+     */
+    public function __construct($piwikUrl = null)
     {
         $this->faker = \Faker\Factory::create('en_EN');
         $this->faker->addProvider(new Faker\Request($this->faker));
+        $this->setPiwikUrl($piwikUrl);
+    }
+
+    /**
+     * @param $piwikUrl
+     */
+    protected function setPiwikUrl($piwikUrl) {
+        $this->piwikUrl = $piwikUrl;
     }
 
     /**
@@ -27,7 +39,11 @@ class Generator
      */
     protected function getPiwikUrl()
     {
-        $url = SettingsPiwik::getPiwikUrl();
+        if($this->piwikUrl) {
+            $url = $this->piwikUrl;
+        } else {
+            $url = SettingsPiwik::getPiwikUrl();
+        }
 
         // this is a workaround when force_ssl=1, and the HTTPS URL is not fetchable from CLI
         $url = str_replace('https://localhost', 'http://localhost', $url);

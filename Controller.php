@@ -12,11 +12,13 @@ use Piwik\ArchiveProcessor\Rules;
 use Piwik\Common;
 use Piwik\Nonce;
 use Piwik\Piwik;
+use Piwik\UrlHelper;
 use Piwik\Plugin\ControllerAdmin;
 use Piwik\Plugins\SitesManager\API as SitesManagerAPI;
 use Piwik\Plugins\VisitorGenerator\Generator\VisitsFake;
 use Piwik\Plugins\VisitorGenerator\Generator\VisitsFromLogs;
 use Piwik\SettingsServer;
+use Piwik\SettingsPiwik;
 use Piwik\Site;
 use Piwik\Timer;
 use Piwik\View;
@@ -37,6 +39,7 @@ class Controller extends ControllerAdmin
         $view->nonce = Nonce::getNonce('VisitorGenerator.generate');
 
         $view->countMinActionsPerRun = $this->numFakeVisits;
+        $view->customPiwikUrl = SettingsPiwik::getPiwikUrl();
         $view->accessLogPath = PIWIK_INCLUDE_PATH . '/plugins/VisitorGenerator/data';
 
         return $view->render();
@@ -48,6 +51,7 @@ class Controller extends ControllerAdmin
         $this->checkNonce();
 
         $daysToCompute = $this->checkDays();
+        $customPiwikUrl = $this->checkCustomPiwikUrl();
         $idSite = Common::getRequestVar('idSite', false, 'string', $_POST);
 
         SettingsServer::setMaxExecutionTime(0);
@@ -69,12 +73,12 @@ class Controller extends ControllerAdmin
         $nbActionsTotal = 0;
         while ($time <= time()) {
 
-            $fromLogs = new VisitsFromLogs();
+            $fromLogs = new VisitsFromLogs($customPiwikUrl);
             foreach ($idSites as $idSite) {
                 $nbActionsTotal += $fromLogs->generate($time, $idSite);
             }
 
-            $fakeVisits = new VisitsFake();
+            $fakeVisits = new VisitsFake($customPiwikUrl);
             foreach ($idSites as $idSite) {
                 $nbActionsTotal += $fakeVisits->generate($time, $idSite, $this->numFakeVisits);
             }
@@ -105,6 +109,17 @@ class Controller extends ControllerAdmin
         }
 
         return $daysToCompute;
+    }
+
+    private function checkCustomPiwikUrl()
+    {
+        $customPiwikUrl = Common::getRequestVar('customPiwikUrl', false, 'string');
+
+        if (!UrlHelper::isLookLikeUrl($customPiwikUrl)) {
+            throw new \Exception("The Custom Piwik Tracker Url you entered doesn't seem to be valid.");
+        }
+
+        return $customPiwikUrl;
     }
 
     private function checkNonce()

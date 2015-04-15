@@ -16,6 +16,7 @@ use Piwik\Plugins\VisitorGenerator\Generator\VisitsFake;
 use Piwik\Plugins\VisitorGenerator\Generator\VisitsFromLogs;
 use Piwik\Site;
 use Piwik\Timer;
+use Piwik\UrlHelper;
 use Symfony\Component\Console\Helper\QuestionHelper;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -33,12 +34,14 @@ class GenerateVisits extends ConsoleCommand
         $this->addOption('no-fake', null, InputOption::VALUE_NONE, 'If set, no fake visits will be generated', null);
         $this->addOption('no-logs', null, InputOption::VALUE_NONE, 'If set, no visits from logs will be generated', null);
         $this->addOption('limit-fake-visits', null, InputOption::VALUE_REQUIRED, 'Limits the number of fake visits', null);
+        $this->addOption('custom-piwik-url', null, InputOption::VALUE_REQUIRED, "Defines an alternate Piwik URL, e.g. if Piwik is installed behind a Load-Balancer.");
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $timer  = new Timer();
-        $days   = $this->checkDays($input);
+        $timer = new Timer();
+        $days = $this->checkDays($input);
+        $customPiwikUrl = $this->checkCustomPiwikUrl($input);
         $idSite = $this->getIdSite($input, $output);
 
         $time = time() - ($days - 1) * 86400;
@@ -51,15 +54,15 @@ class GenerateVisits extends ConsoleCommand
 
             if (!$input->getOption('no-fake')) {
                 $limit = $this->getLimitFakeVisits($input);
-                Access::doAsSuperUser(function () use ($time, $idSite, $limit, &$nbActionsTotal) {
-                    $fakeVisits = new VisitsFake();
+                Access::doAsSuperUser(function () use ($time, $idSite, $limit, &$nbActionsTotal, $customPiwikUrl) {
+                    $fakeVisits = new VisitsFake($customPiwikUrl);
                     $nbActionsTotal += $fakeVisits->generate($time, $idSite, $limit);
                 });
             }
 
             if (!$input->getOption('no-logs')) {
-                Access::doAsSuperUser(function () use ($time, $idSite, &$nbActionsTotal) {
-                    $fromLogs = new VisitsFromLogs();
+                Access::doAsSuperUser(function () use ($time, $idSite, &$nbActionsTotal, $customPiwikUrl) {
+                    $fromLogs = new VisitsFromLogs($customPiwikUrl);
                     $nbActionsTotal += $fromLogs->generate($time, $idSite);
                 });
             }
@@ -86,13 +89,26 @@ class GenerateVisits extends ConsoleCommand
 
     private function checkDays(InputInterface $input)
     {
-        $days = (int) $input->getOption('days');
+        $days = (int)$input->getOption('days');
 
         if ($days < 1) {
             throw new \InvalidArgumentException('Days to compute must be greater or equal to 1.');
         }
 
         return $days;
+    }
+
+    private function checkCustomPiwikUrl(InputInterface $input)
+    {
+        if (!$customPiwikUrl = $input->getOption('custom-piwik-url')) {
+            return null;
+        }
+
+        if (!UrlHelper::isLookLikeUrl($customPiwikUrl)) {
+            throw new \Exception("The Custom Piwik Tracker Url you entered doesn't seem to be valid.");
+        }
+
+        return $customPiwikUrl;
     }
 
     private function getIdSite(InputInterface $input, OutputInterface $output)
@@ -105,7 +121,7 @@ class GenerateVisits extends ConsoleCommand
             $idSite = $helper->ask($input, $output, new Question('ID of the site in which to generate the visits: '));
         }
 
-        $idSite = (int) $idSite;
+        $idSite = (int)$idSite;
 
         return Access::doAsSuperUser(function () use ($idSite) {
             if (!Site::getSite($idSite)) {
