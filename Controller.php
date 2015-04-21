@@ -39,7 +39,6 @@ class Controller extends ControllerAdmin
         $view->nonce = Nonce::getNonce('VisitorGenerator.generate');
 
         $view->countMinActionsPerRun = $this->numFakeVisits;
-        $view->customPiwikUrl = SettingsPiwik::getPiwikUrl();
         $view->accessLogPath = PIWIK_INCLUDE_PATH . '/plugins/VisitorGenerator/data';
 
         return $view->render();
@@ -51,7 +50,6 @@ class Controller extends ControllerAdmin
         $this->checkNonce();
 
         $daysToCompute = $this->checkDays();
-        $customPiwikUrl = $this->checkCustomPiwikUrl();
         $idSite = Common::getRequestVar('idSite', false, 'string', $_POST);
 
         SettingsServer::setMaxExecutionTime(0);
@@ -73,12 +71,12 @@ class Controller extends ControllerAdmin
         $nbActionsTotal = 0;
         while ($time <= time()) {
 
-            $fromLogs = new VisitsFromLogs($customPiwikUrl);
+            $fromLogs = new VisitsFromLogs();
             foreach ($idSites as $idSite) {
                 $nbActionsTotal += $fromLogs->generate($time, $idSite);
             }
 
-            $fakeVisits = new VisitsFake($customPiwikUrl);
+            $fakeVisits = new VisitsFake();
             foreach ($idSites as $idSite) {
                 $nbActionsTotal += $fakeVisits->generate($time, $idSite, $this->numFakeVisits);
             }
@@ -109,17 +107,6 @@ class Controller extends ControllerAdmin
         }
 
         return $daysToCompute;
-    }
-
-    private function checkCustomPiwikUrl()
-    {
-        $customPiwikUrl = Common::getRequestVar('customPiwikUrl', false, 'string');
-
-        if (!UrlHelper::isLookLikeUrl($customPiwikUrl)) {
-            throw new \Exception("The Custom Piwik Tracker Url you entered doesn't seem to be valid.");
-        }
-
-        return $customPiwikUrl;
     }
 
     private function checkNonce()
