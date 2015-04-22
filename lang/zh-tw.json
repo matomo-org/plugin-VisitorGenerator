@@ -1,13 +1,13 @@
 {
     "VisitorGenerator": {
+        "VisitorGenerator": "訪客產生器",
+        "Warning": "你將產生的假訪客將會記錄在你的 Piwik 資料庫裡。",
+        "NotReversible": "它可能%s無法%s簡單地從 piwik 記錄中刪除。",
         "AreYouSure": "你確定要產生假的訪客嗎？",
         "ChoiceYes": "是，我確定！",
-        "DaysToCompute": "計算天數",
-        "NbRequestsPerSec": "每秒請求數",
-        "NotReversible": "它可能%s無法%s簡單地從 piwik 記錄中刪除。",
-        "SelectWebsite": "選擇網站",
         "Submit": "送出",
-        "VisitorGenerator": "訪客產生器",
-        "Warning": "你將產生的假訪客將會記錄在你的 Piwik 資料庫裡。"
+        "SelectWebsite": "選擇網站",
+        "NbRequestsPerSec": "每秒請求數",
+        "DaysToCompute": "計算天數"
     }
 }

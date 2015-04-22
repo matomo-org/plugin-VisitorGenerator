@@ -1,11 +1,11 @@
 {
     "VisitorGenerator": {
+        "VisitorGenerator": "Generator Obiskovalcev",
+        "Warning": "Ravnokar boste generirali navidezne obiske, ki bodo shranjeni v podatkovno bazo vašega sistema Piwik.",
         "AreYouSure": "Ste prepričani, da želite generirate navidezne obiske?",
         "ChoiceYes": "Da, prepričan sem!",
-        "NbRequestsPerSec": "Zahtev na sekundo",
-        "SelectWebsite": "Izberi spletno stran",
         "Submit": "Uveljavi",
-        "VisitorGenerator": "Generator Obiskovalcev",
-        "Warning": "Ravnokar boste generirali navidezne obiske, ki bodo shranjeni v podatkovno bazo vašega sistema Piwik."
+        "SelectWebsite": "Izberi spletno stran",
+        "NbRequestsPerSec": "Zahtev na sekundo"
     }
 }

@@ -1,14 +1,14 @@
 {
     "VisitorGenerator": {
+        "VisitorGenerator": "מחולל מבקרים",
+        "Warning": "אתה עומד לחולל ביקורים מזויפים שיאוכסנו במסד הנתונים של ה-Piwik שלך.",
         "AreYouSure": "בטוח שאתה רוצה לחולל ביקורים מזויפים?",
         "ChoiceYes": "כן, אני בטוח!",
-        "DaysToCompute": "ימים לחישוב",
-        "NbRequestsPerSec": "בקשות לשניה",
-        "NumberOfGeneratedActions": "מספורת פעולות שחוללו",
-        "PleaseBePatient": "לתשומת לבך: זה עלול לקחת מספר דקות לחולל ביקורים ופעולות, נא להתאזר בסבלנות...",
-        "SelectWebsite": "בחירת אתר",
         "Submit": "שליחה",
-        "VisitorGenerator": "מחולל מבקרים",
-        "Warning": "אתה עומד לחולל ביקורים מזויפים שיאוכסנו במסד הנתונים של ה-Piwik שלך."
+        "SelectWebsite": "בחירת אתר",
+        "NbRequestsPerSec": "בקשות לשניה",
+        "DaysToCompute": "ימים לחישוב",
+        "PleaseBePatient": "לתשומת לבך: זה עלול לקחת מספר דקות לחולל ביקורים ופעולות, נא להתאזר בסבלנות...",
+        "NumberOfGeneratedActions": "מספורת פעולות שחוללו"
     }
 }

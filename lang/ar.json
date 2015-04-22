@@ -1,13 +1,13 @@
 {
     "VisitorGenerator": {
+        "VisitorGenerator": "مولد الزيارات",
+        "Warning": "أنت على وشك توليد زيارات زائفة والتي سيتم تسجيلها في قاعدة البيانات.",
+        "NotReversible": "لن يكون ممكناً %s مطلقاً %s أو بسهولة حذف هذه الزيارات من سجلات Piwik.",
         "AreYouSure": "هل ترغب حقاً في توليد الزيارات الزائفة؟",
         "ChoiceYes": "نعم، أنا متأكد!",
-        "DaysToCompute": "أيام لاحتسابها",
-        "NbRequestsPerSec": "طلبات في الثانية",
-        "NotReversible": "لن يكون ممكناً %s مطلقاً %s أو بسهولة حذف هذه الزيارات من سجلات Piwik.",
-        "SelectWebsite": "اختر موقعاً",
         "Submit": "إرسال",
-        "VisitorGenerator": "مولد الزيارات",
-        "Warning": "أنت على وشك توليد زيارات زائفة والتي سيتم تسجيلها في قاعدة البيانات."
+        "SelectWebsite": "اختر موقعاً",
+        "NbRequestsPerSec": "طلبات في الثانية",
+        "DaysToCompute": "أيام لاحتسابها"
     }
 }

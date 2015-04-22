@@ -1,23 +1,23 @@
 {
     "VisitorGenerator": {
-        "AreYouSure": "Sei sicuro di voler creare delle visite false?",
-        "AutomaticReprocess": "I reports verranno ri-elaborati la prossima volta che visiterai i reports di Piwik. Questo potrebbe richiedere qualche minuto.",
-        "ChoiceYes": "Si, io sono sicuro!",
-        "CliToolUsage": "Utilizzando lo %sStrumento Piwik CLI%s puoi non solo generare persino più visite, ma anche utenti, siti web e obiettivi.",
-        "DaysToCompute": "Giorni per calcolare",
-        "GeneratedVisitsFor": "Visite generate per %1$s e per gli ultimi %2$s giorni",
-        "GenerateFakeActions": "Questo genererà almeno %d false azioni per queesto sito ogni giorno.",
-        "LogImporterNote": "C'è anche uno strumento più veloce per importare ampi dati di prova in Piwik, guarda il file %sREADME%s.",
-        "NbRequestsPerSec": "Richieste per secondo",
+        "PluginDescription": "Crea in Piwik delle visite e delle azioni false. Questo può essere utilizzato dagli utenti di Piwik o dagli sviluppatori come un semplice modo per generare dei falsi dati per popolare i report di Piwik.",
+        "VisitorGenerator": "Generatore di visite",
+        "Warning": "Grazie al generatore di visite puoi creare delle visite false che verranno salvate nel tuo Piwik database.",
         "NotReversible": "%s Non%s è possibile cancellare facilmente le visite false che hai creato dai log di Piwik.",
-        "NumberOfGeneratedActions": "Numero di azioni generate",
+        "AreYouSure": "Sei sicuro di voler creare delle visite false?",
+        "ChoiceYes": "Si, io sono sicuro!",
+        "Submit": "Invia",
+        "SelectWebsite": "Seleziona il Sito",
+        "NbRequestsPerSec": "Richieste per secondo",
+        "DaysToCompute": "Giorni per calcolare",
+        "GenerateFakeActions": "Questo genererà almeno %d false azioni per queesto sito ogni giorno.",
         "OverwriteLogFiles": "Puoi sovrascrivere i files di registro utilizzati per generare false visite (cambia o aggiungi files in %s). Ci sono log di richieste a \"piwik.php\" nel formato \"Apache combined log\". Gli sviluppatori di plugins possono fornire i propri log files mettendo i '*.log' files in una directory dati del loro plugin.",
         "PleaseBePatient": "NOTA: Generare visite e azioni potrebbe richiedere qualche minuto, sii paziente...",
-        "PluginDescription": "Crea in Piwik delle visite e delle azioni false. Questo può essere utilizzato dagli utenti di Piwik o dagli sviluppatori come un semplice modo per generare dei falsi dati per popolare i report di Piwik.",
+        "LogImporterNote": "C'è anche uno strumento più veloce per importare ampi dati di prova in Piwik, guarda il file %sREADME%s.",
+        "AutomaticReprocess": "I reports verranno ri-elaborati la prossima volta che visiterai i reports di Piwik. Questo potrebbe richiedere qualche minuto.",
+        "GeneratedVisitsFor": "Visite generate per %1$s e per gli ultimi %2$s giorni",
         "ReRunArchiveScript": "Si prega di riavviare lo script di Piwik archive.php nel crontab per rigenerare i reports. %sVedi: \"How to Setup Auto-Archiving of your Reports\"%s",
-        "SelectWebsite": "Seleziona il Sito",
-        "Submit": "Invia",
-        "VisitorGenerator": "Generatore di visite",
-        "Warning": "Grazie al generatore di visite puoi creare delle visite false che verranno salvate nel tuo Piwik database."
+        "NumberOfGeneratedActions": "Numero di azioni generate",
+        "CliToolUsage": "Utilizzando lo %sStrumento Piwik CLI%s puoi non solo generare persino più visite, ma anche utenti, siti web e obiettivi."
     }
 }

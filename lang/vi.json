@@ -1,13 +1,13 @@
 {
     "VisitorGenerator": {
+        "VisitorGenerator": "Người tạo khách truy cập",
+        "Warning": "Bạn muốn tạo ra truy cập giả mạo sẽ được ghi lại trong cơ sở dữ liệu Piwik của bạn.",
+        "NotReversible": "Nó sẽ %s %s không có thể dễ dàng xóa các truy cập từ các bản ghi Piwik.",
         "AreYouSure": "Bạn có chắc chắn bạn muốn tạo các lượt truy cập giả?",
         "ChoiceYes": "Đúng vậy, tôi chắc chắn!",
-        "DaysToCompute": "Các ngày cần tính",
-        "NbRequestsPerSec": "Các yêu cầu mỗi giây",
-        "NotReversible": "Nó sẽ %s %s không có thể dễ dàng xóa các truy cập từ các bản ghi Piwik.",
-        "SelectWebsite": "Chọn website",
         "Submit": "Trình (submit)",
-        "VisitorGenerator": "Người tạo khách truy cập",
-        "Warning": "Bạn muốn tạo ra truy cập giả mạo sẽ được ghi lại trong cơ sở dữ liệu Piwik của bạn."
+        "SelectWebsite": "Chọn website",
+        "NbRequestsPerSec": "Các yêu cầu mỗi giây",
+        "DaysToCompute": "Các ngày cần tính"
     }
 }

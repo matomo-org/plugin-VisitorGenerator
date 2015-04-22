@@ -1,15 +1,19 @@
 {
     "VisitorGenerator": {
-        "AreYouSure": "Weet u zeker dat u testbezoeken wilt genereren?",
-        "ChoiceYes": "Ja, ik ben zeker!",
-        "DaysToCompute": "Aantal dagen",
-        "NbRequestsPerSec": "Verzoeken per seconde",
-        "NotReversible": "Het is %s niet%s mogelijk om deze testgegevens weer makkelijk te verwijderen uit de Piwik logs.",
-        "NumberOfGeneratedActions": "Aantal gegenereerde acties",
-        "PleaseBePatient": "Let op: Het kan enkele minuten duren om bezoeken en acties te genereren. Wees geduldig....",
-        "SelectWebsite": "Selecteer Website",
-        "Submit": "Verzend",
         "VisitorGenerator": "Bezoekers Generator",
-        "Warning": "U staat op het punt om testbezoeken te genereren die opgeslagen zullen worden in uw Piwik database."
+        "Warning": "U staat op het punt om testbezoeken te genereren die opgeslagen zullen worden in uw Piwik database.",
+        "NotReversible": "Het is %sniet%s mogelijk om deze testgegevens weer eenvoudig te verwijderen uit de Piwik logs.",
+        "AreYouSure": "Weet u zeker dat u testbezoeken wilt genereren?",
+        "ChoiceYes": "Ja, ik weet het zeker!",
+        "Submit": "Verzend",
+        "SelectWebsite": "Selecteer Website",
+        "NbRequestsPerSec": "Verzoeken per seconde",
+        "DaysToCompute": "Aantal dagen",
+        "GenerateFakeActions": "Dit zal minstens %d nep acties genereren voor deze site, voor iedere dag.",
+        "PleaseBePatient": "Let op: Het kan enkele minuten duren om bezoeken en acties te genereren. Wees geduldig....",
+        "GeneratedVisitsFor": "Bezoeken gegenereerd voor %1$s en voor de laatste %2$s dagen.",
+        "ReRunArchiveScript": "Herhaal het crontab '.\/console core:archive' commando om de rapporten te verversen. Kijk hiervoor naar %s\"Hoe kun je rapporten Automatisch archiveren\"%s.",
+        "NumberOfGeneratedActions": "Aantal gegenereerde acties",
+        "CliToolUsage": "Door gebruik te maken van de %sPiwik CLI tool%s kun je niet alleen meer bezoeken genereren, maar ook gebruikers, websites en goals."
     }
 }

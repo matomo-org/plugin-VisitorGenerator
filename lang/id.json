@@ -1,13 +1,13 @@
 {
     "VisitorGenerator": {
+        "VisitorGenerator": "Pembangkit Kunjungan",
+        "Warning": "Anda akan menghasilkan kunjungan palsu yang akan disimpan dalam basisdata Piwik Anda.",
+        "NotReversible": "Ini %s tidak%s mungkin mudah menghapus kunjungan tersebut dari catatan piwik.",
         "AreYouSure": "Apakah Anda yakin membuat kunjungan palsu?",
         "ChoiceYes": "Ya, saya yakin!",
-        "DaysToCompute": "Hari untuk dihitung",
-        "NbRequestsPerSec": "Permintaan tiap detik",
-        "NotReversible": "Ini %s tidak%s mungkin mudah menghapus kunjungan tersebut dari catatan piwik.",
-        "SelectWebsite": "Pilih Situs",
         "Submit": "Kirim",
-        "VisitorGenerator": "Pembangkit Kunjungan",
-        "Warning": "Anda akan menghasilkan kunjungan palsu yang akan disimpan dalam basisdata Piwik Anda."
+        "SelectWebsite": "Pilih Situs",
+        "NbRequestsPerSec": "Permintaan tiap detik",
+        "DaysToCompute": "Hari untuk dihitung"
     }
 }

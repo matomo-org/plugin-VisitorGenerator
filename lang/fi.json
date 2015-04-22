@@ -1,20 +1,20 @@
 {
     "VisitorGenerator": {
-        "AreYouSure": "Haluatko varmasti luoda valheellisia käyntejä?",
-        "AutomaticReprocess": "Raportit käsitellään uudelleen, kun käyt seuraavan kerran Piwikin raporteissa. Tämä saattaa kestää joitakin minuutteja.",
-        "ChoiceYes": "Kyllä, olen varma!",
-        "DaysToCompute": "Päivien määrä",
-        "GeneratedVisitsFor": "Tehdyt käynnit %1$s:lla viimeisten %2$s päivän aikana",
-        "GenerateFakeActions": "Tämä luo vähintään %d kuvitteellista toimintoa tälle sivulle jokaiselle päivälle",
-        "LogImporterNote": "On olemassa myös nopeampi työkalu, joka tuo suuria testidatoja Piwikiin, katso myös %sREADME%s.",
-        "NbRequestsPerSec": "Pyyntöä \/ sekunti",
-        "NotReversible": "Näitä käyntejä %sei voi%s helposti poistaa Piwikin logeista.",
-        "NumberOfGeneratedActions": "Toimeenpantujen toimintojen lukumäärä",
-        "PleaseBePatient": "Huom: Käyntien ja toimintojen luonti saattaa kestää joitakin minuutteja, pyydämme kärsivällisyyttä...",
-        "ReRunArchiveScript": "Ole hyvä ja aja uudelleen archive.php Piwik komentosarja crontabissa päivittääksesi raportit. %sKatso \"Miten asennan automaattisen raporttien arkistoinnin\"%s",
-        "SelectWebsite": "Valitse verkkosivu",
-        "Submit": "Lähetä",
         "VisitorGenerator": "Kävijöiden luonti",
-        "Warning": "Olet luomassa valheellisia"
+        "Warning": "Olet luomassa valheellisia",
+        "NotReversible": "Näitä käyntejä %sei voi%s helposti poistaa Piwikin logeista.",
+        "AreYouSure": "Haluatko varmasti luoda valheellisia käyntejä?",
+        "ChoiceYes": "Kyllä, olen varma!",
+        "Submit": "Lähetä",
+        "SelectWebsite": "Valitse verkkosivu",
+        "NbRequestsPerSec": "Pyyntöä \/ sekunti",
+        "DaysToCompute": "Päivien määrä",
+        "GenerateFakeActions": "Tämä luo vähintään %d kuvitteellista toimintoa tälle sivulle jokaiselle päivälle",
+        "PleaseBePatient": "Huom: Käyntien ja toimintojen luonti saattaa kestää joitakin minuutteja, pyydämme kärsivällisyyttä...",
+        "LogImporterNote": "On olemassa myös nopeampi työkalu, joka tuo suuria testidatoja Piwikiin, katso myös %sREADME%s.",
+        "AutomaticReprocess": "Raportit käsitellään uudelleen, kun käyt seuraavan kerran Piwikin raporteissa. Tämä saattaa kestää joitakin minuutteja.",
+        "GeneratedVisitsFor": "Tehdyt käynnit %1$s:lla viimeisten %2$s päivän aikana",
+        "ReRunArchiveScript": "Ole hyvä ja aja uudelleen archive.php Piwik komentosarja crontabissa päivittääksesi raportit. %sKatso \"Miten asennan automaattisen raporttien arkistoinnin\"%s",
+        "NumberOfGeneratedActions": "Toimeenpantujen toimintojen lukumäärä"
     }
 }

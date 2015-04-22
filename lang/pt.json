@@ -1,13 +1,13 @@
 {
     "VisitorGenerator": {
+        "VisitorGenerator": "Gerador de Visitantes",
+        "Warning": "Está prestes a gerar visitas falsas que serão guardadas na sua base de dados Piwik.",
+        "NotReversible": "%s Não%s será possível eliminar com facilidade estas visitas dos seus registos Piwik.",
         "AreYouSure": "Tem a certeza que deseja gerar visitas falsas?",
         "ChoiceYes": "Sim, tenho a certeza!",
-        "DaysToCompute": "Dias para computar",
-        "NbRequestsPerSec": "Pedidos por segundo",
-        "NotReversible": "%s Não%s será possível eliminar com facilidade estas visitas dos seus registos Piwik.",
-        "SelectWebsite": "Seleccionar Website",
         "Submit": "Submeter",
-        "VisitorGenerator": "Gerador de Visitantes",
-        "Warning": "Está prestes a gerar visitas falsas que serão guardadas na sua base de dados Piwik."
+        "SelectWebsite": "Seleccionar Website",
+        "NbRequestsPerSec": "Pedidos por segundo",
+        "DaysToCompute": "Dias para computar"
     }
 }

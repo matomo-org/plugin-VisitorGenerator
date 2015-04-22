@@ -1,16 +1,16 @@
 {
     "VisitorGenerator": {
+        "VisitorGenerator": "Gerador de visitantes",
+        "Warning": "Você está prestes a gerar visitas falsas que serão gravadas no banco de dados Piwik.",
+        "NotReversible": "%s Não %s será possível apagar facilmente estas visitas dos logs Piwik.",
         "AreYouSure": "Tem certeza de que quer gerar visitas falsas?",
         "ChoiceYes": "Sim, eu tenho certeza!",
-        "DaysToCompute": "Dias para computar",
+        "Submit": "Enviar",
+        "SelectWebsite": "Selecionar Website",
         "NbRequestsPerSec": "Solicitações por segundo",
-        "NotReversible": "%s Não %s será possível apagar facilmente estas visitas dos logs Piwik.",
-        "NumberOfGeneratedActions": "Número de ações geradas",
+        "DaysToCompute": "Dias para computar",
         "PleaseBePatient": "NOTA: Pode levar alguns minutos para gerar visitas e ações, por favor, seja paciente...",
         "ReRunArchiveScript": "Por favor, execute novamente o script archive.php no crontab para atualizar os relatórios. %sVeja \"Como definir o auto-armazenamento de seus relatórios\"%s",
-        "SelectWebsite": "Selecionar Website",
-        "Submit": "Enviar",
-        "VisitorGenerator": "Gerador de visitantes",
-        "Warning": "Você está prestes a gerar visitas falsas que serão gravadas no banco de dados Piwik."
+        "NumberOfGeneratedActions": "Número de ações geradas"
     }
 }

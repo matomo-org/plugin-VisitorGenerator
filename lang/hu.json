@@ -1,13 +1,13 @@
 {
     "VisitorGenerator": {
+        "VisitorGenerator": "Látogatógenerátor",
+        "Warning": "Fals látogatások generálására készülsz, melyeket rögzíteni fogunk a Piwik adatbázisban.",
+        "NotReversible": "A műlátogatásokat %snem%s lehet egyszerűen kitörölni a Piwik naplófájlokból",
         "AreYouSure": "Biztosan szeretnél fals adatokat generálni?",
         "ChoiceYes": "Igen, biztos vagyok benne!",
-        "DaysToCompute": "Napok száma",
-        "NbRequestsPerSec": "Lekérések másodpercenként",
-        "NotReversible": "A műlátogatásokat %snem%s lehet egyszerűen kitörölni a Piwik naplófájlokból",
-        "SelectWebsite": "Weboldal kiválasztása",
         "Submit": "Elküld",
-        "VisitorGenerator": "Látogatógenerátor",
-        "Warning": "Fals látogatások generálására készülsz, melyeket rögzíteni fogunk a Piwik adatbázisban."
+        "SelectWebsite": "Weboldal kiválasztása",
+        "NbRequestsPerSec": "Lekérések másodpercenként",
+        "DaysToCompute": "Napok száma"
     }
 }

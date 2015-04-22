@@ -1,20 +1,21 @@
 {
     "VisitorGenerator": {
-        "AreYouSure": "Êtes-vous sûrs de vouloir générer de fausses visites?",
-        "AutomaticReprocess": "Les rapports seront calculés à nouveau la prochaine fois que afficherez les rapports Piwik, cela peut prendre quelques minutes.",
-        "ChoiceYes": "Oui, je suis sûr!",
-        "CliToolUsage": "En utilisation %sl'outil en ligne de commande Piwik%s vous pouvez non seulement générer encore plus de visites mais aussi d'utilisateurs, sites web et objectifs.",
-        "DaysToCompute": "Jours à calculer",
-        "GeneratedVisitsFor": "Visites générées pour %1$s et pour les derniers %2$s jours",
-        "LogImporterNote": "Il existe un outil plus rapide pour importer des données de test volumineuses dans Piwik, consultez le fichier %sLISEZ-MOI%s.",
-        "NbRequestsPerSec": "Requêtes par seconde",
-        "NotReversible": "Il sera %s impossible%s de supprimer facilement ces données des logs Piwik.",
-        "NumberOfGeneratedActions": "Nombre d'actions générées",
-        "PleaseBePatient": "Note : cela peut prendre plusieurs minutes de générer des visites et des actions, veuillez patienter...",
-        "ReRunArchiveScript": "Veuillez ré-exécuter le script d'archivage Piwik archive.php via la crontab afin de rafraîchir les rapports. %sConsultez \"Comment mettre en place l'archivage automatique de vos rapports\"%s",
-        "SelectWebsite": "Sélectionner le site Web",
-        "Submit": "Soumettre",
+        "PluginDescription": "Créer des visites et actions de test dans Piwik. Ceci peut être utilisé par les utilisateurs ou développeurs Piwik comme un moyen simple d'obtenir des données simulées pour remplir les rapports Piwik.",
         "VisitorGenerator": "Générateur de visites",
-        "Warning": "Vous êtes sur le point de générer de fausses visites qui seront enregistrées dans votre base de donnés Piwik"
+        "Warning": "Vous êtes sur le point de générer de fausses visites qui seront enregistrées dans votre base de donnés Piwik",
+        "NotReversible": "Il sera %s impossible%s de supprimer facilement ces données des logs Piwik.",
+        "AreYouSure": "Êtes-vous sûrs de vouloir générer de fausses visites?",
+        "ChoiceYes": "Oui, je suis sûr!",
+        "Submit": "Soumettre",
+        "SelectWebsite": "Sélectionner le site Web",
+        "NbRequestsPerSec": "Requêtes par seconde",
+        "DaysToCompute": "Jours à calculer",
+        "PleaseBePatient": "Note : cela peut prendre plusieurs minutes de générer des visites et des actions, veuillez patienter...",
+        "LogImporterNote": "Il existe un outil plus rapide pour importer des données de test volumineuses dans Piwik, consultez le fichier %sLISEZ-MOI%s.",
+        "AutomaticReprocess": "Les rapports seront calculés à nouveau la prochaine fois que afficherez les rapports Piwik, cela peut prendre quelques minutes.",
+        "GeneratedVisitsFor": "Visites générées pour %1$s et pour les derniers %2$s jours",
+        "ReRunArchiveScript": "Veuillez ré-exécuter le script d'archivage Piwik archive.php via la crontab afin de rafraîchir les rapports. %sConsultez \"Comment mettre en place l'archivage automatique de vos rapports\"%s",
+        "NumberOfGeneratedActions": "Nombre d'actions générées",
+        "CliToolUsage": "En utilisation %sl'outil en ligne de commande Piwik%s vous pouvez non seulement générer encore plus de visites mais aussi d'utilisateurs, sites web et objectifs."
     }
 }

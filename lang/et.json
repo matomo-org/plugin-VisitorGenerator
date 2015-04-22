@@ -1,12 +1,12 @@
 {
     "VisitorGenerator": {
-        "ChoiceYes": "Jah, olen kindel!",
-        "DaysToCompute": "Loodavate päevade arv",
-        "NbRequestsPerSec": "Päringut sekundis",
-        "NumberOfGeneratedActions": "Genereeritud tegevuste arv",
-        "SelectWebsite": "Vali veebileht",
-        "Submit": "Jätka",
         "VisitorGenerator": "Külastuste generaator",
-        "Warning": "Sa oled genereerimas võltse külastusi, mis salvestatakse sinu Piwiku andmebaasis."
+        "Warning": "Sa oled genereerimas võltse külastusi, mis salvestatakse sinu Piwiku andmebaasis.",
+        "ChoiceYes": "Jah, olen kindel!",
+        "Submit": "Jätka",
+        "SelectWebsite": "Vali veebileht",
+        "NbRequestsPerSec": "Päringut sekundis",
+        "DaysToCompute": "Loodavate päevade arv",
+        "NumberOfGeneratedActions": "Genereeritud tegevuste arv"
     }
 }

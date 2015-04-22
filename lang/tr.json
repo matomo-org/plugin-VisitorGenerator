@@ -2,7 +2,7 @@
     "VisitorGenerator": {
         "AreYouSure": "Sahte ziyaretçi oluşturmak isteğinizden emin misiniz?",
         "ChoiceYes": "Evet, eminim!",
-        "SelectWebsite": "Website seçimi",
-        "Submit": "Gönder"
+        "Submit": "Gönder",
+        "SelectWebsite": "Website seçimi"
     }
 }

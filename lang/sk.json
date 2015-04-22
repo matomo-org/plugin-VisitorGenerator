@@ -1,13 +1,13 @@
 {
     "VisitorGenerator": {
+        "VisitorGenerator": "Generátor návštev",
+        "Warning": "Chystáte sa vytvárať falošné návštev, ktoré budú zaznamenané v databáze.",
+        "NotReversible": "To bude %s %s možné ľahko odstrániť pre tieto návštevy v záznamoch.",
         "AreYouSure": "Ste si istí, že chcete vytvoriť falošné návštevy?",
         "ChoiceYes": "Áno, som si istý!",
-        "DaysToCompute": "Dni pre výpočet",
-        "NbRequestsPerSec": "Žiadosti za sekundu",
-        "NotReversible": "To bude %s %s možné ľahko odstrániť pre tieto návštevy v záznamoch.",
-        "SelectWebsite": "Vybrať web",
         "Submit": "Odoslať",
-        "VisitorGenerator": "Generátor návštev",
-        "Warning": "Chystáte sa vytvárať falošné návštev, ktoré budú zaznamenané v databáze."
+        "SelectWebsite": "Vybrať web",
+        "NbRequestsPerSec": "Žiadosti za sekundu",
+        "DaysToCompute": "Dni pre výpočet"
     }
 }

@@ -1,13 +1,13 @@
 {
     "VisitorGenerator": {
+        "VisitorGenerator": "Prodhues Vizitorësh",
+        "Warning": "Ju ndan një hap nga prodhimi i vizitave gjasme, që do të regjistrohen te baza juaj e të dhënave Piwik.",
+        "NotReversible": "%sNuk%s do të jetë e mundur të fshihen kollaj këto vizita nga regjistrat e piwik-ut.",
         "AreYouSure": "Jeni i sigurt se doni të prodhohen vizita gjasme?",
         "ChoiceYes": "Po, jam i sigurt!",
-        "DaysToCompute": "Ditë llogaritjeje",
-        "NbRequestsPerSec": "Kërkesa për sekondë",
-        "NotReversible": "%sNuk%s do të jetë e mundur të fshihen kollaj këto vizita nga regjistrat e piwik-ut.",
-        "SelectWebsite": "Përzgjidhni site web",
         "Submit": "Parashtroje",
-        "VisitorGenerator": "Prodhues Vizitorësh",
-        "Warning": "Ju ndan një hap nga prodhimi i vizitave gjasme, që do të regjistrohen te baza juaj e të dhënave Piwik."
+        "SelectWebsite": "Përzgjidhni site web",
+        "NbRequestsPerSec": "Kërkesa për sekondë",
+        "DaysToCompute": "Ditë llogaritjeje"
     }
 }
