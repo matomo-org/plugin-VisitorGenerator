@@ -20,7 +20,7 @@ use Piwik\Plugins\VisitorGenerator\Generator\VisitsFromLogs;
 use Piwik\SettingsServer;
 use Piwik\SettingsPiwik;
 use Piwik\Site;
-use Piwik\Timer;
+use Piwik\Timer\Timer;
 use Piwik\View;
 
 class Controller extends ControllerAdmin
@@ -92,7 +92,7 @@ class Controller extends ControllerAdmin
         $view->timer = $timer;
         $view->days = $daysToCompute;
         $view->nbActionsTotal = $nbActionsTotal;
-        $view->nbRequestsPerSec = round($nbActionsTotal / $timer->getTime(), 0);
+        $view->nbRequestsPerSec = round($nbActionsTotal / $timer->getTimeElapsed(), 0);
         $view->siteName = $siteName;
 
         return $view->render();
