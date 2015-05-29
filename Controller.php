@@ -11,6 +11,7 @@ namespace Piwik\Plugins\VisitorGenerator;
 use Piwik\ArchiveProcessor\Rules;
 use Piwik\Common;
 use Piwik\Nonce;
+use Piwik\Notification;
 use Piwik\Piwik;
 use Piwik\UrlHelper;
 use Piwik\Plugin\ControllerAdmin;
@@ -113,9 +114,15 @@ class Controller extends ControllerAdmin
     {
         $nonce = Common::getRequestVar('form_nonce', '', 'string', $_POST);
 
-        if (Common::getRequestVar('choice', 'no') != 'yes' ||
-            !Nonce::verifyNonce('VisitorGenerator.generate', $nonce)
-        ) {
+        if (Common::getRequestVar('choice', 'no') != 'yes') {
+            $notification = new Notification(Piwik::translate('VisitorGenerator_ConfirmVisitorGeneration'));
+            $notification->context = Notification::CONTEXT_ERROR;
+            Notification\Manager::notify('confirmVisitorGeneration', $notification);
+
+            Piwik::redirectToModule('VisitorGenerator', 'index');
+        }
+
+        if (!Nonce::verifyNonce('VisitorGenerator.generate', $nonce)) {
             Piwik::redirectToModule('VisitorGenerator', 'index');
         }
 
