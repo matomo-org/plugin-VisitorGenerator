@@ -1,5 +1,6 @@
 {
     "VisitorGenerator": {
+        "PluginDescription": "Kreira lažne posete i akcije. Može se iskoristiti od strane Piwik korisnika ili programera kako bi se na lak način izgenerisali lažni podaci za popunjavanje izveštaja.",
         "VisitorGenerator": "Generator posetilaca",
         "Warning": "Upravo ćete generisati lažne posete koje će biti upisane u Piwik bazu.",
         "NotReversible": "%s Neće biti lako%s obrisati ove podatke iz Piwik zapisa.",
