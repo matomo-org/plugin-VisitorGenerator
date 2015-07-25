@@ -1,5 +1,6 @@
 {
     "VisitorGenerator": {
+        "PluginDescription": "Piwik において偽の訪問や行動を創りだす。これは Piwik のユーザーやデベロッパーがダミーデータを作成したり、Piwik の報告書を追加したりするときに使うことができます。",
         "VisitorGenerator": "ビジタージェネレータ",
         "Warning": "Piwik データベースに記録される偽のビジットを生成しようとしています。",
         "NotReversible": "Piwik のログからこれらのビジットを%s容易に削除することはできません%s。",

@@ -16,6 +16,7 @@
         "GeneratedVisitsFor": "Visites générées pour %1$s et pour les derniers %2$s jours",
         "ReRunArchiveScript": "Veuillez ré-exécuter le script d'archivage Piwik archive.php via la crontab afin de rafraîchir les rapports. %sConsultez \"Comment mettre en place l'archivage automatique de vos rapports\"%s",
         "NumberOfGeneratedActions": "Nombre d'actions générées",
-        "CliToolUsage": "En utilisation %sl'outil en ligne de commande Piwik%s vous pouvez non seulement générer encore plus de visites mais aussi d'utilisateurs, sites web et objectifs."
+        "CliToolUsage": "En utilisation %sl'outil en ligne de commande Piwik%s vous pouvez non seulement générer encore plus de visites mais aussi d'utilisateurs, sites web et objectifs.",
+        "CustomPiwikUrl": "URL Piwik personnalisée"
     }
 }

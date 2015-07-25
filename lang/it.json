@@ -18,6 +18,7 @@
         "GeneratedVisitsFor": "Visite generate per %1$s e per gli ultimi %2$s giorni",
         "ReRunArchiveScript": "Si prega di riavviare lo script di Piwik archive.php nel crontab per rigenerare i reports. %sVedi: \"How to Setup Auto-Archiving of your Reports\"%s",
         "NumberOfGeneratedActions": "Numero di azioni generate",
-        "CliToolUsage": "Utilizzando lo %sStrumento Piwik CLI%s puoi non solo generare persino più visite, ma anche utenti, siti web e obiettivi."
+        "CliToolUsage": "Utilizzando lo %sStrumento Piwik CLI%s puoi non solo generare persino più visite, ma anche utenti, siti web e obiettivi.",
+        "CustomPiwikUrl": "URL di Piwik personalizzato"
     }
 }

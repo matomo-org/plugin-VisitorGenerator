@@ -8,6 +8,7 @@
         "Submit": "Odoslať",
         "SelectWebsite": "Vybrať web",
         "NbRequestsPerSec": "Žiadosti za sekundu",
-        "DaysToCompute": "Dni pre výpočet"
+        "DaysToCompute": "Dni pre výpočet",
+        "GeneratedVisitsFor": "Generované návštevy pre %1$s a pre posledných %2$s dní"
     }
 }
