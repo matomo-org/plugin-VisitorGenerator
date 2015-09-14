@@ -1,7 +1,9 @@
 {% extends 'admin.twig' %}
 
+{% set title %}{{ 'VisitorGenerator_VisitorGenerator'|translate }}{% endset %}
+
 {% block content %}
-    <h2>{{ 'VisitorGenerator_VisitorGenerator'|translate }}</h2>
+    <h2>{{ title }}</h2>
     <p>{{ 'VisitorGenerator_PluginDescription'|translate }}</p>
     <div id="advancedUsageInfo" style="margin-right: 50px;">
         {% set advancedUsageInfo %}
