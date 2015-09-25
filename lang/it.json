@@ -5,13 +5,13 @@
         "Warning": "Grazie al generatore di visite puoi creare delle visite false che verranno salvate nel tuo Piwik database.",
         "NotReversible": "%s Non%s è possibile cancellare facilmente le visite false che hai creato dai log di Piwik.",
         "AreYouSure": "Sei sicuro di voler creare delle visite false?",
-        "ChoiceYes": "Si, io sono sicuro!",
+        "ChoiceYes": "Si, sono sicuro!",
         "Submit": "Invia",
         "SelectWebsite": "Seleziona il Sito",
         "NbRequestsPerSec": "Richieste per secondo",
-        "DaysToCompute": "Giorni per calcolare",
+        "DaysToCompute": "Giorni da calcolare",
         "GenerateFakeActions": "Questo genererà almeno %d false azioni per queesto sito ogni giorno.",
-        "OverwriteLogFiles": "Puoi sovrascrivere i files di registro utilizzati per generare false visite (cambia o aggiungi files in %s). Ci sono log di richieste a \"piwik.php\" nel formato \"Apache combined log\". Gli sviluppatori di plugins possono fornire i propri log files mettendo i '*.log' files in una directory dati del loro plugin.",
+        "OverwriteLogFiles": "Puoi sovrascrivere i files di registro utilizzati per generare false visite (cambia o aggiungi files in %s). Ci sono log di richieste a \"piwik.php\" nel formato \"Apache combined log\". Gli sviluppatori di plugin possono fornire i propri log files mettendo i '*.log' files in una directory dati del loro plugin.",
         "PleaseBePatient": "NOTA: Generare visite e azioni potrebbe richiedere qualche minuto, sii paziente...",
         "LogImporterNote": "C'è anche uno strumento più veloce per importare ampi dati di prova in Piwik, guarda il file %sREADME%s.",
         "AutomaticReprocess": "I reports verranno ri-elaborati la prossima volta che visiterai i reports di Piwik. Questo potrebbe richiedere qualche minuto.",
@@ -19,6 +19,6 @@
         "ReRunArchiveScript": "Si prega di riavviare lo script di Piwik archive.php nel crontab per rigenerare i reports. %sVedi: \"How to Setup Auto-Archiving of your Reports\"%s",
         "NumberOfGeneratedActions": "Numero di azioni generate",
         "CliToolUsage": "Utilizzando lo %sStrumento Piwik CLI%s puoi non solo generare persino più visite, ma anche utenti, siti web e obiettivi.",
-        "CustomPiwikUrl": "URL di Piwik personalizzato"
+        "CustomPiwikUrl": "URL personalizzato di Piwik"
     }
 }

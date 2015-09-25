@@ -18,6 +18,7 @@
         "GeneratedVisitsFor": "Generované návštěvy pro %1$s a za %2$s posledních dnů",
         "ReRunArchiveScript": "Prosím spusťte znovu skript archive.php na záložce cron. %sZjistěte více o nastavení automatického archivování%s.",
         "NumberOfGeneratedActions": "Počet generovaných akcí",
-        "CliToolUsage": "S použitím %snástroje Piwiku pro příkazovou řádku%s můžete nejen vygenerovat ještě více návštěv, ale i uživatelů, stránek a cílů."
+        "CliToolUsage": "S použitím %snástroje Piwiku pro příkazovou řádku%s můžete nejen vygenerovat ještě více návštěv, ale i uživatelů, stránek a cílů.",
+        "CustomPiwikUrl": "Vlastní URL Piwiku"
     }
 }

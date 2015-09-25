@@ -1,5 +1,6 @@
 {
     "VisitorGenerator": {
+        "PluginDescription": "Cria visitas e ações falsas no Piwik. Pode ser utilizado por usuários ou desenvolvedores Piwik como uma maneira fácil de gerar dados para povoar os relatórios do Piwik.",
         "VisitorGenerator": "Gerador de visitantes",
         "Warning": "Você está prestes a gerar visitas falsas que serão gravadas no banco de dados Piwik.",
         "NotReversible": "%s Não %s será possível apagar facilmente estas visitas dos logs Piwik.",
@@ -9,8 +10,13 @@
         "SelectWebsite": "Selecionar Website",
         "NbRequestsPerSec": "Solicitações por segundo",
         "DaysToCompute": "Dias para computar",
+        "GenerateFakeActions": "Isto irá gerar pelo menos %d ações falsas por dia neste site.",
+        "OverwriteLogFiles": "Você pode sobrescrever os arquivos de log que são usados ​​para gerar visitas falsas (alterar ou adicionar arquivos em %s). Há arquivos log de solicitações para \"piwik.php\" no formato \"Apache combined log\". Desenvolvedores de plugins podem fornecer seus próprios arquivos de log, colocando arquivos '*.log' dentro de um diretório de \"dados\" dos seus plugins.",
         "PleaseBePatient": "NOTA: Pode levar alguns minutos para gerar visitas e ações, por favor, seja paciente...",
+        "AutomaticReprocess": "Os relatórios serão reprocessados na próxima vez que você visitar os relatórios Piwik. Isso pode levar alguns minutos.",
+        "GeneratedVisitsFor": "Gerou visitas por %1$s e para os últimos %2$s dias",
         "ReRunArchiveScript": "Por favor, execute novamente o script archive.php no crontab para atualizar os relatórios. %sVeja \"Como definir o auto-armazenamento de seus relatórios\"%s",
-        "NumberOfGeneratedActions": "Número de ações geradas"
+        "NumberOfGeneratedActions": "Número de ações geradas",
+        "CustomPiwikUrl": "URL Piwik Personalizada"
     }
 }

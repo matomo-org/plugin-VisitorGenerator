@@ -18,6 +18,7 @@
         "GeneratedVisitsFor": "Generisane posete za %1$s za poslednjih %2$s dana",
         "ReRunArchiveScript": "Molimo vas da ponovo pokrenete archive.php pomoću Krona kako bi se ažurirali izveštaji. %sPogledajte kako da podesite automatsko arhiviranje vaših izveštaja.%s",
         "NumberOfGeneratedActions": "Broj generisanih akcija",
-        "CliToolUsage": "Korišćenjem %sPiwik klijentskih alata%s možete pored poseta generisati i korisnike, sajtove i ciljeve."
+        "CliToolUsage": "Korišćenjem %sPiwik klijentskih alata%s možete pored poseta generisati i korisnike, sajtove i ciljeve.",
+        "CustomPiwikUrl": "Korisnički definisana Pivik adresa"
     }
 }

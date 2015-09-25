@@ -1,8 +1,11 @@
 {
     "VisitorGenerator": {
+        "VisitorGenerator": "Besøksgenerator",
+        "AreYouSure": "Er du sikker på at du vil generere falske besøk?",
         "ChoiceYes": "Ja, jeg er sikker!",
         "Submit": "Send",
         "SelectWebsite": "Velg nettsted",
-        "NbRequestsPerSec": "Forespørsler per sekund"
+        "NbRequestsPerSec": "Forespørsler per sekund",
+        "CustomPiwikUrl": "Egendefinert Piwik URL"
     }
 }
