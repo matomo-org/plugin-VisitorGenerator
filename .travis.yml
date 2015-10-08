@@ -15,7 +15,7 @@ env:
   global:
     - PLUGIN_NAME=VisitorGenerator
     - PIWIK_ROOT_DIR=$TRAVIS_BUILD_DIR/piwik
-    - PIWIK_LATEST_STABLE_TEST_TARGET=2.15.0-b15
+    - PIWIK_LATEST_STABLE_TEST_TARGET=2.15.0-b16
     - secure: "GxmTHVTBGUprm4ty2VqiNoyVIcKZ23Tpw3J90V15+6vToyAh9JlbOU/iYcagz1VUuq/Mu7lbHqQ4pTLj+iRagCD6oSAMPscwCd6bAnFVixcfaWf/vlHECgFWDiwEk7+I3JowSMRPM6vMo8uKL0disb4JTPrKSerB68fZ+ZQCpdM="
     - secure: "E3JBECWzMuL2U4jvB6AVYnlGoMlN4f18QjPHEPpy81AwgQSZPtOdCt2NzwLQRNLlxMSSBH/MkqdUTfEuca0DJCtU7j+ifVqThlqnzadbaK16FvxirAfGyPHrWiPglZoOWNnjCnIHqgSCqUJznAo0G/RRnJyy4KVR3/Q3CxU6Wsw="
   matrix:
