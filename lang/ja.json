@@ -18,6 +18,7 @@
         "GeneratedVisitsFor": "%1$s と最後の %2$s 日に生成された訪問",
         "ReRunArchiveScript": "レポート更新のため、クーロンタブ '.\/console core:archive' コマンドを再実行してください。%sSee \"How to Set up Auto-Archiving of Your Reports\"%s",
         "NumberOfGeneratedActions": "生成されたアクション数",
-        "CliToolUsage": "%sPiwik CLI tool%s を使用することで、より多くのビジター、ユーザー、ウェブサイトや目標を生成することができます。"
+        "CliToolUsage": "%sPiwik CLI tool%s を使用することで、より多くのビジター、ユーザー、ウェブサイトや目標を生成することができます。",
+        "CustomPiwikUrl": "カスタム Piwik URL"
     }
 }
