@@ -2,6 +2,10 @@
 
 {% set title %}{{ 'VisitorGenerator_VisitorGenerator'|translate }}{% endset %}
 
+{% block topcontrols %}
+    {% include "@CoreHome/_siteSelectHeader.twig" %}
+{% endblock %}
+
 {% block content %}
     <h2>{{ title }}</h2>
     <p>{{ 'VisitorGenerator_PluginDescription'|translate }}</p>
@@ -12,14 +16,7 @@
     </div>
 
     <form method="POST" action="{{ linkTo({'module':'VisitorGenerator', 'action':'generate'}) }}">
-        <div class="form-group">
-            <label for="idSite">{{ 'General_ChooseWebsite'|translate }}</label>
-            <div piwik-siteselector
-                 class="sites_autocomplete"
-                 show-selected-site="true"
-                 switch-site-on-select="false"
-                 name="idSite"></div>
-        </div>
+        <input type="hidden" name="idSite" value="{{ idSite|e('html_attr') }}">
         <div class="form-group">
             <label for="daysToCompute">{{ 'VisitorGenerator_DaysToCompute'|translate }}</label>
             <input type="text" value="1" name="daysToCompute"/>
