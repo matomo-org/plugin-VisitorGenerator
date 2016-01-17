@@ -52,7 +52,7 @@ It also adds the following commands to the [Piwik CLI tool](http://developer.piw
    * Replay only log entries having the same day of the month
 - 1.2.1 New workaround:
    * When force_ssl is enabled, and visits are generated on `localhost`, force to use HTTP instead of HTTPS
-- 1.2.4 Minor UI tweaks to make it consistent with Piwik look & feel
+- 1.2.3 Minor UI tweaks to make it consistent with Piwik look & feel
 
 ## Support
 
