@@ -11,14 +11,13 @@ namespace Piwik\Plugins\VisitorGenerator;
 use Piwik\ArchiveProcessor\Rules;
 use Piwik\Common;
 use Piwik\Nonce;
+use Piwik\Notification;
 use Piwik\Piwik;
-use Piwik\UrlHelper;
 use Piwik\Plugin\ControllerAdmin;
 use Piwik\Plugins\SitesManager\API as SitesManagerAPI;
 use Piwik\Plugins\VisitorGenerator\Generator\VisitsFake;
 use Piwik\Plugins\VisitorGenerator\Generator\VisitsFromLogs;
 use Piwik\SettingsServer;
-use Piwik\SettingsPiwik;
 use Piwik\Site;
 use Piwik\Timer;
 use Piwik\View;
@@ -31,17 +30,16 @@ class Controller extends ControllerAdmin
     {
         Piwik::checkUserHasSuperUserAccess();
 
-        $sitesList = SitesManagerAPI::getInstance()->getSitesWithAdminAccess();
+        $nonce = Nonce::getNonce('VisitorGenerator.generate');
+        $idSite = Common::getRequestVar('idSite', null, 'int');
 
-        $view = new View('@VisitorGenerator/index');
-        $this->setBasicVariablesView($view);
-        $view->sitesList = $sitesList;
-        $view->nonce = Nonce::getNonce('VisitorGenerator.generate');
-
-        $view->countMinActionsPerRun = $this->numFakeVisits;
-        $view->accessLogPath = PIWIK_INCLUDE_PATH . '/plugins/VisitorGenerator/data';
-
-        return $view->render();
+        return $this->renderTemplate('@VisitorGenerator/index', array(
+            'nonce' => $nonce,
+            'idSite' => $idSite,
+            'countMinActionsPerRun' => $this->numFakeVisits,
+            'accessLogPath' => PIWIK_INCLUDE_PATH . '/plugins/VisitorGenerator/data',
+            'siteName' => $this->site->getName()
+        ));
     }
 
     public function generate()
@@ -113,9 +111,15 @@ class Controller extends ControllerAdmin
     {
         $nonce = Common::getRequestVar('form_nonce', '', 'string', $_POST);
 
-        if (Common::getRequestVar('choice', 'no') != 'yes' ||
-            !Nonce::verifyNonce('VisitorGenerator.generate', $nonce)
-        ) {
+        if (Common::getRequestVar('choice', 'no') != 'yes') {
+            $notification = new Notification(Piwik::translate('VisitorGenerator_ConfirmVisitorGeneration'));
+            $notification->context = Notification::CONTEXT_ERROR;
+            Notification\Manager::notify('confirmVisitorGeneration', $notification);
+
+            Piwik::redirectToModule('VisitorGenerator', 'index');
+        }
+
+        if (!Nonce::verifyNonce('VisitorGenerator.generate', $nonce)) {
             Piwik::redirectToModule('VisitorGenerator', 'index');
         }
 

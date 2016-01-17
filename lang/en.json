@@ -19,6 +19,7 @@
         "ReRunArchiveScript": "Please re-run the crontab './console core:archive' command to refresh the reports. %sSee \"How to Set up Auto-Archiving of Your Reports\"%s",
         "NumberOfGeneratedActions": "Number of generated actions",
         "CliToolUsage": "By using the %sPiwik CLI tool%s you can not only generate even more visits but also users, websites and goals.",
-        "CustomPiwikUrl": "Custom Piwik URL"
+        "CustomPiwikUrl": "Custom Piwik URL",
+        "ConfirmVisitorGeneration": "Please confirm the visitor generation by ticking the box"
     }
 }
