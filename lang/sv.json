@@ -17,6 +17,7 @@
         "GeneratedVisitsFor": "Genererade besök för %1$s och för de senaste %2$s dagarna",
         "ReRunArchiveScript": "Var snäll och kör om ditt archive.php Piwikscript i tabben i hörnet för att förnya rapporterna. %s Se \"Att sätta upp Automatisk-Arkivering för dina rapporter\"%s",
         "NumberOfGeneratedActions": "Antal generade handlingar",
-        "CliToolUsage": "Genom att använda %sPiwik CLI verktyget%s kan du inte enbart generera ännu fler besök utan också användare, webbplatser och mål."
+        "CliToolUsage": "Genom att använda %sPiwik CLI verktyget%s kan du inte enbart generera ännu fler besök utan också användare, webbplatser och mål.",
+        "CustomPiwikUrl": "Anpassad Piwik-URL"
     }
 }
