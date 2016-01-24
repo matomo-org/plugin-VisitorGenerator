@@ -2,7 +2,7 @@
     "VisitorGenerator": {
         "VisitorGenerator": "Prodhues Vizitorësh",
         "Warning": "Ju ndan një hap nga prodhimi i vizitave gjasme, që do të regjistrohen te baza juaj e të dhënave Piwik.",
-        "NotReversible": "%sNuk%s do të jetë e mundur të fshihen kollaj këto vizita nga regjistrat e piwik-ut.",
+        "NotReversible": "%1$sNuk%2$s do të jetë e mundur të fshihen kollaj këto vizita nga regjistrat e piwik-ut.",
         "AreYouSure": "Jeni i sigurt se doni të prodhohen vizita gjasme?",
         "ChoiceYes": "Po, jam i sigurt!",
         "Submit": "Parashtroje",

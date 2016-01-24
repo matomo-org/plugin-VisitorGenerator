@@ -1,5 +1,7 @@
 {
     "VisitorGenerator": {
-        "VisitorGenerator": "Apsilankymų generatorius"
+        "VisitorGenerator": "Apsilankymų generatorius",
+        "Submit": "Pateikti",
+        "NbRequestsPerSec": "Užklausų per sekundę"
     }
 }

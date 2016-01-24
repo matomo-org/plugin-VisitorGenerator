@@ -2,7 +2,7 @@
     "VisitorGenerator": {
         "VisitorGenerator": "Generator odwiedzających",
         "Warning": "Właśnie zamierzasz wygenerować symulowane odwiedziny, które zostaną zanotowane w bazie danych Piwik, tak jak realne.",
-        "NotReversible": "Usunięcie informacji z logów o takich odwiedzinach %s nie%s będzie takie łatwe, proste czy nawet możliwe.",
+        "NotReversible": "Usunięcie informacji z logów o takich odwiedzinach %1$s nie%2$s będzie takie łatwe, proste czy nawet możliwe.",
         "AreYouSure": "Czy masz pewność, że chcesz uruchomić generację fałszywych symulowanych odwiedzin?",
         "ChoiceYes": "Tak, mam taką pewność!",
         "Submit": "Potwierdź",

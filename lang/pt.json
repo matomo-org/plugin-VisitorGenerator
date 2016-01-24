@@ -2,7 +2,7 @@
     "VisitorGenerator": {
         "VisitorGenerator": "Gerador de Visitantes",
         "Warning": "Está prestes a gerar visitas falsas que serão guardadas na sua base de dados Piwik.",
-        "NotReversible": "%s Não%s será possível eliminar com facilidade estas visitas dos seus registos Piwik.",
+        "NotReversible": "%1$s Não%2$s será possível eliminar com facilidade estas visitas dos seus registos Piwik.",
         "AreYouSure": "Tem a certeza que deseja gerar visitas falsas?",
         "ChoiceYes": "Sim, tenho a certeza!",
         "Submit": "Submeter",

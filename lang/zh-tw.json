@@ -2,7 +2,7 @@
     "VisitorGenerator": {
         "VisitorGenerator": "訪客產生器",
         "Warning": "你將產生的假訪客將會記錄在你的 Piwik 資料庫裡。",
-        "NotReversible": "它可能%s無法%s簡單地從 piwik 記錄中刪除。",
+        "NotReversible": "它可能%1$s無法%2$s簡單地從 piwik 記錄中刪除。",
         "AreYouSure": "你確定要產生假的訪客嗎？",
         "ChoiceYes": "是，我確定！",
         "Submit": "送出",

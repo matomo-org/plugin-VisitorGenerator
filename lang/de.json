@@ -3,7 +3,7 @@
         "PluginDescription": "Erstellt gefälschte Besuche und Aktionen in Piwik. Kann von Piwik Benutzern oder Programmierern eingesetzt werden, um einfach an bestehende Daten zu kommen, welche für eine Sichtung von Berichten benötigt werden.",
         "VisitorGenerator": "Besuchergenerator",
         "Warning": "Sie sind gerade dabei, fingierte Besuche zu generieren, die in der Piwik-Datenbank gespeichert werden.",
-        "NotReversible": "Es ist %s nicht%s einfach möglich, diese Besuche aus den Piwik-Logs zu löschen.",
+        "NotReversible": "Es ist %1$s nicht%2$s einfach möglich, diese Besuche aus den Piwik-Logs zu löschen.",
         "AreYouSure": "Wollen Sie wirklich fingierte Besucherzahlen generieren?",
         "ChoiceYes": "Ja, ich bin mir sicher!",
         "Submit": "Abschicken",
@@ -13,12 +13,12 @@
         "GenerateFakeActions": "Dies wird mindestens %d fingierte Aktionen auf dieser Seite für jeden Tag generieren.",
         "OverwriteLogFiles": "Sie können die Logfiles, die zur Generierung von fingierten Besuchen genutzt werden, überschreiben (Ändern oder Hinzufügen von Dateien in %s). Es existieren Logfiles von Anfragen auf \"piwik.php\" im Format \"Apache combined log\". Plugin-Entwickler können eigene Logfiles nutzen, indem sie '*.log'-Dateien im 'data'-Verzeichnis ihres Plugins ablegen.",
         "PleaseBePatient": "Hinweis: Es könnte einige Minuten dauern um die Besuche und Aktionen zu generieren, bitte haben Sie Geduld...",
-        "LogImporterNote": "Es gibt auch ein schnelleres Tool das große Testdaten in Piwik importieren kann, siehe dieses %sREADME%s.",
+        "LogImporterNote": "Es gibt auch ein schnelleres Tool das große Testdaten in Piwik importieren kann, siehe dieses %1$sREADME%2$s.",
         "AutomaticReprocess": "Die Berichte werden neu berechnet sobald Sie das nächste mal die Piwik Berichte öffnen. Dies könnte einige Minuten dauern.",
         "GeneratedVisitsFor": "Die Besuche für %1$s für die letzten %2$s Tage wurden generiert",
-        "ReRunArchiveScript": "Bitte führen Sie das im crontab enthaltene archive.php Piwik-Script erneut aus, um die Berichte zu aktualisieren. %sSiehe 'Wie man die Auto-Archivierung einrichtet'%s",
+        "ReRunArchiveScript": "Bitte führen Sie das im crontab enthaltene archive.php Piwik-Script erneut aus, um die Berichte zu aktualisieren. %1$sSiehe 'Wie man die Auto-Archivierung einrichtet'%2$s",
         "NumberOfGeneratedActions": "Anzahl der generierten Aktionen",
-        "CliToolUsage": "Mithilfe des %sPiwik CLI-tools%s können Sie nicht nur Besuche generieren, sondern auch Nutzer, Websites und Ziele.",
+        "CliToolUsage": "Mithilfe des %1$sPiwik CLI-tools%2$s können Sie nicht nur Besuche generieren, sondern auch Nutzer, Websites und Ziele.",
         "CustomPiwikUrl": "Eigene Piwik-URL"
     }
 }

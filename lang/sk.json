@@ -2,7 +2,7 @@
     "VisitorGenerator": {
         "VisitorGenerator": "Generátor návštev",
         "Warning": "Chystáte sa vytvárať falošné návštev, ktoré budú zaznamenané v databáze.",
-        "NotReversible": "To bude %s %s možné ľahko odstrániť pre tieto návštevy v záznamoch.",
+        "NotReversible": "To bude %1$s %2$s možné ľahko odstrániť pre tieto návštevy v záznamoch.",
         "AreYouSure": "Ste si istí, že chcete vytvoriť falošné návštevy?",
         "ChoiceYes": "Áno, som si istý!",
         "Submit": "Odoslať",

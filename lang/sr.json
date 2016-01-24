@@ -3,7 +3,7 @@
         "PluginDescription": "Kreira lažne posete i akcije. Može se iskoristiti od strane Piwik korisnika ili programera kako bi se na lak način izgenerisali lažni podaci za popunjavanje izveštaja.",
         "VisitorGenerator": "Generator posetilaca",
         "Warning": "Upravo ćete generisati lažne posete koje će biti upisane u Piwik bazu.",
-        "NotReversible": "%s Neće biti lako%s obrisati ove podatke iz Piwik zapisa.",
+        "NotReversible": "%1$s Neće biti lako%2$s obrisati ove podatke iz Piwik zapisa.",
         "AreYouSure": "Da li ste sigurni da želite da generišete lažne posete?",
         "ChoiceYes": "Da, siguran sam!",
         "Submit": "Prosledi",
@@ -13,12 +13,12 @@
         "GenerateFakeActions": "Ovim ćete generisati barem %d lažnih akcija dnevno za ovaj sajt.",
         "OverwriteLogFiles": "Možete postaviti velike zapise koji služe za generisanje lažnih poseta (izmenite ili dodajte datoteke u %s). U pitanju su zapisi pristupa fajlu \"piwik.php\" u \"Apache combined log\" formatu. Ako razvijate dodatke za Piwik, možete sopstvene '*.log' zapise smestiti u 'data' direktorijume dodataka.",
         "PleaseBePatient": "Generisanje poseta i akcija može potrajati nekoliko inuta, molimo vas da budete strpljivi...",
-        "LogImporterNote": "Postoji i brža alatka kojom možete ubaciti veliku količinu testnih podataka u Piwik, pogledajte %sovde%s.",
+        "LogImporterNote": "Postoji i brža alatka kojom možete ubaciti veliku količinu testnih podataka u Piwik, pogledajte %1$sovde%2$s.",
         "AutomaticReprocess": "Izveštaji će biti regenerisani kada ih sledeći put budete otvorili i to može potrajati nekoliko minuta.",
         "GeneratedVisitsFor": "Generisane posete za %1$s za poslednjih %2$s dana",
-        "ReRunArchiveScript": "Molimo vas da ponovo pokrenete archive.php pomoću Krona kako bi se ažurirali izveštaji. %sPogledajte kako da podesite automatsko arhiviranje vaših izveštaja.%s",
+        "ReRunArchiveScript": "Molimo vas da ponovo pokrenete archive.php pomoću Krona kako bi se ažurirali izveštaji. %1$sPogledajte kako da podesite automatsko arhiviranje vaših izveštaja.%2$s",
         "NumberOfGeneratedActions": "Broj generisanih akcija",
-        "CliToolUsage": "Korišćenjem %sPiwik klijentskih alata%s možete pored poseta generisati i korisnike, sajtove i ciljeve.",
+        "CliToolUsage": "Korišćenjem %1$sPiwik klijentskih alata%2$s možete pored poseta generisati i korisnike, sajtove i ciljeve.",
         "CustomPiwikUrl": "Korisnički definisana Pivik adresa"
     }
 }
