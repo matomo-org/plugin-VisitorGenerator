@@ -19,6 +19,7 @@
         "ReRunArchiveScript": "Bitte führen Sie das im crontab enthaltene archive.php Piwik-Script erneut aus, um die Berichte zu aktualisieren. %1$sSiehe 'Wie man die Auto-Archivierung einrichtet'%2$s",
         "NumberOfGeneratedActions": "Anzahl der generierten Aktionen",
         "CliToolUsage": "Mithilfe des %1$sPiwik CLI-tools%2$s können Sie nicht nur Besuche generieren, sondern auch Nutzer, Websites und Ziele.",
-        "CustomPiwikUrl": "Eigene Piwik-URL"
+        "CustomPiwikUrl": "Eigene Piwik-URL",
+        "ConfirmVisitorGeneration": "Bitte bestätigen Sie die Generierung von Besuchen indem Sie die Box ankreuzen"
     }
 }

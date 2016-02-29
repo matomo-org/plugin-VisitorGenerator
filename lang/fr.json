@@ -17,6 +17,7 @@
         "ReRunArchiveScript": "Veuillez ré-exécuter le script d'archivage Piwik archive.php via la crontab afin de rafraîchir les rapports. %1$sConsultez \"Comment mettre en place l'archivage automatique de vos rapports\"%2$s",
         "NumberOfGeneratedActions": "Nombre d'actions générées",
         "CliToolUsage": "En utilisation %1$sl'outil en ligne de commande Piwik%2$s vous pouvez non seulement générer encore plus de visites mais aussi d'utilisateurs, sites web et objectifs.",
-        "CustomPiwikUrl": "URL Piwik personnalisée"
+        "CustomPiwikUrl": "URL Piwik personnalisée",
+        "ConfirmVisitorGeneration": "Veuillez confirmer la génération de visiteur en cochant la case"
     }
 }

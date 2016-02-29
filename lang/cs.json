@@ -19,6 +19,7 @@
         "ReRunArchiveScript": "Prosím spusťte znovu skript archive.php na záložce cron. %1$sZjistěte více o nastavení automatického archivování%2$s.",
         "NumberOfGeneratedActions": "Počet generovaných akcí",
         "CliToolUsage": "S použitím %1$snástroje Piwiku pro příkazovou řádku%2$s můžete nejen vygenerovat ještě více návštěv, ale i uživatelů, stránek a cílů.",
-        "CustomPiwikUrl": "Vlastní URL Piwiku"
+        "CustomPiwikUrl": "Vlastní URL Piwiku",
+        "ConfirmVisitorGeneration": "Potvrďte prosím generování návštěvníků zaškrtnutím pole"
     }
 }
