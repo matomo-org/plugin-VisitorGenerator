@@ -1,18 +1,20 @@
 {% extends 'admin.twig' %}
 
 {% block content %}
-    <h2>{{ 'VisitorGenerator_VisitorGenerator'|translate }}</h2>
+    <div piwik-content-block
+         content-title="{{ 'VisitorGenerator_VisitorGenerator'|translate|e('html_attr') }}">
+        {{ 'VisitorGenerator_GeneratedVisitsFor'|translate(siteName, days) }}<br/>
+        {{ 'VisitorGenerator_NumberOfGeneratedActions'|translate }}: {{ nbActionsTotal }}<br/>
+        {{ 'VisitorGenerator_NbRequestsPerSec'|translate }}: {{ nbRequestsPerSec }}<br/>
+        {{ timer }}<br/>
+        <p><strong>
+                {% if browserArchivingEnabled %}
+                    {{ 'VisitorGenerator_AutomaticReprocess'|translate }}
+                {% else %}
+                    {{ 'VisitorGenerator_ReRunArchiveScript'|translate('<a href="http://piwik.org/docs/setup-auto-archiving/">', '</a>')|raw }}
+                {% endif %}
+            </strong>
+        </p>
+    </div>
 
-    {{ 'VisitorGenerator_GeneratedVisitsFor'|translate(siteName, days) }}<br/>
-    {{ 'VisitorGenerator_NumberOfGeneratedActions'|translate }}: {{ nbActionsTotal }}<br/>
-    {{ 'VisitorGenerator_NbRequestsPerSec'|translate }}: {{ nbRequestsPerSec }}<br/>
-    {{ timer }}<br/>
-    <p><strong>
-            {% if browserArchivingEnabled %}
-                {{ 'VisitorGenerator_AutomaticReprocess'|translate }}
-            {% else %}
-                {{ 'VisitorGenerator_ReRunArchiveScript'|translate('<a href="http://piwik.org/docs/setup-auto-archiving/">', '</a>')|raw }}
-            {% endif %}
-        </strong>
-    </p>
 {% endblock %}
