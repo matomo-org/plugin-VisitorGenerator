@@ -14,3 +14,5 @@
 - 1.2.1 New workaround:
    * When force_ssl is enabled, and visits are generated on `localhost`, force to use HTTP instead of HTTPS
 - 1.2.3 Minor UI tweaks to make it consistent with Piwik look & feel
+- 3.0.0
+   * Compatibility with Piwik 3.0
