@@ -111,7 +111,7 @@ class Controller extends ControllerAdmin
     {
         $nonce = Common::getRequestVar('form_nonce', '', 'string', $_POST);
 
-        if (Common::getRequestVar('choice', 'no') != 'yes') {
+        if (Common::getRequestVar('choice', '0') != '1') {
             $notification = new Notification(Piwik::translate('VisitorGenerator_ConfirmVisitorGeneration'));
             $notification->context = Notification::CONTEXT_ERROR;
             Notification\Manager::notify('confirmVisitorGeneration', $notification);
