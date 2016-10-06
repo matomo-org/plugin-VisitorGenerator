@@ -1,6 +1,6 @@
 {
     "name": "VisitorGenerator",
-    "version": "1.2.3",
+    "version": "1.2.4",
     "description": "Developer tool that lets you generate fake visits. Useful if you are working with plugins or themes or if you use the Piwik API.",
     "keywords": ["development", "tools"],
     "license": "GPL v3+",
