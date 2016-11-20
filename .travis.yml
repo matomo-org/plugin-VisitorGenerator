@@ -27,21 +27,21 @@ env:
   global:
     - PLUGIN_NAME=VisitorGenerator
     - PIWIK_ROOT_DIR=$TRAVIS_BUILD_DIR/piwik
-    - PIWIK_LATEST_STABLE_TEST_TARGET=2.15.0
-    - secure: "GxmTHVTBGUprm4ty2VqiNoyVIcKZ23Tpw3J90V15+6vToyAh9JlbOU/iYcagz1VUuq/Mu7lbHqQ4pTLj+iRagCD6oSAMPscwCd6bAnFVixcfaWf/vlHECgFWDiwEk7+I3JowSMRPM6vMo8uKL0disb4JTPrKSerB68fZ+ZQCpdM="
-    - secure: "E3JBECWzMuL2U4jvB6AVYnlGoMlN4f18QjPHEPpy81AwgQSZPtOdCt2NzwLQRNLlxMSSBH/MkqdUTfEuca0DJCtU7j+ifVqThlqnzadbaK16FvxirAfGyPHrWiPglZoOWNnjCnIHqgSCqUJznAo0G/RRnJyy4KVR3/Q3CxU6Wsw="
+    # this variable controls the version of Piwik your tests will run against.
+    # by default it will run against the maximum support version read from plugin.json
+    # (PIWIK_TEST_TARGET=maximum_supported_piwik).
+    # You can also specify a specific Piwik version
+    # (PIWIK_TEST_TARGET=2.16.0-b1).
+    - PIWIK_TEST_TARGET=maximum_supported_piwik
   matrix:
-    - TEST_SUITE=PluginTests MYSQL_ADAPTER=PDO_MYSQL TEST_AGAINST_PIWIK_BRANCH=$PIWIK_LATEST_STABLE_TEST_TARGET
+    - TEST_SUITE=PluginTests MYSQL_ADAPTER=PDO_MYSQL TEST_AGAINST_PIWIK_BRANCH=$PIWIK_TEST_TARGET
     - TEST_SUITE=PluginTests MYSQL_ADAPTER=PDO_MYSQL TEST_AGAINST_CORE=minimum_required_piwik
 
 matrix:
   exclude:
-    # execute latest stable tests only w/ PHP 5.6
-    - php: 5.3.3
+    # execute latest stable tests only w/ PHP 5.5
+    - php: 5.3
       env: TEST_SUITE=PluginTests MYSQL_ADAPTER=PDO_MYSQL TEST_AGAINST_CORE=minimum_required_piwik
-    # execute UI tests only w/ PHP 5.6
-    - php: 5.3.3
-      env: TEST_SUITE=UITests MYSQL_ADAPTER=PDO_MYSQL TEST_AGAINST_PIWIK_BRANCH=$PIWIK_LATEST_STABLE_TEST_TARGET
 
 sudo: required
 
@@ -50,7 +50,6 @@ script: $PIWIK_ROOT_DIR/tests/travis/travis.sh
 before_install:
   # do not use the Zend allocator on PHP 5.3 since it will randomly segfault after program execution
   - '[[ "$TRAVIS_PHP_VERSION" == 5.3* ]] && export USE_ZEND_ALLOC=0 || true'
-  - ./tests/travis/install_git_lfs.sh
 
 install:
   # move all contents of current repo (which contains the plugin) to a new directory
@@ -68,7 +67,7 @@ install:
   - '[ -d ./tests/travis/.git ] || sh -c "rm -rf ./tests/travis && git clone https://github.com/piwik/travis-scripts.git ./tests/travis"'
   - cd ./tests/travis ; git checkout master ; cd ../..
 
-  - export GENERATE_TRAVIS_YML_COMMAND="php ./tests/travis/generator/main.php generate:travis-yml --plugin=\"VisitorGenerator\" --verbose"
+  - export GENERATE_TRAVIS_YML_COMMAND="php ./tests/travis/generator/main.php generate:travis-yml --plugin=\"VisitorGenerator\" --php-versions=\"5.6,5.3\" --verbose"
   - '[[ "$TRAVIS_JOB_NUMBER" != *.1 || "$TRAVIS_PULL_REQUEST" != "false" ]] || ./tests/travis/autoupdate_travis_yml.sh'
 
   - ./tests/travis/checkout_test_against_branch.sh
@@ -132,6 +131,7 @@ before_script:
 
   - ./tests/travis/prepare.sh
   - ./tests/travis/setup_webserver.sh
+  - if [[ "$TRAVIS_PHP_VERSION" != 5.3* ]]; then ./tests/travis/install_phantomjs.sh; export PATH=$PWD/travis_phantomjs/phantomjs-2.1.1-linux-x86_64/bin:$PATH; fi
 
   - cd tests/PHPUnit
 
