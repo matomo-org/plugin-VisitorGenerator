@@ -18,6 +18,7 @@
         "ReRunArchiveScript": "Por favor vuelva a ejecutar el script archive.php de Piwik en el crontab para actualizar los informes. %1$sVer \"Como configurar el archivo automático de sus informes\"%2$s",
         "NumberOfGeneratedActions": "Número de acciones generadas",
         "CliToolUsage": "Utilizando la %1$sherramienta Piwik CLI%2$s no solo puede crear más visitas sino también más usuarios, sitios de internet y objetivos.",
-        "CustomPiwikUrl": "URL Piwik personalizado"
+        "CustomPiwikUrl": "URL Piwik personalizado",
+        "ConfirmVisitorGeneration": "Por favor confirme la creación del visitante marcando la casilla"
     }
 }

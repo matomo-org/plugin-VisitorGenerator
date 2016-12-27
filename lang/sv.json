@@ -19,6 +19,7 @@
         "ReRunArchiveScript": "Var snäll och kör om ditt archive.php Piwikscript i tabben i hörnet för att förnya rapporterna. %1$s Se \"Att sätta upp Automatisk-Arkivering för dina rapporter\"%2$s",
         "NumberOfGeneratedActions": "Antal generade handlingar",
         "CliToolUsage": "Genom att använda %1$sPiwik CLI verktyget%2$s kan du inte enbart generera ännu fler besök utan också användare, webbplatser och mål.",
-        "CustomPiwikUrl": "Anpassad Piwik-URL"
+        "CustomPiwikUrl": "Anpassad Piwik-URL",
+        "ConfirmVisitorGeneration": "Vänligen bekräfta besöksgenereringen genom att kryssa i rutan"
     }
 }

@@ -6,6 +6,6 @@
         "Submit": "Send",
         "SelectWebsite": "Velg nettsted",
         "NbRequestsPerSec": "Forespørsler per sekund",
-        "CustomPiwikUrl": "Egendefinert Piwik URL"
+        "CustomPiwikUrl": "Egendefinert Piwik-URL"
     }
 }

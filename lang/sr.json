@@ -19,6 +19,7 @@
         "ReRunArchiveScript": "Molimo vas da ponovo pokrenete archive.php pomoću Krona kako bi se ažurirali izveštaji. %1$sPogledajte kako da podesite automatsko arhiviranje vaših izveštaja.%2$s",
         "NumberOfGeneratedActions": "Broj generisanih akcija",
         "CliToolUsage": "Korišćenjem %1$sPiwik klijentskih alata%2$s možete pored poseta generisati i korisnike, sajtove i ciljeve.",
-        "CustomPiwikUrl": "Korisnički definisana Pivik adresa"
+        "CustomPiwikUrl": "Korisnički definisana Pivik adresa",
+        "ConfirmVisitorGeneration": "Molimo vas da potvrdite generisanje poseta klikom na kućicu"
     }
 }

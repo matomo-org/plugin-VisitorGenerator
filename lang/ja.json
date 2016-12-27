@@ -1,24 +1,25 @@
 {
     "VisitorGenerator": {
-        "PluginDescription": "Piwik において偽の訪問や行動を創りだす。これは Piwik のユーザーやデベロッパーがダミーデータを作成したり、Piwik の報告書を追加したりするときに使うことができます。",
+        "PluginDescription": "Piwik においてダミーのビジットやアクションを生成します。これは Piwik のユーザーやデベロッパーがダミーデータを作成したり、Piwik の報告書を追加したりするときに使うことができます。",
         "VisitorGenerator": "ビジタージェネレータ",
-        "Warning": "Piwik データベースに記録される偽のビジットを生成しようとしています。",
-        "NotReversible": "Piwik のログからこれらのビジットを%1$s容易に削除することはできません%2$s。",
-        "AreYouSure": "本当に偽のビジットを生成しますか？",
+        "Warning": "Piwik データベースに記録されるダミーのビジットを生成しようとしています。",
+        "NotReversible": "%1$s はこれらのビジットを Piwik ログから簡単に削除することはできません%2$s。",
+        "AreYouSure": "本当に ダミー のビジットを生成しますか？",
         "ChoiceYes": "はい、お願いします！",
         "Submit": "実行",
         "SelectWebsite": "ウェブサイトの選択",
         "NbRequestsPerSec": "秒単位のリクエスト数",
         "DaysToCompute": "算出する日数",
-        "GenerateFakeActions": "これは、各日このサイト上に少なくとも %d のフェイク・アクションを生成します。",
-        "OverwriteLogFiles": "フェイクビジットを生成するために使われているログファイルは、上書きすることができます (%s でファイルを変更または追加) 。 \"Apache combined log\" フォーマットに、\"piwik.php\" へのリクエストのログファイルがあります。プラグイン開発者は、プラグインの 'data' ディレクトリー内に 'log' ファイルを設置することにより、独自のログファイルを、提供することができます。",
-        "PleaseBePatient": "注) ビジットとアクションを生成するには、数分かかる場合があります。今しばらくお待ちください。",
+        "GenerateFakeActions": "これにより、毎日このサイトで %d のダミーのアクションが生成されます。",
+        "OverwriteLogFiles": "フェイクビジットを生成するために使われているログファイルは、上書きすることができます ( %s でファイルを変更または追加 ) 。 \"Apache combined log\" フォーマットに、\"piwik.php\" へのリクエストのログファイルがあります。プラグイン開発者は、プラグインの 'data' ディレクトリー内に 'log' ファイルを設置することにより、独自のログファイルを、提供することができます。",
+        "PleaseBePatient": "注） ビジットとアクションを生成するには、数分かかる場合があります。今しばらくお待ちください。",
         "LogImporterNote": "大規模なテストデータを Piwik でインポートするための、さらにスピーディーなツールもあります。%1$sREADME%2$s をご確認ください。",
         "AutomaticReprocess": "このレポートは、次回あなたが Piwik レポートを参照する際に、再処理されます。なお、処理には数分かかる場合があります。",
-        "GeneratedVisitsFor": "%1$s と最後の %2$s 日に生成された訪問",
+        "GeneratedVisitsFor": "%1$s と最後の %2$s 日に生成されたビジット",
         "ReRunArchiveScript": "レポート更新のため、クーロンタブ '.\/console core:archive' コマンドを再実行してください。%1$sSee \"How to Set up Auto-Archiving of Your Reports\"%2$s",
         "NumberOfGeneratedActions": "生成されたアクション数",
         "CliToolUsage": "%1$sPiwik CLI tool%2$s を使用することで、より多くのビジター、ユーザー、ウェブサイトや目標を生成することができます。",
-        "CustomPiwikUrl": "カスタム Piwik URL"
+        "CustomPiwikUrl": "カスタム Piwik URL",
+        "ConfirmVisitorGeneration": "ボックスにチェックを入れてビジタージェネレーションを確認してください"
     }
 }
