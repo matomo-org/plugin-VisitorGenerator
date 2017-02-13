@@ -15,7 +15,7 @@ use Piwik\Plugin\ConsoleCommand;
 use Piwik\Plugins\VisitorGenerator\Generator\VisitsFake;
 use Piwik\Plugins\VisitorGenerator\Generator\VisitsFromLogs;
 use Piwik\Site;
-use Piwik\Timer;
+use Piwik\Timer\Timer;
 use Piwik\UrlHelper;
 use Symfony\Component\Console\Helper\QuestionHelper;
 use Symfony\Component\Console\Input\InputInterface;
@@ -73,7 +73,7 @@ class GenerateVisits extends ConsoleCommand
         $this->writeSuccessMessage($output, array(
             'idsite = ' . $idSite,
             $nbActionsTotal . ' Visits generated',
-            round($nbActionsTotal / $timer->getTime(), 0) . ' requests per second'
+            round($nbActionsTotal / $timer->getTimeElapsed(), 0) . ' requests per second'
         ));
     }
 
