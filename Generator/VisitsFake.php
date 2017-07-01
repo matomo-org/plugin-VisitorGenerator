@@ -37,6 +37,7 @@ class VisitsFake extends Generator
         $numSearchesDone = 0;
 
         $i = 0;
+        $userId = null;
         while ($i < $limit) {
             $pageUrl = $this->faker->pageURL;
 
@@ -56,6 +57,11 @@ class VisitsFake extends Generator
 
             if ($this->faker->boolean(10)) {
                 $tracker->setNewVisitorId();
+                if ($this->faker->boolean(50)) {
+                    $tracker->setUserId($this->faker->firstName);
+                } else {
+                    $tracker->setUserId(false);
+                }
             }
 
             $resolution = $this->faker->resolution;
