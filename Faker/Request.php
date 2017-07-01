@@ -801,6 +801,16 @@ class Request extends \Faker\Provider\Base
         return static::randomElement(static::$pageUrls);
     }
 
+    public function productName()
+    {
+        return static::randomElement(array(
+            'My Product',
+            'Test Product',
+            'Product Name',
+            'Awesome Product'
+        ));
+    }
+
     public function resolution()
     {
         $resolution = static::randomElement(static::$resolutions);
