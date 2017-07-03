@@ -67,6 +67,13 @@ class VisitsFake extends Generator
             $tracker->setCustomVariable(3, 'languageCode', $this->faker->languageCode, 'visit');
             $tracker->setCustomVariable(1, 'tld', $this->faker->tld, 'page');
             $tracker->setCustomVariable(2, 'ean', $this->faker->numerify('########'), 'page');
+
+            $tracker->setCustomTrackingParameter('dimension1', $this->faker->gender);
+            $tracker->setCustomTrackingParameter('dimension2', $this->faker->randomDigit);
+            $tracker->setCustomTrackingParameter('dimension3', $this->faker->languageCode);
+            $tracker->setCustomTrackingParameter('dimension4', $this->faker->tld);
+            $tracker->setCustomTrackingParameter('dimension5', $this->faker->numerify('########'));
+
             $tracker->setGenerationTime($this->faker->randomNumber(190, 3000));
             $tracker->setForceVisitDateTime($date . ' ' . $this->faker->time('H:i:s'));
             $tracker->setUrlReferrer($this->faker->referrer);
@@ -121,6 +128,24 @@ class VisitsFake extends Generator
 
                 if ($this->faker->boolean(50)) {
                     $tracker->doTrackEvent('Movies', 'stop', 'Another Movie');
+                }
+            }
+
+            if ($this->faker->boolean(10)) {
+                $price =  $this->faker->randomNumber(2);
+                $quantity = $this->faker->numberBetween(1,4);
+
+                $tracker->addEcommerceItem($sku = $this->faker->randomNumber(4), $this->faker->productName, 'Music Category', $price, $quantity);
+
+                if ($this->faker->boolean(50)) {
+                    $tracker->doTrackEcommerceCartUpdate(50);
+                } else {
+                    $subtotal = $price * $quantity;
+                    $tax = $subtotal * 0.19;
+                    $shipping = $subtotal * 0.05;
+                    $discount = $subtotal * 0.10;
+                    $grandTotal = $subtotal + $shipping + $tax - $discount;
+                    $tracker->doTrackEcommerceOrder($this->faker->randomNumber(5), $grandTotal, $subtotal, $tax, $shipping, $discount);
                 }
             }
 
