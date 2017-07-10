@@ -2,7 +2,7 @@
     "VisitorGenerator": {
         "VisitorGenerator": "Kävijöiden luonti",
         "Warning": "Olet luomassa valheellisia",
-        "NotReversible": "Näitä käyntejä %1$sei voi%2$s helposti poistaa Piwikin logeista.",
+        "NotReversible": "Näitä käyntejä %1$sei voi%2$s helposti poistaa Piwikin lokeista.",
         "AreYouSure": "Haluatko varmasti luoda valheellisia käyntejä?",
         "ChoiceYes": "Kyllä, olen varma!",
         "Submit": "Lähetä",
@@ -14,7 +14,7 @@
         "LogImporterNote": "On olemassa myös nopeampi työkalu, joka tuo suuria testidatoja Piwikiin, katso myös %1$sREADME%2$s.",
         "AutomaticReprocess": "Raportit käsitellään uudelleen, kun käyt seuraavan kerran Piwikin raporteissa. Tämä saattaa kestää joitakin minuutteja.",
         "GeneratedVisitsFor": "Tehdyt käynnit %1$s:lla viimeisten %2$s päivän aikana",
-        "ReRunArchiveScript": "Ole hyvä ja aja uudelleen archive.php Piwik komentosarja crontabissa päivittääksesi raportit. %1$sKatso \"Miten asennan automaattisen raporttien arkistoinnin\"%2$s",
+        "ReRunArchiveScript": "Ole hyvä ja aja uudelleen '.\/console core:archive' crontabissa päivittääksesi raportit. %1$sKatso \"Miten asennan automaattisen raporttien arkistoinnin\"%2$s",
         "NumberOfGeneratedActions": "Toimeenpantujen toimintojen lukumäärä",
         "CustomPiwikUrl": "Kustomoitu Piwikin osoite",
         "ConfirmVisitorGeneration": "Varmista käyttäjien luominen raksittamalla laatikko"

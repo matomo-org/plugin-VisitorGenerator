@@ -4,13 +4,14 @@
         "VisitorGenerator": "Bezoekers Generator",
         "Warning": "U staat op het punt om testbezoeken te genereren die opgeslagen zullen worden in uw Piwik database.",
         "NotReversible": "Het is %1$sniet%2$s mogelijk om deze testgegevens weer eenvoudig te verwijderen uit de Piwik logs.",
-        "AreYouSure": "Weet u zeker dat u testbezoeken wilt genereren?",
+        "AreYouSure": "Weet u zeker dat u nepbezoeken wilt genereren?",
         "ChoiceYes": "Ja, ik weet het zeker!",
-        "Submit": "Verzend",
-        "SelectWebsite": "Selecteer Website",
+        "Submit": "Verzenden",
+        "SelectWebsite": "Selecteer website",
         "NbRequestsPerSec": "Verzoeken per seconde",
         "DaysToCompute": "Aantal dagen",
         "GenerateFakeActions": "Dit zal minstens %d nep acties genereren voor deze site, voor iedere dag.",
+        "OverwriteLogFiles": "De log files die gebruikt zijn om nep bezoeken te genereren kunnen worden overschreven (wijzig of voeg bestanden toe in %s). Er zijn log bestanden van verzoeken aan \"piwik.php\"in het formaat \"Apache combined log\". Plugin ontwikkelaars kunnen hun eigen log files toevoegen door '*.log' bestanden toe te voegen aan de 'data' structuur van hun plugin.",
         "PleaseBePatient": "Let op: Het kan enkele minuten duren om bezoeken en acties te genereren. Wees geduldig....",
         "LogImporterNote": "Er is ook een snellere tool welke grote test data bestanden importeert in Piwik, zie hiervoor %1$sREADME%2$s.",
         "AutomaticReprocess": "Het rapport wordt opnieuw gemaakt de volgende keer dat je Piwik rapporteren bezoekt. Dit kan enkele minuten duren.",
@@ -18,6 +19,7 @@
         "ReRunArchiveScript": "Herhaal het crontab '.\/console core:archive' commando om de rapporten te verversen. Kijk hiervoor naar %1$s\"Hoe kun je rapporten Automatisch archiveren\"%2$s.",
         "NumberOfGeneratedActions": "Aantal gegenereerde acties",
         "CliToolUsage": "Door gebruik te maken van de %1$sPiwik CLI tool%2$s kun je niet alleen meer bezoeken genereren, maar ook gebruikers, websites en goals.",
-        "CustomPiwikUrl": "Aangepaste Piwik URL"
+        "CustomPiwikUrl": "Aangepaste Piwik URL",
+        "ConfirmVisitorGeneration": "Bevestig het genereren van bezoekers door de selectie mogelijkheid aan te vinken."
     }
 }
