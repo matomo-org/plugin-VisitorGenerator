@@ -84,6 +84,8 @@ class VisitsFake extends Generator
             $tracker->setForceVisitDateTime($date . ' ' . $this->faker->time('H:i:s'));
             $tracker->setUrlReferrer($this->faker->referrer);
 
+            $tracker->setCustomTrackingParameter('bw_bytes', $this->faker->randomNumber(1, 2000000000));
+
             if (0 === strpos($pageUrl, 'http')) {
                 $tracker->doTrackAction($pageUrl, 'link');
             } elseif (false !== strpos($pageUrl, 'zip')) {
