@@ -15,6 +15,9 @@ Plugin developers can provide their own log files by placing '*.log' files withi
 #### UI
 The plugin adds a new item to the Piwik admin UI visible only for users having Super User access under the section "Development". There you can select a site and for how many days in the past you want to generate new visits.
 
+Note: you need to first enable the Development mode in Piwik. In the root directory of your Piwik install, run the following command to enable development mode: `./console development:enable`
+
+
 #### CLI
 It also adds the following commands to the [Piwik CLI tool](http://developer.piwik.org/guides/piwik-on-the-command-line):
 
