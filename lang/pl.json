@@ -1,15 +1,25 @@
 {
     "VisitorGenerator": {
-        "VisitorGenerator": "Generator odwiedzających",
+        "PluginDescription": "Symuluj wizyty i akcje w Piwik'u. Funkcjonalność może być wykorzystywana przez użytkowników Piwik'a lub deweloperów jako prosty sposób na wygenerowanie symulacji danych do zasilenia raportów Piwik.",
+        "VisitorGenerator": "Generator odwiedzin",
         "Warning": "Właśnie zamierzasz wygenerować symulowane odwiedziny, które zostaną zanotowane w bazie danych Piwik, tak jak realne.",
         "NotReversible": "Usunięcie informacji z logów o takich odwiedzinach %1$s nie%2$s będzie takie łatwe, proste czy nawet możliwe.",
-        "AreYouSure": "Czy masz pewność, że chcesz uruchomić generację fałszywych symulowanych odwiedzin?",
+        "AreYouSure": "Czy jesteś pewny\/a, że chcesz wygenerować symulowane odwiedziny?",
         "ChoiceYes": "Tak, mam taką pewność!",
-        "Submit": "Potwierdź",
-        "SelectWebsite": "Wybierz stronę",
+        "Submit": "Wyślij",
+        "SelectWebsite": "Wybierz serwis",
         "NbRequestsPerSec": "Zapytań na sekundę",
         "DaysToCompute": "Dni do obliczeń",
-        "PleaseBePatient": "UWAGA: Generowanie wizyt i akcji może zająć kilka minut. Prosimy o cierpliwość.",
-        "NumberOfGeneratedActions": "Liczba wygenerowanych akcji"
+        "GenerateFakeActions": "To wygeneruje przynajmniej %d symulowanych odwiedzin tego serwisu dla każdego dnia.",
+        "OverwriteLogFiles": "Możesz nadpisać pliki logów wykorzystywane do generowania symulowanych odwiedzin (zmień lub dodaj pliki w %s). Znajdziesz tam pliki logów z żądaniami \"piwik.php\" w formacie \"Apache combined log\". Deweloperzy wtyczek mogą skorzystać ze swoich własnych logów umieszczając pliki '*.log' w folderze 'data' ich wtyczki.",
+        "PleaseBePatient": "NOTKA: Generowanie wizyt i akcji może zająć kilka minut. Prosimy o cierpliwość.",
+        "LogImporterNote": "Istnieje również szybsze narzędzie, które importuje duże pliki z danymi testowymi w Piwik'u, przeczytaj %1$sREADME%2$s",
+        "AutomaticReprocess": "Raporty zostaną ponownie przeprocesowane podczas Twojej następnej wizyty w raportach Piwik, co może zająć parę minut.",
+        "GeneratedVisitsFor": "Generowane wizyty dla %1$s za ostatnich %2$s dni",
+        "ReRunArchiveScript": "Proszę ponów wykonanie polecenia cron'a '.\/console core:archive' aby odświeżyć raporty. %1$sZobacz \"Jak skonfigurować Auto-archiwizację Twoich raportów\"%2$s",
+        "NumberOfGeneratedActions": "Liczba wygenerowanych akcji",
+        "CliToolUsage": "Korzystając z %1$s narzędzia linii poleceń Piwik%2$s możesz nie tylko generować więcej wizyt, ale również użytkowników, serwisy i cele.",
+        "CustomPiwikUrl": "Skonfigurowany adres Piwik",
+        "ConfirmVisitorGeneration": "Proszę potwierdź generowanie użytkowników zaznaczając kwadrat"
     }
 }

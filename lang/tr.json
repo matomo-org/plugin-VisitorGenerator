@@ -1,8 +1,11 @@
 {
     "VisitorGenerator": {
+        "VisitorGenerator": "Ziyaretçi Oluşturucu",
+        "Warning": "Piwik veritabanına kaydedilecek sahte ziyaretler oluşturmak üzeresiniz.",
         "AreYouSure": "Sahte ziyaretçi oluşturmak isteğinizden emin misiniz?",
         "ChoiceYes": "Evet, eminim!",
         "Submit": "Gönder",
-        "SelectWebsite": "Website seçimi"
+        "SelectWebsite": "Website seçimi",
+        "NumberOfGeneratedActions": "Üretilen işlem sayısı"
     }
 }
