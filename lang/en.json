@@ -1,9 +1,9 @@
 {
     "VisitorGenerator": {
-        "PluginDescription": "Create fake visits and actions in Piwik. This can be used by Piwik users or developers as an easy way to generate fake data to populate Piwik reports.",
+        "PluginDescription": "Create fake visits and actions in Matomo. This can be used by Matomo users or developers as an easy way to generate fake data to populate Matomo reports.",
         "VisitorGenerator": "Visitor Generator",
-        "Warning": "You are about to generate fake visits which will be recorded in your Piwik database.",
-        "NotReversible": "It will %1$s not%2$s be possible to easily delete these visits from the Piwik logs.",
+        "Warning": "You are about to generate fake visits which will be recorded in your Matomo database.",
+        "NotReversible": "It will %1$s not%2$s be possible to easily delete these visits from the Matomo logs.",
         "AreYouSure": "Are you sure you want to generate fake visits?",
         "ChoiceYes": "Yes, I am sure!",
         "Submit": "Submit",
@@ -13,13 +13,13 @@
         "GenerateFakeActions": "This will generate at least %d fake actions on this site for each day.",
         "OverwriteLogFiles": "You can overwrite the log files that are used to generate fake visits (change or add files in %s). There are log files of requests to \"piwik.php\" in the format \"Apache combined log\". Plugin developers can provide their own log files by placing '*.log' files within a 'data' directory of their plugin.",
         "PleaseBePatient": "NOTE: It might take a few minutes to generate visits and actions, please be patient...",
-        "LogImporterNote": "There is also a faster tool that will import large test data in Piwik, see the %1$sREADME%2$s.",
-        "AutomaticReprocess": "The reports will be reprocessed the next time you visit the Piwik reports, it might take a few minutes.",
+        "LogImporterNote": "There is also a faster tool that will import large test data in Matomo, see the %1$sREADME%2$s.",
+        "AutomaticReprocess": "The reports will be reprocessed the next time you visit the Matomo reports, it might take a few minutes.",
         "GeneratedVisitsFor": "Generated visits for %1$s and for the last %2$s days",
         "ReRunArchiveScript": "Please re-run the crontab '.\/console core:archive' command to refresh the reports. %1$sSee \"How to Set up Auto-Archiving of Your Reports\"%2$s",
         "NumberOfGeneratedActions": "Number of generated actions",
-        "CliToolUsage": "By using the %1$sPiwik CLI tool%2$s you can not only generate even more visits but also users, websites and goals.",
-        "CustomPiwikUrl": "Custom Piwik URL",
+        "CliToolUsage": "By using the %1$sMatomo CLI tool%2$s you can not only generate even more visits but also users, websites and goals.",
+        "CustomMatomoUrl": "Custom Matomo URL",
         "ConfirmVisitorGeneration": "Please confirm the visitor generation by ticking the box"
     }
 }
