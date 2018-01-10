@@ -1,8 +1,8 @@
 {
     "VisitorGenerator": {
         "VisitorGenerator": "Látogatógenerátor",
-        "Warning": "Fals látogatások generálására készülsz, melyeket rögzíteni fogunk a Piwik adatbázisban.",
-        "NotReversible": "A műlátogatásokat %1$snem%2$s lehet egyszerűen kitörölni a Piwik naplófájlokból",
+        "Warning": "Fals látogatások generálására készülsz, melyeket rögzíteni fogunk a Matomo adatbázisban.",
+        "NotReversible": "A műlátogatásokat %1$snem%2$s lehet egyszerűen kitörölni a Matomo naplófájlokból",
         "AreYouSure": "Biztosan szeretnél fals adatokat generálni?",
         "ChoiceYes": "Igen, biztos vagyok benne!",
         "Submit": "Elküld",

@@ -1,7 +1,7 @@
 {
     "VisitorGenerator": {
         "VisitorGenerator": "Generator Obiskovalcev",
-        "Warning": "Ravnokar boste generirali navidezne obiske, ki bodo shranjeni v podatkovno bazo vašega sistema Piwik.",
+        "Warning": "Ravnokar boste generirali navidezne obiske, ki bodo shranjeni v podatkovno bazo vašega sistema Matomo.",
         "AreYouSure": "Ste prepričani, da želite generirate navidezne obiske?",
         "ChoiceYes": "Da, prepričan sem!",
         "Submit": "Uveljavi",

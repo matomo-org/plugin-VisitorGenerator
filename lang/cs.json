@@ -1,9 +1,9 @@
 {
     "VisitorGenerator": {
-        "PluginDescription": "Vytvořte v Piwiku falešné návštěvy a akce. To může být užitečné pro uživatele nebo vývojáře, kteří chtějí naplnit hlášení daty.",
+        "PluginDescription": "Vytvořte v Matomou falešné návštěvy a akce. To může být užitečné pro uživatele nebo vývojáře, kteří chtějí naplnit hlášení daty.",
         "VisitorGenerator": "Generátor návštěv",
-        "Warning": "Chystáte se vygenerovat falešné návštěvy, které budou zaznamenány do vaší databáze Piwiku",
-        "NotReversible": "Tyto návštěvy %1$s nebude%2$s možné jednoduše vymazat z logů Piwiku",
+        "Warning": "Chystáte se vygenerovat falešné návštěvy, které budou zaznamenány do vaší databáze Matomou",
+        "NotReversible": "Tyto návštěvy %1$s nebude%2$s možné jednoduše vymazat z logů Matomou",
         "AreYouSure": "Jste si jistý, že chcete vygenerovat falešné návštěvy",
         "ChoiceYes": "Ano, jsem si jistý",
         "Submit": "Odeslat",
@@ -14,12 +14,12 @@
         "OverwriteLogFiles": "Můžete přepsat log soubory, které jsou použity pro generování smyšlených návštěv (změňte nebo přidejte soubory v adresáři %s). Zde jsou log soubory požadavků na piwik.php ve formátu kombinovaného Apache logu. Vývojáři zásuvných modulů mohou poskytnout vlastní log soubory, když umístí *.log soubory do podadresáře data svého zásuvného modulu.",
         "PleaseBePatient": "Poznámka: Generování návštěv a akcí může pár minut trvat, buďte trpělivý...",
         "LogImporterNote": "Existuje i rychlejší nástroj, který importuje velké testovací sady, podívejte se na %1$sčti mě%2$s.",
-        "AutomaticReprocess": "Hlášení budou znovu zpracována při příští návštěvě hlášení Piwiku, může to chvíli trvat.",
+        "AutomaticReprocess": "Hlášení budou znovu zpracována při příští návštěvě hlášení Matomou, může to chvíli trvat.",
         "GeneratedVisitsFor": "Generované návštěvy pro %1$s a za %2$s posledních dnů",
         "ReRunArchiveScript": "Prosím spusťte znovu skript archive.php na záložce cron. %1$sZjistěte více o nastavení automatického archivování%2$s.",
         "NumberOfGeneratedActions": "Počet generovaných akcí",
-        "CliToolUsage": "S použitím %1$snástroje Piwiku pro příkazovou řádku%2$s můžete nejen vygenerovat ještě více návštěv, ale i uživatelů, stránek a cílů.",
-        "CustomPiwikUrl": "Vlastní URL Piwiku",
+        "CliToolUsage": "S použitím %1$snástroje Matomou pro příkazovou řádku%2$s můžete nejen vygenerovat ještě více návštěv, ale i uživatelů, stránek a cílů.",
+        "CustomMatomoUrl": "Vlastní URL Matomou",
         "ConfirmVisitorGeneration": "Potvrďte prosím generování návštěvníků zaškrtnutím pole"
     }
 }

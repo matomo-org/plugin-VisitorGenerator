@@ -1,8 +1,8 @@
 {
     "VisitorGenerator": {
         "VisitorGenerator": "Người tạo khách truy cập",
-        "Warning": "Bạn muốn tạo ra truy cập giả mạo sẽ được ghi lại trong cơ sở dữ liệu Piwik của bạn.",
-        "NotReversible": "Nó sẽ %1$s %2$s không có thể dễ dàng xóa các truy cập từ các bản ghi Piwik.",
+        "Warning": "Bạn muốn tạo ra truy cập giả mạo sẽ được ghi lại trong cơ sở dữ liệu Matomo của bạn.",
+        "NotReversible": "Nó sẽ %1$s %2$s không có thể dễ dàng xóa các truy cập từ các bản ghi Matomo.",
         "AreYouSure": "Bạn có chắc chắn bạn muốn tạo các lượt truy cập giả?",
         "ChoiceYes": "Đúng vậy, tôi chắc chắn!",
         "Submit": "Trình (submit)",

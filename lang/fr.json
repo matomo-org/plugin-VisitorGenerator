@@ -1,9 +1,9 @@
 {
     "VisitorGenerator": {
-        "PluginDescription": "Créer des visites et actions de test dans Piwik. Ceci peut être utilisé par les utilisateurs ou développeurs Piwik comme un moyen simple d'obtenir des données simulées pour remplir les rapports Piwik.",
+        "PluginDescription": "Créer des visites et actions de test dans Matomo. Ceci peut être utilisé par les utilisateurs ou développeurs Matomo comme un moyen simple d'obtenir des données simulées pour remplir les rapports Matomo.",
         "VisitorGenerator": "Générateur de visites",
-        "Warning": "Vous êtes sur le point de générer de fausses visites qui seront enregistrées dans votre base de donnés Piwik",
-        "NotReversible": "Il sera %1$s impossible%2$s de supprimer facilement ces données des logs Piwik.",
+        "Warning": "Vous êtes sur le point de générer de fausses visites qui seront enregistrées dans votre base de donnés Matomo",
+        "NotReversible": "Il sera %1$s impossible%2$s de supprimer facilement ces données des logs Matomo.",
         "AreYouSure": "Êtes-vous sûrs de vouloir générer de fausses visites?",
         "ChoiceYes": "Oui, je suis sûr!",
         "Submit": "Soumettre",
@@ -11,13 +11,13 @@
         "NbRequestsPerSec": "Requêtes par seconde",
         "DaysToCompute": "Jours à calculer",
         "PleaseBePatient": "Note : cela peut prendre plusieurs minutes de générer des visites et des actions, veuillez patienter...",
-        "LogImporterNote": "Il existe un outil plus rapide pour importer des données de test volumineuses dans Piwik, consultez le fichier %1$sLISEZ-MOI%2$s.",
-        "AutomaticReprocess": "Les rapports seront calculés à nouveau la prochaine fois que afficherez les rapports Piwik, cela peut prendre quelques minutes.",
+        "LogImporterNote": "Il existe un outil plus rapide pour importer des données de test volumineuses dans Matomo, consultez le fichier %1$sLISEZ-MOI%2$s.",
+        "AutomaticReprocess": "Les rapports seront calculés à nouveau la prochaine fois que afficherez les rapports Matomo, cela peut prendre quelques minutes.",
         "GeneratedVisitsFor": "Visites générées pour %1$s et pour les derniers %2$s jours",
-        "ReRunArchiveScript": "Veuillez ré-exécuter le script d'archivage Piwik archive.php via la crontab afin de rafraîchir les rapports. %1$sConsultez \"Comment mettre en place l'archivage automatique de vos rapports\"%2$s",
+        "ReRunArchiveScript": "Veuillez ré-exécuter le script d'archivage Matomo archive.php via la crontab afin de rafraîchir les rapports. %1$sConsultez \"Comment mettre en place l'archivage automatique de vos rapports\"%2$s",
         "NumberOfGeneratedActions": "Nombre d'actions générées",
-        "CliToolUsage": "En utilisation %1$sl'outil en ligne de commande Piwik%2$s vous pouvez non seulement générer encore plus de visites mais aussi d'utilisateurs, sites web et objectifs.",
-        "CustomPiwikUrl": "URL Piwik personnalisée",
+        "CliToolUsage": "En utilisation %1$sl'outil en ligne de commande Matomo%2$s vous pouvez non seulement générer encore plus de visites mais aussi d'utilisateurs, sites web et objectifs.",
+        "CustomMatomoUrl": "URL Matomo personnalisée",
         "ConfirmVisitorGeneration": "Veuillez confirmer la génération de visiteur en cochant la case"
     }
 }

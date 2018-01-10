@@ -1,8 +1,8 @@
 {
     "VisitorGenerator": {
         "VisitorGenerator": "Generatorul de vizite",
-        "Warning": "Sunteți pe cale de a genera vizite false care vor fi înregistrate în baza de date Piwik.",
-        "NotReversible": "Acesta va %1$s nu%2$s fie posibil să se șterga cu ușurință aceste vizite de la jurnalele de logare Piwik.",
+        "Warning": "Sunteți pe cale de a genera vizite false care vor fi înregistrate în baza de date Matomo.",
+        "NotReversible": "Acesta va %1$s nu%2$s fie posibil să se șterga cu ușurință aceste vizite de la jurnalele de logare Matomo.",
         "AreYouSure": "Eşti sigur(ă) că doreşti să generezi vizite false?",
         "ChoiceYes": "Da, sunt sigut(ă)!",
         "Submit": "Trimite",
@@ -12,11 +12,11 @@
         "GenerateFakeActions": "Acest lucru va genera cel puțin %d acțiuni false pe acest site pentru fiecare zi.",
         "OverwriteLogFiles": "Puteți suprascrie fișierele jurnal care sunt utilizate pentru a genera vizite false (de schimbare sau a adăuga fișiere în %s). Există fișiere jurnal de cereri de la \"piwik.php\" în formatul \"log Apache combinat\". Dezvoltatorii plugin poate oferi propriile fișiere jurnal prin plasarea \"*. Log\" fișiere într-un director \"de date\", a plugin lor.",
         "PleaseBePatient": "NOTĂ: S-ar putea să dureze câteva minute pentru a genera vizite și acțiuni, vă rog să aveți răbdare ...",
-        "LogImporterNote": "Există, de asemenea, un instrument rapid, care va importa datele de testare mari în Piwik, a se vedea %1$sREADME%2$s.",
+        "LogImporterNote": "Există, de asemenea, un instrument rapid, care va importa datele de testare mari în Matomo, a se vedea %1$sREADME%2$s.",
         "AutomaticReprocess": "Rapoartele vor fi reprocesat data viitoare când vizitați piwik rapoarte, ar putea dura câteva minute.",
         "GeneratedVisitsFor": "Vizite generate pentru %1$s și pentru ultima %2$s zile",
-        "ReRunArchiveScript": "Vă rugăm să se ruleze script-ul Piwik archive.php în crontab pentru a reîmprospăta rapoartele. %1$svezi \"Cum se creaza auto-arhivare a rapoartelor dvs.\"%2$s",
+        "ReRunArchiveScript": "Vă rugăm să se ruleze script-ul Matomo archive.php în crontab pentru a reîmprospăta rapoartele. %1$svezi \"Cum se creaza auto-arhivare a rapoartelor dvs.\"%2$s",
         "NumberOfGeneratedActions": "Numărul de acțiuni generate",
-        "CliToolUsage": "Prin utilizarea %1$sPiwik CLI instrumente %2$s puteti genera nu numai mai multe vizite, dar, de asemenea, utilizatori, site-uri și obiective."
+        "CliToolUsage": "Prin utilizarea %1$sMatomo CLI instrumente %2$s puteti genera nu numai mai multe vizite, dar, de asemenea, utilizatori, site-uri și obiective."
     }
 }
