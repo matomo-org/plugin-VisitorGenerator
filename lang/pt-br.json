@@ -1,9 +1,9 @@
 {
     "VisitorGenerator": {
-        "PluginDescription": "Cria visitas e ações falsas no Piwik. Pode ser utilizado por usuários ou desenvolvedores Piwik como uma maneira fácil de gerar dados para povoar os relatórios do Piwik.",
+        "PluginDescription": "Cria visitas e ações falsas no Matomo. Pode ser utilizado por usuários ou desenvolvedores Matomo como uma maneira fácil de gerar dados para povoar os relatórios do Matomo.",
         "VisitorGenerator": "Gerador de visitantes",
-        "Warning": "Você está prestes a gerar visitas falsas que serão gravadas no banco de dados Piwik.",
-        "NotReversible": "%1$s Não %2$s será possível apagar facilmente estas visitas dos logs Piwik.",
+        "Warning": "Você está prestes a gerar visitas falsas que serão gravadas no banco de dados Matomo.",
+        "NotReversible": "%1$s Não %2$s será possível apagar facilmente estas visitas dos logs Matomo.",
         "AreYouSure": "Tem certeza de que quer gerar visitas falsas?",
         "ChoiceYes": "Sim, eu tenho certeza!",
         "Submit": "Enviar",
@@ -13,13 +13,13 @@
         "GenerateFakeActions": "Isto irá gerar pelo menos %d ações falsas por dia neste site.",
         "OverwriteLogFiles": "Você pode sobrescrever os arquivos de log que são usados ​​para gerar visitas falsas (alterar ou adicionar arquivos em %s). Há arquivos log de solicitações para \"piwik.php\" no formato \"Apache combined log\". Desenvolvedores de plugins podem fornecer seus próprios arquivos de log, colocando arquivos '*.log' dentro de um diretório de \"dados\" dos seus plugins.",
         "PleaseBePatient": "NOTA: Pode levar alguns minutos para gerar visitas e ações, por favor, seja paciente...",
-        "LogImporterNote": "Há também uma ferramenta mais rápida que importa grandes dados de teste no Piwik, consulte o %1$sLEIAME%2$s.",
-        "AutomaticReprocess": "Os relatórios serão reprocessados na próxima vez que você visitar os relatórios Piwik. Isso pode levar alguns minutos.",
+        "LogImporterNote": "Há também uma ferramenta mais rápida que importa grandes dados de teste no Matomo, consulte o %1$sLEIAME%2$s.",
+        "AutomaticReprocess": "Os relatórios serão reprocessados na próxima vez que você visitar os relatórios Matomo. Isso pode levar alguns minutos.",
         "GeneratedVisitsFor": "Gerou visitas por %1$s e para os últimos %2$s dias",
         "ReRunArchiveScript": "Por favor, execute novamente '.\/console core:archive' no crontab para recarregar os relatórios. %1$sVeja \"Como configurar o Auto-Armazenamento dos seus Relatórios\"%2$s",
         "NumberOfGeneratedActions": "Número de ações geradas",
-        "CliToolUsage": "Utilizando a ferramenta %1$sPiwik CLI tool%2$s você pode gerar não apenas mais visitas, como também mais usuários, websites e metas.",
-        "CustomPiwikUrl": "URL Piwik Personalizada",
+        "CliToolUsage": "Utilizando a ferramenta %1$sMatomo CLI tool%2$s você pode gerar não apenas mais visitas, como também mais usuários, websites e metas.",
+        "CustomMatomoUrl": "URL Matomo Personalizada",
         "ConfirmVisitorGeneration": "Por favor, confirme o registro de visitante assinalando a caixa"
     }
 }

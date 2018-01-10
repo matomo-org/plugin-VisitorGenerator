@@ -1,9 +1,9 @@
 {
     "VisitorGenerator": {
-        "PluginDescription": "Skapa fiktiva besök och händelser i Piwik. Detta kan användas av Piwikanvändare eller utvecklare för att enkelt skapa fiktivt data för att fylla i Piwikrapporter.",
+        "PluginDescription": "Skapa fiktiva besök och händelser i Matomo. Detta kan användas av Matomoanvändare eller utvecklare för att enkelt skapa fiktivt data för att fylla i Matomorapporter.",
         "VisitorGenerator": "Besöksgenerator",
-        "Warning": "Du håller på att generera falska besök som kommer att registreras i din Piwik databas.",
-        "NotReversible": "Det kommer %1$s inte%2$s vara möjligt att enkelt ta bort dessa besök från Piwik's logg.",
+        "Warning": "Du håller på att generera falska besök som kommer att registreras i din Matomo databas.",
+        "NotReversible": "Det kommer %1$s inte%2$s vara möjligt att enkelt ta bort dessa besök från Matomo's logg.",
         "AreYouSure": "Är du säker på att du vill generera falska besök?",
         "ChoiceYes": "Ja, jag är säker!",
         "Submit": "Skicka",
@@ -13,13 +13,13 @@
         "GenerateFakeActions": "Detta kommer att generera minst %d falska händelser på denna webbplats varje dag.",
         "OverwriteLogFiles": "Du kan skriva över loggiflerna som används för att generera fiktiva besök (ändra eller lägg till filer i %s). Det finns loggfiler för föfrågningar till \"piwik.php\" i formatet \"Apache combined log\". Utvecklare som skapar tillägg kan skapa sina egna loggfiler genom att skapa '*.log'-filer i en 'data'-katalog i tilläggets mapp.",
         "PleaseBePatient": "Observera: Det kan ta några minuter att generera besökare och handlingar, så vi ber dig ha tålamod...",
-        "LogImporterNote": "Det finns också ett snabbare verktyg som kommer att importera stor testdata i Piwik, se också %1$sREADME%2$s.",
-        "AutomaticReprocess": "Den här rapporten kommer att behandlas igen nästa gång du besöker Piwiks rapporter, det kan ta några minuter.",
+        "LogImporterNote": "Det finns också ett snabbare verktyg som kommer att importera stor testdata i Matomo, se också %1$sREADME%2$s.",
+        "AutomaticReprocess": "Den här rapporten kommer att behandlas igen nästa gång du besöker Matomos rapporter, det kan ta några minuter.",
         "GeneratedVisitsFor": "Genererade besök för %1$s och för de senaste %2$s dagarna",
-        "ReRunArchiveScript": "Var snäll och kör om ditt archive.php Piwikscript i tabben i hörnet för att förnya rapporterna. %1$s Se \"Att sätta upp Automatisk-Arkivering för dina rapporter\"%2$s",
+        "ReRunArchiveScript": "Var snäll och kör om ditt archive.php Matomoscript i tabben i hörnet för att förnya rapporterna. %1$s Se \"Att sätta upp Automatisk-Arkivering för dina rapporter\"%2$s",
         "NumberOfGeneratedActions": "Antal generade handlingar",
-        "CliToolUsage": "Genom att använda %1$sPiwik CLI verktyget%2$s kan du inte enbart generera ännu fler besök utan också användare, webbplatser och mål.",
-        "CustomPiwikUrl": "Anpassad Piwik-URL",
+        "CliToolUsage": "Genom att använda %1$sMatomo CLI verktyget%2$s kan du inte enbart generera ännu fler besök utan också användare, webbplatser och mål.",
+        "CustomMatomoUrl": "Anpassad Matomo-URL",
         "ConfirmVisitorGeneration": "Vänligen bekräfta besöksgenereringen genom att kryssa i rutan"
     }
 }

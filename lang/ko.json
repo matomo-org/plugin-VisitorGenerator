@@ -1,9 +1,9 @@
 {
     "VisitorGenerator": {
-        "PluginDescription": "Piwik 내 가상 방문과 활동을 생성합니다. 이는 Piwik 사용자나 개발자들이 Piwik 보고서를 만들기 위한 가상 데이터를 생성하는 쉬운 방법입니다.",
+        "PluginDescription": "Matomo 내 가상 방문과 활동을 생성합니다. 이는 Matomo 사용자나 개발자들이 Matomo 보고서를 만들기 위한 가상 데이터를 생성하는 쉬운 방법입니다.",
         "VisitorGenerator": "방문자 생성기",
-        "Warning": "Piwik 데이터베이스에 기록되는 가짜 방문을 생성하려고합니다.",
-        "NotReversible": "Piwik 로그에서 이러한 방문을 %1$s 쉽게 제거할 수 없습니다 %2$s.",
+        "Warning": "Matomo 데이터베이스에 기록되는 가짜 방문을 생성하려고합니다.",
+        "NotReversible": "Matomo 로그에서 이러한 방문을 %1$s 쉽게 제거할 수 없습니다 %2$s.",
         "AreYouSure": "정말로 가상 방문을 생성 하시겠습니까?",
         "ChoiceYes": "네, 물론입니다!",
         "Submit": "제출",
@@ -12,10 +12,10 @@
         "DaysToCompute": "일별 계산",
         "GenerateFakeActions": "이 사이트에 매일 최소 %d개의 가상 활동이 생성될 것입니다.",
         "PleaseBePatient": "주의: 가상 방문과 활동을 생성함에 있어 시간이 걸립니다. 잠시만 기다려주세요...",
-        "LogImporterNote": "Piwik 내 대용량 테스트 데이터를 불러오는 더 빠른 도구가 있습니다. %1$sREADME%2$s를 봐주세요.",
+        "LogImporterNote": "Matomo 내 대용량 테스트 데이터를 불러오는 더 빠른 도구가 있습니다. %1$sREADME%2$s를 봐주세요.",
         "ReRunArchiveScript": "보고서 새로 고침을 수행하기 위해 crontab의 '.\/console core:archive' 명령어를 재실행해주세요. %1$s\"How to Set up Auto-Archiving of Your Reports\"를 봐주세요.%2$s",
         "NumberOfGeneratedActions": "생성된 활동 수",
-        "CustomPiwikUrl": "맞춤 Piwik URL",
+        "CustomMatomoUrl": "맞춤 Matomo URL",
         "ConfirmVisitorGeneration": "박스 체크를 하여 방문자 생성을 승인해주세요."
     }
 }
