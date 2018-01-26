@@ -1,9 +1,9 @@
 {
     "VisitorGenerator": {
-        "PluginDescription": "Krijoni në Matomo vizita dhe veprime gjoja. Kjo mund të përdoret nga përdoruesit ose zhvilluesit e Matomo-ut si një rrugë e lehtë për të prodhuar të dhëna gjoja, për të populluar me to raporte Matomo.",
+        "PluginDescription": "Krijoni në Matomo vizita dhe veprime gjoja. Kjo mund të përdoret nga përdoruesit ose zhvilluesit e Matomo-s si një rrugë e lehtë për të prodhuar të dhëna gjoja, për të populluar me to raporte Matomo.",
         "VisitorGenerator": "Prodhues Vizitorësh",
         "Warning": "Ju ndan një hap nga prodhimi i vizitave gjasme, që do të regjistrohen te baza juaj e të dhënave Matomo.",
-        "NotReversible": "%1$sNuk%2$s do të jetë e mundur të fshihen kollaj këto vizita nga regjistrat e Matomo-ut.",
+        "NotReversible": "%1$sNuk%2$s do të jetë e mundur të fshihen kollaj këto vizita nga regjistrat e Matomo-s.",
         "AreYouSure": "Jeni i sigurt se doni të prodhohen vizita gjasme?",
         "ChoiceYes": "Po, jam i sigurt!",
         "Submit": "Parashtroje",
