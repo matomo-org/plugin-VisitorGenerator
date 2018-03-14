@@ -65,7 +65,7 @@ class LogParser
      */
     public static function parseLogLine($log)
     {
-        if (!preg_match('/^(\S+) \S+ \S+ \[(.*?)\] "GET (\S+.*?)" \d+ \d+ "(.*?)" "(.*?)"/', $log, $m)) {
+        if (!preg_match('/^(\S+) \S+ \S+ \[(.*?)\] "GET (.*?) .*?" \S+ \S+ (-|(?:".*?")) (-|(?:".*?"))/', $log, $m)) {
             return array();
         }
 
@@ -73,8 +73,17 @@ class LogParser
             'ip'       => $m[1],
             'time'     => $m[2],
             'url'      => $m[3],
-            'referrer' => $m[4],
-            'ua'       => $m[5],
+            'referrer' => self::removeQuotes($m[4]),
+            'ua'       => self::removeQuotes($m[5]),
         );
+    }
+
+    private static function removeQuotes($str)
+    {
+        if (substr($str, 0, 1) != '"') {
+            return $str;
+        }
+
+        return substr($str, 1, -1);
     }
 }

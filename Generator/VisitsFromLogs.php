@@ -75,7 +75,7 @@ class VisitsFromLogs extends Generator
         return Filesystem::globr(PIWIK_INCLUDE_PATH . '/plugins/*/data', '*.log');
     }
 
-    private function manipulateRequestUrl($time, $idSite, $url, $date, $ip, $prefix)
+    protected function manipulateRequestUrl($time, $idSite, $url, $date, $ip, $prefix)
     {
         $start = strpos($url, 'piwik.php?') + strlen('piwik.php?');
         $url   = substr($url, $start, strrpos($url, " ") - $start);
