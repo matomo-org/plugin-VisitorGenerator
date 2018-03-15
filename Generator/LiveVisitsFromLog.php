@@ -200,8 +200,16 @@ class LiveVisitsFromLog extends VisitsFromLogs
 
         // filter logs that do not have the correct day of month
         if ($this->dayOfMonth) {
-            $iterator = new \CallbackFilterIterator($iterator, function ($log) {
-                return $this->isForDayOfMonth($log);
+            $iterator = new \CallbackFilterIterator($iterator, function ($log, $lineNumber) {
+                $isForDayOfMonth = $this->isForDayOfMonth($log);
+
+                if (!$isForDayOfMonth) {
+                    $this->logger->debug("Log line {line} has incorrect day of month.", [
+                        'line' => $lineNumber,
+                    ]);
+                }
+
+                return $isForDayOfMonth;
             });
         }
 
