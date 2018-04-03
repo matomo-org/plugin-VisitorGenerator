@@ -32,7 +32,7 @@ class GenerateLiveVisits extends ConsoleCommand
             Date::now()->toString('j'));
         $this->addOption('time-of-day', null, InputOption::VALUE_REQUIRED,
             'The time of day to start replaying logs for. Defaults to now, specify a value here to override.',
-            time());
+            time() % LiveVisitsFromLog::SECONDS_IN_DAY);
         $this->addOption('custom-matomo-url', null, InputOption::VALUE_REQUIRED, 'Custom Matomo URL to track to.');
     }
 
@@ -68,6 +68,7 @@ class GenerateLiveVisits extends ConsoleCommand
                 return 0;
             }
 
+            $output->writeln("  sleeping {$nextWaitTime}s.");
             sleep($nextWaitTime);
 
             if ($stopAfter > 0
