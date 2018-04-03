@@ -19,3 +19,5 @@
 - 3.0.1
    * Adds tracking of bandwidth
    * Adds tracking of custom dimensions and ecommerce cart updates + orders
+- 3.1.0
+   * Add new command to log visits live as if they were from real incoming traffic
