@@ -45,7 +45,9 @@ class GenerateLiveVisits extends ConsoleCommand
         $dayOfMonth = $this->getPostiveIntegerOption($input, 'day-of-month');
         $timeOfDay = $this->getPostiveIntegerOption($input, 'time-of-day');
 
-        $generateLiveVisits = new LiveVisitsFromLog($logFile, $idSite, $timeOfDay, $dayOfMonth, $piwikUrl);
+        $timeOfDayDelta = $stopAfter ?: LiveVisitsFromLog::SECONDS_IN_DAY;
+
+        $generateLiveVisits = new LiveVisitsFromLog($logFile, $idSite, $timeOfDay, $timeOfDayDelta, $dayOfMonth, $piwikUrl);
 
         $output->writeln("Generating logs...");
 

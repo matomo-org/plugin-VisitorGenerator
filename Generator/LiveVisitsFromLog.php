@@ -38,6 +38,11 @@ class LiveVisitsFromLog extends VisitsFromLogs
     private $timeOfDay;
 
     /**
+     * @var int
+     */
+    private $timeOfDayDelta;
+
+    /**
      * @var int|null
      */
     private $dayOfMonth;
@@ -62,12 +67,13 @@ class LiveVisitsFromLog extends VisitsFromLogs
      */
     private $languageIndex = 0;
 
-    public function __construct($logFile, $idSite, $timeOfDay, $dayOfMonth = null, $piwikUrl = null)
+    public function __construct($logFile, $idSite, $timeOfDay, $timeOfDayDelta, $dayOfMonth = null, $piwikUrl = null)
     {
         parent::__construct($piwikUrl);
 
         $this->idSite = $idSite;
         $this->timeOfDay = $timeOfDay;
+        $this->timeOfDayDelta = $timeOfDayDelta;
         $this->dayOfMonth = $dayOfMonth;
         $this->logger = StaticContainer::get(LoggerInterface::class);
         $this->languages = Request::getAcceptLanguages();
@@ -229,7 +235,7 @@ class LiveVisitsFromLog extends VisitsFromLogs
 
             $logTimeOfDay = Date::factory($log['time'])->getTimestamp() % self::SECONDS_IN_DAY;
             $distance = $logTimeOfDay - $this->timeOfDay;
-            if ($distance >= 0 && $distance <= 60) {
+            if ($distance >= 0 && $distance <= $this->timeOfDayDelta) {
                 return;
             }
 
