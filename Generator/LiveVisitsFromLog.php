@@ -38,6 +38,11 @@ class LiveVisitsFromLog extends VisitsFromLogs
     private $timeOfDay;
 
     /**
+     * @var int
+     */
+    private $timeOfDayDelta;
+
+    /**
      * @var int|null
      */
     private $dayOfMonth;
@@ -62,12 +67,18 @@ class LiveVisitsFromLog extends VisitsFromLogs
      */
     private $languageIndex = 0;
 
-    public function __construct($logFile, $idSite, $timeOfDay, $dayOfMonth = null, $piwikUrl = null)
+    /**
+     * @var int|null
+     */
+    private $initialWaitTime;
+
+    public function __construct($logFile, $idSite, $timeOfDay, $timeOfDayDelta, $dayOfMonth = null, $piwikUrl = null)
     {
         parent::__construct($piwikUrl);
 
         $this->idSite = $idSite;
         $this->timeOfDay = $timeOfDay;
+        $this->timeOfDayDelta = $timeOfDayDelta;
         $this->dayOfMonth = $dayOfMonth;
         $this->logger = StaticContainer::get(LoggerInterface::class);
         $this->languages = Request::getAcceptLanguages();
@@ -76,13 +87,19 @@ class LiveVisitsFromLog extends VisitsFromLogs
         $this->logIterator->rewind();
         $this->logIterator->next();
 
-        $this->skipAheadToTimeOfDay();
+        $this->initialWaitTime = $this->skipAheadToTimeOfDay();
     }
 
     public function tick()
     {
         if (!$this->logIterator->valid()) {
             throw new \Exception("Illegal state: no logs to track (maybe there are no lines for the day of month or time of day).");
+        }
+
+        if ($this->initialWaitTime) {
+            $initialWaitTime = $this->initialWaitTime;
+            $this->initialWaitTime = null;
+            return [0, $initialWaitTime];
         }
 
         $currentDate = date('Y-m-d');
@@ -228,12 +245,15 @@ class LiveVisitsFromLog extends VisitsFromLogs
             $log = $this->logIterator->current();
 
             $logTimeOfDay = Date::factory($log['time'])->getTimestamp() % self::SECONDS_IN_DAY;
-            if ($logTimeOfDay >= $this->timeOfDay) {
-                return;
+            $distance = $logTimeOfDay - $this->timeOfDay;
+            if ($distance >= 0 && $distance <= $this->timeOfDayDelta) {
+                return $distance;
             }
 
             $this->logIterator->next();
         }
+
+        return null;
     }
 
     private function getDateWithoutTimzeone($time)
