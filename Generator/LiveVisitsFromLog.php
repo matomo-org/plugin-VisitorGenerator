@@ -228,7 +228,8 @@ class LiveVisitsFromLog extends VisitsFromLogs
             $log = $this->logIterator->current();
 
             $logTimeOfDay = Date::factory($log['time'])->getTimestamp() % self::SECONDS_IN_DAY;
-            if ($logTimeOfDay >= $this->timeOfDay) {
+            $distance = $logTimeOfDay - $this->timeOfDay;
+            if ($distance >= 0 && $distance <= 60) {
                 return;
             }
 
