@@ -29,7 +29,7 @@ class FileLineIterator implements \SeekableIterator
     {
         $this->file = new \SplFileObject($file);
         $this->lineNumber = 0;
-        $this->currentLine = $this->file->fgets();
+        $this->fetchCurrentLine();
     }
 
     public function current()
@@ -40,12 +40,7 @@ class FileLineIterator implements \SeekableIterator
     public function next()
     {
         ++$this->lineNumber;
-
-        if (!$this->file->eof()) {
-            $this->currentLine = $this->file->fgets();
-        } else {
-            $this->currentLine = false;
-        }
+        $this->fetchCurrentLine();
     }
 
     public function key()
@@ -61,15 +56,28 @@ class FileLineIterator implements \SeekableIterator
     public function rewind()
     {
         $this->file->fseek(0);
+        $this->lineNumber = 0;
+        $this->fetchCurrentLine();
     }
 
     public function seek($position)
     {
         $this->file->seek($position);
+        $this->lineNumber = $position;
+        $this->fetchCurrentLine();
     }
 
     public function close()
     {
         $this->file = null;
+    }
+
+    private function fetchCurrentLine()
+    {
+        if (!$this->file->eof()) {
+            $this->currentLine = $this->file->fgets();
+        } else {
+            $this->currentLine = false;
+        }
     }
 }
