@@ -52,6 +52,11 @@ class GenerateLiveVisits extends ConsoleCommand
         $startTime = time();
         while (true) {
             list($count, $nextWaitTime) = $generateLiveVisits->tick();
+            if ($count === null) {
+                $output->writeln("Found no logs to track for day of month / time of day, exiting.");
+                return 0;
+            }
+
             $output->writeln("  tracked $count actions.");
 
             if ($nextWaitTime === null) {
