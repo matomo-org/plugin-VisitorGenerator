@@ -93,7 +93,7 @@ class LiveVisitsFromLog extends VisitsFromLogs
     public function tick()
     {
         if (!$this->logIterator->valid()) {
-            throw new \Exception("Illegal state: no logs to track (maybe there are no lines for the day of month or time of day).");
+            return [null, null];
         }
 
         if ($this->initialWaitTime) {
