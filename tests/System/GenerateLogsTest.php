@@ -13,6 +13,10 @@ use Piwik\Db;
 use Piwik\Tests\Framework\Fixture;
 use Piwik\Tests\Framework\TestCase\ConsoleCommandTestCase;
 
+/**
+ * @group VisitorGenerator
+ * @group GenerateLogsTest
+ */
 class GenerateLogsTest extends ConsoleCommandTestCase
 {
     public static function setUpBeforeClass()
