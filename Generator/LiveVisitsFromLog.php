@@ -85,7 +85,6 @@ class LiveVisitsFromLog extends VisitsFromLogs
 
         $this->logIterator = $this->makeIterator($logFile);
         $this->logIterator->rewind();
-        $this->logIterator->next();
 
         $this->initialWaitTime = $this->skipAheadToTimeOfDay();
     }
