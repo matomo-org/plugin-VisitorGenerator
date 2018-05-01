@@ -884,10 +884,26 @@ class Request extends \Faker\Provider\Base
         return $url . $keyword;
     }
 
+    public function searchEngineUrlWithOutKeyword()
+    {
+        $url = static::randomElement(array(
+            'https://www.bing.com/',
+            'https://duckduckgo.com/',
+            'https://www.google.de/url?sa=t&source=web&rct=j&url=https://matomo.org/&ved=0ahUKEwi3qreZtuHaAhXEHpoKHXxxBxEQFggsMAA',
+            'https://www.google.fr/',
+            'http://r.search.yahoo.com/_ylt=AwrE1yEOwOZauucA_xoDEQx.;_ylu=X3oDMTByOHZyb21tBGNvbG8DYmYxBHBvcwMxBHZ0aWQDBHNlYwNzcg--/RV=2/RE=1525100687/RO=10/RU=https%3a%2f%2fmatomo.org%2f/RK=2/RS=QEhnjr714z0Me7kPhYj1gHrLTKc-',
+            'http://search.yahoo.co.jp/r/FOR=wJjKBrpV3iiyQ9OVtYIAEFhwB6F4X7nB3uwubUjurHLqwT8oFNO7dNiZBXYbmgNENZz8yKntTR5X_chrfaAcSOgPUyuK.Y5mOUs5tzKNLuq42vgCKLHdBH3gavAtCoKeCKOItwbkCN10nMDO9gO8MW9zdH9TOyAul7u1sqXEE0wTNpY6DW.EFfagOL54JzI3OBVfIin7/_ylt=A2RAyhx.wOZaQWsATEuDTwx.;_ylu=X3oDMTBtNHJhZXRnBHBvcwMxBHNlYwNzcgRzbGsDdGl0bGU-/SIG=11fhbagaq/EXP=1525172798/**https%3A//matomo.jp/news/7540',
+            'https://yandex.ru/'
+        ));
+
+        return $url;
+    }
+
     public function referrer()
     {
-        $urlReferrer = $this->generator->url;
-        $urlKeyword  = $this->searchEngineUrlWithKeyword($this->generator->word);
+        $urlReferrer  = $this->generator->url;
+        $urlKeyword   = $this->searchEngineUrlWithKeyword($this->generator->word);
+        $urlNoKeyword = $this->searchEngineUrlWithOutKeyword();
 
         return static::randomElement(array(
             '',
@@ -902,6 +918,10 @@ class Request extends \Faker\Provider\Base
             $urlReferrer,
             $urlReferrer,
             $urlReferrer,
+            $urlNoKeyword,
+            $urlNoKeyword,
+            $urlNoKeyword,
+            $urlNoKeyword,
             $urlKeyword,
             $urlKeyword,
             $urlKeyword,
