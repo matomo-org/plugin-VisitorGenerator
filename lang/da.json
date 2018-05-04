@@ -4,7 +4,7 @@
         "VisitorGenerator": "Besøgsgenerator",
         "Warning": "Du er ved at generere kunstige besøg, som vil blive gemt i Matomo databasen.",
         "NotReversible": "Det er %1$s ikke%2$s muligt nemt at slette disse besøg fra Matomos log.",
-        "AreYouSure": "Er du sikker på at du vil generere kunstige besøg?",
+        "AreYouSure": "Er du sikker på, at du vil generere kunstige besøg?",
         "ChoiceYes": "Ja, jeg er sikker!",
         "Submit": "Generer",
         "SelectWebsite": "Vælg hjemmeside",
@@ -17,7 +17,7 @@
         "AutomaticReprocess": "Rapporterne vil genbehandlet næste gang du besøger Matomo rapporter, det kan tage et par minutter.",
         "GeneratedVisitsFor": "Genererede besøg for %1$s og i de sidste %2$s dage",
         "ReRunArchiveScript": "Kør archive.php Matomo script igen i crontab for at opdatere rapporterne. %1$sSe \"How to Set up Auto-Archiving of Your Reports\"%2$s",
-        "NumberOfGeneratedActions": "Antallet af genererede handlinger",
+        "NumberOfGeneratedActions": "Antal genererede handlinger",
         "CliToolUsage": "Ved at bruge %1$sMatomo kommandolinie værktøj%2$s kan du ikke kun generere endnu flere besøg, men også brugere, hjemmesider og mål.",
         "CustomMatomoUrl": "Tilpasset Matomo URL",
         "ConfirmVisitorGeneration": "Bekræft venligst bruger genereringen ved at markere i boxen"
