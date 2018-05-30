@@ -8,12 +8,10 @@
 
 namespace Piwik\Plugins\VisitorGenerator\Generator;
 
-
 use Piwik\Container\StaticContainer;
 use Piwik\Date;
 use Piwik\Http;
 use Piwik\Plugins\VisitorGenerator\Faker\Request;
-use Piwik\Plugins\VisitorGenerator\Iterator\FileLineIterator;
 use Piwik\Plugins\VisitorGenerator\Iterator\TransformIterator;
 use Piwik\Plugins\VisitorGenerator\LogParser;
 use Psr\Log\LoggerInterface;
@@ -48,7 +46,7 @@ class LiveVisitsFromLog extends VisitsFromLogs
     private $dayOfMonth;
 
     /**
-     * @var FileLineIterator
+     * @var \SeekableIterator
      */
     private $fileIterator;
 
@@ -119,6 +117,10 @@ class LiveVisitsFromLog extends VisitsFromLogs
             }
 
             $nextLog = $this->logIterator->current();
+            if (!$this->isForDayOfMonth($nextLog)) {
+                return [$count, null];
+            }
+
             $nextLogDateTimeOfDay = $this->getDateWithoutTimzeone($nextLog['time'])->getTimestamp() % self::SECONDS_IN_DAY;
 
             // if the next log's time is ahead of the time we started tracking, return the wait time
@@ -133,8 +135,7 @@ class LiveVisitsFromLog extends VisitsFromLogs
             }
 
             if ($nextLogDateTimeOfDay < $currentLogDateTimeOfDay) {
-                throw new \Exception("Log file is out of order, found log line that is earlier than previous log around line:"
-                    . $this->getCurrentLineNumber());
+                return [$count, null]; // if next log is for the next day, we're done replaying for now
             }
         }
 
@@ -143,7 +144,7 @@ class LiveVisitsFromLog extends VisitsFromLogs
 
     public function close()
     {
-        $this->fileIterator->close();
+        $this->fileIterator = null;
     }
 
     public function getCurrentLineNumber()
@@ -191,7 +192,7 @@ class LiveVisitsFromLog extends VisitsFromLogs
     private function makeIterator($logFile)
     {
         // read log file lines
-        $this->fileIterator = new FileLineIterator($logFile);
+        $this->fileIterator = new \SplFileObject($logFile);
 
         // parse lines to logs
         $iterator = new TransformIterator($this->fileIterator, function ($line, $lineNumber) {
