@@ -78,7 +78,7 @@ class VisitsFromLogs extends Generator
     protected function manipulateRequestUrl($time, $idSite, $url, $date, $ip, $prefix)
     {
         $start = strpos($url, 'piwik.php?') + strlen('piwik.php?');
-        $url   = substr($url, $start, strrpos($url, " ") - $start);
+        $url   = substr($url, $start);
         $ip    = strlen($ip) < 9 ? "13.5.111.3" : $ip;
         $datetime = $date . " " . Date::factory($time)->toString("H:i:s");
 
