@@ -1,8 +1,8 @@
 {
     "VisitorGenerator": {
-        "PluginDescription": "Crea in Matomo delle visite e delle azioni false. Questo può essere utilizzato dagli utenti di Matomo o dagli sviluppatori come un semplice modo per generare dei falsi dati per popolare i report di Matomo.",
+        "PluginDescription": "Crea in Matomo delle visite e delle azioni false. Questo può essere utilizzato dagli utenti di Matomo o dagli sviluppatori come un semplice modo per generare dei falsi dati per popolare i suoi report.",
         "VisitorGenerator": "Generatore di visite",
-        "Warning": "Grazie al generatore di visite puoi creare delle visite false che verranno salvate nel tuo Matomo database.",
+        "Warning": "Grazie al generatore di visite puoi creare delle visite false che verranno salvate nel tuo database di Matomo.",
         "NotReversible": "%1$sNon%2$s è possibile cancellare facilmente queste visite dai log di Matomo.",
         "AreYouSure": "Sei sicuro di voler creare delle visite false?",
         "ChoiceYes": "Si, sono sicuro!",
