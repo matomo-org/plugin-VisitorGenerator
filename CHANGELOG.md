@@ -21,3 +21,7 @@
    * Adds tracking of custom dimensions and ecommerce cart updates + orders
 - 3.1.0
    * Add new command to log visits live as if they were from real incoming traffic
+- 3.1.1
+   * Correct URL processing in manipulateRequestUrl after LogHelper regex change
+   * Fix log out of order exception that occurs on large logs 
+   * Adds search engine referrers without keyword
