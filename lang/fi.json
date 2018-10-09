@@ -2,7 +2,7 @@
     "VisitorGenerator": {
         "VisitorGenerator": "Kävijöiden luonti",
         "Warning": "Olet luomassa valheellisia",
-        "NotReversible": "Näitä käyntejä %1$sei voi%2$s helposti poistaa Matomoin lokeista.",
+        "NotReversible": "Näitä käyntejä %1$sei voi%2$s helposti poistaa Matomon lokeista.",
         "AreYouSure": "Haluatko varmasti luoda valheellisia käyntejä?",
         "ChoiceYes": "Kyllä, olen varma!",
         "Submit": "Lähetä",
@@ -11,12 +11,12 @@
         "DaysToCompute": "Päivien määrä",
         "GenerateFakeActions": "Tämä luo vähintään %d kuvitteellista toimintoa tälle sivulle jokaiselle päivälle",
         "PleaseBePatient": "Huom: Käyntien ja toimintojen luonti saattaa kestää joitakin minuutteja, pyydämme kärsivällisyyttä...",
-        "LogImporterNote": "On olemassa myös nopeampi työkalu, joka tuo suuria testidatoja Matomoiin, katso myös %1$sREADME%2$s.",
-        "AutomaticReprocess": "Raportit käsitellään uudelleen, kun käyt seuraavan kerran Matomoin raporteissa. Tämä saattaa kestää joitakin minuutteja.",
+        "LogImporterNote": "On olemassa myös nopeampi työkalu, joka tuo suuria testidatoja Matomoon, katso %1$sREADME%2$s.",
+        "AutomaticReprocess": "Raportit käsitellään uudelleen, kun käyt seuraavan kerran Matomon raporteissa. Tämä saattaa kestää joitakin minuutteja.",
         "GeneratedVisitsFor": "Tehdyt käynnit %1$s:lla viimeisten %2$s päivän aikana",
         "ReRunArchiveScript": "Ole hyvä ja aja uudelleen '.\/console core:archive' crontabissa päivittääksesi raportit. %1$sKatso \"Miten asennan automaattisen raporttien arkistoinnin\"%2$s",
         "NumberOfGeneratedActions": "Toimeenpantujen toimintojen lukumäärä",
-        "CustomMatomoUrl": "Kustomoitu Matomoin osoite",
+        "CustomMatomoUrl": "Muokattu Matomon osoite",
         "ConfirmVisitorGeneration": "Varmista käyttäjien luominen raksittamalla laatikko"
     }
 }
