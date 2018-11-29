@@ -11,7 +11,7 @@
         "NbRequestsPerSec": "Requests per second",
         "DaysToCompute": "Days to compute",
         "GenerateFakeActions": "This will generate at least %d fake actions on this site for each day.",
-        "OverwriteLogFiles": "You can overwrite the log files that are used to generate fake visits (change or add files in %s). There are log files of requests to \"piwik.php\" in the format \"Apache combined log\". Plugin developers can provide their own log files by placing '*.log' files within a 'data' directory of their plugin.",
+        "OverwriteLogFiles": "You can overwrite the log files that are used to generate fake visits (change or add files in %s). There are log files of requests to \"matomo.php\" in the format \"Apache combined log\". Plugin developers can provide their own log files by placing '*.log' files within a 'data' directory of their plugin.",
         "PleaseBePatient": "NOTE: It might take a few minutes to generate visits and actions, please be patient...",
         "LogImporterNote": "There is also a faster tool that will import large test data in Matomo, see the %1$sREADME%2$s.",
         "AutomaticReprocess": "The reports will be reprocessed the next time you visit the Matomo reports, it might take a few minutes.",
