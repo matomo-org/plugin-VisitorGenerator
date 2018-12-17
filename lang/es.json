@@ -15,6 +15,7 @@
         "PleaseBePatient": "NOTA: Generar visitas y acciones puede tardar unos minutos, por favor tenga paciencia...",
         "LogImporterNote": "También existe una herramienta más rápida que permite importar grandes cantidades de datos para pruebas en Matomo, consulta el archivo %1$sREADME%2$s.",
         "AutomaticReprocess": "Los informes serán reprocesados la próxima vez que visite los informes de Matomo. Esto puede tomar unos minutos.",
+        "GeneratedVisitsFor": "Visitas generadas para %1$sy los últimos %2$s dias",
         "ReRunArchiveScript": "Por favor vuelva a ejecutar el comando '.\/console core:archive' en el crontab para actualizar los informes. %1$sVer \"Cómo configurar el archivo automático de sus informes\"%2$s",
         "NumberOfGeneratedActions": "Número de acciones generadas",
         "CliToolUsage": "Utilizando la %1$sherramienta Matomo CLI%2$s no solo puede generar más visitas sino también usuarios, sitios web y objetivos.",
