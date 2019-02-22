@@ -18,7 +18,7 @@
         "GeneratedVisitsFor": "Genererede besøg for %1$s og i de sidste %2$s dage",
         "ReRunArchiveScript": "Kør archive.php Matomo script igen i crontab for at opdatere rapporterne. %1$sSe \"How to Set up Auto-Archiving of Your Reports\"%2$s",
         "NumberOfGeneratedActions": "Antal genererede handlinger",
-        "CliToolUsage": "Ved at bruge %1$sMatomo kommandolinie værktøj%2$s kan du ikke kun generere endnu flere besøg, men også brugere, hjemmesider og mål.",
+        "CliToolUsage": "Ved at bruge %1$sMatomo kommandolinjeværktøj%2$s kan du ikke kun generere endnu flere besøg, men også brugere, hjemmesider og mål.",
         "CustomMatomoUrl": "Tilpasset Matomo URL",
         "ConfirmVisitorGeneration": "Bekræft venligst bruger genereringen ved at markere i boxen"
     }
