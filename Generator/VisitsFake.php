@@ -143,7 +143,7 @@ class VisitsFake extends Generator
                 $price =  $this->faker->randomNumber(2);
                 $quantity = $this->faker->numberBetween(1,4);
 
-                $tracker->addEcommerceItem($sku = $this->faker->randomNumber(4), $this->faker->productName, 'Music Category', $price, $quantity);
+                $tracker->addEcommerceItem($sku = $this->faker->randomNumber(1, 9999), $this->faker->productName, 'Music Category', $price, $quantity);
 
                 if ($this->faker->boolean(50)) {
                     $tracker->doTrackEcommerceCartUpdate(50);
