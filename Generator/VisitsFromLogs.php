@@ -46,7 +46,7 @@ class VisitsFromLogs extends Generator
             $logParser = new LogParser($logFile);
             $logs      = $logParser->getParsedLogLines();
 
-            $prefix     = $this->getPiwikUrl() . "piwik.php";
+            $prefix     = $this->getPiwikUrl() . "matomo.php";
             $dayOfMonth = $this->findDayOfMonthToUseToMakeSureWeGenerateAtLeastOneVisit($time, $logs);
 
             $languages = Request::getAcceptLanguages();
@@ -77,7 +77,7 @@ class VisitsFromLogs extends Generator
 
     protected function manipulateRequestUrl($time, $idSite, $url, $date, $ip, $prefix)
     {
-        $start = strpos($url, 'piwik.php?') + strlen('piwik.php?');
+        $start = strpos($url, 'matomo.php?') + strlen('matomo.php?');
         $url   = substr($url, $start);
         $ip    = strlen($ip) < 9 ? "13.5.111.3" : $ip;
         $datetime = $date . " " . Date::factory($time)->toString("H:i:s");

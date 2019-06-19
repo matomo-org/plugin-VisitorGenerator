@@ -168,7 +168,7 @@ class LiveVisitsFromLog extends VisitsFromLogs
 
         Http::sendHttpRequestBy(
             Http::getTransportMethod(),
-            $this->getPiwikUrl() . '/piwik.php',
+            $this->getPiwikUrl() . '/matomo.php',
             $timeout = 5,
             $log['ua'],
             $path = null,
