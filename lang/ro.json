@@ -10,7 +10,7 @@
         "NbRequestsPerSec": "Cereri pe secundă",
         "DaysToCompute": "Zile pentru a calcula",
         "GenerateFakeActions": "Acest lucru va genera cel puțin %d acțiuni false pe acest site pentru fiecare zi.",
-        "OverwriteLogFiles": "Puteți suprascrie fișierele jurnal care sunt utilizate pentru a genera vizite false (de schimbare sau a adăuga fișiere în %s). Există fișiere jurnal de cereri de la \"piwik.php\" în formatul \"log Apache combinat\". Dezvoltatorii plugin poate oferi propriile fișiere jurnal prin plasarea \"*. Log\" fișiere într-un director \"de date\", a plugin lor.",
+        "OverwriteLogFiles": "Puteți suprascrie fișierele jurnal care sunt utilizate pentru a genera vizite false (de schimbare sau a adăuga fișiere în %s). Există fișiere jurnal de cereri de la \"matomo.php\" în formatul \"log Apache combinat\". Dezvoltatorii plugin poate oferi propriile fișiere jurnal prin plasarea \"*. Log\" fișiere într-un director \"de date\", a plugin lor.",
         "PleaseBePatient": "NOTĂ: S-ar putea să dureze câteva minute pentru a genera vizite și acțiuni, vă rog să aveți răbdare ...",
         "LogImporterNote": "Există, de asemenea, un instrument rapid, care va importa datele de testare mari în Matomo, a se vedea %1$sREADME%2$s.",
         "AutomaticReprocess": "Rapoartele vor fi reprocesat data viitoare când vizitați Matomo rapoarte, ar putea dura câteva minute.",

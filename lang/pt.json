@@ -11,7 +11,7 @@
         "NbRequestsPerSec": "Pedidos por segundo",
         "DaysToCompute": "Dias a computar",
         "GenerateFakeActions": "Isto irá gerar, pelo menos, %d ações falsas por cada dia neste site.",
-        "OverwriteLogFiles": "Pode sobrepor os ficheiros de registo que são utilizados para gerar visitas falsas (altere ou adicione ficheiros em %s). Existem ficheiros de registo de pedidos ao \"piwik.php\" no formato \"Registo combinado do Apache\". O programadores de extensões podem fornecer os seus próprios ficheiros de registo colocando ficheiro '*.log' dentro da pasta 'data' da sua extensão.",
+        "OverwriteLogFiles": "Pode sobrepor os ficheiros de registo que são utilizados para gerar visitas falsas (altere ou adicione ficheiros em %s). Existem ficheiros de registo de pedidos ao \"matomo.php\" no formato \"Registo combinado do Apache\". O programadores de extensões podem fornecer os seus próprios ficheiros de registo colocando ficheiro '*.log' dentro da pasta 'data' da sua extensão.",
         "PleaseBePatient": "NOTA: pode demorar alguns minutos a gerar visitas e ações, pelo que seja paciente...",
         "LogImporterNote": "Existe também uma ferramenta mais rápida que irá importar um grande quantidade de dados de teste no Matomo. Consulte o %1$sREADME%2$s.",
         "AutomaticReprocess": "Os relatórios serão reprocessados da próxima vez que visitar os relatórios do Matomo. Pode demorar alguns minutos.",

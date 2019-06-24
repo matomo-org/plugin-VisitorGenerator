@@ -11,7 +11,7 @@
         "NbRequestsPerSec": "Peticiones por segundo",
         "DaysToCompute": "Días a computar",
         "GenerateFakeActions": "Esto generará al menos %d acciones falsas en este sitio cada día.",
-        "OverwriteLogFiles": "Puedes sobrescribir los archivos de registro que se utilizan para generar visitas falsas (cambie o agregue archivos en %s). Existen registros de solicitudes a \"piwik.php\" con el formato \"Apache combined log\". Los desarrolladores de complementos pueden crear sus propios archivos de registro colocando los archivos '*.log' en un directorio de datos en sus complementos.",
+        "OverwriteLogFiles": "Puedes sobrescribir los archivos de registro que se utilizan para generar visitas falsas (cambie o agregue archivos en %s). Existen registros de solicitudes a \"matomo.php\" con el formato \"Apache combined log\". Los desarrolladores de complementos pueden crear sus propios archivos de registro colocando los archivos '*.log' en un directorio de datos en sus complementos.",
         "PleaseBePatient": "NOTA: Generar visitas y acciones puede tardar unos minutos, por favor tenga paciencia...",
         "LogImporterNote": "También existe una herramienta más rápida que permite importar grandes cantidades de datos para pruebas en Matomo, consulta el archivo %1$sREADME%2$s.",
         "AutomaticReprocess": "Los informes serán reprocesados la próxima vez que visite los informes de Matomo. Esto puede tomar unos minutos.",

@@ -11,7 +11,7 @@
         "NbRequestsPerSec": "Förfrågningar per sekund",
         "DaysToCompute": "Dagar att beräkna",
         "GenerateFakeActions": "Detta kommer att generera minst %d falska händelser på denna webbplats varje dag.",
-        "OverwriteLogFiles": "Du kan skriva över loggiflerna som används för att generera fiktiva besök (ändra eller lägg till filer i %s). Det finns loggfiler för föfrågningar till \"piwik.php\" i formatet \"Apache combined log\". Utvecklare som skapar tillägg kan skapa sina egna loggfiler genom att skapa '*.log'-filer i en 'data'-katalog i tilläggets mapp.",
+        "OverwriteLogFiles": "Du kan skriva över loggiflerna som används för att generera fiktiva besök (ändra eller lägg till filer i %s). Det finns loggfiler för föfrågningar till \"matomo.php\" i formatet \"Apache combined log\". Utvecklare som skapar tillägg kan skapa sina egna loggfiler genom att skapa '*.log'-filer i en 'data'-katalog i tilläggets mapp.",
         "PleaseBePatient": "Observera: Det kan ta några minuter att generera besökare och handlingar, så vi ber dig ha tålamod...",
         "LogImporterNote": "Det finns också ett snabbare verktyg som kommer att importera stor testdata i Matomo, se också %1$sREADME%2$s.",
         "AutomaticReprocess": "Den här rapporten kommer att behandlas igen nästa gång du besöker Matomos rapporter, det kan ta några minuter.",

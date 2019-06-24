@@ -11,7 +11,7 @@
         "NbRequestsPerSec": "Requêtes par seconde",
         "DaysToCompute": "Jours à calculer",
         "GenerateFakeActions": "Ceci va générer au moins %d fausses actions sur ce site chaque jour.",
-        "OverwriteLogFiles": "Vous pouvez écraser les fichiers de log qui sont utilisés pour générer les fausses visites (modifiez ou ajoutez des fichiers dans %s). Il y a des fichiers de requêtes vers \"Piwik.php\" au format \"log combiné Apache\". Les développeurs de composants additionnels peuvent fournir leurs propres fichiers en plaçant des fichiers '*.log' dans un répertoire 'data' au sein de leur composant.",
+        "OverwriteLogFiles": "Vous pouvez écraser les fichiers de log qui sont utilisés pour générer les fausses visites (modifiez ou ajoutez des fichiers dans %s). Il y a des fichiers de requêtes vers \"matomo.php\" au format \"log combiné Apache\". Les développeurs de composants additionnels peuvent fournir leurs propres fichiers en plaçant des fichiers '*.log' dans un répertoire 'data' au sein de leur composant.",
         "PleaseBePatient": "Note : cela peut prendre plusieurs minutes de générer des visites et des actions, veuillez patienter...",
         "LogImporterNote": "Il existe un outil plus rapide pour importer des données de test volumineuses dans Matomo, consultez le fichier %1$sLISEZ-MOI%2$s.",
         "AutomaticReprocess": "Les rapports seront calculés à nouveau la prochaine fois que afficherez les rapports Matomo, cela peut prendre quelques minutes.",

@@ -1,6 +1,6 @@
 {
     "VisitorGenerator": {
-        "PluginDescription": "Matomo üzerinde sahte ziyaret ve işlemler oluşturur. Bu özellik Matomo kullanıcıları ya da geliştiricileri tarafından Matomo raporları için gerekli verileri kolayca elde etmek için kullanılır.",
+        "PluginDescription": "Matomo üzerine sahte ziyaret ve işlem kayıtları ekler. Bu özellik Matomo kullanıcıları ya da geliştiricileri tarafından Matomo raporları için gerekli örnek verileri kolayca eklemek için kullanılır.",
         "VisitorGenerator": "Ziyaretçi Üreteci",
         "Warning": "Matomo veritabanına kaydedilecek sahte ziyaretler üretmek üzeresiniz.",
         "NotReversible": "Bu ziyaretler Matomo günlüklerinden kolayca %1$ssilinemeyecek%2$s.",
@@ -11,7 +11,7 @@
         "NbRequestsPerSec": "Bir saniyedeki istek sayısı",
         "DaysToCompute": "Hesaplanacak gün",
         "GenerateFakeActions": "Bu işlem en az sitede her gün en az %d sahte işlem üretir.",
-        "OverwriteLogFiles": "Sahte ziyaretlerin üretildiği günlük dosyalarının üzerine yazabilirsiniz. (%s içindeki dosyaları değiştirin ya da ekleyin). \"piwik.php\" isteklerinin günlük dosyaları \"Apache birleştirilmiş günlüğü\" biçimindedir. Uygulama eki geliştiricileri, kendi uygulama eklerinde bulunan bir 'data' klasörü altında kendi '*.log' dosyalarını kullanıyor olabilir.",
+        "OverwriteLogFiles": "Sahte ziyaretlerin üretildiği günlük dosyalarının üzerine yazabilirsiniz. (%s içindeki dosyaları değiştirin ya da ekleyin). \"matomo.php\" isteklerinin günlük dosyaları \"Apache birleştirilmiş günlüğü\" biçimindedir. Uygulama eki geliştiricileri, kendi uygulama eklerinde bulunan bir 'data' klasörü altında kendi '*.log' dosyalarını kullanıyor olabilir.",
         "PleaseBePatient": "Not: Sahte ziyaret ve işlemlerin üretilmesi bir kaç dakika sürebilir, lütfen bekleyin...",
         "LogImporterNote": "Deneme verilerini Matomo üzerine yüklemek için daha hızlı bir araç vardır. Ayrıntılı bilgi almak için %1$sREADME%2$s dosyasına bakın.",
         "AutomaticReprocess": "Matomo raporları bölümüne bir sonraki bakışınızda raporlar yeniden işlenecek. Bu işlem bir kaç dakika sürebilir.",

@@ -11,7 +11,7 @@
         "NbRequestsPerSec": "Zapytań na sekundę",
         "DaysToCompute": "Dni do obliczeń",
         "GenerateFakeActions": "To wygeneruje przynajmniej %d symulowanych odwiedzin tego serwisu dla każdego dnia.",
-        "OverwriteLogFiles": "Możesz nadpisać pliki logów wykorzystywane do generowania symulowanych odwiedzin (zmień lub dodaj pliki w %s). Znajdziesz tam pliki logów z żądaniami \"piwik.php\" w formacie \"Apache combined log\". Deweloperzy wtyczek mogą skorzystać ze swoich własnych logów umieszczając pliki '*.log' w folderze 'data' ich wtyczki.",
+        "OverwriteLogFiles": "Możesz nadpisać pliki logów wykorzystywane do generowania symulowanych odwiedzin (zmień lub dodaj pliki w %s). Znajdziesz tam pliki logów z żądaniami \"matomo.php\" w formacie \"Apache combined log\". Deweloperzy wtyczek mogą skorzystać ze swoich własnych logów umieszczając pliki '*.log' w folderze 'data' ich wtyczki.",
         "PleaseBePatient": "NOTKA: Generowanie wizyt i akcji może zająć kilka minut. Prosimy o cierpliwość.",
         "LogImporterNote": "Istnieje również szybsze narzędzie, które importuje duże pliki z danymi testowymi w Matomo'u, przeczytaj %1$sREADME%2$s",
         "AutomaticReprocess": "Raporty zostaną ponownie przeprocesowane podczas Twojej następnej wizyty w raportach Matomo, co może zająć parę minut.",

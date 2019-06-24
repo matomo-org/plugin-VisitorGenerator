@@ -11,7 +11,7 @@
         "NbRequestsPerSec": "Požadavků za sekundu",
         "DaysToCompute": "Dní na výpočet",
         "GenerateFakeActions": "Toto vygeneruje alespoň %d smyšlených akcí pro každý den.",
-        "OverwriteLogFiles": "Můžete přepsat log soubory, které jsou použity pro generování smyšlených návštěv (změňte nebo přidejte soubory v adresáři %s). Zde jsou log soubory požadavků na piwik.php ve formátu kombinovaného Apache logu. Vývojáři zásuvných modulů mohou poskytnout vlastní log soubory, když umístí *.log soubory do podadresáře data svého zásuvného modulu.",
+        "OverwriteLogFiles": "Můžete přepsat log soubory, které jsou použity pro generování smyšlených návštěv (změňte nebo přidejte soubory v adresáři %s). Zde jsou log soubory požadavků na matomo.php ve formátu kombinovaného Apache logu. Vývojáři zásuvných modulů mohou poskytnout vlastní log soubory, když umístí *.log soubory do podadresáře data svého zásuvného modulu.",
         "PleaseBePatient": "Poznámka: Generování návštěv a akcí může pár minut trvat, buďte trpělivý...",
         "LogImporterNote": "Existuje i rychlejší nástroj, který importuje velké testovací sady, podívejte se na %1$sčti mě%2$s.",
         "AutomaticReprocess": "Hlášení budou znovu zpracována při příští návštěvě hlášení Matomou, může to chvíli trvat.",

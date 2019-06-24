@@ -11,7 +11,7 @@
         "NbRequestsPerSec": "Kërkesa për sekondë",
         "DaysToCompute": "Ditë llogaritjeje",
         "GenerateFakeActions": "Kjo do të prodhojë të paktën %d veprime gjoja në këtë sajt, për çdo ditë.",
-        "OverwriteLogFiles": "Kartelat regjistër që përdoren për të prodhuar vizita gjoja mund t’i mbishkruani (ndryshoni ose shtoni kartela te %s). Ka kartela regjistër të kërkesave ndaj \"piwik.php\" në formatin \"Apache combined log\". Zhvilluesit e shtojcave mund të furnizojnë kartelat e tyre regjistër, duke vendosur kartela '*.log' brenda një drejtorie 'data' të shtojcës së tyre.",
+        "OverwriteLogFiles": "Kartelat regjistër që përdoren për të prodhuar vizita gjoja mund t’i mbishkruani (ndryshoni ose shtoni kartela te %s). Ka kartela regjistër të kërkesave ndaj \"matomo.php\" në formatin \"Apache combined log\". Zhvilluesit e shtojcave mund të furnizojnë kartelat e tyre regjistër, duke vendosur kartela '*.log' brenda një drejtorie 'data' të shtojcës së tyre.",
         "PleaseBePatient": "SHËNIM: Për prodhimin e vizitave dhe veprimeve mund të duhen ca minuta, ju lutemi, bëni durim…",
         "LogImporterNote": "Ka edhe një mjet më të shpejtë që importon të dhëna të mëdha test në Matomo, shihni %1$sREADME%2$s.",
         "AutomaticReprocess": "Raportet do të ripërpunohen herës tjetër që vizitoni raportet Matomo, kjo mund të hajë ca minuta.",

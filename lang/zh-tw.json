@@ -11,7 +11,7 @@
         "NbRequestsPerSec": "每秒請求數",
         "DaysToCompute": "計算天數",
         "GenerateFakeActions": "這將每天為這個網站至少產生 %d 個偽造活動。",
-        "OverwriteLogFiles": "你可以覆蓋產生偽造訪客的紀錄檔案（在 %s 修改或增加檔案）。請求「piwik.php」的記錄檔案使用格式為「Apache combined log」。外掛開發者可以透過在「data」資料夾下放置「*.log」檔案來提供他們的外掛紀錄檔案。",
+        "OverwriteLogFiles": "你可以覆蓋產生偽造訪客的紀錄檔案（在 %s 修改或增加檔案）。請求「matomo.php」的記錄檔案使用格式為「Apache combined log」。外掛開發者可以透過在「data」資料夾下放置「*.log」檔案來提供他們的外掛紀錄檔案。",
         "PleaseBePatient": "注意：可能需要花上幾分鐘來產生訪客和活動，請耐心等候...",
         "LogImporterNote": "Matomo 有更快的工具來匯入大型測試資料，查看%1$sREADME%2$s。",
         "AutomaticReprocess": "報表將會在你下次查看 Matomo 報表時重新處理，可能會花上幾分鐘。",

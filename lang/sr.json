@@ -11,7 +11,7 @@
         "NbRequestsPerSec": "Zahteva u sekundi",
         "DaysToCompute": "Broj dana",
         "GenerateFakeActions": "Ovim ćete generisati barem %d lažnih akcija dnevno za ovaj sajt.",
-        "OverwriteLogFiles": "Možete postaviti velike zapise koji služe za generisanje lažnih poseta (izmenite ili dodajte datoteke u %s). U pitanju su zapisi pristupa fajlu \"piwik.php\" u \"Apache combined log\" formatu. Ako razvijate dodatke za Matomo, možete sopstvene '*.log' zapise smestiti u 'data' direktorijume dodataka.",
+        "OverwriteLogFiles": "Možete postaviti velike zapise koji služe za generisanje lažnih poseta (izmenite ili dodajte datoteke u %s). U pitanju su zapisi pristupa fajlu \"matomo.php\" u \"Apache combined log\" formatu. Ako razvijate dodatke za Matomo, možete sopstvene '*.log' zapise smestiti u 'data' direktorijume dodataka.",
         "PleaseBePatient": "Generisanje poseta i akcija može potrajati nekoliko inuta, molimo vas da budete strpljivi...",
         "LogImporterNote": "Postoji i brža alatka kojom možete ubaciti veliku količinu testnih podataka u Matomo, pogledajte %1$sovde%2$s.",
         "AutomaticReprocess": "Izveštaji će biti regenerisani kada ih sledeći put budete otvorili i to može potrajati nekoliko minuta.",
@@ -19,7 +19,7 @@
         "ReRunArchiveScript": "Molimo vas da ponovo pokrenete archive.php pomoću Krona kako bi se ažurirali izveštaji. %1$sPogledajte kako da podesite automatsko arhiviranje vaših izveštaja.%2$s",
         "NumberOfGeneratedActions": "Broj generisanih akcija",
         "CliToolUsage": "Korišćenjem %1$sMatomo klijentskih alata%2$s možete pored poseta generisati i korisnike, sajtove i ciljeve.",
-        "CustomMatomoUrl": "Korisnički definisana Pivik adresa",
+        "CustomMatomoUrl": "Korisnički definisana Matomo adresa",
         "ConfirmVisitorGeneration": "Molimo vas da potvrdite generisanje poseta klikom na kućicu"
     }
 }

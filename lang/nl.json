@@ -11,7 +11,7 @@
         "NbRequestsPerSec": "Verzoeken per seconde",
         "DaysToCompute": "Aantal dagen",
         "GenerateFakeActions": "Dit zal minstens %d nep acties genereren voor deze site, voor iedere dag.",
-        "OverwriteLogFiles": "De log files die gebruikt zijn om nep bezoeken te genereren kunnen worden overschreven (wijzig of voeg bestanden toe in %s). Er zijn log bestanden van verzoeken aan \"piwik.php\"in het formaat \"Apache combined log\". Plugin ontwikkelaars kunnen hun eigen log files toevoegen door '*.log' bestanden toe te voegen aan de 'data' structuur van hun plugin.",
+        "OverwriteLogFiles": "De log files die gebruikt zijn om nep bezoeken te genereren kunnen worden overschreven (wijzig of voeg bestanden toe in %s). Er zijn log bestanden van verzoeken aan \"matomo.php\"in het formaat \"Apache combined log\". Plugin ontwikkelaars kunnen hun eigen log files toevoegen door '*.log' bestanden toe te voegen aan de 'data' structuur van hun plugin.",
         "PleaseBePatient": "Opmerking: Het kan enkele minuten duren om bezoeken en acties te genereren. Wees geduldig....",
         "LogImporterNote": "Er is ook een snellere tool welke grote test data bestanden importeert in Matomo, zie hiervoor %1$sREADME%2$s.",
         "AutomaticReprocess": "Het rapport wordt opnieuw gemaakt de volgende keer dat je Matomo rapporteren bezoekt. Dit kan enkele minuten duren.",
