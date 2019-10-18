@@ -18,6 +18,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class GenerateLiveVisits extends ConsoleCommand
 {
+    /**
+     * @var int|null
+     */
+    private $timeout;
+
     protected function configure()
     {
         $this->setName('visitorgenerator:generate-live-visits');
@@ -45,11 +50,11 @@ class GenerateLiveVisits extends ConsoleCommand
         $logFile = $this->getLogFile($input);
         $dayOfMonth = $this->getPostiveIntegerOption($input, 'day-of-month');
         $timeOfDay = $this->getPostiveIntegerOption($input, 'time-of-day');
-        $timeout = $this->getPostiveIntegerOption($input, 'timeout');
+        $this->timeout = $this->getPostiveIntegerOption($input, 'timeout');
 
         $timeOfDayDelta = $stopAfter ?: LiveVisitsFromLog::SECONDS_IN_DAY;
 
-        $generateLiveVisits = new LiveVisitsFromLog($logFile, $idSite, $timeOfDay, $timeOfDayDelta, $dayOfMonth, $piwikUrl, $timeout);
+        $generateLiveVisits = new LiveVisitsFromLog($logFile, $idSite, $timeOfDay, $timeOfDayDelta, $dayOfMonth, $piwikUrl, $this->timeout);
 
         $output->writeln("Generating logs...");
 

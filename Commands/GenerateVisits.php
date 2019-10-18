@@ -25,6 +25,12 @@ use Symfony\Component\Console\Question\Question;
 
 class GenerateVisits extends ConsoleCommand
 {
+
+    /**
+     * @var int|null
+     */
+    private $timeout;
+
     protected function configure()
     {
         $this->setName('visitorgenerator:generate-visits');
@@ -40,11 +46,13 @@ class GenerateVisits extends ConsoleCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+
+        $this->timeout =  $input->getOption('timeout');
         $timer = new Timer();
         $days = $this->checkDays($input);
         $customPiwikUrl = $this->checkCustomPiwikUrl($input);
         $idSite = $this->getIdSite($input, $output);
-        $timeout = $input->getOption('timeout');
+
 
         $time = time() - ($days - 1) * 86400;
 
@@ -65,7 +73,7 @@ class GenerateVisits extends ConsoleCommand
             if (!$input->getOption('no-logs')) {
                 Access::doAsSuperUser(function () use ($time, $idSite, &$nbActionsTotal, $customPiwikUrl) {
                     $fromLogs = new VisitsFromLogs($customPiwikUrl);
-                    $nbActionsTotal += $fromLogs->generate($time, $idSite, $timeout);
+                    $nbActionsTotal += $fromLogs->generate($time, $idSite, $this->timeout);
                 });
             }
 

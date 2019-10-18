@@ -68,7 +68,7 @@ class LiveVisitsFromLog extends VisitsFromLogs
     /**
      * @var int
      */
-    private $timeout = 0;
+    private $timeout = 10;
 
     /**
      * @var int|null
