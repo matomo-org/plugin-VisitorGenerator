@@ -35,6 +35,7 @@ class GenerateVisits extends ConsoleCommand
         $this->addOption('no-logs', null, InputOption::VALUE_NONE, 'If set, no visits from logs will be generated', null);
         $this->addOption('limit-fake-visits', null, InputOption::VALUE_REQUIRED, 'Limits the number of fake visits', null);
         $this->addOption('custom-piwik-url', null, InputOption::VALUE_REQUIRED, "Defines an alternate Piwik URL, e.g. if Piwik is installed behind a Load-Balancer.");
+        $this->addOption('timeout', null, InputOption::VALUE_REQUIRED, "Sets how long, in seconds, the timeout should be for the request.", 10);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -43,6 +44,7 @@ class GenerateVisits extends ConsoleCommand
         $days = $this->checkDays($input);
         $customPiwikUrl = $this->checkCustomPiwikUrl($input);
         $idSite = $this->getIdSite($input, $output);
+        $timeout = $input->getOption('timeout');
 
         $time = time() - ($days - 1) * 86400;
 
@@ -63,7 +65,7 @@ class GenerateVisits extends ConsoleCommand
             if (!$input->getOption('no-logs')) {
                 Access::doAsSuperUser(function () use ($time, $idSite, &$nbActionsTotal, $customPiwikUrl) {
                     $fromLogs = new VisitsFromLogs($customPiwikUrl);
-                    $nbActionsTotal += $fromLogs->generate($time, $idSite);
+                    $nbActionsTotal += $fromLogs->generate($time, $idSite, $timeout);
                 });
             }
 

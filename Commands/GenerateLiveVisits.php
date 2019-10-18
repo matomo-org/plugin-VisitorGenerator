@@ -34,6 +34,7 @@ class GenerateLiveVisits extends ConsoleCommand
             'The time of day to start replaying logs for. Defaults to now, specify a value here to override.',
             time() % LiveVisitsFromLog::SECONDS_IN_DAY);
         $this->addOption('custom-matomo-url', null, InputOption::VALUE_REQUIRED, 'Custom Matomo URL to track to.');
+        $this->addOption('timeout', null, InputOption::VALUE_REQUIRED, "Sets how long, in seconds, the timeout should be for the request.", 10);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -44,10 +45,11 @@ class GenerateLiveVisits extends ConsoleCommand
         $logFile = $this->getLogFile($input);
         $dayOfMonth = $this->getPostiveIntegerOption($input, 'day-of-month');
         $timeOfDay = $this->getPostiveIntegerOption($input, 'time-of-day');
+        $timeout = $this->getPostiveIntegerOption($input, 'timeout');
 
         $timeOfDayDelta = $stopAfter ?: LiveVisitsFromLog::SECONDS_IN_DAY;
 
-        $generateLiveVisits = new LiveVisitsFromLog($logFile, $idSite, $timeOfDay, $timeOfDayDelta, $dayOfMonth, $piwikUrl);
+        $generateLiveVisits = new LiveVisitsFromLog($logFile, $idSite, $timeOfDay, $timeOfDayDelta, $dayOfMonth, $piwikUrl, $timeout);
 
         $output->writeln("Generating logs...");
 
