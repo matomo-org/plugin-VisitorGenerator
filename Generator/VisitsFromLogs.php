@@ -32,10 +32,11 @@ class VisitsFromLogs extends Generator
      *
      * @param string|boolean $time  If false, defaults to "now"
      * @param int $idSite
+     * @param int $timeout
      *
      * @return int
      */
-    public function generate($time = false, $idSite = 1, $timeout)
+    public function generate($time = false, $idSite = 1, $timeout = 10)
     {
         if (empty($time)) $time = time();
         $date  = date("Y-m-d", $time);
