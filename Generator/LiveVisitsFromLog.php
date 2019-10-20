@@ -66,11 +66,16 @@ class LiveVisitsFromLog extends VisitsFromLogs
     private $languageIndex = 0;
 
     /**
+     * @var int
+     */
+    private $timeout = 10;
+
+    /**
      * @var int|null
      */
     private $initialWaitTime;
 
-    public function __construct($logFile, $idSite, $timeOfDay, $timeOfDayDelta, $dayOfMonth = null, $piwikUrl = null)
+    public function __construct($logFile, $idSite, $timeOfDay, $timeOfDayDelta, $dayOfMonth = null, $piwikUrl = null, $timeout = 10)
     {
         parent::__construct($piwikUrl);
 
@@ -85,6 +90,7 @@ class LiveVisitsFromLog extends VisitsFromLogs
         $this->logIterator->rewind();
 
         $this->initialWaitTime = $this->skipAheadToTimeOfDay();
+        $this->timeout = $timeout;
     }
 
     public function tick()
@@ -169,7 +175,7 @@ class LiveVisitsFromLog extends VisitsFromLogs
         Http::sendHttpRequestBy(
             Http::getTransportMethod(),
             $this->getPiwikUrl() . '/matomo.php',
-            $timeout = 5,
+            $this->timeout,
             $log['ua'],
             $path = null,
             $file = null,

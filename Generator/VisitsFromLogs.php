@@ -32,10 +32,11 @@ class VisitsFromLogs extends Generator
      *
      * @param string|boolean $time  If false, defaults to "now"
      * @param int $idSite
+     * @param int $timeout
      *
      * @return int
      */
-    public function generate($time = false, $idSite = 1)
+    public function generate($time = false, $idSite = 1, $timeout = 10)
     {
         if (empty($time)) $time = time();
         $date  = date("Y-m-d", $time);
@@ -60,7 +61,7 @@ class VisitsFromLogs extends Generator
                 $url  = $this->manipulateRequestUrl($log['time'], $idSite, $log['url'], $date, $log['ip'], $prefix);
                 $lang = $languages[$index % $numLanguages];
 
-                Http::sendHttpRequest($url, $timeout = 5, $log['ua'], $path = null, $follow = 0, $lang);
+                Http::sendHttpRequest($url, $timeout, $log['ua'], $path = null, $follow = 0, $lang);
                 $count++;
             }
         }
