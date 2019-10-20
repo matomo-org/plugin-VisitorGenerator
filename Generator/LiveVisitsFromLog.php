@@ -75,7 +75,7 @@ class LiveVisitsFromLog extends VisitsFromLogs
      */
     private $initialWaitTime;
 
-    public function __construct($logFile, $idSite, $timeOfDay, $timeOfDayDelta, $dayOfMonth = null, $piwikUrl = null, $timeout)
+    public function __construct($logFile, $idSite, $timeOfDay, $timeOfDayDelta, $dayOfMonth = null, $piwikUrl = null, $timeout = 10)
     {
         parent::__construct($piwikUrl);
 
