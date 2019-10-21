@@ -25,3 +25,5 @@
    * Correct URL processing in manipulateRequestUrl after LogHelper regex change
    * Fix log out of order exception that occurs on large logs 
    * Adds search engine referrers without keyword
+- 3.1.2
+   * New timeout option
