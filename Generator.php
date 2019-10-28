@@ -10,7 +10,7 @@ namespace Piwik\Plugins\VisitorGenerator;
 
 use Piwik\SettingsPiwik;
 
-include_once __DIR__ . '/libs/Faker/autoload.php';
+include_once __DIR__ . '/vendor/autoload.php';
 
 class Generator
 {
