@@ -1,1 +1,7 @@
 .idea
+vendor/fzaninotto/faker/test/
+vendor/fzaninotto/faker/.git*
+vendor/fzaninotto/faker/.travis.yml
+vendor/fzaninotto/faker/*.md
+vendor/fzaninotto/faker/Makefile
+vendor/fzaninotto/faker/phpunit.xml.dist
