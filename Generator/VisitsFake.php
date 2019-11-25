@@ -80,11 +80,11 @@ class VisitsFake extends Generator
             $tracker->setCustomTrackingParameter('dimension4', $this->faker->tld);
             $tracker->setCustomTrackingParameter('dimension5', $this->faker->numerify('########'));
 
-            $tracker->setGenerationTime($this->faker->randomNumber(190, 3000));
+            $tracker->setGenerationTime($this->faker->numberBetween(190, 3000));
             $tracker->setForceVisitDateTime($date . ' ' . $this->faker->time('H:i:s'));
             $tracker->setUrlReferrer($this->faker->referrer);
 
-            $tracker->setCustomTrackingParameter('bw_bytes', $this->faker->randomNumber(1, 2000000000));
+            $tracker->setCustomTrackingParameter('bw_bytes', $this->faker->numberBetween(1, 2000000000));
 
             if (0 === strpos($pageUrl, 'http')) {
                 $tracker->doTrackAction($pageUrl, 'link');
@@ -143,7 +143,7 @@ class VisitsFake extends Generator
                 $price =  $this->faker->randomNumber(2);
                 $quantity = $this->faker->numberBetween(1,4);
 
-                $tracker->addEcommerceItem($sku = $this->faker->randomNumber(1, 9999), $this->faker->productName, 'Music Category', $price, $quantity);
+                $tracker->addEcommerceItem($sku = $this->faker->numberBetween(1, 9999), $this->faker->productName, 'Music Category', $price, $quantity);
 
                 if ($this->faker->boolean(50)) {
                     $tracker->doTrackEcommerceCartUpdate(50);
@@ -158,7 +158,7 @@ class VisitsFake extends Generator
             }
 
             if ($numSearchesDone < $numSearches) {
-                $tracker->doTrackSiteSearch($this->faker->word, $this->faker->searchEngine, $this->faker->randomNumber(0, 10));
+                $tracker->doTrackSiteSearch($this->faker->word, $this->faker->searchEngine, $this->faker->numberBetween(0, 10));
                 $numSearchesDone++;
                 $i++;
             }
