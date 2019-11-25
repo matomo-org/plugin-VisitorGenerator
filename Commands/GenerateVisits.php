@@ -40,7 +40,7 @@ class GenerateVisits extends ConsoleCommand
         $this->addOption('no-fake', null, InputOption::VALUE_NONE, 'If set, no fake visits will be generated', null);
         $this->addOption('no-logs', null, InputOption::VALUE_NONE, 'If set, no visits from logs will be generated', null);
         $this->addOption('limit-fake-visits', null, InputOption::VALUE_REQUIRED, 'Limits the number of fake visits', null);
-        $this->addOption('custom-piwik-url', null, InputOption::VALUE_REQUIRED, "Defines an alternate Piwik URL, e.g. if Piwik is installed behind a Load-Balancer.");
+        $this->addOption('custom-matomo-url', null, InputOption::VALUE_REQUIRED, "Defines an alternate Matomo URL, e.g. if Matomo is installed behind a Load-Balancer.");
         $this->addOption('timeout', null, InputOption::VALUE_REQUIRED, "Sets how long, in seconds, the timeout should be for the request.", 10);
     }
 
@@ -50,7 +50,7 @@ class GenerateVisits extends ConsoleCommand
         $this->timeout =  $input->getOption('timeout');
         $timer = new Timer();
         $days = $this->checkDays($input);
-        $customPiwikUrl = $this->checkCustomPiwikUrl($input);
+        $customMatomoUrl = $this->checkCustomMatomoUrl($input);
         $idSite = $this->getIdSite($input, $output);
 
 
@@ -64,15 +64,15 @@ class GenerateVisits extends ConsoleCommand
 
             if (!$input->getOption('no-fake')) {
                 $limit = $this->getLimitFakeVisits($input);
-                Access::doAsSuperUser(function () use ($time, $idSite, $limit, &$nbActionsTotal, $customPiwikUrl) {
-                    $fakeVisits = new VisitsFake($customPiwikUrl);
+                Access::doAsSuperUser(function () use ($time, $idSite, $limit, &$nbActionsTotal, $customMatomoUrl) {
+                    $fakeVisits = new VisitsFake($customMatomoUrl);
                     $nbActionsTotal += $fakeVisits->generate($time, $idSite, $limit);
                 });
             }
 
             if (!$input->getOption('no-logs')) {
-                Access::doAsSuperUser(function () use ($time, $idSite, &$nbActionsTotal, $customPiwikUrl) {
-                    $fromLogs = new VisitsFromLogs($customPiwikUrl);
+                Access::doAsSuperUser(function () use ($time, $idSite, &$nbActionsTotal, $customMatomoUrl) {
+                    $fromLogs = new VisitsFromLogs($customMatomoUrl);
                     $nbActionsTotal += $fromLogs->generate($time, $idSite, $this->timeout);
                 });
             }
@@ -108,17 +108,17 @@ class GenerateVisits extends ConsoleCommand
         return $days;
     }
 
-    private function checkCustomPiwikUrl(InputInterface $input)
+    private function checkCustomMatomoUrl(InputInterface $input)
     {
-        if (!$customPiwikUrl = $input->getOption('custom-piwik-url')) {
+        if (!$customMatomoUrl = $input->getOption('custom-matomo-url')) {
             return null;
         }
 
-        if (!UrlHelper::isLookLikeUrl($customPiwikUrl)) {
-            throw new \Exception("The Custom Piwik Tracker Url you entered doesn't seem to be valid.");
+        if (!UrlHelper::isLookLikeUrl($customMatomoUrl)) {
+            throw new \Exception("The Custom Matomo Tracker Url you entered doesn't seem to be valid.");
         }
 
-        return $customPiwikUrl;
+        return $customMatomoUrl;
     }
 
     private function getIdSite(InputInterface $input, OutputInterface $output)

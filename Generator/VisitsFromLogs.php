@@ -47,7 +47,7 @@ class VisitsFromLogs extends Generator
             $logParser = new LogParser($logFile);
             $logs      = $logParser->getParsedLogLines();
 
-            $prefix     = $this->getPiwikUrl() . "matomo.php";
+            $prefix     = $this->getMatomoUrl() . "matomo.php";
             $dayOfMonth = $this->findDayOfMonthToUseToMakeSureWeGenerateAtLeastOneVisit($time, $logs);
 
             $languages = Request::getAcceptLanguages();
