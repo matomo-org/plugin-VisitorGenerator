@@ -27,3 +27,7 @@
    * Adds search engine referrers without keyword
 - 3.1.2
    * New timeout option
+- 3.2.0
+   * PHP 7.4 compatibility
+   * Rename from Piwik to Matomo
+   * command line option `custom-piwik-url` was removed, use `custom-matomo-url` instead
