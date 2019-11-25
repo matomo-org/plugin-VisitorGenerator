@@ -27,7 +27,7 @@ class VisitsFake extends Generator
     {
         $date = date("Y-m-d", $time);
 
-        $tracker = new \PiwikTracker(1, $this->getPiwikUrl());
+        $tracker = new \PiwikTracker(1, $this->getMatomoUrl());
         $tracker->setDebugStringAppend('dp=1');
         $tracker->enableBulkTracking();
         $user = $this->getAnySuperUser();

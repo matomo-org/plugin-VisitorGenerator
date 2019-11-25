@@ -15,32 +15,32 @@ include_once __DIR__ . '/vendor/autoload.php';
 class Generator
 {
     protected $faker;
-    protected $piwikUrl;
+    protected $matomoUrl;
 
     /**
-     * @param null $piwikUrl
+     * @param null $matomoUrl
      */
-    public function __construct($piwikUrl = null)
+    public function __construct($matomoUrl = null)
     {
         $this->faker = \Faker\Factory::create('en_EN');
         $this->faker->addProvider(new Faker\Request($this->faker));
-        $this->setPiwikUrl($piwikUrl);
+        $this->setMatomoUrl($matomoUrl);
     }
 
     /**
-     * @param $piwikUrl
+     * @param $matomoUrl
      */
-    protected function setPiwikUrl($piwikUrl) {
-        $this->piwikUrl = $piwikUrl;
+    protected function setMatomoUrl($matomoUrl) {
+        $this->matomoUrl = $matomoUrl;
     }
 
     /**
      * @return string
      */
-    protected function getPiwikUrl()
+    protected function getMatomoUrl()
     {
-        if($this->piwikUrl) {
-            $url = $this->piwikUrl;
+        if($this->matomoUrl) {
+            $url = $this->matomoUrl;
         } else {
             $url = SettingsPiwik::getPiwikUrl();
         }

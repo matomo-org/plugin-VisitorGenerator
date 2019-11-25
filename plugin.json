@@ -1,23 +1,23 @@
 {
     "name": "VisitorGenerator",
     "version": "3.1.2",
-    "description": "Developer tool that lets you generate fake visits. Useful if you are working with plugins or themes or if you use the Piwik API.",
+    "description": "Developer tool that lets you generate fake visits. Useful if you are working with plugins or themes or if you use the Matomo API.",
     "keywords": ["development", "tools"],
     "license": "GPL v3+",
-    "homepage": "http://piwik.org",
+    "homepage": "https://matomo.org",
     "require": {
         "piwik": ">=3.8.0,<4.0.0-b1"
     },
     "support": {
-        "issues": "https://github.com/piwik/plugin-VisitorGenerator/issues",
-        "forum": "https://forum.piwik.org",
-        "source": "https://github.com/piwik/plugin-VisitorGenerator"
+        "issues": "https://github.com/matomo-org/plugin-VisitorGenerator/issues",
+        "forum": "https://forum.matomo.org",
+        "source": "https://github.com/matomo-org/plugin-VisitorGenerator"
     },
     "authors": [
         {
-            "name": "Piwik",
-            "email": "hello@piwik.org",
-            "homepage": "http://piwik.org"
+            "name": "Matomo",
+            "email": "hello@matomo.org",
+            "homepage": "https://matomo.org"
         }
     ]
 }

@@ -75,9 +75,9 @@ class LiveVisitsFromLog extends VisitsFromLogs
      */
     private $initialWaitTime;
 
-    public function __construct($logFile, $idSite, $timeOfDay, $timeOfDayDelta, $dayOfMonth = null, $piwikUrl = null, $timeout = 10)
+    public function __construct($logFile, $idSite, $timeOfDay, $timeOfDayDelta, $dayOfMonth = null, $matomoUrl = null, $timeout = 10)
     {
-        parent::__construct($piwikUrl);
+        parent::__construct($matomoUrl);
 
         $this->idSite = $idSite;
         $this->timeOfDay = $timeOfDay;
@@ -174,7 +174,7 @@ class LiveVisitsFromLog extends VisitsFromLogs
 
         Http::sendHttpRequestBy(
             Http::getTransportMethod(),
-            $this->getPiwikUrl() . '/matomo.php',
+            $this->getMatomoUrl() . '/matomo.php',
             $this->timeout,
             $log['ua'],
             $path = null,
