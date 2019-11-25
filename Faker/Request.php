@@ -8,7 +8,7 @@
  */
 namespace Piwik\Plugins\VisitorGenerator\Faker;
 
-use Piwik\Plugins\UserCountry\LocationProvider\GeoIp;
+use Piwik\Plugins\GeoIp2\LocationProvider\GeoIp2;
 
 include_once __DIR__ . '/../vendor/autoload.php';
 
@@ -848,7 +848,7 @@ class Request extends \Faker\Provider\Base
 
     public function region($countryCode)
     {
-        $regions = GeoIp::getRegionNames();
+        $regions = GeoIp2::getRegionNames();
 
         if (!empty($regions[$countryCode])) {
             $regionCodes = array_keys($regions[$countryCode]);

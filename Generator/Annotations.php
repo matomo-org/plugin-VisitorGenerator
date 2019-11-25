@@ -19,7 +19,7 @@ class Annotations extends Generator
     public function generate($idSite)
     {
         $date     = Date::now()->toString();
-        $numWords = $this->faker->randomNumber(2, 5);
+        $numWords = $this->faker->numberBetween(2, 5);
         $note     =  $this->faker->sentence($numWords);
 
         return $this->getApi()->add($idSite, $date, $note, $this->faker->boolean(50));
