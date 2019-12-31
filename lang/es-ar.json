@@ -1,0 +1,25 @@
+{
+    "VisitorGenerator": {
+        "PluginDescription": "Creá visitas y acciones falsas en Matomo. Esto puede ser usado por usuarios o desarrolladores de Matomo como una manera fácil de generar datos falsos para popular informes de Matomo.",
+        "VisitorGenerator": "Generador de visitas",
+        "Warning": "Estás a punto de generar visitas falsas, las cuales serán registradas en tu base de datos de Matomo.",
+        "NotReversible": "%1$sNo%2$s será posible eliminar fácilmente estas visitas de los registros de Matomo.",
+        "AreYouSure": "¿Estás seguro que querés generar visitas falsas?",
+        "ChoiceYes": "¡Sí, eso es lo que quiero!",
+        "Submit": "Enviar",
+        "SelectWebsite": "Seleccionar sitio web",
+        "NbRequestsPerSec": "Solicitudes por segundo",
+        "DaysToCompute": "Días para computar",
+        "GenerateFakeActions": "Esto generará al menos %d acciones falsas en este sitio web, cada día.",
+        "OverwriteLogFiles": "Podés sobreescribir los archivos de registro que son usados para generar visitas falsas (cambiá o agregá archivos en %s). Hay archivos de registro de solicitudes a \"matomo.php\" en formato \"Apache combined log\". Los desarrolladores de plugins pueden ofrecer sus propios archivos de registro colocando archivos \"*.log\" dentro del directorio \"data\" de sus plugins.",
+        "PleaseBePatient": "NOTA: puede demorar unos minutos en generar visitas y acciones. Por favor, se paciente…",
+        "LogImporterNote": "También hay una herramienta más rápida que importará grandes datos de prueba en Matomo. Mirá el archivo %1$sREADME%2$s.",
+        "AutomaticReprocess": "Los informes serán reprocesados la próxima vez que visités los informes de Matomo. Puede demorar unos minutos.",
+        "GeneratedVisitsFor": "Visitas generadas para %1$s durante los últimos %2$s días",
+        "ReRunArchiveScript": "Por favor, volvé a ejecutar el comando crontab \".\/console core:archive\" para refrescar los informes. Mirá %1$scómo establecer el autoarchivado de tus informes%2$s.",
+        "NumberOfGeneratedActions": "Número de acciones generadas",
+        "CliToolUsage": "Al usar la %1$sherramienta de interface de línea de comandos%2$s no sólo podés generar incluso más vistas, sino también usuarios, sitios web y metas.",
+        "CustomMatomoUrl": "Dirección web personalizada de Matomo",
+        "ConfirmVisitorGeneration": "Por favor, confirmá la generación de visitas seleccionando la casilla"
+    }
+}
