@@ -10,16 +10,9 @@ namespace Piwik\Plugins\VisitorGenerator\Generator;
 
 use Piwik\Common;
 use Piwik\Db;
-use Piwik\Piwik;
 use Piwik\Plugins\CoreAdminHome\API as CoreAdminHomeApi;
 use Piwik\Plugins\SitesManager\API as SitesManagerApi;
-use Piwik\Plugins\UsersManager\API as UsersManagerApi;
-use Piwik\Plugins\UsersManager\Model;
 use Piwik\Plugins\VisitorGenerator\Generator;
-use Piwik\SettingsPiwik;
-use Piwik\View;
-
-include_once __DIR__ . '/../../../libs/PiwikTracker/PiwikTracker.php';
 
 class VisitsFake extends Generator
 {
@@ -27,7 +20,7 @@ class VisitsFake extends Generator
     {
         $date = date("Y-m-d", $time);
 
-        $tracker = new \PiwikTracker(1, $this->getMatomoUrl());
+        $tracker = new \MatomoTracker(1, $this->getMatomoUrl());
         $tracker->setDebugStringAppend('dp=1');
         $tracker->enableBulkTracking();
         $user = $this->getAnySuperUser();
