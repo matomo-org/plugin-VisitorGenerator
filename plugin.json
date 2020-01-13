@@ -6,7 +6,7 @@
     "license": "GPL v3+",
     "homepage": "https://matomo.org",
     "require": {
-        "piwik": ">=3.8.0,<4.0.0-b1"
+        "matomo": ">=4.0.0-b1,<5.0.0-b1"
     },
     "support": {
         "issues": "https://github.com/matomo-org/plugin-VisitorGenerator/issues",
