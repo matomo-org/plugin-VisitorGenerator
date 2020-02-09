@@ -19,7 +19,7 @@ use Piwik\Tests\Framework\TestCase\ConsoleCommandTestCase;
  */
 class GenerateLogsTest extends ConsoleCommandTestCase
 {
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         parent::setUpBeforeClass();
         Fixture::createWebsite('2012-01-01 00:00:00');
@@ -41,7 +41,7 @@ class GenerateLogsTest extends ConsoleCommandTestCase
         $this->assertEquals(0, $code, $this->getCommandDisplayOutputErrorMessage());
 
         $output = $this->applicationTester->getDisplay();
-        $this->assertContains('tracked 2 actions', $output);
+        self::assertStringContainsString('tracked 2 actions', $output);
 
         $actions = Db::fetchOne('SELECT COUNT(*) FROM ' . Common::prefixTable('log_link_visit_action'));
         $this->assertEquals(3, $actions);
