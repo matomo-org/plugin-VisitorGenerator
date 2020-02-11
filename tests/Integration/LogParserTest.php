@@ -13,7 +13,7 @@ use Piwik\Plugins\VisitorGenerator\LogParser;
  * @group VisitorGenerator
  * @group LogParserTest
  */
-class LogParserTest extends \PHPUnit_Framework_TestCase
+class LogParserTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @var LogParser
