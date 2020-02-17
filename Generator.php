@@ -46,7 +46,10 @@ class Generator
         }
 
         // this is a workaround when force_ssl=1, and the HTTPS URL is not fetchable from CLI
-        $url = str_replace('https://localhost', 'http://localhost', $url);
+        $parsed_url = parse_url($url);
+        if($parsed_url['scheme'] == 'https'){
+            $url = str_replace('https://', 'http://', $url);
+        }
         return $url;
     }
 
