@@ -47,14 +47,40 @@ class Generator
             $url = SettingsPiwik::getPiwikUrl();
         }
 
-        $useHTTP = (Config::getInstance()->VisitorGenerator['use_http'] == 1);
-        if ($useHTTP) {
-            $parsed_url = parse_url($url);
-            if ($parsed_url['scheme'] == 'https') {
-                $url = str_replace('https://', 'http://', $url);
-            }
+        if ($this->useHTTP() && $this->hasHTTPS($url)) {
+            $url = str_replace('https://', 'http://', $url);
         }
 
         return $url;
+    }
+
+
+    /**
+     * Should we use http on requests?
+     *
+     * @return bool  True if checks enabled; false otherwise
+     */
+    protected function useHTTP()
+    {
+        if (isset(Config::getInstance()->VisitorGenerator['use_http'])) {
+            if (Config::getInstance()->VisitorGenerator['use_http'] == 1) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    /**
+     * Should we use http on requests?
+     *
+     * @return bool  True if checks enabled; false otherwise
+     */
+    protected function hasHTTPS($url)
+    {
+        $parsed_url = parse_url($url);
+        if ($parsed_url['scheme'] == 'https') {
+            return true;
+        }
     }
 }
