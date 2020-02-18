@@ -40,6 +40,16 @@ It also adds the following commands to the [Matomo CLI tool](http://developer.ma
 * `./console visitorgenerator:shorten-log /path/to/file.log > file.short.log` takes a large Apache log file and keeps only a small number of logs per day
 * `./console visitorgenerator:generate-visits --idsite 5 --custom-matomo-url=http://example.com/` Uses 'http://example.com/' as Matomo-URL and generates many visits for site with id 5 for today
 
+
+#### Using http when site is on https
+There are some issues related to certs that could happen espcially localy if you have a self signed cert, to use http 
+instead of https when generating visits, add the config:
+
+``` 
+[VisitorGenerator]
+use_http = 1
+```
+
 ### Legalnotice
 
 This plugin is released under the GPLv3+ license.
