@@ -9,6 +9,7 @@
 namespace Piwik\Plugins\VisitorGenerator;
 
 use Piwik\SettingsPiwik;
+use Piwik\Config;
 
 include_once __DIR__ . '/vendor/autoload.php';
 
@@ -30,7 +31,8 @@ class Generator
     /**
      * @param $matomoUrl
      */
-    protected function setMatomoUrl($matomoUrl) {
+    protected function setMatomoUrl($matomoUrl)
+    {
         $this->matomoUrl = $matomoUrl;
     }
 
@@ -39,18 +41,46 @@ class Generator
      */
     protected function getMatomoUrl()
     {
-        if($this->matomoUrl) {
+        if ($this->matomoUrl) {
             $url = $this->matomoUrl;
         } else {
             $url = SettingsPiwik::getPiwikUrl();
         }
 
-        // this is a workaround when force_ssl=1, and the HTTPS URL is not fetchable from CLI
-        $parsed_url = parse_url($url);
-        if($parsed_url['scheme'] == 'https'){
+        if ($this->useHTTP() && $this->hasHTTPS($url)) {
             $url = str_replace('https://', 'http://', $url);
         }
+
         return $url;
     }
 
+
+    /**
+     * Should we use http on requests?
+     *
+     * @return bool  True if checks enabled; false otherwise
+     */
+    protected function useHTTP()
+    {
+        if (isset(Config::getInstance()->VisitorGenerator['use_http'])) {
+            if (Config::getInstance()->VisitorGenerator['use_http'] == 1) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    /**
+     * Should we use http on requests?
+     *
+     * @return bool  True if checks enabled; false otherwise
+     */
+    protected function hasHTTPS($url)
+    {
+        $parsed_url = parse_url($url);
+        if ($parsed_url['scheme'] == 'https') {
+            return true;
+        }
+    }
 }
