@@ -20,7 +20,7 @@ class LogParserTest extends \PHPUnit\Framework\TestCase
      */
     private $logParser;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
@@ -49,7 +49,7 @@ class LogParserTest extends \PHPUnit\Framework\TestCase
 
         foreach ($lines as $line) {
             $this->assertEquals(array('ip', 'time', 'url', 'referrer', 'ua'), array_keys($line));
-            $this->assertContains('matomo.php', $line['url']);
+            self::assertStringContainsString('matomo.php', $line['url']);
         }
     }
 
