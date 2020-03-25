@@ -10,6 +10,7 @@ namespace Piwik\Plugins\VisitorGenerator\Generator;
 
 use Piwik\Common;
 use Piwik\Db;
+use Piwik\Piwik;
 use Piwik\Plugins\CoreAdminHome\API as CoreAdminHomeApi;
 use Piwik\Plugins\SitesManager\API as SitesManagerApi;
 use Piwik\Plugins\VisitorGenerator\Generator;
@@ -23,7 +24,7 @@ class VisitsFake extends Generator
         $tracker = new \MatomoTracker(1, $this->getMatomoUrl());
         $tracker->setDebugStringAppend('dp=1');
         $tracker->enableBulkTracking();
-        $user = $this->getAnySuperUser();
+        $tokenAuth = Piwik::requestTemporarySystemAuthToken('VistorGenerator', 24);
         $site = $this->getCurrentSite($idSite);
 
         $numSearches = rand(floor($limit / 40), ceil($limit / 20));
@@ -35,7 +36,7 @@ class VisitsFake extends Generator
             $pageUrl = $this->faker->pageURL;
 
             $i++;
-            $tracker->setTokenAuth($user['token_auth']);
+            $tracker->setTokenAuth($tokenAuth);
             $tracker->setUserAgent($this->faker->userAgent);
             $tracker->setBrowserLanguage($this->faker->locale);
             $tracker->setCity($this->faker->city);
@@ -174,17 +175,4 @@ class VisitsFake extends Generator
     {
         return SitesManagerApi::getInstance()->getSiteFromId($idSite);
     }
-
-    private function getAnySuperUser()
-    {
-        // The visitor generator may be executed in the command line
-        // in the command line there is token_auth set to the user running the command line
-        // so we manually fetch a super user token_auth.
-        $superUser = Db::get()->fetchRow("SELECT login, token_auth
-                                          FROM " . Common::prefixTable("user") . "
-                                          WHERE superuser_access = 1
-                                          ORDER BY date_registered ASC");
-        return $superUser;
-    }
-
 }
