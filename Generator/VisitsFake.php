@@ -74,7 +74,15 @@ class VisitsFake extends Generator
             $tracker->setCustomTrackingParameter('dimension4', $this->faker->tld);
             $tracker->setCustomTrackingParameter('dimension5', $this->faker->numerify('########'));
 
-            $tracker->setGenerationTime($this->faker->numberBetween(190, 3000));
+            $tracker->setPerformanceTimings(
+                $this->faker->numberBetween(0, 199),
+                $this->faker->numberBetween(400, 600),
+                $this->faker->numberBetween(20, 250),
+                $this->faker->numberBetween(500, 3000),
+                $this->faker->numberBetween(250, 1500),
+                $this->faker->numberBetween(10, 200)
+            );
+
             $tracker->setForceVisitDateTime($date . ' ' . $this->faker->time('H:i:s'));
             $tracker->setUrlReferrer($this->faker->referrer);
 
