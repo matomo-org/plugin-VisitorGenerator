@@ -95,6 +95,11 @@ class VisitsFake extends Generator
                 $tracker->doTrackAction($site['main_url'] . $pageUrl, 'download');
             } else {
                 $tracker->setUrl($site['main_url'] . $pageUrl);
+
+                if ($this->faker->boolean(10)) {
+                    $tracker->setEcommerceView($this->faker->numberBetween(1, 9999), $this->faker->productName, 'Music Category', $this->faker->randomNumber(2));
+                }
+
                 $tracker->doTrackPageView($this->faker->sentence());
             }
 
