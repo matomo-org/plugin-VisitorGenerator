@@ -22,6 +22,7 @@ class GenerateLogsTest extends ConsoleCommandTestCase
     public static function setUpBeforeClass(): void
     {
         parent::setUpBeforeClass();
+        Fixture::createSuperUser();
         Fixture::createWebsite('2012-01-01 00:00:00');
     }
 
