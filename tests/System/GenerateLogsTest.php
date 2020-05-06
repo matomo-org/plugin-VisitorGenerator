@@ -11,6 +11,7 @@ namespace Piwik\Plugins\VisitorGenerator\tests\System;
 use Piwik\Common;
 use Piwik\Db;
 use Piwik\Tests\Framework\Fixture;
+use Piwik\Tests\Framework\Mock\FakeAccess;
 use Piwik\Tests\Framework\TestCase\ConsoleCommandTestCase;
 
 /**
@@ -45,5 +46,12 @@ class GenerateLogsTest extends ConsoleCommandTestCase
 
         $actions = Db::fetchOne('SELECT COUNT(*) FROM ' . Common::prefixTable('log_link_visit_action'));
         $this->assertEquals(3, $actions);
+    }
+
+    public function provideContainerConfig()
+    {
+        return array(
+            'Piwik\Access' => new FakeAccess()
+        );
     }
 }
