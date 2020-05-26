@@ -61,7 +61,7 @@ class VisitsFake extends Generator
             $resolution = $this->faker->resolution;
             $tracker->setResolution( $resolution[0], $resolution[1]);
             $tracker->setBrowserHasCookies($this->faker->boolean(90));
-            $tracker->setPlugins($flash = $this->faker->boolean(90), $java = $this->faker->boolean(85), $director = $this->faker->boolean(50), $quickTime = $this->faker->boolean(40), $realPlayer = $this->faker->boolean(10), $pdf = $this->faker->boolean(75), $windowsMedia = $this->faker->boolean(60), $silverlight = $this->faker->boolean(5));
+            $tracker->setPlugins($flash = $this->faker->boolean(90), $java = $this->faker->boolean(85), $quickTime = $this->faker->boolean(40), $realPlayer = $this->faker->boolean(10), $pdf = $this->faker->boolean(75), $windowsMedia = $this->faker->boolean(60), $silverlight = $this->faker->boolean(5));
             $tracker->setCustomVariable(1, 'gender', $this->faker->gender, 'visit');
             $tracker->setCustomVariable(2, 'age', $this->faker->randomDigit, 'visit');
             $tracker->setCustomVariable(3, 'languageCode', $this->faker->languageCode, 'visit');
