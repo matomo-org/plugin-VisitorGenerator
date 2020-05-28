@@ -97,7 +97,7 @@ class VisitsFake extends Generator
                 $tracker->setUrl($site['main_url'] . $pageUrl);
 
                 if ($this->faker->boolean(10)) {
-                    $tracker->setEcommerceView($this->faker->numberBetween(1, 9999), $this->faker->productName, 'Music Category', $this->faker->randomNumber(2));
+                    $tracker->setEcommerceView($this->faker->productSku, $this->faker->productName, $this->faker->categories(5), $this->faker->randomNumber(2));
                 }
 
                 $tracker->doTrackPageView($this->faker->sentence());
@@ -150,7 +150,7 @@ class VisitsFake extends Generator
                 $price =  $this->faker->randomNumber(2);
                 $quantity = $this->faker->numberBetween(1,4);
 
-                $tracker->addEcommerceItem($sku = $this->faker->numberBetween(1, 9999), $this->faker->productName, 'Music Category', $price, $quantity);
+                $tracker->addEcommerceItem($this->faker->productSku, $this->faker->productName, $this->faker->categories(5), $price, $quantity);
 
                 if ($this->faker->boolean(50)) {
                     $tracker->doTrackEcommerceCartUpdate(50);
