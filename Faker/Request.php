@@ -807,8 +807,38 @@ class Request extends \Faker\Provider\Base
             'My Product',
             'Test Product',
             'Product Name',
-            'Awesome Product'
+            'Awesome Product',
+            'Helpful Product'
         ));
+    }
+
+    public function productSku()
+    {
+        return static::randomElement(array(
+            'SKU-1526',
+            'SKU-9526',
+            'SKU-1122',
+            'SKU-0111',
+            'SKU-1658',
+            'SKU-0122',
+            'SKU-9884',
+            'SKU-6585',
+            'SKU-5498',
+            'SKU-1238',
+        ));
+    }
+
+    public function categories($maximum = 1)
+    {
+        return static::randomElements(array(
+            'Music Category',
+            'Sale',
+            'Video Category',
+            'Second hand',
+            'Men only',
+            'Sports',
+            'Mobile stuff',
+        ), static::numberBetween(1, $maximum));
     }
 
     public function resolution()
