@@ -10,11 +10,9 @@
 namespace Piwik\Plugins\VisitorGenerator\Commands;
 
 use Piwik\Access;
-use Piwik\Piwik;
 use Piwik\Plugin\ConsoleCommand;
 use Piwik\Plugins\VisitorGenerator\Generator\Goals;
 use Piwik\Site;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;

@@ -13,11 +13,9 @@ use Piwik\Filesystem;
 use Piwik\Http;
 use Piwik\Piwik;
 use Piwik\Plugins\CoreAdminHome\API as CoreAdminHomeAPI;
-use Piwik\Plugins\UsersManager\Model;
 use Piwik\Plugins\VisitorGenerator\Faker\Request;
 use Piwik\Plugins\VisitorGenerator\Generator;
 use Piwik\Plugins\VisitorGenerator\LogParser;
-use Piwik\View;
 
 /**
  * Replays all *.log files within the data directory.

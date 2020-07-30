@@ -11,7 +11,6 @@ namespace Piwik\Plugins\VisitorGenerator\Generator;
 use Piwik\Log;
 use Piwik\Plugins\Goals\API as GoalsAPI;
 use Piwik\Plugins\VisitorGenerator\Generator;
-use Piwik\View;
 
 class Goals extends Generator
 {

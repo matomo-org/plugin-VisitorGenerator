@@ -11,7 +11,6 @@ namespace Piwik\Plugins\VisitorGenerator\Generator;
 use Piwik\Log;
 use Piwik\Plugins\UsersManager\API as UsersManagerApi;
 use Piwik\Plugins\VisitorGenerator\Generator;
-use Piwik\View;
 
 class Users extends Generator
 {
