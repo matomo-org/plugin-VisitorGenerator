@@ -45,7 +45,7 @@ class VisitsFake extends Generator
             $tracker->setRegion($this->faker->region($countryCode));
             $tracker->setLatitude($this->faker->latitude);
             $tracker->setLongitude($this->faker->longitude);
-            $tracker->setIp($this->faker->ipv4);
+            $tracker->setIp($this->faker->boolean(77) ? $this->faker->ipv4 : $this->faker->ipv6);
             $tracker->setLocalTime($this->faker->time());
             $tracker->setIdSite($idSite);
 
