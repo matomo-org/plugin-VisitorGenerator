@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "674d89ac0dd42a03cca42523a0f72bdea90b2725"
+                "reference": "5337ce5261b393937bd7aaebb21020159756a152"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/674d89ac0dd42a03cca42523a0f72bdea90b2725",
-                "reference": "674d89ac0dd42a03cca42523a0f72bdea90b2725",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/5337ce5261b393937bd7aaebb21020159756a152",
+                "reference": "5337ce5261b393937bd7aaebb21020159756a152",
                 "shasum": ""
             },
             "require": {
@@ -54,7 +54,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2019-10-17T13:03:13+00:00"
+            "time": "2020-05-11T08:39:57+00:00"
         }
     ],
     "packages-dev": [],
@@ -66,5 +66,6 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
