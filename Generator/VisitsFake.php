@@ -68,11 +68,11 @@ class VisitsFake extends Generator
             $tracker->setCustomVariable(1, 'tld', $this->faker->tld, 'page');
             $tracker->setCustomVariable(2, 'ean', $this->faker->numerify('########'), 'page');
 
-            $tracker->setCustomTrackingParameter('dimension1', $this->faker->gender);
-            $tracker->setCustomTrackingParameter('dimension2', $this->faker->randomDigit);
-            $tracker->setCustomTrackingParameter('dimension3', $this->faker->languageCode);
-            $tracker->setCustomTrackingParameter('dimension4', $this->faker->tld);
-            $tracker->setCustomTrackingParameter('dimension5', $this->faker->numerify('########'));
+            $tracker->setCustomDimension('1', $this->faker->gender);
+            $tracker->setCustomDimension('2', $this->faker->randomDigit);
+            $tracker->setCustomDimension('3', $this->faker->languageCode);
+            $tracker->setCustomDimension('4', $this->faker->tld);
+            $tracker->setCustomDimension('5', $this->faker->numerify('########'));
 
             $tracker->setPerformanceTimings(
                 $this->faker->numberBetween(0, 199),
