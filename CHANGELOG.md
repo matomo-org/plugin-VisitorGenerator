@@ -31,3 +31,7 @@
    * PHP 7.4 compatibility
    * Rename from Piwik to Matomo
    * command line option `custom-piwik-url` was removed, use `custom-matomo-url` instead
+- 4.0.0
+   * Compatibility with Matomo 4
+- 4.0.1
+   * Fix generating visits may cause issues in Matomo 4
