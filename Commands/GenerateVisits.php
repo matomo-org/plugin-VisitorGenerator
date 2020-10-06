@@ -37,6 +37,7 @@ class GenerateVisits extends ConsoleCommand
         $this->setDescription('Generates many visits for a given amount of days in the past. This command is intended for developers.');
         $this->addOption('idsite', null, InputOption::VALUE_REQUIRED, 'Defines the site the visits should be generated for');
         $this->addOption('days', null, InputOption::VALUE_REQUIRED, 'Defines for how many days in the past visits should be generated', 1);
+        $this->addOption('start-date', null, InputOption::VALUE_REQUIRED, 'Date to start generating on.');
         $this->addOption('no-fake', null, InputOption::VALUE_NONE, 'If set, no fake visits will be generated', null);
         $this->addOption('no-logs', null, InputOption::VALUE_NONE, 'If set, no visits from logs will be generated', null);
         $this->addOption('limit-fake-visits', null, InputOption::VALUE_REQUIRED, 'Limits the number of fake visits', null);
@@ -53,11 +54,17 @@ class GenerateVisits extends ConsoleCommand
         $customMatomoUrl = $this->checkCustomMatomoUrl($input);
         $idSite = $this->getIdSite($input, $output);
 
+        $startDate = $input->getOption('start-date');
+        if (empty($startDate) || $startDate == 'now') {
+            $startTime = time();
+        } else {
+            $startTime = strtotime($startDate);
+        }
 
-        $time = time() - ($days - 1) * 86400;
+        $time = $startTime - ($days - 1) * 86400;
 
         $nbActionsTotal = 0;
-        while ($time <= time()) {
+        while ($time <= $startTime) {
             $output->writeln(array(
                 sprintf("Generating visits for %s...", Date::factory($time)->toString())
             ));
