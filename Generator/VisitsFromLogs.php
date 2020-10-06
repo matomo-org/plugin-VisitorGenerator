@@ -104,13 +104,7 @@ class VisitsFromLogs extends Generator
     private function getTokenAuth()
     {
         if (empty($this->authToken)) {
-            $token = Piwik::getCurrentUserTokenAuth();
-
-            if (!empty($token)) {
-                $this->authToken = $token;
-            } else {
-                $this->authToken = Piwik::requestTemporarySystemAuthToken('VistorGenerator', 24);
-            }
+            $this->authToken = Piwik::requestTemporarySystemAuthToken('VistorGenerator', 24);
         }
 
         return $this->authToken;
