@@ -1,6 +1,6 @@
 # Matomo VisitorGenerator Plugin
 
-[![Build Status](https://travis-ci.org/matomo-org/plugin-VisitorGenerator.svg?branch=4.x-dev)](https://travis-ci.org/matomo-org/plugin-VisitorGenerator)
+[![Build Status](https://travis-ci.com/matomo-org/plugin-VisitorGenerator.svg?branch=4.x-dev)](https://travis-ci.com/matomo-org/plugin-VisitorGenerator)
 
 ## Description
 

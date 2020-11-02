@@ -35,3 +35,5 @@
    * Compatibility with Matomo 4
 - 4.0.1
    * Fix generating visits may cause issues in Matomo 4
+- 4.0.2
+  * Compatibility with Matomo 4
