@@ -36,7 +36,10 @@ class VisitsFromLogs extends Generator
      */
     public function generate($time = false, $idSite = 1, $timeout = 10)
     {
-        if (empty($time)) $time = time();
+        if (empty($time)) {
+            $time = time();
+        }
+
         $date  = date("Y-m-d", $time);
         $count = 0;
 
