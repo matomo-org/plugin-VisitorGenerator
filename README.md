@@ -40,6 +40,10 @@ It also adds the following commands to the [Matomo CLI tool](http://developer.ma
 * `./console visitorgenerator:shorten-log /path/to/file.log > file.short.log` takes a large Apache log file and keeps only a small number of logs per day
 * `./console visitorgenerator:generate-visits --idsite 5 --custom-matomo-url=http://example.com/` Uses 'http://example.com/' as Matomo-URL and generates many visits for site with id 5 for today
 
+#### Other notes
+
+VisitorGenerator makes a lot of requests to the Matomo tracking API to send the visits, so if your server blocks requests based on rules (e.g. with mod_security), you might want to create an exception rule for VisitorGenerator.
+
 ### Legalnotice
 
 This plugin is released under the GPLv3+ license.
