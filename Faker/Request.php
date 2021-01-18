@@ -929,6 +929,41 @@ class Request extends \Faker\Provider\Base
         return $url;
     }
 
+    public function videoFile()
+    {
+        return static::randomElement([
+            ['https://example.com/sunflower.mpeg', 'Wonderful sunflowers', 147],
+            ['http://example.com/matomo.mpeg', 'Matomo video', 99],
+            ['http://example.com/howto.webm', 'How To', 68],
+            ['https://example.com/video/ted.mpeg', 'TED talk', 7950],
+            ['https://example.com/rain.mpg', 'Heavy rain', 130],
+            ['https://player.vimeo.com/video/3245u543', 'Man riding a cow', 1400],
+            ['https://example.com/product.ogv', 'Product Video', 359],
+            ['http://example.com/video/music.webm', 'Music video', 270],
+            ['https://example.com/video/gym.mwv', 'Gym video', 4870],
+            ['https://player.vimeo.com/video/443456677', 'Horse running into a cat', 108],
+            ['https://youtu.be/explosion', 'Exploding bridge', 83],
+            ['https://player.vimeo.com/video/1223232323', 'Funny Vimeo Video', 3452],
+            ['https://www.youtube.com/embed/Aaa_111HHH', 'YouTube Video', 356],
+        ]);
+    }
+
+    public function audioFile()
+    {
+        return static::randomElement([
+            ['https://example.com/interview.wav', 'Radio Interview', 4452],
+            ['https://example.org/beep.wav', 'Long BEEP', 17],
+            ['https://example.com/intro.ogg', 'Introduction', 655],
+            ['http://example.com/sound.wma', 'People talking', 95],
+            ['http://example.com/alarm.mp3', 'Alarm sound', 36],
+            ['http://example.com/click.mp4', 'Wonderful Click sound', 2],
+            ['https://example.org/fart.wav', 'Man farting for hours', 40*3666],
+            ['https://example.com/jingle.mp4', 'Radio Jingle', 89],
+            ['http://mycdn.org/win95.mp4', 'Beloved Win 95 start sound', 7],
+            ['https://example.com/laughing.mp3', 'Some people laughing', 38],
+        ]);
+    }
+
     public function referrer()
     {
         $urlReferrer  = $this->generator->url;

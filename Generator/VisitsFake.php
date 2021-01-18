@@ -9,6 +9,7 @@
 namespace Piwik\Plugins\VisitorGenerator\Generator;
 
 use Piwik\Piwik;
+use Piwik\Plugin\Manager;
 use Piwik\Plugins\CoreAdminHome\API as CoreAdminHomeApi;
 use Piwik\Plugins\SitesManager\API as SitesManagerApi;
 use Piwik\Plugins\VisitorGenerator\Generator;
@@ -168,6 +169,10 @@ class VisitsFake extends Generator
                 $i++;
             }
 
+            if ($this->faker->boolean(20)) {
+                $this->trackMediaProgress($tracker);
+            }
+
             if ($i % 100 == 0) {
                 $tracker->doBulkTrack();
             }
@@ -180,6 +185,86 @@ class VisitsFake extends Generator
         CoreAdminHomeApi::getInstance()->invalidateArchivedReports($idSite, $date);
 
         return $i;
+    }
+
+
+    private function trackMediaProgress(\MatomoTracker $t)
+    {
+        if (!Manager::getInstance()->isPluginActivated('MediaAnalytics')) {
+            return; // plugin not available
+        }
+
+        $type = $this->faker->randomElement(['audio', 'video']);
+
+        if ($type == 'video') {
+            $player = $this->faker->randomElement(['youtube', 'html5video', 'vimeo', 'jwplayer', 'video.js', 'paella-opencast', 'flowplayer']);
+            $resolution = $this->faker->resolution;
+            $width = floor($resolution[0] / 2);
+            $height = floor($resolution[1] / 2);
+            $fullscreen = (int) $this->faker->boolean(35);
+            $file = $this->faker->videoFile;
+        } else {
+            $player = $this->faker->randomElement(['html5audio', 'jwplayer', 'paella-opencast', 'flowplayer']);
+            $fullscreen = $width = $height = 0;
+            $file = $this->faker->audioFile;
+        }
+
+        $resource   = $file[0];
+        $mediaTitle = $file[1];
+        $length     = $file[2];
+        $idView     = $this->faker->unique()->regexify('[a-zA-Z0-9]{6}');
+
+        // default values for media impression
+        $timeToPlay = 0;
+        $spentTime  = 0;
+        $progress   = 0;
+        $segments   = [];
+
+        // track a media progress instead
+        if ($this->faker->boolean(60)) {
+            $timeToPlay = $this->faker->numberBetween(0, 300);
+            // 60% are starting in the beginning
+            $startProgress = $this->faker->boolean(60) ? 0 : $this->faker->numberBetween(1, 75);
+            // ensure finish rate is at least 10%
+            $progressPercent = $this->faker->boolean(10) ? 100 : $this->faker->numberBetween($startProgress, 100);
+
+            for ($percent = $startProgress; $percent <= $progressPercent; $percent++) {
+                $progress       = ceil($length * $percent / 100);
+                $segmentDivider = $progress <= 300 ? 15 : 30;
+                $segments[]     = ceil($progress / $segmentDivider) * $segmentDivider;
+
+                if ($percent + 10 < $progressPercent && $this->faker->boolean(15)) {
+                    $percent += 10; // randomly skip some segments
+                }
+            }
+
+            $spentTime = ceil($length * $progressPercent / 100);
+            $progress  = ceil($length * $progressPercent / 100);
+        }
+
+        $t->clearCustomTrackingParameters();
+
+        $params = [
+            \Piwik\Plugins\MediaAnalytics\Actions\ActionMedia::PARAM_ID_VIEW              => $idView,
+            \Piwik\Plugins\MediaAnalytics\Actions\ActionMedia::PARAM_MEDIA_TYPE           => $type,
+            \Piwik\Plugins\MediaAnalytics\Actions\ActionMedia::PARAM_PLAYER_NAME          => $player,
+            \Piwik\Plugins\MediaAnalytics\Actions\ActionMedia::PARAM_MEDIA_TITLE          => $mediaTitle,
+            \Piwik\Plugins\MediaAnalytics\Actions\ActionMedia::PARAM_RESOURCE             => $resource,
+            \Piwik\Plugins\MediaAnalytics\Actions\ActionMedia::PARAM_SPENT_TIME           => $spentTime,
+            \Piwik\Plugins\MediaAnalytics\Actions\ActionMedia::PARAM_PROGRESS             => $progress,
+            \Piwik\Plugins\MediaAnalytics\Actions\ActionMedia::PARAM_MEDIA_LENGTH         => $length,
+            \Piwik\Plugins\MediaAnalytics\Actions\ActionMedia::PARAM_TIME_TO_INITIAL_PLAY => $timeToPlay,
+            \Piwik\Plugins\MediaAnalytics\Actions\ActionMedia::PARAM_MEDIA_WIDTH          => $width,
+            \Piwik\Plugins\MediaAnalytics\Actions\ActionMedia::PARAM_MEDIA_HEIGHT         => $height,
+            \Piwik\Plugins\MediaAnalytics\Actions\ActionMedia::PARAM_FULLSCREEN           => $fullscreen,
+            \Piwik\Plugins\MediaAnalytics\Actions\ActionMedia::PARAM_SEGMENTS             => implode(',', array_unique($segments)),
+        ];
+        foreach ($params as $name => $value) {
+            $t->setCustomTrackingParameter($name, $value);
+        }
+
+        $t->storedTrackingActions[] = $t->getUrlTrackPageView('This does not appear as page view');
+        $t->clearCustomTrackingParameters();
     }
 
     private function getCurrentSite($idSite)
