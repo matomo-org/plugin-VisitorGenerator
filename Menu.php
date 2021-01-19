@@ -15,11 +15,12 @@ class Menu extends \Piwik\Plugin\Menu
 {
     public function configureAdminMenu(MenuAdmin $menu)
     {
-        $menu->addDevelopmentItem(
-            'VisitorGenerator_VisitorGenerator',
-            array('module' => 'VisitorGenerator', 'action' => 'index'),
-            Piwik::hasUserSuperUserAccess(),
-            $order = 20
-        );
+        if (Piwik::hasUserSuperUserAccess()) {
+            $menu->addDevelopmentItem(
+                'VisitorGenerator_VisitorGenerator',
+                ['module' => 'VisitorGenerator', 'action' => 'index'],
+                $order = 20
+            );
+        }
     }
 }
