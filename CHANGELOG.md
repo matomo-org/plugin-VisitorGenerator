@@ -37,3 +37,7 @@
    * Fix generating visits may cause issues in Matomo 4
 - 4.0.2
   * Compatibility with Matomo 4
+- 4.0.3
+  * Adds tracking for media analytics plugin
+  * Fix menu item visibility
+  * Translation updates
