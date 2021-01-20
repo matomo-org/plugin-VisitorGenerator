@@ -1,6 +1,6 @@
 {
     "name": "VisitorGenerator",
-    "version": "4.0.2",
+    "version": "4.0.3",
     "description": "Developer tool that lets you generate fake visits. Useful if you are working with plugins or themes or if you use the Matomo API.",
     "keywords": ["development", "tools"],
     "license": "GPL v3+",
