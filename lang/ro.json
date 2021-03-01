@@ -4,7 +4,7 @@
         "Warning": "Sunteți pe cale de a genera vizite false care vor fi înregistrate în baza de date Matomo.",
         "NotReversible": "Acesta va %1$s nu%2$s fie posibil să se șterga cu ușurință aceste vizite de la jurnalele de logare Matomo.",
         "AreYouSure": "Eşti sigur(ă) că doreşti să generezi vizite false?",
-        "ChoiceYes": "Da, sunt sigut(ă)!",
+        "ChoiceYes": "Da, sunt sigur(ă)!",
         "Submit": "Trimite",
         "SelectWebsite": "Alege site-ul",
         "NbRequestsPerSec": "Cereri pe secundă",
