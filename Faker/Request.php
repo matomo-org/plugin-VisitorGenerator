@@ -22,7 +22,7 @@ class Request extends \Faker\Provider\Base
         '/contact/email',
         '/contact/website',
         '/info',
-        '/features/list/?pk_campaign=Email-Nov2011&pk_kwd=LearnMore',
+        '/features/list/',
         '/download-started/',
         'http://piwik.org',
         'http://dev.piwik.org',
@@ -284,7 +284,7 @@ class Request extends \Faker\Provider\Base
         '/blog/2010/08/piwik-0-5-4-remix-by-parallels-security-advisory/',
         '/blog/2010/08/piwik-mobile-out-now/',
         '/changelog/?cat_ID=15',
-        '/blog/2010/08/piwik-on-web-app-gallery/?pk_campaign=Email-Nov2011&pk_kwd=LearnMore',
+        '/blog/2010/08/piwik-on-web-app-gallery/',
         '/qa/',
         '/blog/2012/06/piwik-1-8-release-new-features-screenshots-overview/',
         '/blog/2011/06/piwik-innovative-with-javascript-canvas-chart-and-contributing-by-jqplot-creator/',
@@ -298,7 +298,7 @@ class Request extends \Faker\Provider\Base
         '/blog/2012/07/best-alternative-yahoo-analytics/',
         '/docs/plugins/framework-overview/',
         '/blog/2010/03/piwik-irc-meetup-1/',
-        '/blog/2013/06/piwik-mobile-2-preview-alpha-release/?pk_campaign=Email-Nov2011&pk_kwd=LearnMore',
+        '/blog/2013/06/piwik-mobile-2-preview-alpha-release/',
         '/blog/2008/04/bloggers-blog-about-piwik-worldwide/',
         '/participate/contributing-with-git/',
         '/blog/2010/07/new-piwik-tracking-api-track-visits-from-mobile-apps-desktop-apps-anywhere/',
@@ -396,11 +396,11 @@ class Request extends \Faker\Provider\Base
         '/blog/2013/03/new-v1-12-new-features-design-changes-overview-w-screenshots/',
         '/blog/author/admin-2/page/3/',
         '/blog/2013/07/wanted-beta-testers-for-piwik-mobile-2-for-ios/',
-        '/blog/2011/02/reshaping-piwik-documentation/?pk_campaign=Email-Nov2011&pk_kwd=OrderNow',
+        '/blog/2011/02/reshaping-piwik-documentation/',
         '/blog/2009/04/piwik-response-to-cve-2009-1085/',
         '/blog/roadmap_categories/new-features-for-piwik/',
         '/mobile/v2/faq/',
-        '/blog/2011/07/ecommerce-analytics-is-hard/?pk_campaign=Email-Nov2011&pk_kwd=OrderNow',
+        '/blog/2011/07/ecommerce-analytics-is-hard/',
         '/blog/2011/09/announcing-piwik-meetup-in-munich-germany-on-oct-22nd-register-now-free/',
         '/blog/2009/06/new-piwik-javascript-tracking-api-how-we-designed-it/',
         '/docs/piwik-org',
@@ -415,7 +415,7 @@ class Request extends \Faker\Provider\Base
         '/old-roadmap/',
         '/blog/integrate/roundcube-webmail-plugin-piwik-analytics/',
         '/blog/integrate/kooboo-piwik-plugin/',
-        '/blog/about-features/domain-cookie-behaviour/?pk_campaign=Email-Nov2011&pk_kwd=OrderNow',
+        '/blog/about-features/domain-cookie-behaviour/',
         '/blog/integrate/piwiktracker-for-objective-c/',
         '/blog/integrate_categories/programming-language/',
         '/blog/tasks/page-transitions-clickpath-to-show-previousnext-pages-for-any-selected-page-clickpath-page-analytics-now-available-since-piwik-1-9/',
@@ -437,7 +437,7 @@ class Request extends \Faker\Provider\Base
         '/suggest-a-topic/',
         '/blog/2010/08/piwik-0-9-9/',
         '/blog/integrate/grails-plugin/',
-        '/blog/2011/10/piwik-1-6/?pk_campaign=Email-Nov2011&pk_kwd=OrderNow',
+        '/blog/2011/10/piwik-1-6/',
         '/blog/2011/06/piwik-mobile-1-5/piwikmobile150ios3pages/',
         '/blog/2011/06/piwik-1-5-security-advisory/',
         '/blog/2011/04/piwik-1-3-released/',
@@ -458,7 +458,7 @@ class Request extends \Faker\Provider\Base
         '/blog/integrate/elgg-plugin-piwik/',
         '/i',
         '/blog/2008/02/why-is-piwik-better-than-the-competition/',
-        '/blog/integrate_categories/integrate-category/?pk_campaign=Email-Nov2011&pk_kwd=OrderNow',
+        '/blog/integrate_categories/integrate-category/',
         '/blog/tasks/send-scheduled-reports-via-sms-text-message/',
         '/latest.zip',
         '/latest.zip',
@@ -471,14 +471,14 @@ class Request extends \Faker\Provider\Base
         '/latest.zip',
         '/latest.zip',
         '/latest.zip',
-        '/latest.zip?pk_campaign=Email-Nov2011&pk_kwd=OrderNow',
         '/latest.zip',
         '/latest.zip',
         '/latest.zip',
         '/latest.zip',
         '/latest.zip',
         '/latest.zip',
-        '/latest.zip?pk_campaign=Email-Nov2011&pk_kwd=LearnMore',
+        '/latest.zip',
+        '/latest.zip',
         '/latest.zip',
         '/latest.zip',
         '/latest.zip',
@@ -503,21 +503,21 @@ class Request extends \Faker\Provider\Base
         '/user-guide/track-your-visitors/',
         '/blog/2009/10/piwik-response-to-secunia-advisory-sa37078/',
         '/blog/integrate/piwik-integration-for-ilias/',
-        '/blog/integrate/piwik-integration-for-xenforo/?pk_campaign=Email-Nov2011&pk_kwd=LearnMore',
+        '/blog/integrate/piwik-integration-for-xenforo/',
         '/blog/integrate/integrate-the-piwik-http-api-into-joomla/',
-        '/blog/integrate/?pk_campaign=Email-Nov2011&pk_kwd=OrderNow',
+        '/blog/integrate/',
         '/page/5',
         '/page/8',
         '/participate/development-metrics/',
         '/blog/2013/06/piwik-mobile-1-9-6/',
-        '/blog/integrate/nodejs-piwik/?pk_campaign=Email-Nov2011&pk_kwd=OrderNow',
-        '/blog/2010/03/piwik-irc-meetup-2/?pk_campaign=Email-Nov2011&pk_kwd=LearnMore',
+        '/blog/integrate/nodejs-piwik/',
+        '/blog/2010/03/piwik-irc-meetup-2/',
         '/gmistudio',
         '/h72',
         '/user-guide/piwik-administration/',
         '/blog/tasks/show-graph-of-visitspages-over-the-last-30-days-for-a-specific-row-keyword-country-etc-see-the-new-row-evolution-screenshots/',
         '/blog/integrate/piwik-integration-for-drupal/',
-        '/blog/2012/08/piwik-1-8-3/?pk_campaign=Email-Nov2011&pk_kwd=OrderNow',
+        '/blog/2012/08/piwik-1-8-3/',
         '/participate/website-translations/more-info/',
         '/blog/2012/10/using-custom-variables-in-piwik-tutorial/%C2%A0',
         '/localhost',
@@ -527,14 +527,14 @@ class Request extends \Faker\Provider\Base
         '/blog/2010/04/piwik-0-6-security-advisory/',
         '/%20mobile/',
         '/wenmar',
-        '/blog/category/community/page/2/?pk_campaign=Email-Nov2011&pk_kwd=LearnMore',
+        '/blog/category/community/page/2/',
         '/blog/integrate/silverlight-piwik-tracking/',
         '/blog/integrate/symfony-piwik-plugin/',
         '/blog/2012/10/',
         '/log-%C2%AD%E2%80%90analytics/',
         '/blog/2011/06/piwik-mobile-1-5/',
         '/blog/2011/07/piwik-1-5-1/',
-        '/blog/category/development/page/2/?pk_campaign=Email-Nov2011&pk_kwd=LearnMore',
+        '/blog/category/development/page/2/',
         '/blog/integrate/zen-cart-plugin-for-piwik/',
         '/blog/tag/integration/',
         '/blog/integrate/codeigniter-library-for-piwik/',
@@ -556,7 +556,7 @@ class Request extends \Faker\Provider\Base
         '/faq/how-to/freebsd%20php%20folder',
         '/docs/installation/?codekitCB=398967303.973608',
         '/blog/2011/03/piwik-1-2-1/',
-        '/blog/integrate/php-client-for-tracking-api/?pk_campaign=Blog&pk_kwd=More',
+        '/blog/integrate/php-client-for-tracking-api/',
         '/free-software/mobile/',
         '/blog-7/',
         '/blog/author/thomas/',
@@ -570,7 +570,7 @@ class Request extends \Faker\Provider\Base
         '/log-in',
         '/blog/author/julien/',
         '/blog/integrate/jenkins-module/',
-        '/blog/2013/08/piwik-at-free-and-open-source-software-conference/?pk_campaign=Blog&pk_kwd=More',
+        '/blog/2013/08/piwik-at-free-and-open-source-software-conference/',
         '/404',
         '/blog/page/15/',
         '/blog/page/13/',
@@ -580,7 +580,7 @@ class Request extends \Faker\Provider\Base
         '/analytics/cultizer',
         '/blog/2009/05/piwik-0235/',
         '/blog/2013/08/second-beta-of-piwik-mobile-2-for-android/',
-        '/blog/2011/11/piwik-stickers-design-contest-prizes/?pk_campaign=Blog&pk_kwd=More',
+        '/blog/2011/11/piwik-stickers-design-contest-prizes/',
         '/piwik-1.9.3-b10.zip',
         '/piwik-1.9.3-b10.zip',
         '/piwik-1.9.3-b10.zip',
@@ -749,8 +749,8 @@ class Request extends \Faker\Provider\Base
         '/log-analytics/?r44b=no',
         '/faq/general/:/',
         '/%5DPiwik%5B/url%5D',
-        '/img/numbers_sprite.png?pk_campaign=Email-Nov2011&pk_kwd=OrderNow',
-        '/blog/2010/05/release-of-piwik-0-6-2/entry-pages/?pk_campaign=Blog&pk_kwd=More',
+        '/img/numbers_sprite.png',
+        '/blog/2010/05/release-of-piwik-0-6-2/entry-pages/',
         '/docs/ecommerce-analytics/%23toc-tracking-ecommerce-orders-items-purchased-required',
         '/user-guide/video-actions-reports-page-views-downloads-clicks/%3Cspan%20class=',
         '/license',
@@ -759,14 +759,68 @@ class Request extends \Faker\Provider\Base
         '/blog/2010/05/piwik-0-6/',
         '/blog/2008/01/how-to-design-an-api-best-practises-concepts-technical-aspects/%20and%20updates',
         '/contact-professional-support/',
-        '/blog/2011/10/piwik-response-to-cve-2011-3791/?pk_campaign=Blog&pk_kwd=More',
+        '/blog/2011/10/piwik-response-to-cve-2011-3791/',
         '/docs/tracking-api/',
         '/docs/ecommerce-analytics/%3Cscript%3Ealert5840%3C/script%3E.html',
         '/blog/tasks/',
-        '/blog/2013/09/piwik-mobile-1-9-8-with-full-support-for-ios-7/?pk_campaign=Blog&pk_kwd=More',
+        '/blog/2013/09/piwik-mobile-1-9-8-with-full-support-for-ios-7/',
         '/FAQ/',
-        '/blog/tasks/graphs-list-of-improvements-jqplotjs/?pk_campaign=Email-Nov2011&pk_kwd=OrderNow'
+        '/blog/tasks/graphs-list-of-improvements-jqplotjs/'
     );
+
+    protected static $campaignNames = [
+        '',
+        'Blog',
+        'Google-Ads-Campaign',
+        'Email-Nov2011',
+        'Email-Jan2019',
+    ];
+
+    protected static $campaignKeywords = [
+        '',
+        'OrderNow',
+        'More',
+        'LearnMore',
+    ];
+
+    protected static $campaignSources = [
+        'google-ads',
+        'newsletter',
+        '',
+    ];
+
+    protected static $campaignMediums = [
+        '',
+        'paid-ads',
+        'email',
+    ];
+
+    protected static $campaignContents = [
+        '',
+        'banner',
+        'text',
+    ];
+
+    protected static $campaignIds = [
+        '',
+        'cid-1223332',
+        'cid-6333444',
+        'cid-4378565',
+    ];
+
+    protected static $campaignGroups = [
+        '',
+        'customer',
+        'guest',
+        'all',
+    ];
+
+    protected static $campaignPlacements = [
+        '',
+        'top',
+        'bottom',
+        'external',
+    ];
 
     protected static $resolutions = array(
         '1024x768',
@@ -799,6 +853,20 @@ class Request extends \Faker\Provider\Base
     public function pageURL()
     {
         return static::randomElement(static::$pageUrls);
+    }
+
+    public function campaignParameters()
+    {
+        return array_filter([
+            'pk_campaign' => static::randomElement(self::$campaignNames),
+            'pk_kwd' => static::randomElement(self::$campaignKeywords),
+            'pk_source' => static::randomElement(self::$campaignSources),
+            'pk_medium' => static::randomElement(self::$campaignMediums),
+            'pk_content' => static::randomElement(self::$campaignContents),
+            'pk_cid' => static::randomElement(self::$campaignIds),
+            'pk_group' => static::randomElement(self::$campaignGroups),
+            'pk_placement' => static::randomElement(self::$campaignPlacements),
+        ]);
     }
 
     public function productName()
