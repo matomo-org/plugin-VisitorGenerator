@@ -34,6 +34,10 @@ class VisitsFake extends Generator
         while ($i < $limit) {
             $pageUrl = $this->faker->pageURL;
 
+            if ($this->faker->boolean(3)) {
+                $pageUrl .= (strpos($pageUrl, '?') ? '&' : '?') . http_build_query($this->faker->campaignParameters);
+            }
+
             $i++;
             $tracker->setTokenAuth($tokenAuth);
             $tracker->setUserAgent($this->faker->userAgent);
