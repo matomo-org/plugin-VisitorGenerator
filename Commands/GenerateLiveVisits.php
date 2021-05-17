@@ -40,6 +40,8 @@ class GenerateLiveVisits extends ConsoleCommand
             time() % LiveVisitsFromLog::SECONDS_IN_DAY);
         $this->addOption('custom-matomo-url', null, InputOption::VALUE_REQUIRED, 'Custom Matomo URL to track to.');
         $this->addOption('timeout', null, InputOption::VALUE_REQUIRED, "Sets how long, in seconds, the timeout should be for the request.", 10);
+        $this->addOption('token-auth', null, InputOption::VALUE_REQUIRED, 'Use custom token auth instead of system generated one. If running this '
+            . 'command continuously or a cron, this should be used, since the generated token auth will expire after 24 hours.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -51,10 +53,14 @@ class GenerateLiveVisits extends ConsoleCommand
         $dayOfMonth = $this->getPostiveIntegerOption($input, 'day-of-month');
         $timeOfDay = $this->getPostiveIntegerOption($input, 'time-of-day');
         $this->timeout = $this->getPostiveIntegerOption($input, 'timeout');
+        $tokenAuth = $input->getOption('token-auth');
 
         $timeOfDayDelta = $stopAfter ?: LiveVisitsFromLog::SECONDS_IN_DAY;
 
         $generateLiveVisits = new LiveVisitsFromLog($logFile, $idSite, $timeOfDay, $timeOfDayDelta, $dayOfMonth, $piwikUrl, $this->timeout);
+        if (!empty($tokenAuth)) {
+            $generateLiveVisits->setTokenAuth($tokenAuth);
+        }
 
         $output->writeln("Generating logs...");
 

@@ -24,6 +24,11 @@ class VisitsFromLogs extends Generator
 {
     private $authToken;
 
+    public function setTokenAuth($tokenAuth)
+    {
+        $this->authToken = $tokenAuth;
+    }
+
     /**
      * All log lines will be replayed having the same day of the month as the one of the given time. If the same day of
      * the month is not present in any log line then one of the following days will be used.
