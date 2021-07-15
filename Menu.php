@@ -10,17 +10,26 @@ namespace Piwik\Plugins\VisitorGenerator;
 
 use Piwik\Menu\MenuAdmin;
 use Piwik\Piwik;
+use Piwik\SettingsServer;
 
 class Menu extends \Piwik\Plugin\Menu
 {
     public function configureAdminMenu(MenuAdmin $menu)
     {
         if (Piwik::hasUserSuperUserAccess()) {
-            $menu->addDevelopmentItem(
-                'VisitorGenerator_VisitorGenerator',
-                ['module' => 'VisitorGenerator', 'action' => 'index'],
-                $order = 20
-            );
+            if (SettingsServer::isMatomoForWordPress()) {
+                $menu->addSystemItem(
+                    'VisitorGenerator_VisitorGenerator',
+                    ['module' => 'VisitorGenerator', 'action' => 'index'],
+                    $order = 20
+                );
+            } else {
+                $menu->addDevelopmentItem(
+                    'VisitorGenerator_VisitorGenerator',
+                    ['module' => 'VisitorGenerator', 'action' => 'index'],
+                    $order = 20
+                );
+            }
         }
     }
 }

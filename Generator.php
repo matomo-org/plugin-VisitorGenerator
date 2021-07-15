@@ -9,6 +9,7 @@
 namespace Piwik\Plugins\VisitorGenerator;
 
 use Piwik\SettingsPiwik;
+use Piwik\SettingsServer;
 
 include_once __DIR__ . '/vendor/autoload.php';
 
@@ -25,6 +26,20 @@ class Generator
         $this->faker = \Faker\Factory::create('en_EN');
         $this->faker->addProvider(new Faker\Request($this->faker));
         $this->setMatomoUrl($matomoUrl);
+    }
+
+    protected function makeMatomoTracker($idSite)
+    {
+        if (SettingsServer::isMatomoForWordPress()) {
+            $trackerFile = plugin_dir_path( MATOMO_ANALYTICS_FILE ) . "tests/phpunit/framework/test-local-tracker.php";
+            if (file_exists($trackerFile)) {
+                include_once $trackerFile;
+                return new \MatomoLocalTracker($idSite, $this->getMatomoUrl());
+            } else {
+                throw new \Exception('The visitor generator in Matomo for WordPress works only when the plugin is installed from Git and is only intended for development.');
+            }
+        }
+        return new \MatomoTracker($idSite, $this->getMatomoUrl());
     }
 
     /**
