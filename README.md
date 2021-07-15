@@ -44,6 +44,17 @@ It also adds the following commands to the [Matomo CLI tool](http://developer.ma
 
 VisitorGenerator makes a lot of requests to the Matomo tracking API to send the visits, so if your server blocks requests based on rules (e.g. with mod_security), you might want to create an exception rule for VisitorGenerator.
 
+## Using it in Matomo for WordPress
+
+The developer menu item is not available in Matomo for WordPress. Visits have to be generated using the command line instead:
+
+```
+cd wp-content/plugins/matomo/app
+./console  visitorgenerator:generate-visits --idsite=1
+```
+
+If you are getting an error about SSL errors then you can use the `--custom-matomo-url="..."` option to specify using HTTP. For example `--custom-matomo-url="http://my-domain/wp-content/plugins/matomo/app/"`.
+
 ### Legalnotice
 
 This plugin is released under the GPLv3+ license.
