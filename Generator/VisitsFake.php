@@ -20,7 +20,7 @@ class VisitsFake extends Generator
     {
         $date = date("Y-m-d", $time);
 
-        $tracker = new \MatomoTracker(1, $this->getMatomoUrl());
+        $tracker = $this->makeMatomoTracker($idSite);
         $tracker->setDebugStringAppend('dp=1');
         $tracker->enableBulkTracking();
         $tokenAuth = Piwik::requestTemporarySystemAuthToken('VistorGenerator', 24);

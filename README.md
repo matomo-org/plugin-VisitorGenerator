@@ -46,14 +46,16 @@ VisitorGenerator makes a lot of requests to the Matomo tracking API to send the 
 
 ## Using it in Matomo for WordPress
 
-The developer menu item is not available in Matomo for WordPress. Visits have to be generated using the command line instead:
+It only works in Matomo for WordPress if the plugin is installed through git as it's only intended for development.
+
+In Matomo for WordPress you can find the UI in the Matomo Admin under "System".
+
+You can also use the command line to generate the data:
 
 ```
 cd wp-content/plugins/matomo/app
 ./console  visitorgenerator:generate-visits --idsite=1
 ```
-
-If you are getting an error about SSL errors then you can use the `--custom-matomo-url="..."` option to specify using HTTP. For example `--custom-matomo-url="http://my-domain/wp-content/plugins/matomo/app/"`.
 
 ### Legalnotice
 
