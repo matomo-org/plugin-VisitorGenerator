@@ -41,3 +41,5 @@
   * Adds tracking for media analytics plugin
   * Fix menu item visibility
   * Translation updates
+- 4.0.4
+  * Add support for Matomo for WordPress
