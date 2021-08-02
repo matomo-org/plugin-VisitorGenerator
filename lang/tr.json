@@ -7,7 +7,7 @@
         "AreYouSure": "Sahte ziyaretler üretmek istediğinizden emin misiniz?",
         "ChoiceYes": "Evet, eminim!",
         "Submit": "Gönder",
-        "SelectWebsite": "Web Sitesi Seçin",
+        "SelectWebsite": "Web sitesi seçin",
         "NbRequestsPerSec": "Bir saniyedeki istek sayısı",
         "DaysToCompute": "Hesaplanacak gün",
         "GenerateFakeActions": "Bu işlem en az sitede her gün en az %d sahte işlem üretir.",
@@ -16,10 +16,10 @@
         "LogImporterNote": "Deneme verilerini Matomo üzerine yüklemek için daha hızlı bir araç vardır. Ayrıntılı bilgi almak için %1$sREADME%2$s dosyasına bakın.",
         "AutomaticReprocess": "Matomo raporları bölümüne bir sonraki bakışınızda raporlar yeniden işlenecek. Bu işlem bir kaç dakika sürebilir.",
         "GeneratedVisitsFor": "%1$s için son %2$s günü kapsayan ziyaretler üretildi",
-        "ReRunArchiveScript": "Lütfen raporları yenilemek için '.\/console core:archive' komutunu ile zamanlanmış görevi yeniden yürütün. %1$s\"Raporları Otomatik Olarak Arşivlemek\"%2$s bölümüne bakın.",
+        "ReRunArchiveScript": "Lütfen raporları yenilemek için '.\/console core:archive' komutunu ile zamanlanmış görevi yeniden yürütün. %1$s\"Raporları Otomatik Olarak Arşivlemek\"%2$s bölümüne bakın.",
         "NumberOfGeneratedActions": "Üretilen işlem sayısı",
         "CliToolUsage": "%1$sMatomo CLI Aracını%2$s kullanarak daha fazla ziyaret verisinin yanında, kullanıcılar, web siteleri ve hedefler de üretebilirsiniz.",
-        "CustomMatomoUrl": "Özel Matomo Adresi",
+        "CustomMatomoUrl": "Özel Matomo adresi",
         "ConfirmVisitorGeneration": "Lütfen kutuyu işaretleyerek ziyaretçi üretilmesini onaylayın"
     }
 }
