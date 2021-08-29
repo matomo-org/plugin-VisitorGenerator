@@ -106,6 +106,11 @@ class VisitsFromLogs extends Generator
 
         $url = preg_replace("/idsite=[0-9]+/", "idsite=$idSite", $url);
 
+        if ($this->trackNonProfilable) {
+            $url = preg_replace('/([&?])cip=[^&]/', '$1', $url);
+            $url = preg_replace('/([&?])_id=[^&]/', '$1', $url);
+        }
+
         return $url;
     }
 

@@ -29,6 +29,11 @@ class VisitsFake extends Generator
         $numSearches = rand(floor($limit / 40), ceil($limit / 20));
         $numSearchesDone = 0;
 
+        $tracker->setNewVisitorId();
+        if ($this->trackNonProfilable) {
+            $tracker->randomVisitorId = false;
+        }
+
         $i = 0;
         $userId = null;
         while ($i < $limit) {
@@ -54,6 +59,9 @@ class VisitsFake extends Generator
 
             if ($this->faker->boolean(10)) {
                 $tracker->setNewVisitorId();
+                if ($this->trackNonProfilable) {
+                    $tracker->randomVisitorId = false;
+                }
                 if ($this->faker->boolean(50)) {
                     $tracker->setUserId($this->faker->firstName);
                 } else {

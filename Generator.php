@@ -17,6 +17,7 @@ class Generator
 {
     protected $faker;
     protected $matomoUrl;
+    protected $trackNonProfilable = false;
 
     /**
      * @param null $matomoUrl
@@ -65,4 +66,8 @@ class Generator
         return $url;
     }
 
+    public function setTrackNonProfilable(bool $trackNonProfilable): void
+    {
+        $this->trackNonProfilable = $trackNonProfilable;
+    }
 }
