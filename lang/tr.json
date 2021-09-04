@@ -7,7 +7,7 @@
         "ConfirmVisitorGeneration": "Lütfen kutuyu işaretleyerek ziyaretçi üretilmesini onaylayın",
         "CustomMatomoUrl": "Özel Matomo adresi",
         "DaysToCompute": "Hesaplanacak gün",
-        "GenerateFakeActions": "Bu işlem en az sitede her gün en az %d sahte işlem üretir.",
+        "GenerateFakeActions": "Bu işlem sitede her gün en az %d sahte işlem üretir.",
         "GeneratedVisitsFor": "%1$s için son %2$s günü kapsayan ziyaretler üretildi",
         "LogImporterNote": "Deneme verilerini Matomo üzerine yüklemek için daha hızlı bir araç vardır. Ayrıntılı bilgi almak için %1$sREADME%2$s dosyasına bakın.",
         "NbRequestsPerSec": "Bir saniyedeki istek sayısı",
@@ -16,10 +16,10 @@
         "OverwriteLogFiles": "Sahte ziyaretlerin üretildiği günlük dosyalarının üzerine yazabilirsiniz. (%s içindeki dosyaları değiştirin ya da ekleyin). \"matomo.php\" isteklerinin günlük dosyaları \"Apache birleştirilmiş günlüğü\" biçimindedir. Uygulama eki geliştiricileri, kendi uygulama eklerinde bulunan bir 'data' klasörü altında kendi '*.log' dosyalarını kullanıyor olabilir.",
         "PleaseBePatient": "Not: Sahte ziyaret ve işlemlerin üretilmesi bir kaç dakika sürebilir, lütfen bekleyin...",
         "PluginDescription": "Matomo üzerine sahte ziyaret ve işlem kayıtları ekler. Bu özellik Matomo kullanıcıları ya da geliştiricileri tarafından Matomo raporları için gerekli örnek verileri kolayca eklemek için kullanılır.",
-        "ReRunArchiveScript": "Lütfen raporları yenilemek için './console core:archive' komutunu ile zamanlanmış görevi yeniden yürütün. %1$s\"Raporları Otomatik Olarak Arşivlemek\"%2$s bölümüne bakın",
+        "ReRunArchiveScript": "Lütfen raporları yenilemek için './console core:archive' komutunu ile zamanlanmış görevi yeniden yürütün. %1$s\"Raporları otomatik olarak arşivlemek\"%2$s bölümüne bakın",
         "SelectWebsite": "Web sitesi seçin",
         "Submit": "Gönder",
-        "VisitorGenerator": "Ziyaretçi Üreteci",
+        "VisitorGenerator": "Ziyaretçi üreteci",
         "Warning": "Matomo veritabanına kaydedilecek sahte ziyaretler üretmek üzeresiniz."
     }
 }
