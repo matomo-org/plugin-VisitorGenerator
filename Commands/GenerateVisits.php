@@ -43,16 +43,18 @@ class GenerateVisits extends ConsoleCommand
         $this->addOption('limit-fake-visits', null, InputOption::VALUE_REQUIRED, 'Limits the number of fake visits', null);
         $this->addOption('custom-matomo-url', null, InputOption::VALUE_REQUIRED, "Defines an alternate Matomo URL, e.g. if Matomo is installed behind a Load-Balancer.");
         $this->addOption('timeout', null, InputOption::VALUE_REQUIRED, "Sets how long, in seconds, the timeout should be for the request.", 10);
+        $this->addOption('non-profilable', null, InputOption::VALUE_NONE, "If supplied, tracks data without visitor IDs so it will be considered 'not profilable'.");
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-
         $this->timeout =  $input->getOption('timeout');
         $timer = new Timer();
         $days = $this->checkDays($input);
         $customMatomoUrl = $this->checkCustomMatomoUrl($input);
         $idSite = $this->getIdSite($input, $output);
+
+        $trackNonProfilable = $input->getOption('non-profilable');
 
         $startDate = $input->getOption('start-date');
         if (empty($startDate) || $startDate == 'now') {
@@ -71,15 +73,17 @@ class GenerateVisits extends ConsoleCommand
 
             if (!$input->getOption('no-fake')) {
                 $limit = $this->getLimitFakeVisits($input);
-                Access::doAsSuperUser(function () use ($time, $idSite, $limit, &$nbActionsTotal, $customMatomoUrl) {
+                Access::doAsSuperUser(function () use ($time, $idSite, $limit, &$nbActionsTotal, $customMatomoUrl, $trackNonProfilable) {
                     $fakeVisits = new VisitsFake($customMatomoUrl);
+                    $fakeVisits->setTrackNonProfilable($trackNonProfilable);
                     $nbActionsTotal += $fakeVisits->generate($time, $idSite, $limit);
                 });
             }
 
             if (!$input->getOption('no-logs')) {
-                Access::doAsSuperUser(function () use ($time, $idSite, &$nbActionsTotal, $customMatomoUrl) {
+                Access::doAsSuperUser(function () use ($time, $idSite, &$nbActionsTotal, $customMatomoUrl, $trackNonProfilable) {
                     $fromLogs = new VisitsFromLogs($customMatomoUrl);
+                    $fromLogs->setTrackNonProfilable($trackNonProfilable);
                     $nbActionsTotal += $fromLogs->generate($time, $idSite, $this->timeout);
                 });
             }
