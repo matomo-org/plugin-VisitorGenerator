@@ -67,6 +67,8 @@ Keeps 500 log lines per day as well as all lines containing the term "ec_id"
         }
 
         echo $shortened;
+
+        return 0;
     }
 
     private function containsTerm($line, $terms)
