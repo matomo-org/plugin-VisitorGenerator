@@ -28,33 +28,35 @@ class TransformIterator implements \OuterIterator
         $this->transform = $transform;
     }
 
+    #[\ReturnTypeWillChange]
     public function current()
     {
         $fn = $this->transform;
         return $fn($this->iterator->current(), $this->iterator->key(), $this->iterator);
     }
 
-    public function next()
+    public function next(): void
     {
         $this->iterator->next();
     }
 
+    #[\ReturnTypeWillChange]
     public function key()
     {
         return $this->iterator->key();
     }
 
-    public function valid()
+    public function valid(): bool
     {
         return $this->iterator->valid();
     }
 
-    public function rewind()
+    public function rewind(): void
     {
         $this->iterator->rewind();
     }
 
-    public function getInnerIterator()
+    public function getInnerIterator(): ?Iterator
     {
         return $this->iterator;
     }
