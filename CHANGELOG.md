@@ -43,3 +43,5 @@
   * Translation updates
 - 4.0.4
   * Add support for Matomo for WordPress
+- 4.0.5
+  * Fix deprecation warnings for php8.1
