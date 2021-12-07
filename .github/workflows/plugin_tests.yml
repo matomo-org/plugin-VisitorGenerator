@@ -1,4 +1,4 @@
-name: Plugin AnonymousPiwikUsageMeasurement Tests
+name: Plugin VisitorGenerator Tests
 
 on:
   pull_request:
@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-20.04
     env:
       TARGET_BRANCH: github-aciton
-      PLUGIN: AnonymousPiwikUsageMeasurement
+      PLUGIN: VisitorGenerator
     services:
       redis:
         image: redis:5.0
