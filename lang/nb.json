@@ -10,6 +10,7 @@
         "PluginDescription": "Opprett falske besøk og handlinger i Matomo. Dette kan brukes av Matomo.org-brukere eller utviklere som vil generere falsk data for å fylle ut Matomo-rapporter.",
         "SelectWebsite": "Velg nettsted",
         "Submit": "Send",
-        "VisitorGenerator": "Besøksgenerator"
+        "VisitorGenerator": "Besøksgenerator",
+        "Warning": "Du er i ferd med å generere falske besøk som vil bli registrert i din Matomo-database."
     }
 }
