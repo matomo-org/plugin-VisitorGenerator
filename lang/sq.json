@@ -1,6 +1,6 @@
 {
     "VisitorGenerator": {
-        "AreYouSure": "Jeni i sigurt se doni të prodhohen vizita gjasme?",
+        "AreYouSure": "Jeni i sigurt se doni të prodhohen vizita gjoja?",
         "AutomaticReprocess": "Raportet do të ripërpunohen herës tjetër që vizitoni raportet Matomo, kjo mund të hajë ca minuta.",
         "ChoiceYes": "Po, jam i sigurt!",
         "CliToolUsage": "Duke përdorur %1$smjetin Matomo CLI%2$s jo vetëm që mund të prodhoni më tepër vizita, por edhe përdorues, sajte dhe objektiva.",
@@ -20,6 +20,6 @@
         "SelectWebsite": "Përzgjidhni Sajt",
         "Submit": "Parashtroje",
         "VisitorGenerator": "Prodhues Vizitorësh",
-        "Warning": "Ju ndan një hap nga prodhimi i vizitave gjasme, që do të regjistrohen te baza juaj e të dhënave Matomo."
+        "Warning": "Ju ndan një hap nga prodhimi i vizitave gjoja, që do të regjistrohen te baza juaj e të dhënave Matomo."
     }
 }
