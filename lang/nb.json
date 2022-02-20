@@ -1,7 +1,9 @@
 {
     "VisitorGenerator": {
         "AreYouSure": "Er du sikker på at du vil generere falske besøk?",
+        "AutomaticReprocess": "Rapportene vil bli behandlet igjen neste gang du besøker Matomo-rapporter. Det kan ta noen minutter.",
         "ChoiceYes": "Ja, jeg er sikker!",
+        "CliToolUsage": "Ved å bruke %1$sMatomo-kommandolinjeverktøyet%2$s kan du ikke kun generere flere besøk, men også brukere, nettsider og mål.",
         "ConfirmVisitorGeneration": "Bekreft besøksgenerering ved å krysse av i boksen",
         "CustomMatomoUrl": "Egendefinert Matomo-URL",
         "DaysToCompute": "Dager å beregne",
