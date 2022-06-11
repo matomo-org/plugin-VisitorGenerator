@@ -13,7 +13,7 @@
         "NbRequestsPerSec": "Permintaan tiap detik",
         "NotReversible": "Ini %1$s tidak%2$s mungkin mudah menghapus kunjungan tersebut dari catatan Matomo.",
         "NumberOfGeneratedActions": "Jumlah tindakan yang dihasilkan",
-        "OverwriteLogFiles": "Anda dapat menimpa berkas log yang digunakan untuk menghasilkan kunjungan palsu (mengubah atau menambahkan berkas di %s). Ada berkas log permintaan ke \"matomo.php\" dalam format \"Log gabungan Apache\". Pengembang plugin dapat menyediakan berkas log mereka sendiri dengan menempatkan berkas '*.log' di dalam direktori 'data' plugin mereka.",
+        "OverwriteLogFiles": "Anda dapat menimpa berkas log yang digunakan untuk menghasilkan kunjungan palsu (mengubah atau menambahkan berkas di %s). Ada berkas log permintaan ke \"matomo.php\" dalam format \"Log gabungan Apache\". Pengembang pengaya dapat menyediakan berkas log mereka sendiri dengan menempatkan berkas '*.log' di dalam direktori 'data' pengaya mereka.",
         "PleaseBePatient": "CATATAN: Mungkin perlu waktu beberapa menit untuk membuat kunjungan dan tindakan, mohon bersabar...",
         "PluginDescription": "Buat kunjungan dan tindakan palsu di Matomo. Ini dapat digunakan oleh pengguna atau pengembang Matomo sebagai cara mudah untuk membuat data palsu untuk mengisi laporan Matomo.",
         "ReRunArchiveScript": "Silakan jalankan kembali perintah crontab './console core:archive' untuk menyegarkan laporan. %1$sLihat \"Cara Menyiapkan Pengarsipan Otomatis Laporan Anda\"%2$s",
