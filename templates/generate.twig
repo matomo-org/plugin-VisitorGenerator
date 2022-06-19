@@ -1,20 +1,13 @@
 {% extends 'admin.twig' %}
 
 {% block content %}
-    <div piwik-content-block
-         content-title="{{ 'VisitorGenerator_VisitorGenerator'|translate|e('html_attr') }}">
-        {{ 'VisitorGenerator_GeneratedVisitsFor'|translate(siteName, days) }}<br/>
-        {{ 'VisitorGenerator_NumberOfGeneratedActions'|translate }}: {{ nbActionsTotal }}<br/>
-        {{ 'VisitorGenerator_NbRequestsPerSec'|translate }}: {{ nbRequestsPerSec }}<br/>
-        {{ timer }}<br/>
-        <p><strong>
-                {% if browserArchivingEnabled %}
-                    {{ 'VisitorGenerator_AutomaticReprocess'|translate }}
-                {% else %}
-                    {{ 'VisitorGenerator_ReRunArchiveScript'|translate('<a href="https://matomo.org/docs/setup-auto-archiving/">', '</a>')|raw }}
-                {% endif %}
-            </strong>
-        </p>
-    </div>
-
+    <div
+        vue-entry="VisitorGenerator.GeneratePage"
+        site-name="{{ siteName|json_encode|e('html_attr') }}"
+        days="{{ days|json_encode|e('html_attr') }}"
+        nb-actions-total="{{ nbActionsTotal|json_encode|e('html_attr') }}"
+        nb-requests-per-sec="{{ nbRequestsPerSec|json_encode|e('html_attr') }}"
+        browser-archiving-enabled="{{ browserArchivingEnabled|json_encode|e('html_attr') }}"
+        timer="{{ timer|string|json_encode|e('html_attr') }}"
+    ></div>
 {% endblock %}
