@@ -105,7 +105,7 @@ export default defineComponent({
   data(): AdminPageState {
     return {
       daysToCompute: '1',
-      choice: true,
+      choice: false,
     };
   },
   computed: {
@@ -125,9 +125,10 @@ export default defineComponent({
       })}`;
     },
     logImporterNoteText() {
+      const link = 'https://github.com/matomo-org/matomo/tree/master/tests#testing-data';
       return translate(
         'VisitorGenerator_LogImporterNote',
-        '<a href="https://github.com/matomo-org/matomo/tree/master/tests#testing-data">',
+        `<a href="${link}" rel="noreferrer noopener" target="_blank">`,
         '</a>',
       );
     },

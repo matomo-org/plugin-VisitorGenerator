@@ -8,6 +8,6 @@
         nb-actions-total="{{ nbActionsTotal|json_encode|e('html_attr') }}"
         nb-requests-per-sec="{{ nbRequestsPerSec|json_encode|e('html_attr') }}"
         browser-archiving-enabled="{{ browserArchivingEnabled|json_encode|e('html_attr') }}"
-        timer="{{ timer|string|json_encode|e('html_attr') }}"
+        timer="{{ (timer ~ '')|json_encode|e('html_attr') }}"
     ></div>
 {% endblock %}

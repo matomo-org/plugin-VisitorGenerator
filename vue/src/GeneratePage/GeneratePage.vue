@@ -55,9 +55,10 @@ export default defineComponent({
   },
   computed: {
     reRunArchiveScriptText() {
+      const link = 'https://matomo.org/docs/setup-auto-archiving/';
       return translate(
         'VisitorGenerator_ReRunArchiveScript',
-        '<a href="https://matomo.org/docs/setup-auto-archiving/">',
+        `<a href="${link}" rel="noreferrer noopener" target="_blank">`,
         '</a>',
       );
     },
