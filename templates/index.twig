@@ -9,9 +9,9 @@
 {% block content %}
     <div
         vue-entry="VisitorGenerator.AdminPage"
-        access-log-path="{{ accessLogPath|json_encode|e('html_attr') }}"
-        id-site="{{ idSite|json_encode|e('html_attr') }}"
-        count-min-actions-per-run="{{ countMinActionsPerRun|json_encode|e('html_attr') }}"
-        form-nonce="{{ nonce|json_encode|e('html_attr') }}"
+        access-log-path="{{ accessLogPath|json_encode }}"
+        id-site="{{ idSite|json_encode }}"
+        count-min-actions-per-run="{{ countMinActionsPerRun|json_encode }}"
+        form-nonce="{{ nonce|json_encode }}"
     ></div>
 {% endblock %}

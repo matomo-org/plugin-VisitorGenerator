@@ -3,11 +3,11 @@
 {% block content %}
     <div
         vue-entry="VisitorGenerator.GeneratePage"
-        site-name="{{ siteName|json_encode|e('html_attr') }}"
-        days="{{ days|json_encode|e('html_attr') }}"
-        nb-actions-total="{{ nbActionsTotal|json_encode|e('html_attr') }}"
-        nb-requests-per-sec="{{ nbRequestsPerSec|json_encode|e('html_attr') }}"
-        browser-archiving-enabled="{{ browserArchivingEnabled|json_encode|e('html_attr') }}"
-        timer="{{ (timer ~ '')|json_encode|e('html_attr') }}"
+        site-name="{{ siteName|json_encode }}"
+        days="{{ days|json_encode }}"
+        nb-actions-total="{{ nbActionsTotal|json_encode }}"
+        nb-requests-per-sec="{{ nbRequestsPerSec|json_encode }}"
+        browser-archiving-enabled="{{ browserArchivingEnabled|json_encode }}"
+        timer="{{ (timer ~ '')|json_encode }}"
     ></div>
 {% endblock %}
