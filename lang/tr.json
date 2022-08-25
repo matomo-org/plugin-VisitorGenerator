@@ -14,7 +14,7 @@
         "NotReversible": "Bu ziyaretler Matomo günlüklerinden kolayca %1$ssilinemeyecek%2$s.",
         "NumberOfGeneratedActions": "Üretilen işlem sayısı",
         "OverwriteLogFiles": "Sahte ziyaretlerin üretildiği günlük dosyalarının üzerine yazabilirsiniz. (%s içindeki dosyaları değiştirin ya da ekleyin). \"matomo.php\" isteklerinin günlük dosyaları \"Apache birleştirilmiş günlüğü\" biçimindedir. Uygulama eki geliştiricileri, kendi uygulama eklerinde bulunan bir 'data' klasörü altında kendi '*.log' dosyalarını kullanıyor olabilir.",
-        "PleaseBePatient": "Not: Sahte ziyaret ve işlemlerin üretilmesi bir kaç dakika sürebilir, lütfen bekleyin...",
+        "PleaseBePatient": "Not: Sahte ziyaret ve işlemlerin üretilmesi bir kaç dakika sürebilir, lütfen bekleyin…",
         "PluginDescription": "Matomo üzerine sahte ziyaret ve işlem kayıtları ekler. Bu özellik Matomo kullanıcıları ya da geliştiricileri tarafından Matomo raporları için gerekli örnek verileri kolayca eklemek için kullanılır.",
         "ReRunArchiveScript": "Lütfen raporları yenilemek için './console core:archive' komutunu ile zamanlanmış görevi yeniden yürütün. %1$s\"Raporları otomatik olarak arşivlemek\"%2$s bölümüne bakın",
         "SelectWebsite": "Web sitesi seçin",
