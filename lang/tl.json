@@ -1,22 +1,22 @@
 {
     "VisitorGenerator": {
-        "VisitorGenerator": "Visitor Generator",
-        "Warning": "Ikaw ay gagawa ng mga pekeng mga pagbisita na ilalagay sa iyong Matomo database.",
-        "NotReversible": "Ang mga pagbisitang ito ay %1$s hindi %2$s madaling matanggal sa Matomo logs.",
         "AreYouSure": "Sigurado ka bang gusto mong lumikha ng pekeng bisita?",
+        "AutomaticReprocess": "Ang mga ulat ay muling isinaproseso sa susunod na oras na pagbisita sa mga ulat ng Matomo ito ay maaaring tumagal ng ilang minuto.",
         "ChoiceYes": "Oo ako ay sigurado!",
-        "Submit": "Isumite",
-        "SelectWebsite": "Pumili ng Website",
-        "NbRequestsPerSec": "Request sa bawat segundo",
+        "CliToolUsage": "Sa pamamagitan ng paggamit ng %1$sMatomo CLI tool na%2$s ay hindi ka lamang maaaring makabuo ng mas maraming mga pagbisita kundi pati narin ng users. websites at mga goals.",
         "DaysToCompute": "Mga araw na i-cocompute",
         "GenerateFakeActions": "Ito ay bubuo ng hindi bababa sa %d na mga pekeng mga pagkilos sa site na ito bawat araw.",
-        "OverwriteLogFiles": "Pwede mong palitan ang log files na ginagamit upang maka-likha ng mga pekeng visits (palitan o mag-dagdag ng files sa %s). Merong mga log-files na mula sa \"matomo.php\" na naka format sa \"Apache combined log\". Plugin developers ay maaaring magbigay ng kanilang sariling mga file ng log sa pamamagitan ng paglagay '*.log' files sa loob na mismo ng 'data' kung saan nakalagay ang kanilang plugin.",
-        "PleaseBePatient": "TANDAAN: Maaaring mag-tagal ng ilang minuto upang bumuo ng mga pagbisita at mga aksyon",
-        "LogImporterNote": "Mayroon ding isang mas mabilis na tool na mag ii-import ng malaking data sa Matomo tingnan ang %1$s README %2$s.",
-        "AutomaticReprocess": "Ang mga ulat ay muling isinaproseso sa susunod na oras na pagbisita sa mga ulat ng Matomo ito ay maaaring tumagal ng ilang minuto.",
         "GeneratedVisitsFor": "Ang nilikhang mga pagbisita para sa %1$s at para sa huling %2$s mga araw.",
-        "ReRunArchiveScript": "Mangyarin patakbuhin muli ang crontab '.\/console core archive' command upang i-refresh ang mga ulat. %1$s tignan \"Kung paano sine-setup ang Auto-Archiving para sa iyong mga Ulat\" %2$s",
+        "LogImporterNote": "Mayroon ding isang mas mabilis na tool na mag ii-import ng malaking data sa Matomo tingnan ang %1$s README %2$s.",
+        "NbRequestsPerSec": "Request sa bawat segundo",
+        "NotReversible": "Ang mga pagbisitang ito ay %1$s hindi %2$s madaling matanggal sa Matomo logs.",
         "NumberOfGeneratedActions": "Bilang ng mga nabuong mga pagkilos",
-        "CliToolUsage": "Sa pamamagitan ng paggamit ng %1$sMatomo CLI tool na%2$s ay hindi ka lamang maaaring makabuo ng mas maraming mga pagbisita kundi pati narin ng users. websites at mga goals."
+        "OverwriteLogFiles": "Pwede mong palitan ang log files na ginagamit upang maka-likha ng mga pekeng visits (palitan o mag-dagdag ng files sa %s). Merong mga log-files na mula sa \"matomo.php\" na naka format sa \"Apache combined log\". Plugin developers ay maaaring magbigay ng kanilang sariling mga file ng log sa pamamagitan ng paglagay '*.log' files sa loob na mismo ng 'data' kung saan nakalagay ang kanilang plugin.",
+        "PleaseBePatient": "TANDAAN: Maaaring mag-tagal ng ilang minuto upang bumuo ng mga pagbisita at mga aksyon…",
+        "ReRunArchiveScript": "Mangyarin patakbuhin muli ang crontab './console core archive' command upang i-refresh ang mga ulat. %1$s tignan \"Kung paano sine-setup ang Auto-Archiving para sa iyong mga Ulat\" %2$s",
+        "SelectWebsite": "Pumili ng Website",
+        "Submit": "Isumite",
+        "VisitorGenerator": "Visitor Generator",
+        "Warning": "Ikaw ay gagawa ng mga pekeng mga pagbisita na ilalagay sa iyong Matomo database."
     }
 }
