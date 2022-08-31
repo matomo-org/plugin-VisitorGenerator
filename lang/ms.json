@@ -1,1 +1,11 @@
-{}
+{
+    "VisitorGenerator": {
+        "AreYouSure": "Hasilkan lawatan palsu?",
+        "ChoiceYes": "Ya, tambahkan data yang dibuat pada pangkalan data.",
+        "NotReversible": "%1$s tidak mungkin%2$s memadamkan lawatan ini dengan mudah daripada log Matomo.",
+        "PluginDescription": "Buat lawatan dan tindakan palsu. Boleh digunakan oleh pengguna atau pembangun Matomo untuk menjana data palsu untuk mengisi laporan Matomo.",
+        "Submit": "Hantar",
+        "VisitorGenerator": "Penjana Pelawat",
+        "Warning": "Anda akan menjana lawatan palsu untuk direkodkan dalam pangkalan data Matomo anda."
+    }
+}

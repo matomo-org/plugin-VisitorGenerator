@@ -1,25 +1,25 @@
 {
     "VisitorGenerator": {
-        "AreYouSure": "Apakah Anda yakin membuat kunjungan palsu?",
+        "AreYouSure": "Buat kunjungan palsu?",
         "AutomaticReprocess": "Laporan akan diproses ulang saat Anda mengunjungi laporan Matomo lagi, mungkin memerlukan waktu beberapa menit.",
-        "ChoiceYes": "Ya, saya yakin!",
+        "ChoiceYes": "Ya, tambahkan data yang dibuat-buat ke basis data.",
         "CliToolUsage": "Dengan menggunakan %1$salat Matomo CLI%2$s Anda tidak hanya dapat menghasilkan lebih banyak kunjungan tetapi juga pengguna, situs web, dan sasaran.",
         "ConfirmVisitorGeneration": "Harap konfirmasikan generasi pengunjung dengan mencentang kotak yang disediakan",
         "CustomMatomoUrl": "URL Matomo Khusus",
         "DaysToCompute": "Hari untuk dihitung",
         "GenerateFakeActions": "Ini akan menghasilkan setidaknya %d tindakan palsu di situs ini setiap hari.",
         "GeneratedVisitsFor": "Membuat kunjungan untuk %1$s dan untuk %2$s hari terakhir",
-        "LogImporterNote": "Ada juga alat yang lebih cepat yang akan mengimpor data pengujian besar di Matomo, lihat %1$sREADME%2$s.",
+        "LogImporterNote": "Ada juga alat yang lebih cepat yang akan mengimpor data pengujian besar di Matomo, seperti yang dijelaskan di dalam %1$sREADME%2$s.",
         "NbRequestsPerSec": "Permintaan tiap detik",
-        "NotReversible": "Ini %1$s tidak%2$s mungkin mudah menghapus kunjungan tersebut dari catatan Matomo.",
+        "NotReversible": "Ini %1$stidak%2$s mungkin menghapus dengan mudahnya kunjungan tersebut dari catatan Matomo.",
         "NumberOfGeneratedActions": "Jumlah tindakan yang dihasilkan",
-        "OverwriteLogFiles": "Anda dapat menimpa berkas log yang digunakan untuk menghasilkan kunjungan palsu (mengubah atau menambahkan berkas di %s). Ada berkas log permintaan ke \"matomo.php\" dalam format \"Log gabungan Apache\". Pengembang pengaya dapat menyediakan berkas log mereka sendiri dengan menempatkan berkas '*.log' di dalam direktori 'data' pengaya mereka.",
-        "PleaseBePatient": "CATATAN: Mungkin perlu waktu beberapa menit untuk membuat kunjungan dan tindakan, mohon bersabar...",
-        "PluginDescription": "Buat kunjungan dan tindakan palsu di Matomo. Ini dapat digunakan oleh pengguna atau pengembang Matomo sebagai cara mudah untuk membuat data palsu untuk mengisi laporan Matomo.",
-        "ReRunArchiveScript": "Silakan jalankan kembali perintah crontab './console core:archive' untuk menyegarkan laporan. %1$sLihat \"Cara Menyiapkan Pengarsipan Otomatis Laporan Anda\"%2$s",
-        "SelectWebsite": "Pilih Situs",
+        "OverwriteLogFiles": "Anda dapat menimpa berkas log yang digunakan untuk menghasilkan kunjungan palsu (mengubah atau menambahkan berkas di %s). Permintaan akan dicatat di \"matomo.php\" dalam format \"Log gabungan Apache\". Pengembang pengaya dapat menyediakan berkas log mereka sendiri dengan menempatkan berkas '*.log' di dalam direktori \"data\" pengaya mereka.",
+        "PleaseBePatient": "Catatan: Mungkin perlu waktu beberapa menit untuk membuat kunjungan dan tindakan, mohon bersabar…",
+        "PluginDescription": "Buat kunjungan dan tindakan palsu. Ini dapat digunakan oleh pengguna atau pengembang Matomo untuk membuat data palsu untuk mengisi laporan Matomo.",
+        "ReRunArchiveScript": "Silakan jalankan kembali perintah crontab './console core:archive' untuk menyegarkan laporan. %1$sDetail lebih lanjut di \"Cara Menyiapkan Pengarsipan Otomatis Laporan Anda\"%2$s",
+        "SelectWebsite": "Pilih situs web",
         "Submit": "Kirim",
         "VisitorGenerator": "Pembangkit Kunjungan",
-        "Warning": "Anda akan menghasilkan kunjungan palsu yang akan disimpan dalam basisdata Matomo Anda."
+        "Warning": "Anda akan membuat kunjungan palsu yang akan disimpan dalam basis data Matomo Anda."
     }
 }
