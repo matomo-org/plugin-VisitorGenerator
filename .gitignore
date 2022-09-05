@@ -5,3 +5,7 @@ vendor/fzaninotto/faker/.travis.yml
 vendor/fzaninotto/faker/*.md
 vendor/fzaninotto/faker/Makefile
 vendor/fzaninotto/faker/phpunit.xml.dist
+/vue/dist/demo.html
+/vue/dist/*.common.js
+/vue/dist/*.map
+/vue/dist/*.development.*

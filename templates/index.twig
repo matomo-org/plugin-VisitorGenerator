@@ -7,46 +7,11 @@
 {% endblock %}
 
 {% block content %}
-    <div piwik-content-block content-title="{{ title|e('html_attr') }}">
-        <p>{{ 'VisitorGenerator_PluginDescription'|translate }}</p>
-
-        <div piwik-alert="info">
-            {{ 'VisitorGenerator_CliToolUsage'|translate('<a rel="noreferrer"  target="_blank" href="http://developer.matomo.org/guides/piwik-on-the-command-line">', '</a>')|raw }}
-            {{ 'VisitorGenerator_OverwriteLogFiles'|translate(accessLogPath) }}
-        </div>
-
-        <form method="POST" action="{{ linkTo({'module':'VisitorGenerator', 'action':'generate'}) }}">
-
-            <input type="hidden" name="idSite" value="{{ idSite|e('html_attr') }}">
-
-            <div piwik-field uicontrol="text" name="daysToCompute"
-                 title="{{ 'VisitorGenerator_DaysToCompute'|translate|e('html_attr') }}"
-                 value="1">
-            </div>
-
-            <p><strong>{{ 'VisitorGenerator_GenerateFakeActions'|translate(countMinActionsPerRun) }}</strong></p>
-
-            <p>{{ 'VisitorGenerator_AreYouSure'|translate }}</p>
-
-            <div piwik-alert="danger">
-                {{ 'VisitorGenerator_Warning'|translate }}
-                {{ 'VisitorGenerator_NotReversible'|translate('<strong>','</strong>')|raw }}
-            </div>
-
-            <div piwik-field uicontrol="checkbox" name="choice"
-                 value="yes"
-                 title="{{ 'VisitorGenerator_ChoiceYes'|translate|e('html_attr') }}">
-            </div>
-
-            <input type="hidden" value="{{ nonce }}" name="form_nonce"/>
-
-            <p>
-                {{ 'VisitorGenerator_PleaseBePatient'|translate }}<br/>
-                {{ 'VisitorGenerator_LogImporterNote'|translate('<a href="https://github.com/matomo-org/matomo/tree/master/tests#testing-data">', '</a>')|raw }}
-            </p>
-
-            <input type="submit" value="{{ 'VisitorGenerator_Submit'|translate }}" name="submit" class="btn"/>
-        </form>
-    </div>
-
+    <div
+        vue-entry="VisitorGenerator.AdminPage"
+        access-log-path="{{ accessLogPath|json_encode }}"
+        id-site="{{ idSite|json_encode }}"
+        count-min-actions-per-run="{{ countMinActionsPerRun|json_encode }}"
+        form-nonce="{{ nonce|json_encode }}"
+    ></div>
 {% endblock %}
