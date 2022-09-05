@@ -19,6 +19,14 @@
         "ReRunArchiveScript": "Please re-run the crontab '.\/console core:archive' command to refresh the reports, as per %1$s\"How to set up auto-archiving of your reports\"%2$s",
         "NumberOfGeneratedActions": "Number of generated actions",
         "CliToolUsage": "The %1$sMatomo CLI tool%2$s can not only generate even more visits, but also users, websites and goals.",
+        "OverwriteLogFiles": "Overwrite the \"matomo.php\" log files to generate fake visits in the \"Apache combined log\" format (change or add files in %s). Plugin developers add their own log files as '*.log' files in a 'data' folder of their plugin.",
+        "PleaseBePatient": "Generating visits and actions can take a few minutes.",
+        "LogImporterNote": "The %1$sREADME%2$s has info on a faster tool that imports large test data in Matomo.",
+        "AutomaticReprocess": "Next time you visit the Matomo reports they will be reprocessed. This might take a few minutes.",
+        "GeneratedVisitsFor": "Generated visits for %1$s and for the last %2$s days",
+        "ReRunArchiveScript": "Please re-run the crontab '.\/console core:archive' command to refresh the reports, as per %1$s\"How to set up auto-archiving of your reports\"%2$s",
+        "NumberOfGeneratedActions": "Number of generated actions",
+        "CliToolUsage": "The %1$sMatomo CLI tool%2$s can not only generate even more visits, but also users, websites and goals.",
         "CustomMatomoUrl": "Custom Matomo URL",
         "ConfirmVisitorGeneration": "Please tick the box to confirm visitor generation"
     }
