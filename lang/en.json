@@ -12,7 +12,7 @@
         "DaysToCompute": "Days to compute",
         "GenerateFakeActions": "This will generate at least %d fake actions on this site for each day.",
         "OverwriteLogFiles": "Overwrite the \"matomo.php\" log files to generate fake visits in the \"Apache combined log\" format (change or add files in %s). Plugin developers add their own log files as '*.log' files in a 'data' folder of their plugin.",
-        "PleaseBePatient": "Generating visits and actions…",
+        "PleaseBePatient": "Generating visits and actions can take a few minutes.",
         "LogImporterNote": "The %1$sREADME%2$s has info on a faster tool that imports large test data in Matomo.",
         "AutomaticReprocess": "Next time you visit the Matomo reports they will be reprocessed. This might take a few minutes.",
         "GeneratedVisitsFor": "Generated visits for %1$s and for the last %2$s days",
