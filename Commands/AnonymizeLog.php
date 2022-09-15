@@ -59,6 +59,8 @@ This will anonymize the log file and place the log in the plugins/CustomVariable
 
         $target = $this->buildTargetFileName($plugin, $file);
         $this->saveFile($output, $target, $anonymized);
+
+        return 0;
     }
 
     private function getReplace(InputInterface $input)

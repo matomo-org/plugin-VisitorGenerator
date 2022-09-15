@@ -40,6 +40,8 @@ class GenerateAnnotation extends ConsoleCommand
         });
 
         $this->writeSuccessMessage($output, array('1 Annotation for today generated'));
+
+        return 0;
     }
 
 }

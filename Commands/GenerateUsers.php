@@ -35,6 +35,8 @@ class GenerateUsers extends ConsoleCommand
         });
 
         $this->writeSuccessMessage($output, array(count($userLogins) . ' Users generated'));
+
+        return 0;
     }
 
 }
