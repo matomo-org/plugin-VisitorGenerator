@@ -2,7 +2,7 @@
     "VisitorGenerator": {
         "AreYouSure": "Êtes-vous sûr(e) de vouloir générer de fausses visites ?",
         "AutomaticReprocess": "Les rapports seront calculés à nouveau la prochaine fois que afficherez les rapports Matomo, cela peut prendre quelques minutes.",
-        "ChoiceYes": "Oui, je suis sûr(e) !",
+        "ChoiceYes": "Oui, ajouter des données inventées à la base de données.",
         "CliToolUsage": "En utilisation %1$sl'outil en ligne de commande Matomo%2$s vous pouvez non seulement générer encore plus de visites mais aussi d'utilisateurs, sites web et objectifs.",
         "ConfirmVisitorGeneration": "Veuillez confirmer la génération de visiteur en cochant la case",
         "CustomMatomoUrl": "URL Matomo personnalisée",
