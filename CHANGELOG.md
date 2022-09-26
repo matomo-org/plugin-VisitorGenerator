@@ -47,3 +47,5 @@
   * Fix deprecation warnings for php8.1
 - 4.0.6
   * Translation changes
+- 4.0.7
+  * Ensure console commands return integers
