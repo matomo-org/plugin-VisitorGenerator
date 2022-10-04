@@ -1,25 +1,25 @@
 {
     "VisitorGenerator": {
         "AreYouSure": "Generar visites falses?",
-        "AutomaticReprocess": "Els informes es tornaran a processar la propera vegada que visiteu els informes de Matomo. Es possible que trigui uns minuts.",
-        "ChoiceYes": "Sí, afegeix dades inventades a la base de dades.",
+        "AutomaticReprocess": "Es reprocessaran els informes de Matomo la propera vegada que els consulteu. Això pot trigar uns quants minuts.",
+        "ChoiceYes": "Si",
         "CliToolUsage": "Mitjançant l'ús de l'eina %1$sMatomo CLI%2$s no només podeu generar encara més visites, sinó també usuaris, llocs web i objectius.",
-        "ConfirmVisitorGeneration": "Si us plau confirmeu la generació de visitants marcant la casella",
+        "ConfirmVisitorGeneration": "Marqueu la casella per confirmar la generació de visitants",
         "CustomMatomoUrl": "URL personalitzat de Matomo",
         "DaysToCompute": "Dies per calcular",
         "GenerateFakeActions": "Això generarà almenys %d accions falses en aquest lloc per cada dia.",
         "GeneratedVisitsFor": "Visites generades per a %1$s i durant els darrers %2$s dies",
-        "LogImporterNote": "També hi ha una eina més ràpida que importarà dades de prova voluminoses a Matomo, com s'explica a %1$sREADME%2$s.",
+        "LogImporterNote": "El %1$sREADME%2$s té informació sobre una eina més ràpida que importa gran quantitat de dades de prova a Matomo.",
         "NbRequestsPerSec": "Sol·licituds per segon",
-        "NotReversible": "%1$s No %2$s serà possible esborar aquestes visites de forma fàcil dels logs de Matomo.",
+        "NotReversible": "%1$s No %2$s serà possible esborrar aquestes visites de forma fàcil dels logs de Matomo.",
         "NumberOfGeneratedActions": "Nombre d'accions generades",
-        "OverwriteLogFiles": "Podeu sobreescriure els fitxers de registre que s'utilitzen per generar visites falses (canviar o afegir fitxers a %s). Les peticions s'enregistren a \"matomo.php\" en el format \"Apache combined log\". Els desenvolupadors de connectors poden proporcionar els seus propis fitxers de registre col·locant fitxers \"*.log\" dins d'un directori \"data\" del seu connector.",
-        "PleaseBePatient": "Nota: Pot ser que trigui uns minuts a generar visites i accions, si us plau, tingueu paciència…",
-        "PluginDescription": "Crea visites i accions falses. Els usuaris o desenvolupadors de Matomo poden utilitzar-ho per generar dades falses per omplir els informes de Matomo.",
-        "ReRunArchiveScript": "Si us plau, torneu a executar l'ordre crontab './console core:archive' per actualitzar els informes. %1$sVegeu \"Com configurar l'arxivament automàtic dels vostres informes\"%2$s",
+        "OverwriteLogFiles": "Sobreescriu els fitxers de registre \"matomo.php\" per generar visites falses en el format \"Registre combinat d'Apache\" (canviar o afegir fitxers a %s). Els desenvolupadors de connectors afegeixen els seus propis fitxers de registre com a fitxers \"*.log\" a una carpeta \"data\" del seu connector.",
+        "PleaseBePatient": "La generació de visites i accions pot trigar uns minuts.",
+        "PluginDescription": "Crea visites i accions falses a Matomo. Genera dades falses per omplir els informes de Matomo.",
+        "ReRunArchiveScript": "Si us plau, torneu a executar l'ordre crontab './console core:archive' per actualitzar els informes, segons %1$s\"Com configurar l'arxiu automàtic dels vostres informes\"%2$s",
         "SelectWebsite": "Seleccioneu un lloc web",
         "Submit": "Transmet",
         "VisitorGenerator": "Generador de visites",
-        "Warning": "Esteu a punt de generar visites falses que es desaran a la base de dades del Matomo."
+        "Warning": "Esteu a punt de generar visites falses a la base de dades del Matomo."
     }
 }
