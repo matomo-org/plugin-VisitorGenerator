@@ -96,6 +96,8 @@ class GenerateVisits extends ConsoleCommand
             $nbActionsTotal . ' Visits generated',
             round($nbActionsTotal / $timer->getTime(), 0) . ' requests per second'
         ));
+
+        return 0;
     }
 
     private function getLimitFakeVisits(InputInterface $input)

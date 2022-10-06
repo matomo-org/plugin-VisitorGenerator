@@ -37,6 +37,8 @@ class GenerateWebsites extends ConsoleCommand
         $this->writeSuccessMessage($output, array(
             sprintf('%d Websites generated (idsite from %d to %d)', count($siteIds), reset($siteIds), end($siteIds))
         ));
+
+        return 0;
     }
 
 }
