@@ -185,6 +185,11 @@ class VisitsFake extends Generator
                 $this->trackMediaProgress($tracker);
             }
 
+            /**
+             * @ignore
+             */
+            Piwik::postEvent('VisitorGenerator.VisitsFake.trackVisit', [$tracker, $this->faker]);
+
             if ($i % 100 == 0) {
                 $tracker->doBulkTrack();
             }
