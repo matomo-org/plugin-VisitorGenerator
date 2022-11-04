@@ -1,25 +1,25 @@
 {
     "VisitorGenerator": {
-        "AreYouSure": "Sahte ziyaretler üretmek istediğinizden emin misiniz?",
-        "AutomaticReprocess": "Matomo raporları bölümüne bir sonraki bakışınızda raporlar yeniden işlenecek. Bu işlem bir kaç dakika sürebilir.",
-        "ChoiceYes": "Evet, eminim!",
-        "CliToolUsage": "%1$sMatomo CLI Aracını%2$s kullanarak daha fazla ziyaret verisinin yanında, kullanıcılar, web siteleri ve hedefler de üretebilirsiniz.",
-        "ConfirmVisitorGeneration": "Lütfen kutuyu işaretleyerek ziyaretçi üretilmesini onaylayın",
+        "AreYouSure": "Sahte ziyaretler oluşturmak istediğinize emin misiniz?",
+        "AutomaticReprocess": "Matomo raporları bölümüne bir sonraki gelişinizde raporlar yeniden işlenecek. Bu işlem bir kaç dakika sürebilir.",
+        "ChoiceYes": "Evet",
+        "CliToolUsage": "%1$sMatomo CLI aracı%2$s ile ziyaret verilerinin yanında, kullanıcılar, web siteleri ve hedefler de oluşturabilirsiniz.",
+        "ConfirmVisitorGeneration": "Lütfen ziyaretçi oluşturulmasını onaylamak için kutuyu işaretleyin",
         "CustomMatomoUrl": "Özel Matomo adresi",
         "DaysToCompute": "Hesaplanacak gün",
         "GenerateFakeActions": "Bu işlem sitede her gün en az %d sahte işlem üretir.",
         "GeneratedVisitsFor": "%1$s için son %2$s günü kapsayan ziyaretler üretildi",
-        "LogImporterNote": "Deneme verilerini Matomo üzerine yüklemek için daha hızlı bir araç vardır. Ayrıntılı bilgi almak için %1$sREADME%2$s dosyasına bakın.",
+        "LogImporterNote": "%1$sREADME%2$s dosyasında deneme verilerinin Matomo üzerine daha hızlı yüklenmesini sağlayan bir araçla ilgili bilgileri bulabilirsiniz.",
         "NbRequestsPerSec": "Bir saniyedeki istek sayısı",
         "NotReversible": "Bu ziyaretler Matomo günlüklerinden kolayca %1$ssilinemeyecek%2$s.",
         "NumberOfGeneratedActions": "Üretilen işlem sayısı",
-        "OverwriteLogFiles": "Sahte ziyaretlerin üretildiği günlük dosyalarının üzerine yazabilirsiniz. (%s içindeki dosyaları değiştirin ya da ekleyin). \"matomo.php\" isteklerinin günlük dosyaları \"Apache birleştirilmiş günlüğü\" biçimindedir. Uygulama eki geliştiricileri, kendi uygulama eklerinde bulunan bir 'data' klasörü altında kendi '*.log' dosyalarını kullanıyor olabilir.",
-        "PleaseBePatient": "Not: Sahte ziyaret ve işlemlerin üretilmesi bir kaç dakika sürebilir, lütfen bekleyin…",
-        "PluginDescription": "Matomo üzerine sahte ziyaret ve işlem kayıtları ekler. Bu özellik Matomo kullanıcıları ya da geliştiricileri tarafından Matomo raporları için gerekli örnek verileri kolayca eklemek için kullanılır.",
-        "ReRunArchiveScript": "Lütfen raporları yenilemek için './console core:archive' komutunu ile zamanlanmış görevi yeniden yürütün. %1$s\"Raporları otomatik olarak arşivlemek\"%2$s bölümüne bakın",
+        "OverwriteLogFiles": "\"Apache birleştirilmiş günlüğü\" biçiminde sahte ziyaretler oluşturmak için \"matomo.php\" günlük dosyalarının üzerine yazın (%s içindeki dosyaları değiştirin ya da ekleyin). Uygulama eki geliştiricileri, kendi uygulama eklerinde bulunan bir 'data' klasörü altında kendi '*.log' dosyalarını kullanıyor olabilir.",
+        "PleaseBePatient": "Ziyaret ve işlemlerin oluşturulması bir kaç dakika sürebilir.",
+        "PluginDescription": "Matomo üzerine sahte ziyaret ve işlem kayıtları ekler. Matomo raporlarını hazırlamak için sahte veriler oluşturur.",
+        "ReRunArchiveScript": "Lütfen raporları yenilemek için zamanlanmış görevi %1$s\"Raporları otomatik olarak arşivlemek\"%2$s bölümünde anlatıldığı şekilde './console core:archive' komutu ile yeniden yürütün",
         "SelectWebsite": "Web sitesi seçin",
         "Submit": "Gönder",
         "VisitorGenerator": "Ziyaretçi üreteci",
-        "Warning": "Matomo veritabanına kaydedilecek sahte ziyaretler üretmek üzeresiniz."
+        "Warning": "Matomo veritabanında sahte ziyaretler oluşturmak üzeresiniz."
     }
 }

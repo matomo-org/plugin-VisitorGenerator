@@ -15,7 +15,7 @@
         "NumberOfGeneratedActions": "Antal generade handlingar",
         "OverwriteLogFiles": "Du kan skriva över loggiflerna som används för att generera fiktiva besök (ändra eller lägg till filer i %s). Det finns loggfiler för föfrågningar till \"matomo.php\" i formatet \"Apache combined log\". Utvecklare som skapar tillägg kan skapa sina egna loggfiler genom att skapa '*.log'-filer i en 'data'-katalog i tilläggets mapp.",
         "PleaseBePatient": "Observera: Det kan ta några minuter att generera besökare och handlingar, så vi ber dig ha tålamod…",
-        "PluginDescription": "Skapa fiktiva besök och händelser i Matomo. Detta kan användas av Matomoanvändare eller utvecklare för att enkelt skapa fiktivt data för att fylla i Matomorapporter.",
+        "PluginDescription": "Skapa fiktiva besök och handlingar i Matomo. Generera fiktiv data för att fylla i Matomo-rapporter.",
         "ReRunArchiveScript": "Var snäll och kör om ditt archive.php Matomoscript i tabben i hörnet för att förnya rapporterna. %1$s Se \"Att sätta upp Automatisk-Arkivering för dina rapporter\"%2$s",
         "SelectWebsite": "Välj webbplats",
         "Submit": "Skicka",
