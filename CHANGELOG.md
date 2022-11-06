@@ -49,3 +49,5 @@
   * Translation changes
 - 4.0.7
   * Ensure console commands return integers
+- 5.0.0
+  * Compatibility with Matomo 5
