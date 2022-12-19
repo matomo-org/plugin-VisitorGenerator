@@ -1,25 +1,25 @@
 {
     "VisitorGenerator": {
-        "AreYouSure": "Jeni i sigurt se doni të prodhohen vizita gjoja?",
-        "AutomaticReprocess": "Raportet do të ripërpunohen herës tjetër që vizitoni raportet Matomo, kjo mund të hajë ca minuta.",
-        "ChoiceYes": "Po, jam i sigurt!",
-        "CliToolUsage": "Duke përdorur %1$smjetin Matomo CLI%2$s jo vetëm që mund të prodhoni më tepër vizita, por edhe përdorues, sajte dhe objektiva.",
+        "AreYouSure": "Të prodhohen vizita gjoja?",
+        "AutomaticReprocess": "Raportet do të ripërpunohen herës tjetër që vizitoni Raportet Matomo, kjo mund të hajë ca minuta.",
+        "ChoiceYes": "Po",
+        "CliToolUsage": "%1$sMjeti Matomo CLI%2$s jo vetëm që mund të prodhojë më tepër vizita, por edhe përdorues, sajte dhe objektiva.",
         "ConfirmVisitorGeneration": "Ju lutemi, ripohoni prodhimin e vizitorëve, duke i vënë shenjë kutizës",
         "CustomMatomoUrl": "URL Matomo Vetjake",
         "DaysToCompute": "Ditë llogaritjeje",
         "GenerateFakeActions": "Kjo do të prodhojë të paktën %d veprime gjoja në këtë sajt, për çdo ditë.",
         "GeneratedVisitsFor": "Vizita të prodhuara për %1$s dhe për %2$s ditët e fundit",
-        "LogImporterNote": "Ka edhe një mjet më të shpejtë që importon të dhëna të mëdha test në Matomo, shihni %1$sREADME%2$s.",
+        "LogImporterNote": "%1$sREADME%2$s përmban hollësi rreth një mjeti më të shpejtë, që importon të dhëna të shumta test në Matomo.",
         "NbRequestsPerSec": "Kërkesa për sekondë",
         "NotReversible": "%1$sNuk%2$s do të jetë e mundur të fshihen kollaj këto vizita nga regjistrat e Matomo-s.",
         "NumberOfGeneratedActions": "Numër veprimesh të prodhuara",
-        "OverwriteLogFiles": "Kartelat regjistër që përdoren për të prodhuar vizita gjoja mund t’i mbishkruani (ndryshoni ose shtoni kartela te %s). Ka kartela regjistër të kërkesave ndaj “matomo.php” në formatin “Apache combined log”. Zhvilluesit e shtojcave mund të furnizojnë kartelat e tyre regjistër, duke vendosur kartela '*.log' brenda një drejtorie 'data' të shtojcës së tyre.",
-        "PleaseBePatient": "SHËNIM: Për prodhimin e vizitave dhe veprimeve mund të duhen ca minuta, ju lutemi, bëni durim…",
-        "PluginDescription": "Krijoni në Matomo vizita dhe veprime gjoja. Kjo mund të përdoret nga përdoruesit ose zhvilluesit e Matomo-s si një rrugë e lehtë për të prodhuar të dhëna gjoja, për të populluar me to raporte Matomo.",
-        "ReRunArchiveScript": "Ju lutemi, rixhironi urdhrin crontab './console core:archive' që të rifreskohen raportet. %1$sShihni “Si të Rregullohet Vetarkivimi i Raporteve Tuaj”%2$s",
-        "SelectWebsite": "Përzgjidhni Sajt",
+        "OverwriteLogFiles": "Mbishkruani kartelat regjistër “matomo.php” që të prodhohen vizita gjoja në formatin “Apache combined log” (ndryshoni ose shtoni kartela te %s). Zhvilluesit e shtojcave i shtojnë kartelat e tyre si kartela '*.log' brenda një dosjeje 'data' të shtojcës së tyre.",
+        "PleaseBePatient": "Prodhimi i vizitave dhe veprimeve mund të dojë ca minuta.",
+        "PluginDescription": "Krijoni vizita dhe veprime gjoja në Matomo. Prodhoni të dhëna gjoja, për të populluar me to raporte Matomo.",
+        "ReRunArchiveScript": "Ju lutemi, rixhironi urdhrin crontab './console core:archive', që të rifreskohen raportet, sipas %1$s“Si të udjiset arkivimi i automatizuar i raporteve tuaja”%2$s",
+        "SelectWebsite": "Përzgjidhni sajt",
         "Submit": "Parashtroje",
         "VisitorGenerator": "Prodhues Vizitorësh",
-        "Warning": "Ju ndan një hap nga prodhimi i vizitave gjoja, që do të regjistrohen te baza juaj e të dhënave Matomo."
+        "Warning": "Ju ndan një hap nga prodhimi i vizitave gjoja për bazën tuaj të të dhënave Matomo."
     }
 }
