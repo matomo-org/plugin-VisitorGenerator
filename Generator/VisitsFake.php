@@ -11,6 +11,7 @@ namespace Piwik\Plugins\VisitorGenerator\Generator;
 use Piwik\Piwik;
 use Piwik\Plugin\Manager;
 use Piwik\Plugins\CoreAdminHome\API as CoreAdminHomeApi;
+use Piwik\Plugins\CrashAnalytics\Fake\FakeErrors;
 use Piwik\Plugins\SitesManager\API as SitesManagerApi;
 use Piwik\Plugins\VisitorGenerator\Generator;
 
@@ -184,6 +185,48 @@ class VisitsFake extends Generator
             if ($this->faker->boolean(20)) {
                 $this->trackMediaProgress($tracker);
             }
+
+            /**
+             * This event is for plugins that want to extend VisitorGenerator with data specific to the plugin.
+             * It accepts a MatomoTracker instance used to send tracking requests, and a Faker\Generator instance
+             * used to more conveniently generate or select random data.
+             *
+             * Tracker requests should not be send directly via the given tracker, instead they should be added to
+             * the tracker's storedTrackingActions property, so they will be sent with others when VisitorGenerator
+             * initiates bulk tracking.
+             *
+             * Example usage:
+             *
+             * ```
+             * public function registerEvents()
+             * {
+             *     return [
+             *         'VisitorGenerator.VisitsFake.trackVisit' => 'trackFakeData',
+             *     ];
+             * }
+             *
+             * public function trackFakeData(\MatomoTracker $t, \Faker\Generator $faker)
+             * {
+             *     if (!$faker->boolean(20)) {
+             *         return;
+             *     }
+             *
+             *     $t->clearCustomTrackingParameters();
+             *
+             *     $t->setCustomTrackingParameter('ca', 1);
+             *
+             *     $dataToTrack = $faker->randomElement(FakeData::$data);
+             *     $t->setCustomTrackingParameter('mydata', $dataToTrack);
+             *
+             *     // add the request to the internal bulk tracking request array
+             *     $t->storedTrackingActions[] = $t->getUrlTrackPageView('This does not appear as page view');
+             *     $t->clearCustomTrackingParameters();
+             * }
+             * ```
+             *
+             * @ignore
+             */
+            Piwik::postEvent('VisitorGenerator.VisitsFake.trackVisit', [$tracker, $this->faker]);
 
             if ($i % 100 == 0) {
                 $tracker->doBulkTrack();
