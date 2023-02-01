@@ -1,25 +1,25 @@
 {
     "VisitorGenerator": {
         "AreYouSure": "Wollen Sie wirklich fingierte Besucherzahlen generieren?",
-        "AutomaticReprocess": "Die Berichte werden neu berechnet, sobald Sie das nächste mal die Matomo Berichte öffnen. Dies könnte einige Minuten dauern.",
-        "ChoiceYes": "Ja, erzeugte Daten zur Datenbank hinzufügen.",
-        "CliToolUsage": "Mithilfe des %1$sMatomo CLI-tools%2$s können Sie nicht nur Besuche generieren, sondern auch Nutzer, Websites und Ziele.",
-        "ConfirmVisitorGeneration": "Bitte bestätigen Sie die Generierung von Besuchen, indem Sie die Box ankreuzen",
+        "AutomaticReprocess": "Sobald Sie das nächste Mal die Matomo Berichte besuchen, werden die Berichte neu berechnet. Dies kann einige Minuten dauern.",
+        "ChoiceYes": "Ja",
+        "CliToolUsage": "Das %1$sMatomo CLI Tool%2$s kann nicht nur zusätzliche Besuche generieren, sondern auch Benutzer, Webseiten und Ziele.",
+        "ConfirmVisitorGeneration": "Bitte wählen Sie die Box an, um die Besucher-Generierung zu bestätigen",
         "CustomMatomoUrl": "Eigene Matomo-URL",
         "DaysToCompute": "Zu berechnende Tage",
         "GenerateFakeActions": "Dies wird mindestens %d fingierte Aktionen auf dieser Seite für jeden Tag generieren.",
         "GeneratedVisitsFor": "Die Besuche für %1$s sowie für die letzten %2$s Tage wurden generiert",
-        "LogImporterNote": "Es gibt auch ein schnelleres Tool, das große Testdaten in Matomo importieren kann, wie in der %1$sREADME%2$s beschrieben.",
+        "LogImporterNote": "Die %1$sREADME%2$s hat Informationen zu einem schnelleren Tool mit welchem man grosse Testdaten in Matomo importieren kann.",
         "NbRequestsPerSec": "Anfragen pro Sekunde",
-        "NotReversible": "Es ist %1$snicht%2$s einfach möglich, diese Besuche aus den Matomo-Logs zu löschen.",
+        "NotReversible": "Es ist %1$s nicht%2$s einfach möglich, diese Besuche aus den Matomo-Logs zu löschen.",
         "NumberOfGeneratedActions": "Anzahl der generierten Aktionen",
-        "OverwriteLogFiles": "Sie können die Logfiles, die zur Generierung von fingierten Besuchen genutzt werden, überschreiben (Ändern oder Hinzufügen von Dateien in %s). Es existieren Logfiles von Anfragen auf \"matomo.php\" im Format \"Apache combined log\". Plugin-Entwickler können eigene Logfiles nutzen, indem sie '*.log'-Dateien im 'data'-Verzeichnis ihres Plugins ablegen.",
-        "PleaseBePatient": "Hinweis: Es könnte einige Minuten dauern um die Besuche und Aktionen zu generieren, bitte haben Sie Geduld…",
-        "PluginDescription": "Erstellen Sie gefälschte Besuche und Aktionen. Kann von Matomo-Benutzern oder Entwicklern verwendet werden, um gefälschte Daten für Matomo-Berichte zu generieren.",
-        "ReRunArchiveScript": "Bitte führen Sie das im crontab enthaltene archive.php Matomo-Script erneut aus, um die Berichte zu aktualisieren. %1$sMehr Details in \"Wie man die Auto-Archivierung einrichtet\"%2$s",
-        "SelectWebsite": "Website auswählen",
+        "OverwriteLogFiles": "Überschreiben Sie die \"matomo.php\" Logdateien, um gefälschte Besuche im \"kombinierten Apache Log\" Format zu generieren (Ändern oder Hinzufügen von Dateien in %s). Plugin-Entwickler fügen ihre eigenen Logdateien als '*.log' Dateien in einem 'data' Verzeichnis ihres Plugin Verzeichnisses hinzu.",
+        "PleaseBePatient": "Besuche und Aktionen zu generieren kann ein paar Minuten dauern.",
+        "PluginDescription": "Erstellen Sie fingierte Besuche und Aktionen in Matomo. Generieren Sie fingierte Daten um die Matomo-Berichte mit Daten zu befüllen.",
+        "ReRunArchiveScript": "Bitte führen Sie den crontab Befehl './console core:archive' erneut aus, um die Berichte zu aktualisieren, wie beschrieben in %1$s\"Wie Sie die automatische Archivierung für Ihre Berichte einrichten\"%2$s",
+        "SelectWebsite": "Webseite auswählen",
         "Submit": "Abschicken",
         "VisitorGenerator": "Besuchergenerator",
-        "Warning": "Sie sind gerade dabei, fingierte Besuche zu generieren, die in der Matomo-Datenbank gespeichert werden."
+        "Warning": "Sie sind gerade dabei, fingierte Besuche für ihre Matomo-Datenbank zu generieren."
     }
 }

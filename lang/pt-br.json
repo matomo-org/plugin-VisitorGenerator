@@ -1,8 +1,8 @@
 {
     "VisitorGenerator": {
-        "AreYouSure": "Tem certeza de que quer gerar visitas falsas?",
+        "AreYouSure": "Gerar visitas falsas?",
         "AutomaticReprocess": "Os relatórios serão reprocessados na próxima vez que você visitar os relatórios Matomo. Isso pode levar alguns minutos.",
-        "ChoiceYes": "Sim, eu tenho certeza!",
+        "ChoiceYes": "Sim",
         "CliToolUsage": "Utilizando a ferramenta %1$sMatomo CLI tool%2$s você pode gerar não apenas mais visitas, como também mais usuários, websites e metas.",
         "ConfirmVisitorGeneration": "Por favor, confirme o registro de visitante assinalando a caixa",
         "CustomMatomoUrl": "URL Matomo Personalizada",
@@ -11,15 +11,15 @@
         "GeneratedVisitsFor": "Gerou visitas por %1$s e para os últimos %2$s dias",
         "LogImporterNote": "Há também uma ferramenta mais rápida que importa grandes dados de teste no Matomo, consulte o %1$sLEIAME%2$s.",
         "NbRequestsPerSec": "Solicitações por segundo",
-        "NotReversible": "%1$s Não %2$s será possível apagar facilmente estas visitas dos logs Matomo.",
+        "NotReversible": "%1$s não %2$s será possível apagar facilmente estas visitas dos logs Matomo.",
         "NumberOfGeneratedActions": "Número de ações geradas",
         "OverwriteLogFiles": "Você pode sobrescrever os arquivos de log que são usados para gerar visitas falsas (alterar ou adicionar arquivos em %s). Há arquivos log de solicitações para \"matomo.php\" no formato \"Apache combined log\". Desenvolvedores de plugins podem fornecer seus próprios arquivos de log, colocando arquivos '*.log' dentro de um diretório de \"dados\" dos seus plugins.",
-        "PleaseBePatient": "Nota: Pode levar alguns minutos para gerar visitas e ações, por favor, seja paciente…",
-        "PluginDescription": "Cria visitas e ações falsas no Matomo. Pode ser utilizado por usuários ou desenvolvedores Matomo como uma maneira fácil de gerar dados para povoar os relatórios do Matomo.",
+        "PleaseBePatient": "Gerar visitas e ações pode levar alguns minutos.",
+        "PluginDescription": "Cria visitas e ações no Matomo. Gera dados falsos para popular os relatórios do Matomo.",
         "ReRunArchiveScript": "Por favor, execute novamente './console core:archive' no crontab para recarregar os relatórios. %1$sVeja \"Como configurar o Auto-Armazenamento dos seus Relatórios\"%2$s",
-        "SelectWebsite": "Selecionar Website",
+        "SelectWebsite": "Selecionar website",
         "Submit": "Enviar",
         "VisitorGenerator": "Gerador de visitantes",
-        "Warning": "Você está prestes a gerar visitas falsas que serão gravadas no banco de dados Matomo."
+        "Warning": "Você está prestes a gerar visitas falsas para seu banco de dados do Matomo."
     }
 }
