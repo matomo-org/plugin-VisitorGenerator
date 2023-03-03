@@ -1,25 +1,25 @@
 {
     "VisitorGenerator": {
-        "AreYouSure": "本当に フェイクビジットを生成しますか？",
-        "AutomaticReprocess": "このレポートは、次回あなたが Matomo レポートを参照する際に、再処理されます。なお、処理には数分かかる場合があります。",
-        "ChoiceYes": "はい、お願いします！",
-        "CliToolUsage": "%1$sMatomo CLI tool%2$s を使用することで、より多くのビジター、ユーザー、ウェブサイトや目標を生成することができます。",
-        "ConfirmVisitorGeneration": "ボックスにチェックを入れてビジタージェネレーションを確認してください",
+        "AreYouSure": "フェイクビジットを生成しますか？",
+        "AutomaticReprocess": "次に Matomoレポートにアクセスすると、それらは再処理されます。 これには数分かかる場合があります。",
+        "ChoiceYes": "はい",
+        "CliToolUsage": "%1$sMatomo CLI ツール%2$s は、さらに多くのビジットを生成するだけでなく、ユーザー、Web サイト、および目標も生成できます。",
+        "ConfirmVisitorGeneration": "ビジターの世代を確認するためにボックスにチェックを入れてください",
         "CustomMatomoUrl": "カスタム Matomo URL",
         "DaysToCompute": "算出する日数",
         "GenerateFakeActions": "これにより、毎日このサイトで %d のフェイクアクションが生成されます。",
         "GeneratedVisitsFor": "%1$s と最後の %2$s 日に生成されたビジット",
-        "LogImporterNote": "大規模なテストデータを Matomo でインポートするための、さらにスピーディーなツールもあります。%1$sREADME%2$s をご確認ください。",
+        "LogImporterNote": "%1$sREADME%2$s には、Matomo で大規模なテスト データをインポートする高速ツールに関する情報があります。",
         "NbRequestsPerSec": "秒単位のリクエスト数",
         "NotReversible": "%1$s はこれらのビジットを Matomo ログから簡単に削除することはできません%2$s。",
         "NumberOfGeneratedActions": "生成されたアクション数",
-        "OverwriteLogFiles": "フェイクビジットを生成するために使われているログファイルは、上書きすることができます ( %s でファイルを変更または追加 ) 。 \"Apache combined log\" フォーマットに、\"matomo.php\" へのリクエストのログファイルがあります。プラグイン開発者は、プラグインの 'data' ディレクトリー内に 'log' ファイルを設置することにより、独自のログファイルを、提供することができます。",
-        "PleaseBePatient": "注: ビジットとアクションを生成するには、数分かかる場合があります。今しばらくお待ちください…",
-        "PluginDescription": "Matomo においてフェイクビジットやアクションを生成します。これは Matomo のユーザーやデベロッパーがダミーデータを作成したり、Matomo の報告書を追加したりするときに使うことができます。",
-        "ReRunArchiveScript": "レポート更新のため、クーロンタブ './console core:archive' コマンドを再実行してください。%1$sSee \"How to Set up Auto-Archiving of Your Reports\"%2$s",
+        "OverwriteLogFiles": "「matomo.php」ログ ファイルを上書きして、「Apache 結合ログ」形式でフェイクビジットを生成します (%s のファイルを変更または追加します)。 プラグイン開発者は、独自のログ ファイルをプラグインの「data」フォルダーに「*.log」ファイルとして追加します。",
+        "PleaseBePatient": "ビジットとアクションの生成には数分かかる場合があります。",
+        "PluginDescription": "Matomo でフェイクのビジットとアクションを作成します。 Matomo レポートに入力するフェイクデータを生成します。",
+        "ReRunArchiveScript": "%1$s\"How to set up auto-archiving of your reports\"%2$s に従って、crontab './console core:archive' コマンドを再実行してレポートを更新してください",
         "SelectWebsite": "ウェブサイトを選択",
         "Submit": "実行",
         "VisitorGenerator": "ビジタージェネレータ",
-        "Warning": "Matomo データベースに記録されるフェイクビジットを生成しようとしています。"
+        "Warning": "Matomo データベースにフェイクのアクセスを生成しようとしています。"
     }
 }
