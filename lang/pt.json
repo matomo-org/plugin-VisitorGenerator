@@ -1,25 +1,25 @@
 {
     "VisitorGenerator": {
-        "AreYouSure": "Tem a certeza que deseja gerar visitas falsas?",
-        "AutomaticReprocess": "Os relatórios serão reprocessados da próxima vez que visitar os relatórios do Matomo. Pode demorar alguns minutos.",
-        "ChoiceYes": "Sim, tenho a certeza!",
-        "CliToolUsage": "Ao utilizar a %1$sferramenta CLI do Matomo%2$s pode, não só gerar ainda mais visitas, mas também utilizadores, sites e objetivos.",
-        "ConfirmVisitorGeneration": "Por favor, confirme a criação de visitantes marcando esta caixa",
+        "AreYouSure": "Gerar visitas falsas?",
+        "AutomaticReprocess": "Da próxima vez que você visitar os relatórios do Matomo, eles serão reprocessados. Isso pode levar alguns minutos.",
+        "ChoiceYes": "Sim",
+        "CliToolUsage": "A ferramenta %1$sMatomo CLI%2$s pode não só gerar ainda mais visitas, mas também usuários, sites e metas.",
+        "ConfirmVisitorGeneration": "Marque a caixa para confirmar a geração do visitante",
         "CustomMatomoUrl": "Endereço personalizado do Matomo",
         "DaysToCompute": "Dias a computar",
         "GenerateFakeActions": "Isto irá gerar, pelo menos, %d ações falsas por cada dia neste site.",
         "GeneratedVisitsFor": "Visitas geradas para %1$s e para os últimos %2$s dias",
-        "LogImporterNote": "Existe também uma ferramenta mais rápida que irá importar um grande quantidade de dados de teste no Matomo. Consulte o %1$sREADME%2$s.",
+        "LogImporterNote": "O %1$sREADME%2$s contém informações sobre uma ferramenta mais rápida que importa grandes dados de teste no Matomo.",
         "NbRequestsPerSec": "Pedidos por segundo",
         "NotReversible": "%1$sNão%2$s será possível eliminar com facilidade estas visitas dos registos do Matomo.",
         "NumberOfGeneratedActions": "Número de ações geradas",
-        "OverwriteLogFiles": "Pode sobrepor os ficheiros de registo que são utilizados para gerar visitas falsas (altere ou adicione ficheiros em %s). Existem ficheiros de registo de pedidos ao \"matomo.php\" no formato \"Registo combinado do Apache\". O programadores de extensões podem fornecer os seus próprios ficheiros de registo colocando ficheiro '*.log' dentro da pasta 'data' da sua extensão.",
-        "PleaseBePatient": "Nota: pode demorar alguns minutos a gerar visitas e ações, pelo que seja paciente…",
-        "PluginDescription": "Crie visitas e ações falsas no Matomo. Isto também pode ser utilizado por utilizadores ou programadores do Matomo como uma forma simples de gerar dados falsos para preencher os relatórios do Matomo.",
-        "ReRunArchiveScript": "Por favor, execute novamente o comando crontab './console core:archive' para atualizar os relatórios. %1$sConsulte \"Como configurar o auto-arquivamento dos seus relatórios\"%2$s",
-        "SelectWebsite": "Selecionar site",
+        "OverwriteLogFiles": "Substitua os arquivos de log \"matomo.php\" para gerar visitas falsas no formato \"Log combinado do Apache\" (altere ou adicione arquivos em %s). Os desenvolvedores de plugins adicionam seus próprios arquivos de log como arquivos '*.log' em uma pasta 'data' de seus plugins.",
+        "PleaseBePatient": "Gerar visitas e ações pode levar alguns minutos.",
+        "PluginDescription": "Crie visitas e ações falsas no Matomo. Gere dados falsos para preencher os relatórios do Matomo.",
+        "ReRunArchiveScript": "Execute novamente o comando crontab './console core:archive' para atualizar os relatórios, conforme %1$s\"Como configurar o arquivamento automático de seus relatórios\"%2$s",
+        "SelectWebsite": "Selecione o site",
         "Submit": "Submeter",
         "VisitorGenerator": "Gerador de visitantes",
-        "Warning": "Está prestes a gerar visitas falsas que serão guardadas na sua base de dados do Matomo."
+        "Warning": "Você está prestes a gerar visitas falsas para seu banco de dados Matomo."
     }
 }
