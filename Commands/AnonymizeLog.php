@@ -39,6 +39,12 @@ This will anonymize the log file and place the log in the plugins/CustomVariable
         $this->addOption('pluginname', null, InputOption::VALUE_REQUIRED, 'If defined, the log file will be placed in the specified plugin instead of the VisitorGenerator plugin', 'VisitorGenerator');
     }
 
+    /**
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return int
+     */
+
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $file    = $this->getPathToFile($input);
@@ -60,7 +66,7 @@ This will anonymize the log file and place the log in the plugins/CustomVariable
         $target = $this->buildTargetFileName($plugin, $file);
         $this->saveFile($output, $target, $anonymized);
 
-        return 0;
+        return self::SUCCESS;
     }
 
     private function getReplace(InputInterface $input)

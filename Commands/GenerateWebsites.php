@@ -25,6 +25,12 @@ class GenerateWebsites extends ConsoleCommand
         $this->addOption('limit', null, InputOption::VALUE_REQUIRED, 'Defines how many websites should be generated', 10);
     }
 
+    /**
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return int
+     */
+
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $limit = $input->getOption('limit');
@@ -38,7 +44,7 @@ class GenerateWebsites extends ConsoleCommand
             sprintf('%d Websites generated (idsite from %d to %d)', count($siteIds), reset($siteIds), end($siteIds))
         ));
 
-        return 0;
+        return self::SUCCESS;
     }
 
 }

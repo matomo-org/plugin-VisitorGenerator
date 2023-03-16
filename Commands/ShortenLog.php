@@ -37,6 +37,12 @@ Keeps 500 log lines per day as well as all lines containing the term "ec_id"
         $this->addOption('force-keep', null, InputOption::VALUE_IS_ARRAY | InputOption::VALUE_REQUIRED, 'Forces to keep a log line if the given terms is present.');
     }
 
+    /**
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return int
+     */
+
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $file      = $this->getPathToFile($input);
@@ -68,7 +74,7 @@ Keeps 500 log lines per day as well as all lines containing the term "ec_id"
 
         echo $shortened;
 
-        return 0;
+        return self::SUCCESS;
     }
 
     private function containsTerm($line, $terms)

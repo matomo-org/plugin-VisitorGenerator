@@ -44,6 +44,12 @@ class GenerateLiveVisits extends ConsoleCommand
             . 'command continuously or a cron, this should be used, since the generated token auth will expire after 24 hours.');
     }
 
+    /**
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return int
+     */
+
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $piwikUrl = $input->getOption('custom-matomo-url');
@@ -69,14 +75,14 @@ class GenerateLiveVisits extends ConsoleCommand
             list($count, $nextWaitTime) = $generateLiveVisits->tick();
             if ($count === null) {
                 $output->writeln("Found no logs to track for day of month / time of day, exiting.");
-                return 0;
+                return self::SUCCESS;
             }
 
             $output->writeln("  tracked $count actions.");
 
             if ($nextWaitTime === null) {
                 $output->writeln("Out of logs, exiting.");
-                return 0;
+                return self::SUCCESS;
             }
 
             // nextWaitTime can be large if the next visit happens in an hour. no sense in
@@ -85,7 +91,7 @@ class GenerateLiveVisits extends ConsoleCommand
                 && (time() + $nextWaitTime) - $startTime > $stopAfter
             ) {
                 $output->writeln("$stopAfter seconds reached, exiting.");
-                return 0;
+                return self::SUCCESS;
             }
 
             $output->writeln("  sleeping {$nextWaitTime}s.");
@@ -95,11 +101,11 @@ class GenerateLiveVisits extends ConsoleCommand
                 && time() - $startTime > $stopAfter
             ) {
                 $output->writeln("$stopAfter seconds reached, exiting.");
-                return 0;
+                return self::SUCCESS;
             }
         }
 
-        return 0; // should never occur
+        return self::SUCCESS; // should never occur
     }
 
     private function getPostiveIntegerOption(InputInterface $input, $optionName)

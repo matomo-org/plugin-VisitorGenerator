@@ -26,6 +26,12 @@ class GenerateGoals extends ConsoleCommand
         $this->addOption('idsite', null, InputOption::VALUE_REQUIRED, 'Defines the site the goals should be generated for');
     }
 
+    /**
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return int
+     */
+
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $idSite = (int) $input->getOption('idsite');
@@ -43,7 +49,7 @@ class GenerateGoals extends ConsoleCommand
             sprintf('idsite=%d, %d goals generated (idgoal from %d to %d)', $idSite, count($goalIds), reset($goalIds), end($goalIds))
         ));
 
-        return 0;
+        return self::SUCCESS;
     }
 
 }
