@@ -25,6 +25,12 @@ class GenerateUsers extends ConsoleCommand
         $this->addOption('limit', null, InputOption::VALUE_REQUIRED, 'Defines how many users should be generated', 10);
     }
 
+    /**
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return int
+     */
+
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $limit = $input->getOption('limit');
@@ -36,7 +42,7 @@ class GenerateUsers extends ConsoleCommand
 
         $this->writeSuccessMessage($output, array(count($userLogins) . ' Users generated'));
 
-        return 0;
+        return self::SUCCESS;
     }
 
 }

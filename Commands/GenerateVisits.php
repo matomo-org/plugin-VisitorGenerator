@@ -46,6 +46,12 @@ class GenerateVisits extends ConsoleCommand
         $this->addOption('non-profilable', null, InputOption::VALUE_NONE, "If supplied, tracks data without visitor IDs so it will be considered 'not profilable'.");
     }
 
+    /**
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return int
+     */
+
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $this->timeout =  $input->getOption('timeout');
@@ -97,7 +103,7 @@ class GenerateVisits extends ConsoleCommand
             round($nbActionsTotal / $timer->getTime(), 0) . ' requests per second'
         ));
 
-        return 0;
+        return self::SUCCESS;
     }
 
     private function getLimitFakeVisits(InputInterface $input)
