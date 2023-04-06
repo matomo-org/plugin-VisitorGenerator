@@ -17,11 +17,9 @@ use Piwik\Plugins\VisitorGenerator\Generator\VisitsFromLogs;
 use Piwik\Site;
 use Piwik\Timer;
 use Piwik\UrlHelper;
-use Symfony\Component\Console\Helper\QuestionHelper;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Question\Question;
 
 class GenerateVisits extends ConsoleCommand
 {
@@ -145,9 +143,7 @@ class GenerateVisits extends ConsoleCommand
         $idSite = $input->getOption('idsite');
 
         if ($idSite === null) {
-            /** @var QuestionHelper $helper */
-            $helper = $this->getHelperSet()->get('question');
-            $idSite = $helper->ask($input, $output, new Question('ID of the site in which to generate the visits: '));
+            $idSite = $this->ask($input, $output, 'ID of the site in which to generate the visits: ');
         }
 
         $idSite = (int)$idSite;

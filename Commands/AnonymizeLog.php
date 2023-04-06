@@ -64,7 +64,7 @@ This will anonymize the log file and place the log in the plugins/CustomVariable
         }
 
         $target = $this->buildTargetFileName($plugin, $file);
-        $this->saveFile($output, $target, $anonymized);
+        $this->saveFile($input, $output, $target, $anonymized);
 
         return self::SUCCESS;
     }
@@ -183,9 +183,9 @@ This will anonymize the log file and place the log in the plugins/CustomVariable
         return str_replace($oldDomain, $newDomain, $url);
     }
 
-    private function saveFile(OutputInterface $output, $target, $content)
+    private function saveFile(InputInterface $input, OutputInterface $output, $target, $content)
     {
-        if (file_exists($target) && !$this->confirmOverwrite($output, $target)) {
+        if (file_exists($target) && !$this->confirmOverwrite($input, $output, $target)) {
             $output->writeln('File not written');
             return;
         }
@@ -201,12 +201,12 @@ This will anonymize the log file and place the log in the plugins/CustomVariable
         ));
     }
 
-    private function confirmOverwrite(OutputInterface $output, $target)
+    private function confirmOverwrite(InputInterface $input, OutputInterface $output, $target)
     {
         $output->writeln('');
 
-        $dialog = $this->getHelperSet()->get('dialog');
-        return $dialog->askConfirmation(
+        return $this->askForConfirmation(
+            $input,
             $output,
             sprintf('<question>File "%s" already exists, overwrite? (y/N)</question>', $target),
             false
