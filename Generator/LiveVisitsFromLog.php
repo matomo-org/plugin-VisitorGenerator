@@ -14,7 +14,7 @@ use Piwik\Http;
 use Piwik\Plugins\VisitorGenerator\Faker\Request;
 use Piwik\Plugins\VisitorGenerator\Iterator\TransformIterator;
 use Piwik\Plugins\VisitorGenerator\LogParser;
-use Psr\Log\LoggerInterface;
+use Piwik\Log\LoggerInterface;
 
 class LiveVisitsFromLog extends VisitsFromLogs
 {
