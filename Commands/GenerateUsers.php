@@ -12,9 +12,7 @@ namespace Piwik\Plugins\VisitorGenerator\Commands;
 use Piwik\Access;
 use Piwik\Plugin\ConsoleCommand;
 use Piwik\Plugins\VisitorGenerator\Generator\Users;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Output\OutputInterface;
 
 class GenerateUsers extends ConsoleCommand
 {
@@ -26,13 +24,11 @@ class GenerateUsers extends ConsoleCommand
     }
 
     /**
-     * @param InputInterface $input
-     * @param OutputInterface $output
      * @return int
      */
-
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function doExecute(): int
     {
+        $input = $this->getInput();
         $limit = $input->getOption('limit');
 
         $userLogins = Access::doAsSuperUser(function () use ($limit) {
@@ -40,7 +36,7 @@ class GenerateUsers extends ConsoleCommand
             return $websiteGenerator->generate((int) $limit);
         });
 
-        $this->writeSuccessMessage($output, array(count($userLogins) . ' Users generated'));
+        $this->writeSuccessMessage(array(count($userLogins) . ' Users generated'));
 
         return self::SUCCESS;
     }

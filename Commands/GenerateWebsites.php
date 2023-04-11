@@ -12,9 +12,7 @@ namespace Piwik\Plugins\VisitorGenerator\Commands;
 use Piwik\Access;
 use Piwik\Plugin\ConsoleCommand;
 use Piwik\Plugins\VisitorGenerator\Generator\Websites;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Output\OutputInterface;
 
 class GenerateWebsites extends ConsoleCommand
 {
@@ -26,13 +24,11 @@ class GenerateWebsites extends ConsoleCommand
     }
 
     /**
-     * @param InputInterface $input
-     * @param OutputInterface $output
      * @return int
      */
-
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function doExecute(): int
     {
+        $input = $this->getInput();
         $limit = $input->getOption('limit');
 
         $siteIds = Access::doAsSuperUser(function () use ($limit) {
@@ -40,7 +36,7 @@ class GenerateWebsites extends ConsoleCommand
             return $websiteGenerator->generate($limit);
         });
 
-        $this->writeSuccessMessage($output, array(
+        $this->writeSuccessMessage(array(
             sprintf('%d Websites generated (idsite from %d to %d)', count($siteIds), reset($siteIds), end($siteIds))
         ));
 

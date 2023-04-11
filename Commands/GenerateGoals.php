@@ -13,9 +13,7 @@ use Piwik\Access;
 use Piwik\Plugin\ConsoleCommand;
 use Piwik\Plugins\VisitorGenerator\Generator\Goals;
 use Piwik\Site;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Output\OutputInterface;
 
 class GenerateGoals extends ConsoleCommand
 {
@@ -27,13 +25,11 @@ class GenerateGoals extends ConsoleCommand
     }
 
     /**
-     * @param InputInterface $input
-     * @param OutputInterface $output
      * @return int
      */
-
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function doExecute(): int
     {
+        $input = $this->getInput();
         $idSite = (int) $input->getOption('idsite');
 
         $goalIds = Access::doAsSuperUser(function () use ($idSite) {
@@ -45,7 +41,7 @@ class GenerateGoals extends ConsoleCommand
             return $goalsGenerator->generate($idSite);
         });
 
-        $this->writeSuccessMessage($output, array(
+        $this->writeSuccessMessage(array(
             sprintf('idsite=%d, %d goals generated (idgoal from %d to %d)', $idSite, count($goalIds), reset($goalIds), end($goalIds))
         ));
 

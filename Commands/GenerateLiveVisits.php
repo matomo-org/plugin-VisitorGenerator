@@ -12,9 +12,7 @@ use Piwik\Date;
 use Piwik\Plugin\ConsoleCommand;
 use Piwik\Plugins\VisitorGenerator\Generator\LiveVisitsFromLog;
 use Piwik\Site;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Output\OutputInterface;
 
 class GenerateLiveVisits extends ConsoleCommand
 {
@@ -45,20 +43,19 @@ class GenerateLiveVisits extends ConsoleCommand
     }
 
     /**
-     * @param InputInterface $input
-     * @param OutputInterface $output
      * @return int
      */
-
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function doExecute(): int
     {
+        $input = $this->getInput();
+        $output = $this->getOutput();
         $piwikUrl = $input->getOption('custom-matomo-url');
-        $idSite = $this->getSite($input);
-        $stopAfter = $this->getPostiveIntegerOption($input, 'stop-after');
-        $logFile = $this->getLogFile($input);
-        $dayOfMonth = $this->getPostiveIntegerOption($input, 'day-of-month');
-        $timeOfDay = $this->getPostiveIntegerOption($input, 'time-of-day');
-        $this->timeout = $this->getPostiveIntegerOption($input, 'timeout');
+        $idSite = $this->getSite();
+        $stopAfter = $this->getPostiveIntegerOption('stop-after');
+        $logFile = $this->getLogFile();
+        $dayOfMonth = $this->getPostiveIntegerOption('day-of-month');
+        $timeOfDay = $this->getPostiveIntegerOption('time-of-day');
+        $this->timeout = $this->getPostiveIntegerOption('timeout');
         $tokenAuth = $input->getOption('token-auth');
 
         $timeOfDayDelta = $stopAfter ?: LiveVisitsFromLog::SECONDS_IN_DAY;
@@ -72,7 +69,7 @@ class GenerateLiveVisits extends ConsoleCommand
 
         $startTime = time();
         while (true) {
-            list($count, $nextWaitTime) = $generateLiveVisits->tick();
+            [$count, $nextWaitTime] = $generateLiveVisits->tick();
             if ($count === null) {
                 $output->writeln("Found no logs to track for day of month / time of day, exiting.");
                 return self::SUCCESS;
@@ -108,9 +105,9 @@ class GenerateLiveVisits extends ConsoleCommand
         return self::SUCCESS; // should never occur
     }
 
-    private function getPostiveIntegerOption(InputInterface $input, $optionName)
+    private function getPostiveIntegerOption($optionName)
     {
-        $value = $input->getOption($optionName);
+        $value = $this->getInput()->getOption($optionName);
         if (!empty($value)
             && (!is_numeric($value)
                 || $value < 0)
@@ -120,9 +117,9 @@ class GenerateLiveVisits extends ConsoleCommand
         return (int) $value;
     }
 
-    private function getLogFile(InputInterface $input)
+    private function getLogFile()
     {
-        $path = $input->getOption('log-file');
+        $path = $this->getInput()->getOption('log-file');
         if (empty($path)) {
             throw new \Exception("The --log-file option is required.");
         }
@@ -133,9 +130,9 @@ class GenerateLiveVisits extends ConsoleCommand
         return $path;
     }
 
-    private function getSite(InputInterface $input)
+    private function getSite()
     {
-        $idSite = $input->getoption('idsite');
+        $idSite = $this->getInput()->getoption('idsite');
         new Site($idSite); // check it's valid
         return $idSite;
     }

@@ -14,9 +14,7 @@ use Piwik\Filesystem;
 use Piwik\Plugin\ConsoleCommand;
 use Piwik\Plugins\VisitorGenerator\LogParser;
 use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Output\OutputInterface;
 
 class AnonymizeLog extends ConsoleCommand
 {
@@ -40,16 +38,15 @@ This will anonymize the log file and place the log in the plugins/CustomVariable
     }
 
     /**
-     * @param InputInterface $input
-     * @param OutputInterface $output
      * @return int
      */
-
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function doExecute(): int
     {
-        $file    = $this->getPathToFile($input);
-        $replace = $this->getReplace($input);
-        $plugin  = $this->getPluginName($input);
+        $input = $this->getInput();
+        $output = $this->getOutput();
+        $file    = $this->getPathToFile();
+        $replace = $this->getReplace();
+        $plugin  = $this->getPluginName();
 
         $logParser = new LogParser($file);
         $lines     = $logParser->getLogLines();
@@ -64,16 +61,16 @@ This will anonymize the log file and place the log in the plugins/CustomVariable
         }
 
         $target = $this->buildTargetFileName($plugin, $file);
-        $this->saveFile($input, $output, $target, $anonymized);
+        $this->saveFile($target, $anonymized);
 
         return self::SUCCESS;
     }
 
-    private function getReplace(InputInterface $input)
+    private function getReplace()
     {
         $parsedReplace = array();
 
-        $replaces = $input->getOption('replace');
+        $replaces = $this->getInput()->getOption('replace');
         foreach ($replaces as $replace) {
             $words = explode(':', $replace);
 
@@ -87,9 +84,9 @@ This will anonymize the log file and place the log in the plugins/CustomVariable
         return $parsedReplace;
     }
 
-    private function getPluginName(InputInterface $input)
+    private function getPluginName()
     {
-        $pluginName  = $input->getOption('pluginname');
+        $pluginName  = $this->getInput()->getOption('pluginname');
         $pathToCheck = PIWIK_INCLUDE_PATH . '/plugins/' . $pluginName;
 
         if (!is_dir($pathToCheck) || !is_writable($pathToCheck) || !is_readable($pathToCheck)) {
@@ -99,9 +96,9 @@ This will anonymize the log file and place the log in the plugins/CustomVariable
         return $pluginName;
     }
 
-    private function getPathToFile(InputInterface $input)
+    private function getPathToFile()
     {
-        $file = $input->getArgument('file');
+        $file = $this->getInput()->getArgument('file');
 
         if (file_exists($file)) {
             return $file;
@@ -183,10 +180,10 @@ This will anonymize the log file and place the log in the plugins/CustomVariable
         return str_replace($oldDomain, $newDomain, $url);
     }
 
-    private function saveFile(InputInterface $input, OutputInterface $output, $target, $content)
+    private function saveFile($target, $content)
     {
-        if (file_exists($target) && !$this->confirmOverwrite($input, $output, $target)) {
-            $output->writeln('File not written');
+        if (file_exists($target) && !$this->confirmOverwrite($target)) {
+            $this->getOutput()->writeln('File not written');
             return;
         }
 
@@ -194,20 +191,18 @@ This will anonymize the log file and place the log in the plugins/CustomVariable
 
         file_put_contents($target, $content);
 
-        $this->writeSuccessMessage($output, array(
+        $this->writeSuccessMessage(array(
             'Log anonymized and saved in file ' . $target,
             'You can replay this log - among others - by executing ',
             '"<comment>./console visitorgenerator:generate-visits --no-fake --idsite=?</comment>"'
         ));
     }
 
-    private function confirmOverwrite(InputInterface $input, OutputInterface $output, $target)
+    private function confirmOverwrite($target)
     {
-        $output->writeln('');
+        $this->getOutput()->writeln('');
 
         return $this->askForConfirmation(
-            $input,
-            $output,
             sprintf('<question>File "%s" already exists, overwrite? (y/N)</question>', $target),
             false
         );

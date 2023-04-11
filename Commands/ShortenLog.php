@@ -13,9 +13,7 @@ use Piwik\Date;
 use Piwik\Plugin\ConsoleCommand;
 use Piwik\Plugins\VisitorGenerator\LogParser;
 use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Output\OutputInterface;
 
 class ShortenLog extends ConsoleCommand
 {
@@ -38,14 +36,12 @@ Keeps 500 log lines per day as well as all lines containing the term "ec_id"
     }
 
     /**
-     * @param InputInterface $input
-     * @param OutputInterface $output
      * @return int
      */
-
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function doExecute(): int
     {
-        $file      = $this->getPathToFile($input);
+        $input = $this->getInput();
+        $file      = $this->getPathToFile();
         $numLines  = $input->getOption('num-lines');
         $forceKeep = $input->getOption('force-keep');
 
@@ -88,9 +84,9 @@ Keeps 500 log lines per day as well as all lines containing the term "ec_id"
         return false;
     }
 
-    private function getPathToFile(InputInterface $input)
+    private function getPathToFile()
     {
-        $file = $input->getArgument('file');
+        $file = $this->getInput()->getArgument('file');
 
         if (file_exists($file)) {
             return $file;
@@ -107,5 +103,4 @@ Keeps 500 log lines per day as well as all lines containing the term "ec_id"
     {
         return Date::factory($parsed['time'])->toString('Y-m-d');
     }
-
 }

@@ -17,13 +17,10 @@ use Piwik\Plugins\VisitorGenerator\Generator\VisitsFromLogs;
 use Piwik\Site;
 use Piwik\Timer;
 use Piwik\UrlHelper;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Output\OutputInterface;
 
 class GenerateVisits extends ConsoleCommand
 {
-
     /**
      * @var int|null
      */
@@ -45,18 +42,17 @@ class GenerateVisits extends ConsoleCommand
     }
 
     /**
-     * @param InputInterface $input
-     * @param OutputInterface $output
      * @return int
      */
-
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function doExecute(): int
     {
+        $input = $this->getInput();
+        $output = $this->getOutput();
         $this->timeout =  $input->getOption('timeout');
         $timer = new Timer();
-        $days = $this->checkDays($input);
-        $customMatomoUrl = $this->checkCustomMatomoUrl($input);
-        $idSite = $this->getIdSite($input, $output);
+        $days = $this->checkDays();
+        $customMatomoUrl = $this->checkCustomMatomoUrl();
+        $idSite = $this->getIdSite();
 
         $trackNonProfilable = $input->getOption('non-profilable');
 
@@ -76,7 +72,7 @@ class GenerateVisits extends ConsoleCommand
             ));
 
             if (!$input->getOption('no-fake')) {
-                $limit = $this->getLimitFakeVisits($input);
+                $limit = $this->getLimitFakeVisits();
                 Access::doAsSuperUser(function () use ($time, $idSite, $limit, &$nbActionsTotal, $customMatomoUrl, $trackNonProfilable) {
                     $fakeVisits = new VisitsFake($customMatomoUrl);
                     $fakeVisits->setTrackNonProfilable($trackNonProfilable);
@@ -95,7 +91,7 @@ class GenerateVisits extends ConsoleCommand
             $time += 86400;
         }
 
-        $this->writeSuccessMessage($output, array(
+        $this->writeSuccessMessage(array(
             'idsite = ' . $idSite,
             $nbActionsTotal . ' Visits generated',
             round($nbActionsTotal / $timer->getTime(), 0) . ' requests per second'
@@ -104,8 +100,10 @@ class GenerateVisits extends ConsoleCommand
         return self::SUCCESS;
     }
 
-    private function getLimitFakeVisits(InputInterface $input)
+    private function getLimitFakeVisits()
     {
+        $input = $this->getInput();
+
         if ($input->getOption('limit-fake-visits')) {
 
             return $input->getOption('limit-fake-visits');
@@ -114,9 +112,9 @@ class GenerateVisits extends ConsoleCommand
         return rand(400, 1000);
     }
 
-    private function checkDays(InputInterface $input)
+    private function checkDays()
     {
-        $days = (int)$input->getOption('days');
+        $days = (int)$this->getInput()->getOption('days');
 
         if ($days < 1) {
             throw new \InvalidArgumentException('Days to compute must be greater or equal to 1.');
@@ -125,9 +123,9 @@ class GenerateVisits extends ConsoleCommand
         return $days;
     }
 
-    private function checkCustomMatomoUrl(InputInterface $input)
+    private function checkCustomMatomoUrl()
     {
-        if (!$customMatomoUrl = $input->getOption('custom-matomo-url')) {
+        if (!$customMatomoUrl = $this->getInput()->getOption('custom-matomo-url')) {
             return null;
         }
 
@@ -138,12 +136,12 @@ class GenerateVisits extends ConsoleCommand
         return $customMatomoUrl;
     }
 
-    private function getIdSite(InputInterface $input, OutputInterface $output)
+    private function getIdSite()
     {
-        $idSite = $input->getOption('idsite');
+        $idSite = $this->getInput()->getOption('idsite');
 
         if ($idSite === null) {
-            $idSite = $this->ask($input, $output, 'ID of the site in which to generate the visits: ');
+            $idSite = $this->ask('ID of the site in which to generate the visits: ');
         }
 
         $idSite = (int)$idSite;
