@@ -12,7 +12,6 @@ use Piwik\Date;
 use Piwik\Plugin\ConsoleCommand;
 use Piwik\Plugins\VisitorGenerator\Generator\LiveVisitsFromLog;
 use Piwik\Site;
-use Symfony\Component\Console\Input\InputOption;
 
 class GenerateLiveVisits extends ConsoleCommand
 {
@@ -25,20 +24,20 @@ class GenerateLiveVisits extends ConsoleCommand
     {
         $this->setName('visitorgenerator:generate-live-visits');
         $this->setDescription('Continuously generates visits from a single log file to make it seem like there is real time traffic.');
-        $this->addOption('idsite', null, InputOption::VALUE_REQUIRED, '(required) The ID of the site to track to.');
-        $this->addOption('stop-after', null, InputOption::VALUE_REQUIRED, 'If supplied, the command will exit after this many seconds.');
-        $this->addOption('log-file', null, InputOption::VALUE_REQUIRED,
+        $this->addRequiredValueOption('idsite', null, '(required) The ID of the site to track to.');
+        $this->addRequiredValueOption('stop-after', null, 'If supplied, the command will exit after this many seconds.');
+        $this->addRequiredValueOption('log-file', null,
             '(required) The log file to track visits from. This file MUST have visits in order of time.');
-        $this->addOption('day-of-month', null, InputOption::VALUE_REQUIRED,
+        $this->addRequiredValueOption('day-of-month', null,
             'By default this command starts with visits for the current day of the month. Use this option to force an override. '
             . 'Specify 0 to ignore day of the month and use every log.',
             Date::now()->toString('j'));
-        $this->addOption('time-of-day', null, InputOption::VALUE_REQUIRED,
+        $this->addRequiredValueOption('time-of-day', null,
             'The time of day to start replaying logs for. Defaults to now, specify a value here to override.',
             time() % LiveVisitsFromLog::SECONDS_IN_DAY);
-        $this->addOption('custom-matomo-url', null, InputOption::VALUE_REQUIRED, 'Custom Matomo URL to track to.');
-        $this->addOption('timeout', null, InputOption::VALUE_REQUIRED, "Sets how long, in seconds, the timeout should be for the request.", 10);
-        $this->addOption('token-auth', null, InputOption::VALUE_REQUIRED, 'Use custom token auth instead of system generated one. If running this '
+        $this->addRequiredValueOption('custom-matomo-url', null, 'Custom Matomo URL to track to.');
+        $this->addRequiredValueOption('timeout', null, "Sets how long, in seconds, the timeout should be for the request.", 10);
+        $this->addRequiredValueOption('token-auth', null, 'Use custom token auth instead of system generated one. If running this '
             . 'command continuously or a cron, this should be used, since the generated token auth will expire after 24 hours.');
     }
 

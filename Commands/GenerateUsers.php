@@ -12,7 +12,6 @@ namespace Piwik\Plugins\VisitorGenerator\Commands;
 use Piwik\Access;
 use Piwik\Plugin\ConsoleCommand;
 use Piwik\Plugins\VisitorGenerator\Generator\Users;
-use Symfony\Component\Console\Input\InputOption;
 
 class GenerateUsers extends ConsoleCommand
 {
@@ -20,7 +19,7 @@ class GenerateUsers extends ConsoleCommand
     {
         $this->setName('visitorgenerator:generate-users');
         $this->setDescription('Generates many users. This command is intended for developers.');
-        $this->addOption('limit', null, InputOption::VALUE_REQUIRED, 'Defines how many users should be generated', 10);
+        $this->addRequiredValueOption('limit', null, 'Defines how many users should be generated', 10);
     }
 
     /**

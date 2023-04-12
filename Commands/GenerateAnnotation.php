@@ -13,7 +13,6 @@ use Piwik\Access;
 use Piwik\Plugin\ConsoleCommand;
 use Piwik\Plugins\VisitorGenerator\Generator\Annotations;
 use Piwik\Site;
-use Symfony\Component\Console\Input\InputOption;
 
 class GenerateAnnotation extends ConsoleCommand
 {
@@ -21,7 +20,7 @@ class GenerateAnnotation extends ConsoleCommand
     {
         $this->setName('visitorgenerator:generate-annotation');
         $this->setDescription('Generates an annotation for the current day. This command is intended for developers.');
-        $this->addOption('idsite', null, InputOption::VALUE_REQUIRED, 'Defines the site the goals should be generated for');
+        $this->addRequiredValueOption('idsite', null, 'Defines the site the goals should be generated for');
     }
 
     /**

@@ -17,7 +17,6 @@ use Piwik\Plugins\VisitorGenerator\Generator\VisitsFromLogs;
 use Piwik\Site;
 use Piwik\Timer;
 use Piwik\UrlHelper;
-use Symfony\Component\Console\Input\InputOption;
 
 class GenerateVisits extends ConsoleCommand
 {
@@ -30,15 +29,15 @@ class GenerateVisits extends ConsoleCommand
     {
         $this->setName('visitorgenerator:generate-visits');
         $this->setDescription('Generates many visits for a given amount of days in the past. This command is intended for developers.');
-        $this->addOption('idsite', null, InputOption::VALUE_REQUIRED, 'Defines the site the visits should be generated for');
-        $this->addOption('days', null, InputOption::VALUE_REQUIRED, 'Defines for how many days in the past visits should be generated', 1);
-        $this->addOption('start-date', null, InputOption::VALUE_REQUIRED, 'Date to start generating on.');
-        $this->addOption('no-fake', null, InputOption::VALUE_NONE, 'If set, no fake visits will be generated', null);
-        $this->addOption('no-logs', null, InputOption::VALUE_NONE, 'If set, no visits from logs will be generated', null);
-        $this->addOption('limit-fake-visits', null, InputOption::VALUE_REQUIRED, 'Limits the number of fake visits', null);
-        $this->addOption('custom-matomo-url', null, InputOption::VALUE_REQUIRED, "Defines an alternate Matomo URL, e.g. if Matomo is installed behind a Load-Balancer.");
-        $this->addOption('timeout', null, InputOption::VALUE_REQUIRED, "Sets how long, in seconds, the timeout should be for the request.", 10);
-        $this->addOption('non-profilable', null, InputOption::VALUE_NONE, "If supplied, tracks data without visitor IDs so it will be considered 'not profilable'.");
+        $this->addRequiredValueOption('idsite', null, 'Defines the site the visits should be generated for');
+        $this->addRequiredValueOption('days', null, 'Defines for how many days in the past visits should be generated', 1);
+        $this->addRequiredValueOption('start-date', null, 'Date to start generating on.');
+        $this->addNoValueOption('no-fake', null, 'If set, no fake visits will be generated', null);
+        $this->addNoValueOption('no-logs', null, 'If set, no visits from logs will be generated', null);
+        $this->addRequiredValueOption('limit-fake-visits', null, 'Limits the number of fake visits', null);
+        $this->addRequiredValueOption('custom-matomo-url', null, "Defines an alternate Matomo URL, e.g. if Matomo is installed behind a Load-Balancer.");
+        $this->addRequiredValueOption('timeout', null, "Sets how long, in seconds, the timeout should be for the request.", 10);
+        $this->addNoValueOption('non-profilable', null, "If supplied, tracks data without visitor IDs so it will be considered 'not profilable'.");
     }
 
     /**

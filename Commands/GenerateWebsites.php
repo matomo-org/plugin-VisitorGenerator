@@ -12,7 +12,6 @@ namespace Piwik\Plugins\VisitorGenerator\Commands;
 use Piwik\Access;
 use Piwik\Plugin\ConsoleCommand;
 use Piwik\Plugins\VisitorGenerator\Generator\Websites;
-use Symfony\Component\Console\Input\InputOption;
 
 class GenerateWebsites extends ConsoleCommand
 {
@@ -20,7 +19,7 @@ class GenerateWebsites extends ConsoleCommand
     {
         $this->setName('visitorgenerator:generate-websites');
         $this->setDescription('Generates many websites. This command is intended for developers.');
-        $this->addOption('limit', null, InputOption::VALUE_REQUIRED, 'Defines how many websites should be generated', 10);
+        $this->addRequiredValueOption('limit', null, 'Defines how many websites should be generated', 10);
     }
 
     /**

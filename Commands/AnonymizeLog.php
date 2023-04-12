@@ -14,7 +14,6 @@ use Piwik\Filesystem;
 use Piwik\Plugin\ConsoleCommand;
 use Piwik\Plugins\VisitorGenerator\LogParser;
 use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputOption;
 
 class AnonymizeLog extends ConsoleCommand
 {
@@ -33,8 +32,8 @@ This will anonymize the log file and place the log in the plugins/CustomVariable
 ');
         $this->setDescription('Anonymizes an Apache log file by anonymizing IPs and domains. It will not replace any search terms, paths or url queries. The original file will not be altered.');
         $this->addArgument('file', InputArgument::REQUIRED, 'Path to the log file. Either an absolute path or a path relative to the Matomo directory');
-        $this->addOption('replace', null, InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY, 'Words to replace. For instance "MyName:NewName" will replace all occurrences of "MyName" with "NewName", "myname" with "newname" and "MYNAME" with "NEWNAME" (case sensitive).');
-        $this->addOption('pluginname', null, InputOption::VALUE_REQUIRED, 'If defined, the log file will be placed in the specified plugin instead of the VisitorGenerator plugin', 'VisitorGenerator');
+        $this->addRequiredValueOption('replace', null, 'Words to replace. For instance "MyName:NewName" will replace all occurrences of "MyName" with "NewName", "myname" with "newname" and "MYNAME" with "NEWNAME" (case sensitive).', null, true);
+        $this->addRequiredValueOption('pluginname', null, 'If defined, the log file will be placed in the specified plugin instead of the VisitorGenerator plugin', 'VisitorGenerator');
     }
 
     /**
