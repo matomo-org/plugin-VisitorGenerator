@@ -12,7 +12,6 @@ namespace Piwik\Plugins\VisitorGenerator\Commands;
 use Piwik\Date;
 use Piwik\Plugin\ConsoleCommand;
 use Piwik\Plugins\VisitorGenerator\LogParser;
-use Symfony\Component\Console\Input\InputArgument;
 
 class ShortenLog extends ConsoleCommand
 {
@@ -29,7 +28,7 @@ Keeps only the default number of log lines per day.
 Keeps 500 log lines per day as well as all lines containing the term "ec_id"
 ');
         $this->setDescription('Shortens an Apache log file by keeping only a small number of logs per day.');
-        $this->addArgument('file', InputArgument::REQUIRED, 'Path to the log file. Either an absolute path or a path relative to the Matomo directory');
+        $this->addRequiredArgument('file', 'Path to the log file. Either an absolute path or a path relative to the Matomo directory');
         $this->addRequiredValueOption('num-lines', null, 'Max number of log lines to keep per day', 200);
         $this->addRequiredValueOption('force-keep', null, 'Forces to keep a log line if the given terms is present.', null, true);
     }
