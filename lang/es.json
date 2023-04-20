@@ -15,7 +15,7 @@
         "NumberOfGeneratedActions": "Número de acciones generadas",
         "OverwriteLogFiles": "Puedes sobrescribir los archivos de registro que se utilizan para generar visitas falsas (cambie o agregue archivos en %s). Existen registros de solicitudes a \"matomo.php\" con el formato \"Apache combined log\". Los desarrolladores de complementos pueden crear sus propios archivos de registro colocando los archivos '*.log' en un directorio de datos en sus complementos.",
         "PleaseBePatient": "Nota: Generar visitas y acciones puede tardar unos minutos, por favor tenga paciencia…",
-        "PluginDescription": "Crear falsas visitas y acciones en Matomo. Esto puede ser usado por usuarios Matomo o desarrolladores como una manera fácil de generar datos falsos para llenar informes Matomo.",
+        "PluginDescription": "Crear visitas y acciones falsas en Matomo. Generar datos falsos para rellenar informes Matomo.",
         "ReRunArchiveScript": "Por favor vuelva a ejecutar el comando './console core:archive' en el crontab para actualizar los informes. %1$sVer \"Cómo configurar el archivo automático de sus informes\"%2$s",
         "SelectWebsite": "Seleccionar sitio de internet",
         "Submit": "Enviar",
