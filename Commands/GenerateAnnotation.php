@@ -13,9 +13,6 @@ use Piwik\Access;
 use Piwik\Plugin\ConsoleCommand;
 use Piwik\Plugins\VisitorGenerator\Generator\Annotations;
 use Piwik\Site;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Output\OutputInterface;
 
 class GenerateAnnotation extends ConsoleCommand
 {
@@ -23,17 +20,15 @@ class GenerateAnnotation extends ConsoleCommand
     {
         $this->setName('visitorgenerator:generate-annotation');
         $this->setDescription('Generates an annotation for the current day. This command is intended for developers.');
-        $this->addOption('idsite', null, InputOption::VALUE_REQUIRED, 'Defines the site the goals should be generated for');
+        $this->addRequiredValueOption('idsite', null, 'Defines the site the goals should be generated for');
     }
 
     /**
-     * @param InputInterface $input
-     * @param OutputInterface $output
      * @return int
      */
-
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function doExecute(): int
     {
+        $input = $this->getInput();
         $idSite = (int) $input->getOption('idsite');
 
         Access::doAsSuperUser(function () use ($idSite) {
@@ -45,7 +40,7 @@ class GenerateAnnotation extends ConsoleCommand
             $annotations->generate($idSite);
         });
 
-        $this->writeSuccessMessage($output, array('1 Annotation for today generated'));
+        $this->writeSuccessMessage(array('1 Annotation for today generated'));
 
         return self::SUCCESS;
     }

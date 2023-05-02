@@ -13,10 +13,6 @@ use Piwik\Common;
 use Piwik\Filesystem;
 use Piwik\Plugin\ConsoleCommand;
 use Piwik\Plugins\VisitorGenerator\LogParser;
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Output\OutputInterface;
 
 class AnonymizeLog extends ConsoleCommand
 {
@@ -34,22 +30,21 @@ It will replace the last 2 bits of all IP addresses with "0" and replace domains
 This will anonymize the log file and place the log in the plugins/CustomVariables/data directory. The data directory will be created if needed.
 ');
         $this->setDescription('Anonymizes an Apache log file by anonymizing IPs and domains. It will not replace any search terms, paths or url queries. The original file will not be altered.');
-        $this->addArgument('file', InputArgument::REQUIRED, 'Path to the log file. Either an absolute path or a path relative to the Matomo directory');
-        $this->addOption('replace', null, InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY, 'Words to replace. For instance "MyName:NewName" will replace all occurrences of "MyName" with "NewName", "myname" with "newname" and "MYNAME" with "NEWNAME" (case sensitive).');
-        $this->addOption('pluginname', null, InputOption::VALUE_REQUIRED, 'If defined, the log file will be placed in the specified plugin instead of the VisitorGenerator plugin', 'VisitorGenerator');
+        $this->addRequiredArgument('file', 'Path to the log file. Either an absolute path or a path relative to the Matomo directory');
+        $this->addRequiredValueOption('replace', null, 'Words to replace. For instance "MyName:NewName" will replace all occurrences of "MyName" with "NewName", "myname" with "newname" and "MYNAME" with "NEWNAME" (case sensitive).', null, true);
+        $this->addRequiredValueOption('pluginname', null, 'If defined, the log file will be placed in the specified plugin instead of the VisitorGenerator plugin', 'VisitorGenerator');
     }
 
     /**
-     * @param InputInterface $input
-     * @param OutputInterface $output
      * @return int
      */
-
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function doExecute(): int
     {
-        $file    = $this->getPathToFile($input);
-        $replace = $this->getReplace($input);
-        $plugin  = $this->getPluginName($input);
+        $input = $this->getInput();
+        $output = $this->getOutput();
+        $file    = $this->getPathToFile();
+        $replace = $this->getReplace();
+        $plugin  = $this->getPluginName();
 
         $logParser = new LogParser($file);
         $lines     = $logParser->getLogLines();
@@ -64,16 +59,16 @@ This will anonymize the log file and place the log in the plugins/CustomVariable
         }
 
         $target = $this->buildTargetFileName($plugin, $file);
-        $this->saveFile($output, $target, $anonymized);
+        $this->saveFile($target, $anonymized);
 
         return self::SUCCESS;
     }
 
-    private function getReplace(InputInterface $input)
+    private function getReplace()
     {
         $parsedReplace = array();
 
-        $replaces = $input->getOption('replace');
+        $replaces = $this->getInput()->getOption('replace');
         foreach ($replaces as $replace) {
             $words = explode(':', $replace);
 
@@ -87,9 +82,9 @@ This will anonymize the log file and place the log in the plugins/CustomVariable
         return $parsedReplace;
     }
 
-    private function getPluginName(InputInterface $input)
+    private function getPluginName()
     {
-        $pluginName  = $input->getOption('pluginname');
+        $pluginName  = $this->getInput()->getOption('pluginname');
         $pathToCheck = PIWIK_INCLUDE_PATH . '/plugins/' . $pluginName;
 
         if (!is_dir($pathToCheck) || !is_writable($pathToCheck) || !is_readable($pathToCheck)) {
@@ -99,9 +94,9 @@ This will anonymize the log file and place the log in the plugins/CustomVariable
         return $pluginName;
     }
 
-    private function getPathToFile(InputInterface $input)
+    private function getPathToFile()
     {
-        $file = $input->getArgument('file');
+        $file = $this->getInput()->getArgument('file');
 
         if (file_exists($file)) {
             return $file;
@@ -183,10 +178,10 @@ This will anonymize the log file and place the log in the plugins/CustomVariable
         return str_replace($oldDomain, $newDomain, $url);
     }
 
-    private function saveFile(OutputInterface $output, $target, $content)
+    private function saveFile($target, $content)
     {
-        if (file_exists($target) && !$this->confirmOverwrite($output, $target)) {
-            $output->writeln('File not written');
+        if (file_exists($target) && !$this->confirmOverwrite($target)) {
+            $this->getOutput()->writeln('File not written');
             return;
         }
 
@@ -194,20 +189,18 @@ This will anonymize the log file and place the log in the plugins/CustomVariable
 
         file_put_contents($target, $content);
 
-        $this->writeSuccessMessage($output, array(
+        $this->writeSuccessMessage(array(
             'Log anonymized and saved in file ' . $target,
             'You can replay this log - among others - by executing ',
             '"<comment>./console visitorgenerator:generate-visits --no-fake --idsite=?</comment>"'
         ));
     }
 
-    private function confirmOverwrite(OutputInterface $output, $target)
+    private function confirmOverwrite($target)
     {
-        $output->writeln('');
+        $this->getOutput()->writeln('');
 
-        $dialog = $this->getHelperSet()->get('dialog');
-        return $dialog->askConfirmation(
-            $output,
+        return $this->askForConfirmation(
             sprintf('<question>File "%s" already exists, overwrite? (y/N)</question>', $target),
             false
         );
