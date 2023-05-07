@@ -3,7 +3,7 @@
         "AreYouSure": "Sahte ziyaretler oluşturmak istediğinize emin misiniz?",
         "AutomaticReprocess": "Matomo raporları bölümüne bir sonraki gelişinizde raporlar yeniden işlenecek. Bu işlem bir kaç dakika sürebilir.",
         "ChoiceYes": "Evet",
-        "CliToolUsage": "%1$sMatomo CLI aracı%2$s ile ziyaret verilerinin yanında, kullanıcılar, web siteleri ve hedefler de oluşturabilirsiniz.",
+        "CliToolUsage": "%1$sMatomo CLI aracı%2$s ile ziyaret verilerinin yanında, kullanıcılar, siteler ve hedefler de oluşturabilirsiniz.",
         "ConfirmVisitorGeneration": "Lütfen ziyaretçi oluşturulmasını onaylamak için kutuyu işaretleyin",
         "CustomMatomoUrl": "Özel Matomo adresi",
         "DaysToCompute": "Hesaplanacak gün",
@@ -17,9 +17,9 @@
         "PleaseBePatient": "Ziyaret ve işlemlerin oluşturulması bir kaç dakika sürebilir.",
         "PluginDescription": "Matomo üzerine sahte ziyaret ve işlem kayıtları ekler. Matomo raporlarını hazırlamak için sahte veriler oluşturur.",
         "ReRunArchiveScript": "Lütfen raporları yenilemek için zamanlanmış görevi %1$s\"Raporları otomatik olarak arşivlemek\"%2$s bölümünde anlatıldığı şekilde './console core:archive' komutu ile yeniden yürütün",
-        "SelectWebsite": "Web sitesi seçin",
+        "SelectWebsite": "Site seçin",
         "Submit": "Gönder",
         "VisitorGenerator": "Ziyaretçi üreteci",
-        "Warning": "Matomo veritabanında sahte ziyaretler oluşturmak üzeresiniz."
+        "Warning": "Matomo veri tabanında sahte ziyaretler oluşturmak üzeresiniz."
     }
 }

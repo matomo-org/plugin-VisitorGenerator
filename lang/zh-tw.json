@@ -15,7 +15,7 @@
         "NumberOfGeneratedActions": "已產生的活動數",
         "OverwriteLogFiles": "你可以覆蓋產生偽造訪客的紀錄檔案（在 %s 修改或增加檔案）。請求「matomo.php」的記錄檔案使用格式為「Apache combined log」。外掛開發者可以透過在「data」資料夾下放置「*.log」檔案來提供他們的外掛紀錄檔案。",
         "PleaseBePatient": "注意：可能需要花上幾分鐘來產生訪客和活動，請耐心等候…",
-        "PluginDescription": "在 Matomo 產生偽造訪客及活動。這可以讓 Matomo 使用者或開發人員用簡單的方式來產生偽造資料以填充 Matomo 報表。",
+        "PluginDescription": "在 Matomo 中產生虛擬訪客及活動資料。虛擬資料可用作填充 Matomo 報表。",
         "ReRunArchiveScript": "請重新執行工作排程「./console core:archive」指令來重新整理報表。%1$s「查看如何設定報表自動彙整」%2$s",
         "SelectWebsite": "選擇網站",
         "Submit": "送出",
