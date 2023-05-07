@@ -1,25 +1,25 @@
 {
     "VisitorGenerator": {
-        "AreYouSure": "Weet u zeker dat u nepbezoeken wilt genereren?",
-        "AutomaticReprocess": "Het rapport wordt opnieuw gemaakt de volgende keer dat je Matomo rapporteren bezoekt. Dit kan enkele minuten duren.",
-        "ChoiceYes": "Ja, ik weet het zeker!",
-        "CliToolUsage": "Door gebruik te maken van de %1$sMatomo CLI tool%2$s kun je niet alleen meer bezoeken genereren, maar ook gebruikers, websites en goals.",
-        "ConfirmVisitorGeneration": "Bevestig het genereren van bezoekers door de selectie mogelijkheid aan te vinken.",
+        "AreYouSure": "Testbezoeken genereren?",
+        "AutomaticReprocess": "De volgende keer dat je Matomo rapporten bezoekt, zullen deze worden herwerkt. Dit kan enkele minuten duren.",
+        "ChoiceYes": "Ja",
+        "CliToolUsage": "De %1$sMatomo CLI tool%2$s kan niet alleen meer bezoeken genereren, maar ook gebruikers, websites en doelen.",
+        "ConfirmVisitorGeneration": "Vink het vakje aan om te het genereren van bezoekers te bevestigen",
         "CustomMatomoUrl": "Aangepaste Matomo URL",
         "DaysToCompute": "Aantal dagen",
         "GenerateFakeActions": "Dit zal minstens %d nep acties genereren voor deze site, voor iedere dag.",
-        "GeneratedVisitsFor": "Bezoeken gegenereerd voor %1$s en voor de laatste %2$s dagen.",
-        "LogImporterNote": "Er is ook een snellere tool welke grote test data bestanden importeert in Matomo, zie hiervoor %1$sREADME%2$s.",
+        "GeneratedVisitsFor": "Bezoeken gegenereerd voor %1$s en voor de laatste %2$s dagen",
+        "LogImporterNote": "De %1$sREADME%2$s bevat informatie over een snellere tool die grote volumes testgegevens importeert in Matomo.",
         "NbRequestsPerSec": "Verzoeken per seconde",
         "NotReversible": "Het is %1$sniet%2$s mogelijk om deze testgegevens weer eenvoudig te verwijderen uit de Matomo logs.",
         "NumberOfGeneratedActions": "Aantal gegenereerde acties",
-        "OverwriteLogFiles": "De log files die gebruikt zijn om nep bezoeken te genereren kunnen worden overschreven (wijzig of voeg bestanden toe in %s). Er zijn log bestanden van verzoeken aan \"matomo.php\"in het formaat \"Apache combined log\". Plugin ontwikkelaars kunnen hun eigen log files toevoegen door '*.log' bestanden toe te voegen aan de 'data' structuur van hun plugin.",
-        "PleaseBePatient": "Opmerking: Het kan enkele minuten duren om bezoeken en acties te genereren. Wees geduldig…",
-        "PluginDescription": "Creëer namaak bezoeken en acties in Matomo. Dit kan gebruikt worden door Matomo gebruikers of ontwikkelaars als een gemakkelijke manier namaak data te generen om Matomo rapporten te maken.",
-        "ReRunArchiveScript": "Herhaal het crontab './console core:archive' commando om de rapporten te verversen. Kijk hiervoor naar %1$s\"Hoe kun je rapporten Automatisch archiveren\"%2$s.",
+        "OverwriteLogFiles": "Overschrijf de \"matomo.php\" logbestanden om testbezoeken te genereren in het \"Apache combined log\" formaat (bestanden wijzigen of toevoegen in %s). Plugin-ontwikkelaars voegen hun eigen logbestanden toe als '*.log'-bestanden in een 'data'-map van hun plugin.",
+        "PleaseBePatient": "Het genereren van bezoeken en acties kan enkele minuten duren.",
+        "PluginDescription": "Creëer testbezoeken en -acties in Matomo. Genereer testgegevens om Matomo rapporten te vullen.",
+        "ReRunArchiveScript": "Herhaal het crontab './console core:archive' commando om de rapporten te verversen, zoals in %1$s\"Hoe kunt u rapporten automatisch archiveren\"%2$s",
         "SelectWebsite": "Selecteer website",
         "Submit": "Verzenden",
         "VisitorGenerator": "Bezoekers Generator",
-        "Warning": "U staat op het punt om testbezoeken te genereren die opgeslagen zullen worden in uw Matomo database."
+        "Warning": "U staat op het punt om testbezoeken te genereren in uw Matomo database."
     }
 }
