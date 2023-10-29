@@ -13,7 +13,7 @@
         "NbRequestsPerSec": "Bir saniyedeki istek sayısı",
         "NotReversible": "Bu ziyaretler Matomo günlüklerinden kolayca %1$ssilinemeyecek%2$s.",
         "NumberOfGeneratedActions": "Üretilen işlem sayısı",
-        "OverwriteLogFiles": "\"Apache birleştirilmiş günlüğü\" biçiminde sahte ziyaretler oluşturmak için \"matomo.php\" günlük dosyalarının üzerine yazın (%s içindeki dosyaları değiştirin ya da ekleyin). Uygulama eki geliştiricileri, kendi uygulama eklerinde bulunan bir 'data' klasörü altında kendi '*.log' dosyalarını kullanıyor olabilir.",
+        "OverwriteLogFiles": "\"Apache birleştirilmiş günlüğü\" biçiminde sahte ziyaretler oluşturmak için \"matomo.php\" günlük dosyalarının üzerine yazın (%s içindeki dosyaları değiştirin ya da ekleyin). Eklenti geliştiricileri, kendi eklentilerinde bulunan bir 'data' klasörü altında kendi '*.log' dosyalarını kullanıyor olabilir.",
         "PleaseBePatient": "Ziyaret ve işlemlerin oluşturulması bir kaç dakika sürebilir.",
         "PluginDescription": "Matomo üzerine sahte ziyaret ve işlem kayıtları ekler. Matomo raporlarını hazırlamak için sahte veriler oluşturur.",
         "ReRunArchiveScript": "Lütfen raporları yenilemek için zamanlanmış görevi %1$s\"Raporları otomatik olarak arşivlemek\"%2$s bölümünde anlatıldığı şekilde './console core:archive' komutu ile yeniden yürütün",
