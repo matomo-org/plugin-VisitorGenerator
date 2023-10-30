@@ -1,25 +1,25 @@
 {
     "VisitorGenerator": {
-        "AreYouSure": "Êtes-vous sûr(e) de vouloir générer de fausses visites ?",
-        "AutomaticReprocess": "Les rapports seront calculés à nouveau la prochaine fois que afficherez les rapports Matomo, cela peut prendre quelques minutes.",
-        "ChoiceYes": "Oui, ajouter des données inventées à la base de données.",
-        "CliToolUsage": "En utilisation %1$sl'outil en ligne de commande Matomo%2$s vous pouvez non seulement générer encore plus de visites mais aussi d'utilisateurs, sites web et objectifs.",
-        "ConfirmVisitorGeneration": "Veuillez confirmer la génération de visiteur en cochant la case",
+        "AreYouSure": "Générer des visites factices ?",
+        "AutomaticReprocess": "La prochaine fois que vous afficherez les rapports Matomo, ils seront calculés à nouveau. Cela peut prendre quelques minutes.",
+        "ChoiceYes": "Oui",
+        "CliToolUsage": "%1$sL'outil en ligne de commande Matomo%2$s peut non seulement générer davantage de visites, mais aussi d'utilisateurs, de sites web et d'objectifs.",
+        "ConfirmVisitorGeneration": "Veuillez cocher la case pour confirmer la génération d'un visiteur",
         "CustomMatomoUrl": "URL Matomo personnalisée",
         "DaysToCompute": "Jours à calculer",
         "GenerateFakeActions": "Ceci va générer au moins %d fausses actions sur ce site chaque jour.",
         "GeneratedVisitsFor": "Visites générées pour %1$s et pour les derniers %2$s jours",
-        "LogImporterNote": "Il existe un outil plus rapide pour importer des données de test volumineuses dans Matomo, consultez le fichier %1$sLISEZ-MOI%2$s.",
+        "LogImporterNote": "Le fichier %1$sLISEZ-MOI%2$s contient des informations sur un outil pour importer des données de test volumineuses dans Matomo.",
         "NbRequestsPerSec": "Requêtes par seconde",
         "NotReversible": "Il sera %1$s impossible%2$s de supprimer ces visites des logs Matomo.",
         "NumberOfGeneratedActions": "Nombre d'actions générées",
-        "OverwriteLogFiles": "Vous pouvez écraser les fichiers de log qui sont utilisés pour générer les fausses visites (modifiez ou ajoutez des fichiers dans %s). Il y a des fichiers de requêtes vers \"matomo.php\" au format \"log combiné Apache\". Les développeurs de composants additionnels peuvent fournir leurs propres fichiers en plaçant des fichiers '*.log' dans un répertoire 'data' au sein de leur composant.",
-        "PleaseBePatient": "Note : cela peut prendre plusieurs minutes de générer des visites et des actions, veuillez patienter…",
-        "PluginDescription": "Créer des visites et actions de test dans Matomo. Ceci peut être utilisé par les utilisateurs ou développeurs Matomo comme un moyen simple d'obtenir des données simulées pour remplir les rapports Matomo.",
-        "ReRunArchiveScript": "Veuillez ré-exécuter le script d'archivage Matomo archive.php via la crontab afin de rafraîchir les rapports. %1$sConsultez \"Comment mettre en place l'archivage automatique de vos rapports\"%2$s",
+        "OverwriteLogFiles": "Vous pouvez écraser les fichiers de log \"matomo.php\" au format \"log combiné Apache\" utilisés pour générer les visites factices (modifier ou ajouter des fichiers dans %s). Les développeurs de composants additionnels peuvent fournir leurs propres fichiers de log '*.log' dans un répertoire 'data' au sein de leur composant.",
+        "PleaseBePatient": "Générer des visites et des actions peut prendre quelques minutes.",
+        "PluginDescription": "Créer des visites et actions de test dans Matomo. Générer des données simulées pour remplir les rapports Matomo.",
+        "ReRunArchiveScript": "Veuillez exécuter à nouveau la tâche planifiée crontab './console core:archive' afin de rafraîchir les rapports, comme le prévoit la documentation %1$s\"Comment mettre en place l'archivage automatique de vos rapports\"%2$s",
         "SelectWebsite": "Sélectionner le site Web",
         "Submit": "Soumettre",
         "VisitorGenerator": "Générateur de visites",
-        "Warning": "Vous êtes sur le point de générer des visites test qui seront enregistrées dans votre base de donnés Matomo."
+        "Warning": "Vous êtes sur le point de générer des visites factices qui seront enregistrées dans votre base de donnés Matomo."
     }
 }
