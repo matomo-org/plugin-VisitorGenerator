@@ -24,7 +24,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { translate, ContentBlock } from 'CoreHome';
+import { translate, ContentBlock, externalLink } from 'CoreHome';
 
 export default defineComponent({
   props: {
@@ -55,10 +55,9 @@ export default defineComponent({
   },
   computed: {
     reRunArchiveScriptText() {
-      const link = 'https://matomo.org/docs/setup-auto-archiving/';
       return translate(
         'VisitorGenerator_ReRunArchiveScript',
-        `<a href="${link}" rel="noreferrer noopener" target="_blank">`,
+        externalLink('https://matomo.org/docs/setup-auto-archiving/'),
         '</a>',
       );
     },

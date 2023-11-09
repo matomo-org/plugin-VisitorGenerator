@@ -70,6 +70,7 @@ import {
   ContentBlock,
   Alert,
   MatomoUrl,
+  externalLink,
 } from 'CoreHome';
 import { Field } from 'CorePluginsAdmin';
 
@@ -110,10 +111,9 @@ export default defineComponent({
   },
   computed: {
     cliToolUsageText() {
-      const link = 'http://developer.matomo.org/guides/piwik-on-the-command-line';
       return translate(
         'VisitorGenerator_CliToolUsage',
-        `<a rel="noreferrer noopener" target="_blank" href="${link}">`,
+        externalLink('http://developer.matomo.org/guides/piwik-on-the-command-line'),
         '</a>',
       );
     },
@@ -125,10 +125,9 @@ export default defineComponent({
       })}`;
     },
     logImporterNoteText() {
-      const link = 'https://github.com/matomo-org/matomo/tree/master/tests#testing-data';
       return translate(
         'VisitorGenerator_LogImporterNote',
-        `<a href="${link}" rel="noreferrer noopener" target="_blank">`,
+        externalLink('https://github.com/matomo-org/matomo/tree/master/tests#testing-data'),
         '</a>',
       );
     },
