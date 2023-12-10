@@ -1,1 +1,15 @@
-{}
+{
+    "VisitorGenerator": {
+        "AreYouSure": "Bisita faltsuak sortu?",
+        "ChoiceYes": "Bai",
+        "CustomMatomoUrl": "Matomoren URL pertsonalizatua",
+        "NbRequestsPerSec": "Eskaerak segundoko",
+        "NotReversible": "%1$sEz%2$s da modu errazik egongo bisita hauek Matomoren egunkarietatik ezabatzeko.",
+        "NumberOfGeneratedActions": "Sortutako ekintza kopurua",
+        "PluginDescription": "Sortu bisita eta ekintza faltsuak Matomon. Sortu datu faltsuak Matomo txostenak betetzeko.",
+        "SelectWebsite": "Hautatu webgunea",
+        "Submit": "Bidali",
+        "VisitorGenerator": "Bisitari sortzailea",
+        "Warning": "Zure Matomo datu-basean bisita faltsuak sortzera zoaz."
+    }
+}
