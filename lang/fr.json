@@ -11,7 +11,7 @@
         "GeneratedVisitsFor": "Visites générées pour %1$s et pour les derniers %2$s jours",
         "LogImporterNote": "Le fichier %1$sLISEZ-MOI%2$s contient des informations sur un outil pour importer des données de test volumineuses dans Matomo.",
         "NbRequestsPerSec": "Requêtes par seconde",
-        "NotReversible": "Il sera %1$s impossible%2$s de supprimer ces visites des logs Matomo.",
+        "NotReversible": "Il ne sera %1$s pas%2$s possible de supprimer facilement ces visites des fichiers journaux Matomo.",
         "NumberOfGeneratedActions": "Nombre d'actions générées",
         "OverwriteLogFiles": "Vous pouvez écraser les fichiers de log \"matomo.php\" au format \"log combiné Apache\" utilisés pour générer les visites factices (modifier ou ajouter des fichiers dans %s). Les développeurs de composants additionnels peuvent fournir leurs propres fichiers de log '*.log' dans un répertoire 'data' au sein de leur composant.",
         "PleaseBePatient": "Générer des visites et des actions peut prendre quelques minutes.",
