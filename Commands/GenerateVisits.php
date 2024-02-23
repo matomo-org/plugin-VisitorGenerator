@@ -111,7 +111,7 @@ class GenerateVisits extends ConsoleCommand
         return rand(400, 1000);
     }
 
-    private function checkDays()
+    protected function checkDays()
     {
         $days = (int)$this->getInput()->getOption('days');
 
@@ -135,7 +135,7 @@ class GenerateVisits extends ConsoleCommand
         return $customMatomoUrl;
     }
 
-    private function getIdSite()
+    protected function getIdSite()
     {
         $idSite = $this->getInput()->getOption('idsite');
 
