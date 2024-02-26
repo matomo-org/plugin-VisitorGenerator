@@ -9,10 +9,13 @@ class VisitFakeQuery
     private $campaigns = [];
     private $referers = [];
 
-    CONST RETURN_VISITOR_POOL_SIZE = 10000;
-    CONST ACTIONS_POOL_SIZE = 1000000;
+    private $returnVisitorPoolSize = 10000;
+    private $actionsPoolSize = 1000000;
 
-    public function __construct() {
+    public function __construct(int $actionsPoolSize = 1000000, int $returnVisitorPoolSize = 10000)
+    {
+        $this->actionsPoolSize = $actionsPoolSize;
+        $this->returnVisitorPoolSize = $returnVisitorPoolSize;
 
         $keywords = ['books','reading','pages','story','fiction','author'];
         $medium = ['ppc','website','email'];
@@ -54,7 +57,7 @@ class VisitFakeQuery
 
         // Choose an existing actionsUrl 50% of the time if there are at least 100 in the pool
         // or 100% of the time if the pool is full
-        if (count($this->actionsUrl) > 100 && (rand(0, 100) < 50 || count($this->actionsUrl) >= self::ACTIONS_POOL_SIZE)) {
+        if (count($this->actionsUrl) > 100 && (rand(0, 100) < 50 || count($this->actionsUrl) >= $this->actionsPoolSize)) {
            return $this->actionsUrl[array_rand($this->actionsUrl)];
         }
 
@@ -72,7 +75,7 @@ class VisitFakeQuery
      * @return string
      * @throws \Exception
      */
-    public function getVisitor(int $chanceReturning) : string
+    public function getVisitor(int $chanceReturning): string
     {
         if (rand(0,100) <= $chanceReturning && count($this->returnUserIds) > 0) {
             return $this->returnUserIds[array_rand($this->returnUserIds)];
@@ -81,14 +84,14 @@ class VisitFakeQuery
         $idvisitor = random_bytes(8);
 
         // 1% chance to update a return user id if the pool is full
-        if (count($this->returnUserIds) >= self::RETURN_VISITOR_POOL_SIZE && rand(0,100) === 1) {
+        if (count($this->returnUserIds) >= $this->returnVisitorPoolSize && rand(0,100) === 1) {
 
             // Never replace the early return visitors, we want some selects at the quiet end of the index
-            $this->returnUserIds[rand(self::RETURN_VISITOR_POOL_SIZE/10,self::RETURN_VISITOR_POOL_SIZE)] = $idvisitor;
+            $this->returnUserIds[rand($this->returnVisitorPoolSize / 10, $this->returnVisitorPoolSize)] = $idvisitor;
         }
 
         // If ppol is not full then add this id
-        if (count($this->returnUserIds)< self::RETURN_VISITOR_POOL_SIZE) {
+        if (count($this->returnUserIds) < $this->returnVisitorPoolSize) {
             $this->returnUserIds[] = $idvisitor;
         }
 
@@ -255,7 +258,6 @@ class VisitFakeQuery
             ];
 
         return ['sql' => $sql, 'bind' => $bind];
-
     }
 
     public function getUpdateVisitQuery(int $idvisit, string $firstActionTime, int $timestamp, int $site)
@@ -320,7 +322,7 @@ class VisitFakeQuery
     {
 
         $sql = "
-        INSERT INTO log_conversion (idvisit, idsite, idvisitor, server_time, idaction_url, idlink_va, idgoal, buster,
+        INSERT IGNORE INTO log_conversion (idvisit, idsite, idvisitor, server_time, idaction_url, idlink_va, idgoal, buster,
             url, revenue, visitor_count_visits, visitor_returning, visitor_seconds_since_first, config_browser_name,
             config_client_type, config_device_brand, config_device_model, config_device_type)
         VALUES (:idvisit, :idsite, :idvisitor, :server_time, :idaction_url, :idlink_va, :idgoal, :buster,
