@@ -116,7 +116,7 @@ class GenerateVisitsDb extends GenerateVisits
 
         $jsonSummary = $input->getOption('json-summary');
         if (!$jsonSummary) {
-            $output->writeln("Generating data for " . $days . " days...");
+            $this->log("Generating data for " . $days . " days...");
         }
 
         while ($time <= $startTime) {
@@ -130,13 +130,13 @@ class GenerateVisitsDb extends GenerateVisits
             $conversionsTotal += $stats['conversions'];
 
             if ($this->verbosity > 0) {
-                $output->writeln([
+                $this->log(
                     sprintf("%s:", Date::factory($time)->toString()).
                     "  Visits: ".str_pad($this->formatter->format($stats['visits']), 8, ' ', STR_PAD_LEFT).
                     "  Visit Actions: ".str_pad($this->formatter->format($stats['visitActions']), 8, ' ', STR_PAD_LEFT).
                     "  Actions: ".str_pad($this->formatter->format($stats['actions']), 8, ' ', STR_PAD_LEFT).
                     "  Conversions: ".str_pad($this->formatter->format($stats['conversions']), 8, ' ', STR_PAD_LEFT)
-                ]);
+                );
             }
 
             $time += 86400;
@@ -152,7 +152,7 @@ class GenerateVisitsDb extends GenerateVisits
 
         if ($jsonSummary) {
             sleep(1);
-            $output->writeln('|' . json_encode($summary));
+            $this->log('|' . json_encode($summary), 0);
         } else {
             $this->writeSummary($idSite, $summary);
         }
@@ -177,15 +177,13 @@ class GenerateVisitsDb extends GenerateVisits
             ];
 
         // Start threads
-        $output->writeln($threads. " threads requested");
+        $this->log($threads. " threads requested");
         $processList = [];
-        $output->write("Starting threads");
+        $this->log("Starting threads", 0, false);
         $threadsComplete = [];
         for ($t = 1; $t < $threads + 1; $t++) {
 
-            if ($this->verbosity > 2) {
-                $output->writeln(implode(' ', $command));
-            }
+            $this->log(implode(' ', $command), 2);
 
             $process = new SymponyProcess($command);
             $processList[$t] = $process;
@@ -203,9 +201,9 @@ class GenerateVisitsDb extends GenerateVisits
                     $output->write($buffer);
                 }
             });
-            $output->write(".");
+            $this->log(".", 0, false);
         }
-        $output->writeln(' [' . $threads . " threads were started]");
+        $this->log(' [' . $threads . " threads were started]");
         $threadsAreRunning = true;
 
         // Monitor threads and wait for completion
@@ -244,7 +242,7 @@ class GenerateVisitsDb extends GenerateVisits
         $cliPhp = new CliPhp();
         $phpBinary = $cliPhp->findPhpBinary();
         if (!$phpBinary) {
-            $output->writeln('Failed to find PHP binary');
+            $this->log('Failed to find PHP binary', 0);
             return null;
         }
         $phpBinary = rtrim($phpBinary, ' -q');
@@ -361,7 +359,6 @@ class GenerateVisitsDb extends GenerateVisits
     private function generate(int $time, int $idSite, int $limit): array
     {
         $input = $this->getInput();
-        $output = $this->getOutput();
         $conversionPercent = $input->getOption('conversion-percent');
         $actionCountMin = $input->getOption('min-actions');
         $actionCountMax = $input->getOption('max-actions');
@@ -369,9 +366,7 @@ class GenerateVisitsDb extends GenerateVisits
         $requestCount = 0;
         $queryGenerator = new VisitFakeQuery($this->actionsPoolSize);
 
-        if ($this->verbosity == 0) {
-            $output->write(".");
-        }
+        $this->log(".", 0, false, true);
 
         $stats = [
             'visits' => 0,
@@ -399,9 +394,7 @@ class GenerateVisitsDb extends GenerateVisits
                 $findActionQuery = $queryGenerator->getCheckActionExistsQuery($actionUrl);
                 $actionRows = $this->query($findActionQuery, true);
                 if (count($actionRows) === 0) {
-                    if ($this->verbosity === 3) {
-                        $output->writeln("New action, doing insert...");
-                    }
+                    $this->log("New action, doing insert...", 3);
                     $stats['actions']++;
 
                     // Insert new action
@@ -416,27 +409,20 @@ class GenerateVisitsDb extends GenerateVisits
 
             // Get random visitor id (10% chance of a returning visitor id)
             $idvisitor = $queryGenerator->getVisitor(10);
-            if ($this->verbosity == 3) {
-                $output->writeln("Got idvisitor '".bin2hex($idvisitor)."'");
-            }
+            $this->log("Got idvisitor '".bin2hex($idvisitor)."'", 3);
 
             // Check if visit exists in db, create new visit if not
             $findVisitorQuery = $queryGenerator->getCheckIfNewVisitorQuery($idvisitor, $idSite);
             $visitorRows = $this->query($findVisitorQuery, true);
 
             if (count($visitorRows) == 0) {
-
-                if ($this->verbosity == 3) {
-                    $output->write("New visitor, doing insert...");
-                }
+                $this->log("New visitor, doing insert...", 3);
 
                 // Insert new visit
                 $insertVisitorQuery = $queryGenerator->getInsertVisitorQuery($idvisitor, reset($idactions), $timestampUTC, $idSite);
                 $visitorRows = $this->query($insertVisitorQuery, false);
                 $idvisit = $this->pdo->lastInsertId();
-                if ($this->verbosity == 3) {
-                    $output->writeln($idvisit);
-                }
+                $this->log($idvisit, 3, true);
             } else {
                 $idvisit = $visitorRows[0]->idvisit;
 
@@ -444,9 +430,7 @@ class GenerateVisitsDb extends GenerateVisits
                 $visitFirstTime = strtotime($visitorRows[0]->visit_first_action_time);
                 $timestampUTC = rand($visitFirstTime, $time + 86000);
 
-                if ($this->verbosity == 3) {
-                    $output->writeln("Existing visitor, updating...");
-                }
+                $this->log("Existing visitor, updating...", 3);
 
                 // Update visit
                 $updateVisitQuery = $queryGenerator->getUpdateVisitQuery($idvisit, $visitorRows[0]->visit_first_action_time, $timestampUTC, $idSite);
@@ -455,18 +439,13 @@ class GenerateVisitsDb extends GenerateVisits
             }
             $stats['visits']++;
 
-            if ($this->verbosity == 3) {
-                $output->writeln("idvisit is " . $idvisit);
-            }
+            $this->log("idvisit is " . $idvisit, 3);
 
             // Insert the action link(s)
             $idlinkva = null;
             foreach($idactions as $idaction) {
                 if ($idvisit && $idaction) {
-
-                    if ($this->verbosity == 3) {
-                        $output->writeln("Inserting action link...");
-                    }
+                    $this->log("Inserting action link...", 3);
 
                     // Random time between visit time and end of day
                     $actionTime = rand($timestampUTC, $timestampUTC + ((($timestampUTC + 86399) - $time)));
@@ -480,9 +459,7 @@ class GenerateVisitsDb extends GenerateVisits
             // TODO support multiple conversions in one visit?
             // Insert conversion (conversion will always use the last idlinkva if there are multiple actions
             if ($idlinkva && $conversionPercent > 0 && (rand(0, 100) < $conversionPercent)) {
-                if ($this->verbosity == 3) {
-                    $output->writeln("Inserting conversion...");
-                }
+                $this->log("Inserting conversion...", 3);
                 $insertConversionQuery = $queryGenerator->getInsertConversionQuery($idvisitor, $idvisit, end($idactions), $actionUrl, $timestampUTC,
                     $idlinkva, $this->siteGoals[array_rand($this->siteGoals)], $idSite);
                 $this->query($insertConversionQuery, false);
@@ -503,7 +480,7 @@ class GenerateVisitsDb extends GenerateVisits
      *
      * @return array|null
      */
-    private function query(array $query, $result = false): ?array
+    private function query(array $query, bool $result = false): ?array
     {
         if (isset($this->prepareCache[$query['sql']])) {
             if (!is_array($query['bind'])) {
@@ -522,4 +499,24 @@ class GenerateVisitsDb extends GenerateVisits
         return null;
     }
 
+    /**
+     * Output a log message
+     *
+     * @param string $message           Message to display
+     * @param int    $verbosityLevel    Verbosity level at which this message should be shown, otherwise ignore
+     * @param bool   $newLine           Write a new line
+     * @param bool   $onlyThislevel     Only show the message for this exact verbosity level
+     *
+     * @return void
+     */
+    private function log(string $message, int $verbosityLevel = 0, bool $newLine = true, bool $onlyThislevel = false): void
+    {
+        if ((!$onlyThislevel && $verbosityLevel <= $this->verbosity) || ($onlyThislevel && $verbosityLevel == $this->verbosity)) {
+            if ($newLine) {
+                $this->getOutput()->writeln($message);
+            } else {
+                $this->getOutput()->write($message);
+            }
+        }
+    }
 }
