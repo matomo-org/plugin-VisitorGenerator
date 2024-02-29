@@ -192,10 +192,12 @@ class GenerateVisitsDb extends GenerateVisits
                 if (strpos($buffer, '|') !== false) {
                     // Record summary
                     $json = json_decode(trim($buffer, "| \n\r"),true);
-                    $grandSummary['visits'] += $json['visits'];
-                    $grandSummary['visitActions'] += $json['visitActions'];
-                    $grandSummary['actions'] += $json['actions'];
-                    $grandSummary['conversions'] += $json['conversions'];
+                    if (is_array($json)) {
+                        $grandSummary['visits'] += $json['visits'];
+                        $grandSummary['visitActions'] += $json['visitActions'];
+                        $grandSummary['actions'] += $json['actions'];
+                        $grandSummary['conversions'] += $json['conversions'];
+                    }
                 } else {
                     // Normal processing output
                     $output->write($buffer);
@@ -340,7 +342,7 @@ class GenerateVisitsDb extends GenerateVisits
             if ($randomPercent > 0) {
                 $limit = rand(floor($limit - ($limit * ($randomPercent / 100))), ceil($limit + ($limit * ($randomPercent / 100))));
             }
-            return $limit;
+            return (int) $limit;
         }
         return rand(400, 1000);
     }
@@ -360,6 +362,9 @@ class GenerateVisitsDb extends GenerateVisits
     {
         $input = $this->getInput();
         $conversionPercent = $input->getOption('conversion-percent');
+        if (count($this->siteGoals) == 0) {
+            $conversionPercent = 0; // Disable conversion attempts if there are no goals for the site
+        }
         $actionCountMin = $input->getOption('min-actions');
         $actionCountMax = $input->getOption('max-actions');
 
