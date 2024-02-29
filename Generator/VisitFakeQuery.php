@@ -2,6 +2,8 @@
 
 namespace Piwik\Plugins\VisitorGenerator\Generator;
 
+use Piwik\Common;
+
 class VisitFakeQuery
 {
     private $returnUserIds = [];
@@ -102,7 +104,7 @@ class VisitFakeQuery
     {
 
         $sql = "SELECT `idaction`, `type`, `name` 
-                FROM log_action 
+                FROM " . Common::prefixTable('log_action') . " 
                 WHERE ( hash = CRC32(:name) AND name = :name AND type = 1) OR ( hash = CRC32(:name) AND name = :name AND type = 1)";
 
         $bind = [
@@ -113,7 +115,7 @@ class VisitFakeQuery
 
     public function getInsertActionQuery(string $actionUrl): array
     {
-        $sql = "INSERT INTO log_action (name, hash, type, url_prefix) VALUES (:name, CRC32(:name), 1, null);";
+        $sql = "INSERT INTO " . Common::prefixTable('log_action') . "  (name, hash, type, url_prefix) VALUES (:name, CRC32(:name), 1, null);";
         $bind = [
             ':name' => $actionUrl
         ];
@@ -132,7 +134,7 @@ class VisitFakeQuery
          visit_entry_idaction_url, visit_total_actions, visit_total_interactions, visit_total_searches, referer_url, config_browser_name,
          config_client_type, config_device_brand, config_device_model, config_device_type, visit_total_events, visit_total_time, location_ip,
          location_browser_lang, last_idlink_va, custom_dimension_1, custom_dimension_2, custom_dimension_3, custom_dimension_4, custom_dimension_5
-         FROM log_visit 
+         FROM " . Common::prefixTable('log_visit') . " 
          WHERE idsite = :site AND visit_last_action_time >= :lastaction AND idvisitor = UNHEX(:idvisitor) ORDER BY visit_last_action_time DESC LIMIT 1";
 
         // Removed FORCE INDEX (index_idsite_idvisitor)
@@ -170,7 +172,7 @@ class VisitFakeQuery
     {
 
         $sql = "
-        INSERT INTO log_visit (idvisitor, config_id, location_ip, idsite, profilable, visit_first_action_time, 
+        INSERT INTO " . Common::prefixTable('log_visit') . "  (idvisitor, config_id, location_ip, idsite, profilable, visit_first_action_time, 
                                       visit_goal_buyer, visit_goal_converted, visit_last_action_time, visitor_returning,
                                       visitor_seconds_since_first, visitor_seconds_since_order, visitor_count_visits, 
                                       visit_entry_idaction_name, visit_entry_idaction_url, visit_exit_idaction_name, 
@@ -263,7 +265,7 @@ class VisitFakeQuery
     public function getUpdateVisitQuery(int $idvisit, string $firstActionTime, int $timestamp, int $site)
     {
         $sql = "
-         UPDATE log_visit
+         UPDATE " . Common::prefixTable('log_visit') . " 
          SET profilable = 1, visit_last_action_time = :lastaction, visitor_seconds_since_order = 0, visit_exit_idaction_name = null, 
              visit_exit_idaction_url = null, visit_total_actions = visit_total_actions + 1, 
              visit_total_interactions = visit_total_interactions + 1 , visit_total_time = :visittotaltime
@@ -288,7 +290,7 @@ class VisitFakeQuery
     public function getInsertActionLinkQuery(string $idvisitor, int $idvisit, string $idaction, int $timestamp, int $site): array
     {
         $sql = "
-        INSERT INTO log_link_visit_action (idvisit, idsite, idvisitor, idaction_url, idaction_url_ref, idaction_name_ref,
+        INSERT INTO " . Common::prefixTable('log_link_visit_action') . "  (idvisit, idsite, idvisitor, idaction_url, idaction_url_ref, idaction_name_ref,
         server_time, idpageview, pageview_position, time_spent_ref_action, time_dom_processing, time_network, time_server, 
         time_transfer, idaction_name)
         VALUES (:idvisit, :idsite, :idvisitor, :idaction_url, :idaction_url_ref, :idaction_name_ref,
@@ -322,7 +324,7 @@ class VisitFakeQuery
     {
 
         $sql = "
-        INSERT IGNORE INTO log_conversion (idvisit, idsite, idvisitor, server_time, idaction_url, idlink_va, idgoal, buster,
+        INSERT IGNORE INTO " . Common::prefixTable('log_conversion') . "  (idvisit, idsite, idvisitor, server_time, idaction_url, idlink_va, idgoal, buster,
             url, revenue, visitor_count_visits, visitor_returning, visitor_seconds_since_first, config_browser_name,
             config_client_type, config_device_brand, config_device_model, config_device_type)
         VALUES (:idvisit, :idsite, :idvisitor, :server_time, :idaction_url, :idlink_va, :idgoal, :buster,
