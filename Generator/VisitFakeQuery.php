@@ -2,7 +2,11 @@
 
 namespace Piwik\Plugins\VisitorGenerator\Generator;
 
+use Faker\Generator;
 use Piwik\Common;
+use Faker\Provider\Miscellaneous as FakerMisc;
+use Faker\Provider\Internet as FakerInternet;
+use Piwik\Plugins\VisitorGenerator\Faker\Request AS FakerRequest;
 
 class VisitFakeQuery
 {
@@ -14,10 +18,17 @@ class VisitFakeQuery
     private $returnVisitorPoolSize = 10000;
     private $actionsPoolSize = 1000000;
 
+    /** @var FakerInternet */
+    private $fakerInternet;
+    /** @var FakerRequest */
+    private $fakerRequest;
+
     public function __construct(int $actionsPoolSize = 1000000, int $returnVisitorPoolSize = 10000)
     {
         $this->actionsPoolSize = $actionsPoolSize;
         $this->returnVisitorPoolSize = $returnVisitorPoolSize;
+        $this->fakerInternet = new FakerInternet(new Generator());
+        $this->fakerRequest = new FakerRequest(new Generator());
 
         $keywords = ['books','reading','pages','story','fiction','author'];
         $medium = ['ppc','website','email'];
@@ -125,7 +136,6 @@ class VisitFakeQuery
 
     public function getCheckIfNewVisitorQuery(string $idvisitor, int $site): array
     {
-
         $timeLookback = date('Y-m-d H:i:s', time() - 1800);
 
         $sql = "SELECT visit_last_action_time, visit_first_action_time, idvisitor, idvisit, user_id, visit_exit_idaction_url, visit_exit_idaction_name,
@@ -137,35 +147,32 @@ class VisitFakeQuery
          FROM " . Common::prefixTable('log_visit') . " 
          WHERE idsite = :site AND visit_last_action_time >= :lastaction AND idvisitor = UNHEX(:idvisitor) ORDER BY visit_last_action_time DESC LIMIT 1";
 
-        // Removed FORCE INDEX (index_idsite_idvisitor)
-
         $bind = [':lastaction' => $timeLookback, ':idvisitor' => bin2hex($idvisitor), ':site' => $site];
         return ['sql' => $sql, 'bind' => $bind];
     }
 
     public function getRandomIP() : string
     {
-        $ipString = rand(1,254).'.'.rand(1,254).'.'.rand(1,254).'.'.rand(1,254);
+        $ipString = (rand(1,100) < 78 ? $this->fakerInternet->ipv4() : $this->fakerInternet->ipv6());
+
         $ip = @inet_pton($ipString);
         return $ip === false ? "\x00\x00\x00\x00" : $ip;
     }
 
     public function getRandomLang() : string
     {
-        $langs = ['ab','aa','af','ak','sq','am','ar','an','hy','as','av','ae','ay','az','bm','ba','eu','be','bn','bh','bi','bs','br','bg','my','ca','km','ch','ce','ny','zh','cu','cv','kw','co','cr','hr','cs','da','dv','nl','dz','en','eo','et','ee','fo','fj','fi','fr','ff','gd','gl','lg','ka','de','ki','el','kl','gn','gu','ht','ha','he','hz','hi','ho','hu','is','io','ig','id','ia','ie','iu','ik','ga','it','ja','jv','kn','kr','ks','kk','rw','kv','kg','ko','kj','ku','ky','lo','la','lv','lb','li','ln','lt','lu','mk','mg','ms','ml','mt','gv','mi','mr','mh','ro','mn','na','nv','nd','ng','ne','se','no','nb','nn','ii','oc','oj','or','om','os','pi','pa','ps','fa','pl','pt','qu','rm','rn','ru','sm','sg','sa','sc','sr','sn','sd','si','sk','sl','so','st','nr','es','su','sw','ss','sv','tl','ty','tg','ta','tt','te','th','bo','ti','to','ts','tn','tr','tk','tw','ug','uk','ur','uz','ve','vi','vo','wa','cy','fy','wo','xh','yi','yo','za','zu'];
-        return $langs[array_rand($langs)];
+        return FakerMisc::languageCode();
     }
 
     public function getRandomResolution() : string
     {
-        $res = ['1024x768', '1600x1200', '2048x1536','1280x720','1366x768','1600x900','1920x1080','2560x1440','1280x800','1440x900','1680x1050','1920x1200','2560x1600'];
+        $res = $this->fakerRequest->resolution();
         return $res[array_rand($res)];
     }
 
     public function getRandomCountryA2() : string
     {
-        $a2s = ['AD','AE','AF','AG','AI','AL','AM','AO','AQ','AR','AS','AT','AU','AW','AX','AZ','BA','BB','BD','BE','BF','BG','BH','BI','BJ','BL','BM','BN','BO','BQ','BR','BS','BT','BV','BW','BY','BZ','CA','CC','CD','CF','CG','CH','CI','CK','CL','CM','CN','CO','CR','CU','CV','CW','CX','CY','CZ','DE','DJ','DK','DM','DO','DZ','EC','EE','EG','EH','ER','ES','ET','FI','FJ','FK','FM','FO','FR','GA','GB','GD','GE','GF','GG','GH','GI','GL','GM','GN','GP','GQ','GR','GS','GT','GU','GW','GY','HK','HM','HN','HR','HT','HU','ID','IE','IL','IM','IN','IO','IQ','IR','IS','IT','JE','JM','JO','JP','KE','KG','KH','KI','KM','KN','KP','KR','KW','KY','KZ','LA','LB','LC','LI','LK','LR','LS','LT','LU','LV','LY','MA','MC','MD','ME','MF','MG','MH','MK','ML','MM','MN','MO','MP','MQ','MR','MS','MT','MU','MV','MW','MX','MY','MZ','NA','NC','NE','NF','NG','NI','NL','NO','NP','NR','NU','NZ','OM','PA','PE','PF','PG','PH','PK','PL','PM','PN','PR','PS','PT','PW','PY','QA','RE','RO','RS','RU','RW','SA','SB','SC','SD','SE','SG','SH','SI','SJ','SK','SL','SM','SN','SO','SR','SS','ST','SV','SX','SY','SZ','TC','TD','TF','TG','TH','TJ','TK','TL','TM','TN','TO','TR','TT','TV','TW','TZ','UA','UG','UM','US','UY','UZ','VA','VC','VE','VG','VI','VN','VU','WF','WS','YE','YT','ZA','ZM','ZW'];
-        return strtolower($a2s[array_rand($a2s)]);
+        return strtolower(FakerMisc::countryCode());
     }
 
     public function getInsertVisitorQuery(string $idvisitor, string $entryActionUrlId, int $timestamp, int $site): array
