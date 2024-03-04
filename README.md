@@ -22,10 +22,12 @@ Note: you need to first enable the Development mode in Matomo. In the root direc
 It also adds the following commands to the [Matomo CLI tool](http://developer.matomo.org/guides/piwik-on-the-command-line):
 
 * Generate visits
+
 * Generate goals
 * Generate users
 * Generate websites
 * Generate annotation
+* Generate visits directly to database
 * Shorten log file
 * Anonymize log file
 
@@ -39,10 +41,13 @@ It also adds the following commands to the [Matomo CLI tool](http://developer.ma
 * `./console visitorgenerator:anonymize-log /path/to/log` takes an Apache log file, anonymizes it and places it in a data directory so it will be replayed the next time "generate-visits" is executed
 * `./console visitorgenerator:shorten-log /path/to/file.log > file.short.log` takes a large Apache log file and keeps only a small number of logs per day
 * `./console visitorgenerator:generate-visits --idsite 5 --custom-matomo-url=http://example.com/` Uses 'http://example.com/' as Matomo-URL and generates many visits for site with id 5 for today
+* * `./console visitorgenerator:generate-visits-db --idsite 5 --limit-visits=200 --days=3 --threads=8` generate 200 visits per day for the last three days directly in the database, using 8 threaded processes
 
 #### Other notes
 
 VisitorGenerator makes a lot of requests to the Matomo tracking API to send the visits, so if your server blocks requests based on rules (e.g. with mod_security), you might want to create an exception rule for VisitorGenerator.
+
+Alternatively you can generate visit test data quickly without using the tracker at all using the `generate-visits-db` option. 
 
 ## Using it in Matomo for WordPress
 
