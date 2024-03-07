@@ -3,7 +3,7 @@
         "AreYouSure": "Gerar visitas falsas?",
         "AutomaticReprocess": "Da próxima vez que você visitar os relatórios do Matomo, eles serão reprocessados. Isso pode levar alguns minutos.",
         "ChoiceYes": "Sim",
-        "CliToolUsage": "A ferramenta %1$sMatomo CLI%2$s pode não só gerar ainda mais visitas, mas também usuários, sites e metas.",
+        "CliToolUsage": "A ferramenta %1$sMatomo CLI%2$s pode não só gerar ainda mais visitas, mas também utilizadores, sites e objetivos.",
         "ConfirmVisitorGeneration": "Marque a caixa para confirmar a geração do visitante",
         "CustomMatomoUrl": "Endereço personalizado do Matomo",
         "DaysToCompute": "Dias a computar",
