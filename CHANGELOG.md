@@ -51,3 +51,5 @@
   * Ensure console commands return integers
 - 5.0.0
   * Compatibility with Matomo 5
+- 5.0.1
+  * Added generate-visits-db command to directly insert visits into the db
