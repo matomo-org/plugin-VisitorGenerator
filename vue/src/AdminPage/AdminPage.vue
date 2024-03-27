@@ -127,7 +127,7 @@ export default defineComponent({
     logImporterNoteText() {
       return translate(
         'VisitorGenerator_LogImporterNote',
-        externalLink('https://github.com/matomo-org/matomo/tree/master/tests#testing-data'),
+        externalLink('https://plugins.matomo.org/VisitorGenerator'),
         '</a>',
       );
     },
