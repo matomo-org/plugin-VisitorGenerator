@@ -53,3 +53,5 @@
   * Compatibility with Matomo 5
 - 5.0.1
   * Added generate-visits-db command to directly insert visits into the db
+- 5.0.2
+  * Updated README url in UI
