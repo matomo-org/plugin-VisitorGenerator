@@ -55,3 +55,5 @@
   * Added generate-visits-db command to directly insert visits into the db
 - 5.0.2
   * Updated README url in UI
+- 5.0.3
+  * Added plugin category for Marketplace
