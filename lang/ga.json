@@ -1,1 +1,25 @@
-{}
+{
+    "VisitorGenerator": {
+        "AreYouSure": "Gin cuairteanna bréige?",
+        "AutomaticReprocess": "An chéad uair eile a thugann tú cuairt ar thuairiscí Matomo déanfar iad a athphróiseáil. Seans go dtógfaidh sé seo cúpla nóiméad.",
+        "ChoiceYes": "Tá",
+        "CliToolUsage": "Ní hamháin gur féidir le huirlis %1$sMatomo CLI%2$s níos mó cuairteanna a ghiniúint, ach is féidir le húsáideoirí, suíomhanna Gréasáin agus spriocanna freisin.",
+        "ConfirmVisitorGeneration": "Cuir tic sa bhosca le do thoil chun gineadh cuairteoirí a dhearbhú",
+        "CustomMatomoUrl": "URL saincheaptha Matomo",
+        "DaysToCompute": "Laethanta a ríomh",
+        "GenerateFakeActions": "Ginfidh sé seo ar a laghad %d gníomh bréige ar an suíomh seo gach lá.",
+        "GeneratedVisitsFor": "Gineadh cuairteanna le %1$s agus le %2$s lá anuas",
+        "LogImporterNote": "Tá eolas ag %1$sREADME%2$s ar uirlis níos tapúla a iompórtálann sonraí tástála móra i Matomo.",
+        "NbRequestsPerSec": "Iarratais in aghaidh an tsoicind",
+        "NotReversible": "Ní bheidh %1$s %2$s in ann na cuairteanna seo a scriosadh go héasca ó logaí Matomo.",
+        "NumberOfGeneratedActions": "Líon na ngníomhartha ginte",
+        "OverwriteLogFiles": "Forscríobh na logchomhaid \"matomo.php\" chun cuairteanna bréige a chruthú san fhormáid \"loga comhcheangailte Apache\" (athraigh nó cuir comhaid i %s). Cuireann forbróirí breiseán a gcomhaid loga féin isteach mar chomhaid '*.log' i bhfillteán 'sonraí' dá mbreiseán.",
+        "PleaseBePatient": "Féadfaidh cúpla nóiméad a ghlacadh chun cuairteanna agus gníomhartha a ghiniúint.",
+        "PluginDescription": "Cruthaigh cuairteanna agus gníomhartha falsa i Matomo. Gin sonraí falsa chun tuarascálacha Matomo a líonadh.",
+        "ReRunArchiveScript": "Rith an t-ordú crontab './console core:archive' arís chun na tuairiscí a athnuachan, de réir %1$s\"Conas cartlannú uathoibríoch do thuairiscí a shocrú\"%2$s",
+        "SelectWebsite": "Roghnaigh suíomh Gréasáin",
+        "Submit": "Cuir isteach",
+        "VisitorGenerator": "Gineadóir Cuairteoirí",
+        "Warning": "Tá tú ar tí cuairteanna bréige a ghiniúint do do bhunachar sonraí Matomo."
+    }
+}
