@@ -1,6 +1,5 @@
 {
     "require": {
-        "fzaninotto/faker": "dev-master",
-        "symfony/process": "^5.4.0"
+        "fzaninotto/faker": "dev-master"
     }
 }
