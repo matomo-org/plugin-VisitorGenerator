@@ -10,18 +10,18 @@
 namespace Piwik\Plugins\VisitorGenerator\Commands;
 
 use PDO;
+use Piwik\CliMulti\CliPhp;
 use Piwik\Common;
+use Piwik\Config;
 use Piwik\Container\StaticContainer;
 use Piwik\Date;
-use Piwik\Timer;
-use Piwik\Config;
-use Piwik\CliMulti\CliPhp;
-use Piwik\Plugins\VisitorGenerator\Generator\VisitFakeQuery;
-use Piwik\NumberFormatter;
 use Piwik\Metrics\Formatter;
+use Piwik\NumberFormatter;
+use Piwik\Plugins\VisitorGenerator\Generator\VisitFakeQuery;
+use Piwik\Process;
+use Piwik\Timer;
 use Symfony\Component\Console\Input\Input;
 use Symfony\Component\Console\Output\Output;
-use Symfony\Component\Process\Process as SymponyProcess;
 
 class GenerateVisitsDb extends GenerateVisits
 {
@@ -185,7 +185,7 @@ class GenerateVisitsDb extends GenerateVisits
 
             $this->log(implode(' ', $command), 2);
 
-            $process = new SymponyProcess($command);
+            $process = new Process($command);
             $processList[$t] = $process;
             $process->start(function ($type, $buffer) use ($threadsComplete, $output, &$grandSummary) {
 
