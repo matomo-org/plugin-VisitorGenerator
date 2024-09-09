@@ -57,3 +57,5 @@
   * Updated README url in UI
 - 5.0.3
   * Added plugin category for Marketplace
+- 5.1.0 - 2024-09-09
+  * Replaced Symfony\Process with Piwik\Process
