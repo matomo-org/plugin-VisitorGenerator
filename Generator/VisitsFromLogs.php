@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Matomo - free/libre analytics platform
  *
@@ -6,6 +7,7 @@
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
  *
  */
+
 namespace Piwik\Plugins\VisitorGenerator\Generator;
 
 use Piwik\Date;
@@ -49,7 +51,6 @@ class VisitsFromLogs extends Generator
         $count = 0;
 
         foreach ($this->getLogFiles() as $logFile) {
-
             $logParser = new LogParser($logFile);
             $logs      = $logParser->getParsedLogLines();
 
@@ -157,5 +158,4 @@ class VisitsFromLogs extends Generator
 
         return false;
     }
-
 }

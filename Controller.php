@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Matomo - free/libre analytics platform
  *
@@ -6,6 +7,7 @@
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
  *
  */
+
 namespace Piwik\Plugins\VisitorGenerator;
 
 use Piwik\ArchiveProcessor\Rules;
@@ -63,12 +65,11 @@ class Controller extends ControllerAdmin
             $siteName = Site::getNameFor($idSite);
         }
 
-        $timer = new Timer;
+        $timer = new Timer();
         $time  = time() - ($daysToCompute - 1) * 86400;
 
         $nbActionsTotal = 0;
         while ($time <= time()) {
-
             $fromLogs = new VisitsFromLogs();
             foreach ($idSites as $idSite) {
                 $nbActionsTotal += $fromLogs->generate($time, $idSite);
@@ -125,5 +126,4 @@ class Controller extends ControllerAdmin
 
         Nonce::discardNonce('VisitorGenerator.generate');
     }
-
 }

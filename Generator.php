@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Matomo - free/libre analytics platform
  *
@@ -6,6 +7,7 @@
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
  *
  */
+
 namespace Piwik\Plugins\VisitorGenerator;
 
 use Piwik\SettingsPiwik;
@@ -32,7 +34,7 @@ class Generator
     protected function makeMatomoTracker($idSite)
     {
         if (SettingsServer::isMatomoForWordPress()) {
-            $trackerFile = plugin_dir_path( MATOMO_ANALYTICS_FILE ) . "tests/phpunit/framework/test-local-tracker.php";
+            $trackerFile = plugin_dir_path(MATOMO_ANALYTICS_FILE) . "tests/phpunit/framework/test-local-tracker.php";
             if (file_exists($trackerFile)) {
                 include_once $trackerFile;
                 return new \MatomoLocalTracker($idSite, $this->getMatomoUrl());
@@ -46,7 +48,8 @@ class Generator
     /**
      * @param $matomoUrl
      */
-    protected function setMatomoUrl($matomoUrl) {
+    protected function setMatomoUrl($matomoUrl)
+    {
         $this->matomoUrl = $matomoUrl;
     }
 
@@ -55,7 +58,7 @@ class Generator
      */
     protected function getMatomoUrl()
     {
-        if($this->matomoUrl) {
+        if ($this->matomoUrl) {
             $url = $this->matomoUrl;
         } else {
             $url = SettingsPiwik::getPiwikUrl();

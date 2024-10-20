@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Matomo - free/libre analytics platform
  *
@@ -46,5 +47,4 @@ class GenerateGoals extends ConsoleCommand
 
         return self::SUCCESS;
     }
-
 }

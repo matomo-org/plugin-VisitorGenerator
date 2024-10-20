@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Matomo - free/libre analytics platform
  *
@@ -104,7 +105,6 @@ class GenerateVisits extends ConsoleCommand
         $input = $this->getInput();
 
         if ($input->getOption('limit-fake-visits')) {
-
             return $input->getOption('limit-fake-visits');
         }
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Matomo - free/libre analytics platform
  *
@@ -7,6 +8,7 @@
  */
 
 namespace Piwik\Plugins\VisitorGenerator\tests\Integration;
+
 use Piwik\Plugins\VisitorGenerator\LogParser;
 
 /**
@@ -103,5 +105,4 @@ class LogParserTest extends \PHPUnit\Framework\TestCase
             $this->assertNotEmpty($line);
         }
     }
-
 }

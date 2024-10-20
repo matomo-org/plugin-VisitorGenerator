@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Matomo - free/libre analytics platform
  *
@@ -44,5 +45,4 @@ class GenerateAnnotation extends ConsoleCommand
 
         return self::SUCCESS;
     }
-
 }
