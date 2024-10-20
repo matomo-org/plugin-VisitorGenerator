@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Matomo - free/libre analytics platform
  *
@@ -18,7 +19,7 @@ use Piwik\Log\LoggerInterface;
 
 class LiveVisitsFromLog extends VisitsFromLogs
 {
-    const SECONDS_IN_DAY = 86400;
+    public const SECONDS_IN_DAY = 86400;
 
     /**
      * @var \Iterator
@@ -204,7 +205,8 @@ class LiveVisitsFromLog extends VisitsFromLogs
         $iterator = new TransformIterator($this->fileIterator, function ($line, $lineNumber) {
             $log = LogParser::parseLogLine($line);
 
-            if (empty($log)
+            if (
+                empty($log)
                 && strpos($line, 'POST') === false
             ) {
                 $this->logger->debug("Failed to parse line {lineNo}: {line}", [

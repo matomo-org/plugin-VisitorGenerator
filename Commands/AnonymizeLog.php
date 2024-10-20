@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Matomo - free/libre analytics platform
  *
@@ -136,7 +137,6 @@ This will anonymize the log file and place the log in the plugins/CustomVariable
         $url = parse_url($log['url']);
 
         if (!empty($url['query'])) {
-
             $params = array();
             parse_str($url['query'], $params);
 
@@ -147,7 +147,6 @@ This will anonymize the log file and place the log in the plugins/CustomVariable
                     $line   = str_replace(urlencode($params[$param]), urlencode($newUrl), $line);
                 }
             }
-
         }
 
         $referrer    = $log['referrer'];

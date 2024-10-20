@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Matomo - free/libre analytics platform
  *
@@ -6,6 +7,7 @@
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
  *
  */
+
 namespace Piwik\Plugins\VisitorGenerator\Generator;
 
 use Piwik\Date;
@@ -14,7 +16,6 @@ use Piwik\Plugins\VisitorGenerator\Generator;
 
 class Annotations extends Generator
 {
-
     public function generate($idSite)
     {
         $date     = Date::now()->toString();

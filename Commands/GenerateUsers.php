@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Matomo - free/libre analytics platform
  *
@@ -39,5 +40,4 @@ class GenerateUsers extends ConsoleCommand
 
         return self::SUCCESS;
     }
-
 }

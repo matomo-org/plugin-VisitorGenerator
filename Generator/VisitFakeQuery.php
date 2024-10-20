@@ -6,7 +6,7 @@ use Faker\Generator;
 use Piwik\Common;
 use Faker\Provider\Miscellaneous as FakerMisc;
 use Faker\Provider\Internet as FakerInternet;
-use Piwik\Plugins\VisitorGenerator\Faker\Request AS FakerRequest;
+use Piwik\Plugins\VisitorGenerator\Faker\Request as FakerRequest;
 
 class VisitFakeQuery
 {
@@ -33,8 +33,7 @@ class VisitFakeQuery
         $keywords = ['books','reading','pages','story','fiction','author'];
         $medium = ['ppc','website','email'];
         $source = ['bing','google','doubleclick'];
-        for ($i = 0; $i < 50;$i++) {
-
+        for ($i = 0; $i < 50; $i++) {
             $id = bin2hex(random_bytes(3));
             $campaign = [
                 'id' => $id,
@@ -42,7 +41,7 @@ class VisitFakeQuery
                 'group' => '',
                 'keyword' => $keywords[array_rand($keywords)],
                 'medium' => $medium[array_rand($medium)],
-                'name' => 'campaign_'.$id,
+                'name' => 'campaign_' . $id,
                 'placement' => '',
                 'source' => $source[array_rand($source)]
             ];
@@ -50,19 +49,17 @@ class VisitFakeQuery
             $this->campaigns[] = $campaign;
         }
 
-        for ($i = 0; $i < 500;$i++) {
-
+        for ($i = 0; $i < 500; $i++) {
             $id = bin2hex(random_bytes(4));
             $referer = [
-                'name' => 'ref_'.$id,
-                'url' => 'https://domain'.$id.'.com',
+                'name' => 'ref_' . $id,
+                'url' => 'https://domain' . $id . '.com',
                 'type' => array_rand([1,2,3]),
                 'keyword' => $keywords[array_rand($keywords)],
             ];
 
             $this->referers[] = $referer;
         }
-
     }
 
     public function getRandomActionURL(): string
@@ -71,10 +68,10 @@ class VisitFakeQuery
         // Choose an existing actionsUrl 50% of the time if there are at least 100 in the pool
         // or 100% of the time if the pool is full
         if (count($this->actionsUrl) > 100 && (rand(0, 100) < 50 || count($this->actionsUrl) >= $this->actionsPoolSize)) {
-           return $this->actionsUrl[array_rand($this->actionsUrl)];
+            return $this->actionsUrl[array_rand($this->actionsUrl)];
         }
 
-        $newActionUrl = "/page_".bin2hex(random_bytes(10));
+        $newActionUrl = "/page_" . bin2hex(random_bytes(10));
         $this->actionsUrl[] = $newActionUrl;
 
         return $newActionUrl;
@@ -90,15 +87,14 @@ class VisitFakeQuery
      */
     public function getVisitor(int $chanceReturning): string
     {
-        if (rand(0,100) <= $chanceReturning && count($this->returnUserIds) > 0) {
+        if (rand(0, 100) <= $chanceReturning && count($this->returnUserIds) > 0) {
             return $this->returnUserIds[array_rand($this->returnUserIds)];
         }
 
         $idvisitor = random_bytes(8);
 
         // 1% chance to update a return user id if the pool is full
-        if (count($this->returnUserIds) >= $this->returnVisitorPoolSize && rand(0,100) === 1) {
-
+        if (count($this->returnUserIds) >= $this->returnVisitorPoolSize && rand(0, 100) === 1) {
             // Never replace the early return visitors, we want some selects at the quiet end of the index
             $this->returnUserIds[rand($this->returnVisitorPoolSize / 10, $this->returnVisitorPoolSize)] = $idvisitor;
         }
@@ -151,26 +147,26 @@ class VisitFakeQuery
         return ['sql' => $sql, 'bind' => $bind];
     }
 
-    public function getRandomIP() : string
+    public function getRandomIP(): string
     {
-        $ipString = (rand(1,100) < 78 ? $this->fakerInternet->ipv4() : $this->fakerInternet->ipv6());
+        $ipString = (rand(1, 100) < 78 ? $this->fakerInternet->ipv4() : $this->fakerInternet->ipv6());
 
         $ip = @inet_pton($ipString);
         return $ip === false ? "\x00\x00\x00\x00" : $ip;
     }
 
-    public function getRandomLang() : string
+    public function getRandomLang(): string
     {
         return FakerMisc::languageCode();
     }
 
-    public function getRandomResolution() : string
+    public function getRandomResolution(): string
     {
         $res = $this->fakerRequest->resolution();
         return $res[array_rand($res)];
     }
 
-    public function getRandomCountryA2() : string
+    public function getRandomCountryA2(): string
     {
         return strtolower(FakerMisc::countryCode());
     }
@@ -204,12 +200,12 @@ class VisitFakeQuery
         ";
 
         $campaign = null;
-        if (rand(0,100) < 5) {
+        if (rand(0, 100) < 5) {
             $campaign = $this->campaigns[array_rand($this->campaigns)];
         }
 
         $referer = null;
-        if (rand(0,100) < 33) {
+        if (rand(0, 100) < 33) {
             $referer = $this->referers[array_rand($this->referers)];
         }
 
@@ -235,7 +231,7 @@ class VisitFakeQuery
                  ':visit_total_searches' => 0,
                  ':visit_total_time' => 0,
                  ':visit_total_events' => 0,
-                 ':visitor_localtime' => rand(1,23).':'.rand(0,59).':'.rand(0,59),
+                 ':visitor_localtime' => rand(1, 23) . ':' . rand(0, 59) . ':' . rand(0, 59),
                  ':visitor_seconds_since_last' => 0,
 
                  ':referer_keyword' => ($referer ? $referer['keyword'] : null),
@@ -251,18 +247,18 @@ class VisitFakeQuery
                  ':config_client_type' => 1,
                  ':config_device_brand' => '',
                  ':config_device_model' => '',
-                 ':config_device_type' => rand(0,3),
+                 ':config_device_type' => rand(0, 3),
                  ':config_os' => '',
                  ':config_os_version' => '',
                  ':config_resolution' => $this->getRandomResolution(),
-                 ':config_cookie' => rand(0,1),
-                 ':config_flash' => rand(0,1),
-                 ':config_java' => rand(0,1),
-                 ':config_pdf' => rand(0,1),
-                 ':config_quicktime' => rand(0,1),
-                 ':config_realplayer' => rand(0,1),
-                 ':config_silverlight' => rand(0,1),
-                 ':config_windowsmedia' => rand(0,1),
+                 ':config_cookie' => rand(0, 1),
+                 ':config_flash' => rand(0, 1),
+                 ':config_java' => rand(0, 1),
+                 ':config_pdf' => rand(0, 1),
+                 ':config_quicktime' => rand(0, 1),
+                 ':config_realplayer' => rand(0, 1),
+                 ':config_silverlight' => rand(0, 1),
+                 ':config_windowsmedia' => rand(0, 1),
 
             ];
 
@@ -315,20 +311,27 @@ class VisitFakeQuery
             ':idaction_name_ref' => null,
             ':server_time' => date('Y-m-d H:i:s', $timestamp),
             ':idpageview' => bin2hex(random_bytes(3)),
-            ':pageview_position' => rand(1,10),
-            ':time_spent_ref_action' => rand(1,1000),
-            ':time_dom_processing' => rand(1,1000),
-            ':time_network' => rand(1,1000),
-            ':time_server' => rand(1,1000),
-            ':time_transfer' => rand(1,1000)
+            ':pageview_position' => rand(1, 10),
+            ':time_spent_ref_action' => rand(1, 1000),
+            ':time_dom_processing' => rand(1, 1000),
+            ':time_network' => rand(1, 1000),
+            ':time_server' => rand(1, 1000),
+            ':time_transfer' => rand(1, 1000)
         ];
 
         return ['sql' => $sql, 'bind' => $bind];
     }
 
-    public function getInsertConversionQuery(string $idvisitor, int $idvisit, string $idaction, string $url, int $timestamp,
-                                             int $idlink_va, int $idgoal, int $site): array
-    {
+    public function getInsertConversionQuery(
+        string $idvisitor,
+        int $idvisit,
+        string $idaction,
+        string $url,
+        int $timestamp,
+        int $idlink_va,
+        int $idgoal,
+        int $site
+    ): array {
 
         $sql = "
         INSERT IGNORE INTO " . Common::prefixTable('log_conversion') . "  (idvisit, idsite, idvisitor, server_time, idaction_url, idlink_va, idgoal, buster,
@@ -349,10 +352,10 @@ class VisitFakeQuery
             ':idgoal' => $idgoal,
             ':buster' => 0,
             ':url' => $url,
-            ':revenue' => round(mt_rand() / mt_getrandmax(),2),
-            ':visitor_count_visits' => rand(1,10),
-            ':visitor_returning' => rand(0,1),
-            ':visitor_seconds_since_first' => rand(1,5000),
+            ':revenue' => round(mt_rand() / mt_getrandmax(), 2),
+            ':visitor_count_visits' => rand(1, 10),
+            ':visitor_returning' => rand(0, 1),
+            ':visitor_seconds_since_first' => rand(1, 5000),
             ':config_browser_name' => '',
             ':config_client_type' => 1,
             ':config_device_brand' => '',
@@ -362,5 +365,4 @@ class VisitFakeQuery
 
         return ['sql' => $sql, 'bind' => $bind];
     }
-
 }

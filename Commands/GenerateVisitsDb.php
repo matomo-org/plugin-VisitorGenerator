@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Matomo - free/libre analytics platform
  *
@@ -25,7 +26,6 @@ use Symfony\Component\Console\Output\Output;
 
 class GenerateVisitsDb extends GenerateVisits
 {
-
     private $verbosity = 0;
     private $pdo;
     private $prepareCache;
@@ -120,7 +120,6 @@ class GenerateVisitsDb extends GenerateVisits
         }
 
         while ($time <= $startTime) {
-
             $limit = $this->getLimitVisits();
 
             $stats = $this->generate($time, $idSite, $limit);
@@ -131,18 +130,18 @@ class GenerateVisitsDb extends GenerateVisits
 
             if ($this->verbosity > 0) {
                 $this->log(
-                    sprintf("%s:", Date::factory($time)->toString()).
-                    "  Visits: ".str_pad($this->formatter->format($stats['visits']), 8, ' ', STR_PAD_LEFT).
-                    "  Visit Actions: ".str_pad($this->formatter->format($stats['visitActions']), 8, ' ', STR_PAD_LEFT).
-                    "  Actions: ".str_pad($this->formatter->format($stats['actions']), 8, ' ', STR_PAD_LEFT).
-                    "  Conversions: ".str_pad($this->formatter->format($stats['conversions']), 8, ' ', STR_PAD_LEFT)
+                    sprintf("%s:", Date::factory($time)->toString()) .
+                    "  Visits: " . str_pad($this->formatter->format($stats['visits']), 8, ' ', STR_PAD_LEFT) .
+                    "  Visit Actions: " . str_pad($this->formatter->format($stats['visitActions']), 8, ' ', STR_PAD_LEFT) .
+                    "  Actions: " . str_pad($this->formatter->format($stats['actions']), 8, ' ', STR_PAD_LEFT) .
+                    "  Conversions: " . str_pad($this->formatter->format($stats['conversions']), 8, ' ', STR_PAD_LEFT)
                 );
             }
 
             $time += 86400;
         }
 
-        $summary =[
+        $summary = [
                 'visits'        => $visitsTotal,
                 'visitActions'  => $visitActionsTotal,
                 'actions'       => $actionsTotal,
@@ -177,12 +176,11 @@ class GenerateVisitsDb extends GenerateVisits
             ];
 
         // Start threads
-        $this->log($threads. " threads requested");
+        $this->log($threads . " threads requested");
         $processList = [];
         $this->log("Starting threads", 0, false);
         $threadsComplete = [];
         for ($t = 1; $t < $threads + 1; $t++) {
-
             $this->log(implode(' ', $command), 2);
 
             $process = new Process($command);
@@ -191,7 +189,7 @@ class GenerateVisitsDb extends GenerateVisits
 
                 if (strpos($buffer, '|') !== false) {
                     // Record summary
-                    $json = json_decode(trim($buffer, "| \n\r"),true);
+                    $json = json_decode(trim($buffer, "| \n\r"), true);
                     if (is_array($json)) {
                         $grandSummary['visits'] += $json['visits'];
                         $grandSummary['visitActions'] += $json['visitActions'];
@@ -290,11 +288,18 @@ class GenerateVisitsDb extends GenerateVisits
             $command[] = '--start-date=' . $startDate;
         }
 
-        switch($this->verbosity) {
-            case 1: $command[] = '--v'; break;
-            case 2: $command[] = '--vv'; break;
-            case 3: $command[] = '--vvv'; break;
-            default: break;
+        switch ($this->verbosity) {
+            case 1:
+                $command[] = '--v';
+                break;
+            case 2:
+                $command[] = '--vv';
+                break;
+            case 3:
+                $command[] = '--vvv';
+                break;
+            default:
+                break;
         }
 
         // Split workload simplistically by dividing the limit across all threads
@@ -314,7 +319,7 @@ class GenerateVisitsDb extends GenerateVisits
     private function writeSummary(int $idSite, array $summaryInfo): void
     {
         $summary = [
-            'Site Id                  ' .str_pad($idSite, 12, ' ', STR_PAD_LEFT),
+            'Site Id                  ' . str_pad($idSite, 12, ' ', STR_PAD_LEFT),
             'Time taken               ' . str_pad($this->metricFormatter->getPrettyTimeFromSeconds($summaryInfo['timeTaken'], true), 12, ' ', STR_PAD_LEFT),
             'Visits generated         ' . str_pad($this->formatter->format($summaryInfo['visits']), 12, ' ', STR_PAD_LEFT),
             'Visits actions generated ' . str_pad($this->formatter->format($summaryInfo['visitActions']), 12, ' ', STR_PAD_LEFT),
@@ -381,7 +386,6 @@ class GenerateVisitsDb extends GenerateVisits
             ];
 
         while ($requestCount < $limit || $limit < 0) {
-
             $this->query(['sql' => 'START TRANSACTION', 'bind' => []]);
             // Choose a random timestamp within supplied date range
             $timestampUTC = rand($time, $time + 86000); // no new visits will start for 400 seconds before midnight
@@ -391,7 +395,6 @@ class GenerateVisitsDb extends GenerateVisits
             $actionUrl = '';
             $actionCount = rand($actionCountMin, $actionCountMax);
             for ($i = 0; $i != $actionCount; $i++) {
-
                 // Get random action, 50% chance of being new until pool is full, then always an existing action
                 $actionUrl = $queryGenerator->getRandomActionURL();
 
@@ -414,7 +417,7 @@ class GenerateVisitsDb extends GenerateVisits
 
             // Get random visitor id (10% chance of a returning visitor id)
             $idvisitor = $queryGenerator->getVisitor(10);
-            $this->log("Got idvisitor '".bin2hex($idvisitor)."'", 3);
+            $this->log("Got idvisitor '" . bin2hex($idvisitor) . "'", 3);
 
             // Check if visit exists in db, create new visit if not
             $findVisitorQuery = $queryGenerator->getCheckIfNewVisitorQuery($idvisitor, $idSite);
@@ -440,7 +443,6 @@ class GenerateVisitsDb extends GenerateVisits
                 // Update visit
                 $updateVisitQuery = $queryGenerator->getUpdateVisitQuery($idvisit, $visitorRows[0]->visit_first_action_time, $timestampUTC, $idSite);
                 $this->query($updateVisitQuery, false);
-
             }
             $stats['visits']++;
 
@@ -448,7 +450,7 @@ class GenerateVisitsDb extends GenerateVisits
 
             // Insert the action link(s)
             $idlinkva = null;
-            foreach($idactions as $idaction) {
+            foreach ($idactions as $idaction) {
                 if ($idvisit && $idaction) {
                     $this->log("Inserting action link...", 3);
 
@@ -465,8 +467,16 @@ class GenerateVisitsDb extends GenerateVisits
             // Insert conversion (conversion will always use the last idlinkva if there are multiple actions
             if ($idlinkva && $conversionPercent > 0 && (rand(0, 100) < $conversionPercent)) {
                 $this->log("Inserting conversion...", 3);
-                $insertConversionQuery = $queryGenerator->getInsertConversionQuery($idvisitor, $idvisit, end($idactions), $actionUrl, $timestampUTC,
-                    $idlinkva, $this->siteGoals[array_rand($this->siteGoals)], $idSite);
+                $insertConversionQuery = $queryGenerator->getInsertConversionQuery(
+                    $idvisitor,
+                    $idvisit,
+                    end($idactions),
+                    $actionUrl,
+                    $timestampUTC,
+                    $idlinkva,
+                    $this->siteGoals[array_rand($this->siteGoals)],
+                    $idSite
+                );
                 $this->query($insertConversionQuery, false);
                 $stats['conversions']++;
             }

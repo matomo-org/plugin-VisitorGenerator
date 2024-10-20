@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Matomo - free/libre analytics platform
  *
@@ -6,12 +7,12 @@
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
  *
  */
+
 namespace Piwik\Plugins\VisitorGenerator\Generator;
 
 use Piwik\Piwik;
 use Piwik\Plugin\Manager;
 use Piwik\Plugins\CoreAdminHome\API as CoreAdminHomeApi;
-use Piwik\Plugins\CrashAnalytics\Fake\FakeErrors;
 use Piwik\Plugins\SitesManager\API as SitesManagerApi;
 use Piwik\Plugins\VisitorGenerator\Generator;
 
@@ -71,9 +72,17 @@ class VisitsFake extends Generator
             }
 
             $resolution = $this->faker->resolution;
-            $tracker->setResolution( $resolution[0], $resolution[1]);
+            $tracker->setResolution($resolution[0], $resolution[1]);
             $tracker->setBrowserHasCookies($this->faker->boolean(90));
-            $tracker->setPlugins($flash = $this->faker->boolean(90), $java = $this->faker->boolean(85), $quickTime = $this->faker->boolean(40), $realPlayer = $this->faker->boolean(10), $pdf = $this->faker->boolean(75), $windowsMedia = $this->faker->boolean(60), $silverlight = $this->faker->boolean(5));
+            $tracker->setPlugins(
+                $flash = $this->faker->boolean(90),
+                $java = $this->faker->boolean(85),
+                $quickTime = $this->faker->boolean(40),
+                $realPlayer = $this->faker->boolean(10),
+                $pdf = $this->faker->boolean(75),
+                $windowsMedia = $this->faker->boolean(60),
+                $silverlight = $this->faker->boolean(5)
+            );
             $tracker->setCustomVariable(1, 'gender', $this->faker->gender, 'visit');
             $tracker->setCustomVariable(2, 'age', $this->faker->randomDigit, 'visit');
             $tracker->setCustomVariable(3, 'languageCode', $this->faker->languageCode, 'visit');
@@ -160,7 +169,7 @@ class VisitsFake extends Generator
 
             if ($this->faker->boolean(10)) {
                 $price =  $this->faker->randomNumber(2);
-                $quantity = $this->faker->numberBetween(1,4);
+                $quantity = $this->faker->numberBetween(1, 4);
 
                 $tracker->addEcommerceItem($this->faker->productSku, $this->faker->productName, $this->faker->categories(5), $price, $quantity);
 

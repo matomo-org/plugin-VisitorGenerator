@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Matomo - free/libre analytics platform
  *
@@ -6,6 +7,7 @@
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
  *
  */
+
 namespace Piwik\Plugins\VisitorGenerator\Faker;
 
 use Piwik\Plugins\GeoIp2\LocationProvider\GeoIp2;
@@ -956,7 +958,10 @@ class Request extends \Faker\Provider\Base
         }
 
         return static::randomElement(array(
-            '13', 'TX', 'CA', '07', '09', 'E4', 'B7', '01', '46', '01', 'AL', '16', 'B7', 'CA', '78', 'B8', '04', '04', 'B8', 'TX', 'NY', '15', '04', 'FL', 'PA', 'C9', '01', 'P8', '29', '56', '02', '29', 'CA', '27', 'BC', '09', 'NE', '13', 'TX', 'TX', 'B8', 'FL', 'E7', 'PA', '12', '14', '27', 'M3', '02', '09', '29', '42', 'QC', 'C9', '02', '01', 'WV', 'AL', '51', 'H5', '07', 'MD', '34', '16', 'CA', 'E7', 'NY', '08', 'GA',
+            '13', 'TX', 'CA', '07', '09', 'E4', 'B7', '01', '46', '01', 'AL', '16', 'B7', 'CA', '78', 'B8', '04', '04',
+            'B8', 'TX', 'NY', '15', '04', 'FL', 'PA', 'C9', '01', 'P8', '29', '56', '02', '29', 'CA', '27', 'BC', '09',
+            'NE', '13', 'TX', 'TX', 'B8', 'FL', 'E7', 'PA', '12', '14', '27', 'M3', '02', '09', '29', '42', 'QC', 'C9',
+            '02', '01', 'WV', 'AL', '51', 'H5', '07', 'MD', '34', '16', 'CA', 'E7', 'NY', '08', 'GA',
         ));
     }
 
@@ -990,7 +995,9 @@ class Request extends \Faker\Provider\Base
             'https://www.google.de/url?sa=t&source=web&rct=j&url=https://matomo.org/&ved=0ahUKEwi3qreZtuHaAhXEHpoKHXxxBxEQFggsMAA',
             'https://www.google.fr/',
             'http://r.search.yahoo.com/_ylt=AwrE1yEOwOZauucA_xoDEQx.;_ylu=X3oDMTByOHZyb21tBGNvbG8DYmYxBHBvcwMxBHZ0aWQDBHNlYwNzcg--/RV=2/RE=1525100687/RO=10/RU=https%3a%2f%2fmatomo.org%2f/RK=2/RS=QEhnjr714z0Me7kPhYj1gHrLTKc-',
-            'http://search.yahoo.co.jp/r/FOR=wJjKBrpV3iiyQ9OVtYIAEFhwB6F4X7nB3uwubUjurHLqwT8oFNO7dNiZBXYbmgNENZz8yKntTR5X_chrfaAcSOgPUyuK.Y5mOUs5tzKNLuq42vgCKLHdBH3gavAtCoKeCKOItwbkCN10nMDO9gO8MW9zdH9TOyAul7u1sqXEE0wTNpY6DW.EFfagOL54JzI3OBVfIin7/_ylt=A2RAyhx.wOZaQWsATEuDTwx.;_ylu=X3oDMTBtNHJhZXRnBHBvcwMxBHNlYwNzcgRzbGsDdGl0bGU-/SIG=11fhbagaq/EXP=1525172798/**https%3A//matomo.jp/news/7540',
+            'http://search.yahoo.co.jp/r/FOR=wJjKBrpV3iiyQ9OVtYIAEFhwB6F4X7nB3uwubUjurHLqwT8oFNO7dNiZBXYbmgNENZz8yKntTR'
+                . '5X_chrfaAcSOgPUyuK.Y5mOUs5tzKNLuq42vgCKLHdBH3gavAtCoKeCKOItwbkCN10nMDO9gO8MW9zdH9TOyAul7u1sqXEE0wTNp'
+                . 'Y6DW.EFfagOL54JzI3OBVfIin7/_ylt=A2RAyhx.wOZaQWsATEuDTwx.;_ylu=X3oDMTBtNHJhZXRnBHBvcwMxBHNlYwNzcgRzbGsDdGl0bGU-/SIG=11fhbagaq/EXP=1525172798/**https%3A//matomo.jp/news/7540',
             'https://yandex.ru/'
         ));
 
@@ -1025,7 +1032,7 @@ class Request extends \Faker\Provider\Base
             ['http://example.com/sound.wma', 'People talking', 95],
             ['http://example.com/alarm.mp3', 'Alarm sound', 36],
             ['http://example.com/click.mp4', 'Wonderful Click sound', 2],
-            ['https://example.org/fart.wav', 'Man farting for hours', 40*3666],
+            ['https://example.org/fart.wav', 'Man farting for hours', 40 * 3666],
             ['https://example.com/jingle.mp4', 'Radio Jingle', 89],
             ['http://mycdn.org/win95.mp4', 'Beloved Win 95 start sound', 7],
             ['https://example.com/laughing.mp3', 'Some people laughing', 38],
