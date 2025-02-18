@@ -13,7 +13,7 @@
         "NotReversible": "Näitä käyntejä %1$sei voi%2$s helposti poistaa Matomon lokeista.",
         "NumberOfGeneratedActions": "Toimeenpantujen toimintojen lukumäärä",
         "PleaseBePatient": "Vierailujen ja toimien luominen voi kestää muutaman minuutin.",
-        "ReRunArchiveScript": "Ole hyvä ja aja uudelleen './console core:archive' crontabissa päivittääksesi raportit. %1$sKatso \"Miten asennan automaattisen raporttien arkistoinnin\"%2$s",
+        "ReRunArchiveScript": "Suorita crontab-komento './console core:archive' uudelleen virkistääksesi raportit kohdan %1$s\"Raporttien automaattisen arkistoinnin määrittäminen\"%2$s mukaisesti",
         "SelectWebsite": "Valitse sivusto",
         "Submit": "Lähetä",
         "VisitorGenerator": "Kävijöiden luonti",
