@@ -5,7 +5,7 @@
         "ChoiceYes": "Sí",
         "CliToolUsage": "Utilizando la %1$sherramienta Matomo CLI%2$s no solo puede generar más visitas sino también usuarios, páginas web y objetivos.",
         "ConfirmVisitorGeneration": "Por favor, marque la casilla para confirmar la generación de visitantes",
-        "CustomMatomoUrl": "URL Matomo personalizado",
+        "CustomMatomoUrl": "URL personalizada de Matomo",
         "DaysToCompute": "Días a computar",
         "GenerateFakeActions": "Esto generará al menos %d acciones falsas en este sitio cada día.",
         "GeneratedVisitsFor": "Visitas generadas para %1$sy los últimos %2$s dias",
