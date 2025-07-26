@@ -1004,6 +1004,23 @@ class Request extends \Faker\Provider\Base
         return $url;
     }
 
+    public function aiAssistantUrl()
+    {
+        return static::randomElement([
+            'https://chat.openai.com/',
+            'https://chat.openai.com/c/',
+            'https://chat.openai.com/share/' . $this->generator->uuid,
+            'https://matomo.chat.openai.com/',
+            'https://www.perplexity.ai/search?q=' . $this->generator->word,
+            'https://www.perplexity.ai/',
+            'https://claude.ai/',
+            'https://claude.ai/chat/' . $this->generator->uuid,
+            'https://gemini.google.com/app',
+            'https://gemini.google.com/share/' . $this->generator->uuid,
+            'https://chat.mistral.ai/',
+        ]);
+    }
+
     public function videoFile()
     {
         return static::randomElement([
@@ -1044,6 +1061,7 @@ class Request extends \Faker\Provider\Base
         $urlReferrer  = $this->generator->url;
         $urlKeyword   = $this->searchEngineUrlWithKeyword($this->generator->word);
         $urlNoKeyword = $this->searchEngineUrlWithOutKeyword();
+        $urlAI = $this->aiAssistantUrl();
 
         return static::randomElement(array(
             '',
@@ -1071,6 +1089,11 @@ class Request extends \Faker\Provider\Base
             $urlKeyword,
             $urlKeyword,
             $urlKeyword,
+            $urlAI,
+            $urlAI,
+            $urlAI,
+            $urlAI,
+            $urlAI,
             'https://www.facebook.com/',
             'https://fb.me/',
             'https://twitter.com/',
