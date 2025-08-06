@@ -26,8 +26,10 @@ class VisitsFromLogs extends Generator
 {
     private $authToken;
 
-    public function setTokenAuth($tokenAuth)
-    {
+    public function setTokenAuth(
+        #[\SensitiveParameter]
+        $tokenAuth
+    ) {
         $this->authToken = $tokenAuth;
     }
 
