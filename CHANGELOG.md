@@ -61,3 +61,5 @@
   * Replaced Symfony\Process with Piwik\Process
 - 5.1.1 - 2025-02-17
   * Fixed deprecation warning from dependency
+- 5.1.2 - 2025-08-18
+  * Started generating AI referrer URLs 
