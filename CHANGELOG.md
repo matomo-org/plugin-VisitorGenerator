@@ -63,3 +63,5 @@
   * Fixed deprecation warning from dependency
 - 5.1.2 - 2025-08-18
   * Started generating AI referrer URLs 
+- 5.1.3 - 2025-09-01
+  * Fix for generation of ecommerce order ID 0
