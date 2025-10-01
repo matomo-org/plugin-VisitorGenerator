@@ -48,6 +48,14 @@ class VisitsFake extends Generator
             $i++;
             $tracker->setTokenAuth($tokenAuth);
             $tracker->setUserAgent($this->faker->userAgent);
+
+            // Mark visit randomly as ChatGPT Agent
+            if ($this->faker->boolean(10)) {
+                $tracker->setCustomTrackingParameter('dd_ct_s', 'request specific, value not relevant');
+                $tracker->setCustomTrackingParameter('dd_ct_sa', '"https://chatgpt.com"');
+                $tracker->setCustomTrackingParameter('dd_ct_si', 'request specific, value not relevant');
+            }
+
             $tracker->setBrowserLanguage($this->faker->locale);
             $tracker->setCity($this->faker->city);
             $countryCode = $this->faker->countryCode;
