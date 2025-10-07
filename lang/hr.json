@@ -1,1 +1,5 @@
-{}
+{
+    "VisitorGenerator": {
+        "SelectWebsite": "Odaberi web-stranicu"
+    }
+}
