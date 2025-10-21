@@ -51,9 +51,9 @@ class VisitsFake extends Generator
 
             // Mark visit randomly as ChatGPT Agent
             if ($this->faker->boolean(10)) {
-                $tracker->setCustomTrackingParameter('dd_ct_s', 'request specific, value not relevant');
-                $tracker->setCustomTrackingParameter('dd_ct_sa', '"https://chatgpt.com"');
-                $tracker->setCustomTrackingParameter('dd_ct_si', 'request specific, value not relevant');
+                $tracker->setCustomTrackingParameter('ai_s', 'request specific, value not relevant');
+                $tracker->setCustomTrackingParameter('ai_sa', '"https://chatgpt.com"');
+                $tracker->setCustomTrackingParameter('ai_si', 'request specific, value not relevant');
             }
 
             $tracker->setBrowserLanguage($this->faker->locale);
