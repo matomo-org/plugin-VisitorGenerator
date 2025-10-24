@@ -87,6 +87,9 @@ class VisitsFromLogs extends Generator
 
     protected function manipulateRequestUrl($time, $idSite, $url, $date, $ip, $prefix)
     {
+        $url = str_replace(['piwik', 'Piwik'], ['matomo', 'Matomo'], $url);
+        // replace anything else that is not from above list
+        $url = str_ireplace('piwik', 'matomo', $url);
         $start = strpos($url, 'matomo.php?') + strlen('matomo.php?');
         $url   = substr($url, $start);
         $ip    = strlen($ip) < 9 ? "13.5.111.3" : $ip;
