@@ -2,7 +2,7 @@
     "VisitorGenerator": {
         "AreYouSure": "Da li ste sigurni da želite da generišete lažne posete?",
         "AutomaticReprocess": "Izveštaji će biti regenerisani kada ih sledeći put budete otvorili i to može potrajati nekoliko minuta.",
-        "ChoiceYes": "Da, siguran sam!",
+        "ChoiceYes": "Da",
         "CliToolUsage": "Korišćenjem %1$sMatomo klijentskih alata%2$s možete pored poseta generisati i korisnike, sajtove i ciljeve.",
         "ConfirmVisitorGeneration": "Molimo vas da potvrdite generisanje poseta klikom na kućicu",
         "CustomMatomoUrl": "Korisnički definisana Matomo adresa",
