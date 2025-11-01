@@ -2,7 +2,7 @@
     "VisitorGenerator": {
         "AreYouSure": "Eşti sigur(ă) că doreşti să generezi vizite false?",
         "AutomaticReprocess": "Rapoartele vor fi reprocesat data viitoare când vizitați Matomo rapoarte, ar putea dura câteva minute.",
-        "ChoiceYes": "Da, sunt sigur(ă)!",
+        "ChoiceYes": "Da",
         "CliToolUsage": "Prin utilizarea %1$sMatomo CLI instrumente %2$s puteti genera nu numai mai multe vizite, dar, de asemenea, utilizatori, site-uri și obiective.",
         "DaysToCompute": "Zile pentru a calcula",
         "GenerateFakeActions": "Acest lucru va genera cel puțin %d acțiuni false pe acest site pentru fiecare zi.",
