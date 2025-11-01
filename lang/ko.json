@@ -1,7 +1,7 @@
 {
     "VisitorGenerator": {
         "AreYouSure": "정말로 가상 방문을 생성 하시겠습니까?",
-        "ChoiceYes": "네, 물론입니다!",
+        "ChoiceYes": "예",
         "ConfirmVisitorGeneration": "박스 체크를 하여 방문자 생성을 승인해주세요.",
         "CustomMatomoUrl": "맞춤 Matomo URL",
         "DaysToCompute": "일별 계산",
