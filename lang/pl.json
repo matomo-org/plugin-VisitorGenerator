@@ -2,7 +2,7 @@
     "VisitorGenerator": {
         "AreYouSure": "Czy jesteś pewny/a, że chcesz wygenerować symulowane odwiedziny?",
         "AutomaticReprocess": "Raporty zostaną ponownie przeprocesowane podczas Twojej następnej wizyty w raportach Matomo, co może zająć parę minut.",
-        "ChoiceYes": "Tak, mam taką pewność!",
+        "ChoiceYes": "Tak",
         "CliToolUsage": "Korzystając z %1$s narzędzia linii poleceń Matomo%2$s możesz nie tylko generować więcej wizyt, ale również użytkowników, serwisy i cele.",
         "ConfirmVisitorGeneration": "Proszę potwierdź generowanie użytkowników zaznaczając kwadrat",
         "CustomMatomoUrl": "Skonfigurowany adres Matomo",
