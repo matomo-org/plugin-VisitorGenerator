@@ -1,7 +1,8 @@
 {
     "VisitorGenerator": {
-        "VisitorGenerator": "Apsilankymų generatorius",
+        "ChoiceYes": "Taip",
+        "NbRequestsPerSec": "Užklausų per sekundę",
         "Submit": "Pateikti",
-        "NbRequestsPerSec": "Užklausų per sekundę"
+        "VisitorGenerator": "Apsilankymų generatorius"
     }
 }

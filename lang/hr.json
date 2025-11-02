@@ -1,5 +1,25 @@
 {
     "VisitorGenerator": {
-        "SelectWebsite": "Odaberi web-stranicu"
+        "AreYouSure": "Generirati lažne posjete?",
+        "AutomaticReprocess": "Pri sljedećem posjetu Matomo izvještaja će se izvještaji ponovo obraditi. To može potrajati par minuta.",
+        "ChoiceYes": "Da",
+        "CliToolUsage": "%1$sMatomo CLI alat%2$s ne samo da može generirati još više posjeta, već i korisnike, web-stranice i ciljeve.",
+        "ConfirmVisitorGeneration": "Označi okvir za potvrđivanje generiranja posjetitelja",
+        "CustomMatomoUrl": "Prilagođeni Matomo URL",
+        "DaysToCompute": "Broj dana za izračunavanje",
+        "GenerateFakeActions": "Ovo će generirati barem %d lažne radnje na ovoj stranici svaki dan.",
+        "GeneratedVisitsFor": "Generirani posjeti za %1$s i za zadnjih %2$s dana",
+        "LogImporterNote": "%1$sREADME%2$s datoteka sadrži informacije o bržem alatu koji uvozi velike testne podatke u Matomo.",
+        "NbRequestsPerSec": "Broj zahtjeva u sekundi",
+        "NotReversible": "%1$sNeće%2$s biti moguće jednostavno izbrisati ove posjete iz Matomo dnevnika.",
+        "NumberOfGeneratedActions": "Broj generiranih radnji",
+        "OverwriteLogFiles": "Prepiši „matomo.php” datoteke dnevnika za generiranje lažnih posjeta u „Apache formatu spojenog dnevnika” (promijeni ili dodaj datoteke u %s). Razvojni programeri dodataka dodaju vlastite datoteke dnevnika kao „*.log” datoteke u mapu „data” svog dodatka.",
+        "PleaseBePatient": "Generiranje posjeta i radnji može potrajati par minuta.",
+        "PluginDescription": "Stvori lažne posjete i radnje u Matomou. Generiraj lažne podatke za popunjavanje Matomo izvještaja.",
+        "ReRunArchiveScript": "Ponovo pokreni crontab naredbu './console core:archive' za osvježavanje izvještaja, kao što je navedeno u %1$s„Kako postaviti automatsko arhiviranje izvješća”%2$s",
+        "SelectWebsite": "Odaberi web-stranicu",
+        "Submit": "Pošalji",
+        "VisitorGenerator": "Generator posjetitelja",
+        "Warning": "Upravo ćeš generirati lažne posjete za svoju Matomo bazu podataka."
     }
 }

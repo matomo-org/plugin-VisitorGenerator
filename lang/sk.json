@@ -1,14 +1,14 @@
 {
     "VisitorGenerator": {
-        "VisitorGenerator": "Generátor návštev",
-        "Warning": "Chystáte sa vytvárať falošné návštev, ktoré budú zaznamenané v databáze.",
-        "NotReversible": "To bude %1$s %2$s možné ľahko odstrániť pre tieto návštevy v záznamoch.",
         "AreYouSure": "Ste si istí, že chcete vytvoriť falošné návštevy?",
-        "ChoiceYes": "Áno, som si istý!",
-        "Submit": "Odoslať",
-        "SelectWebsite": "Vybrať web",
-        "NbRequestsPerSec": "Žiadosti za sekundu",
+        "ChoiceYes": "Áno",
         "DaysToCompute": "Dni pre výpočet",
-        "GeneratedVisitsFor": "Generované návštevy pre %1$s a pre posledných %2$s dní"
+        "GeneratedVisitsFor": "Generované návštevy pre %1$s a pre posledných %2$s dní",
+        "NbRequestsPerSec": "Žiadosti za sekundu",
+        "NotReversible": "To bude %1$s %2$s možné ľahko odstrániť pre tieto návštevy v záznamoch.",
+        "SelectWebsite": "Vybrať web",
+        "Submit": "Odoslať",
+        "VisitorGenerator": "Generátor návštev",
+        "Warning": "Chystáte sa vytvárať falošné návštev, ktoré budú zaznamenané v databáze."
     }
 }

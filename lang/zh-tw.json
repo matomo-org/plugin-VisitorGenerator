@@ -2,7 +2,7 @@
     "VisitorGenerator": {
         "AreYouSure": "你確定要產生偽造訪客嗎？",
         "AutomaticReprocess": "報表將會在你下次查看 Matomo 報表時重新處理，可能會花上幾分鐘。",
-        "ChoiceYes": "是，我確定！",
+        "ChoiceYes": "是",
         "CliToolUsage": "透過 %1$sMatomo CLI 工具%2$s你不僅能產生更多訪問，也能產生使用者、網站及目標。",
         "ConfirmVisitorGeneration": "請勾選核取框來確認訪客產生",
         "CustomMatomoUrl": "自訂 Matomo 網址",

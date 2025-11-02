@@ -1,13 +1,13 @@
 {
     "VisitorGenerator": {
-        "VisitorGenerator": "Người tạo khách truy cập",
-        "Warning": "Bạn muốn tạo ra truy cập giả mạo sẽ được ghi lại trong cơ sở dữ liệu Matomo của bạn.",
-        "NotReversible": "Nó sẽ %1$s %2$s không có thể dễ dàng xóa các truy cập từ các bản ghi Matomo.",
         "AreYouSure": "Bạn có chắc chắn bạn muốn tạo các lượt truy cập giả?",
-        "ChoiceYes": "Đúng vậy, tôi chắc chắn!",
-        "Submit": "Trình (submit)",
-        "SelectWebsite": "Chọn website",
+        "ChoiceYes": "Có",
+        "DaysToCompute": "Các ngày cần tính",
         "NbRequestsPerSec": "Các yêu cầu mỗi giây",
-        "DaysToCompute": "Các ngày cần tính"
+        "NotReversible": "Nó sẽ %1$s %2$s không có thể dễ dàng xóa các truy cập từ các bản ghi Matomo.",
+        "SelectWebsite": "Chọn website",
+        "Submit": "Trình (submit)",
+        "VisitorGenerator": "Người tạo khách truy cập",
+        "Warning": "Bạn muốn tạo ra truy cập giả mạo sẽ được ghi lại trong cơ sở dữ liệu Matomo của bạn."
     }
 }

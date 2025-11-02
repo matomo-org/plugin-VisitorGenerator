@@ -2,7 +2,7 @@
     "VisitorGenerator": {
         "AreYouSure": "Er du sikker på, at du vil generere kunstige besøg?",
         "AutomaticReprocess": "Rapporterne vil genbehandlet næste gang du besøger Matomo rapporter, det kan tage et par minutter.",
-        "ChoiceYes": "Ja, jeg er sikker!",
+        "ChoiceYes": "Ja",
         "CliToolUsage": "Ved at bruge %1$sMatomo kommandolinjeværktøj%2$s kan du ikke kun generere endnu flere besøg, men også brugere, hjemmesider og mål.",
         "ConfirmVisitorGeneration": "Bekræft venligst bruger genereringen ved at markere i boxen",
         "CustomMatomoUrl": "Tilpasset Matomo URL",

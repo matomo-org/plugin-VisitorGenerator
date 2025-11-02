@@ -1,13 +1,13 @@
 {
     "VisitorGenerator": {
-        "VisitorGenerator": "افزایشگر بازدیدکننده",
-        "Warning": "شما در مورد تولید بازدیدکننده داشته است جعلی است که در پایگاه داده Matomo شما ثبت خواهد شد.",
         "AreYouSure": "آیا مطمئن اید میخواهید بازدید تقلبی بسازید؟",
-        "ChoiceYes": "بله ، من مطمئنم!",
-        "Submit": "ارسال",
-        "SelectWebsite": "انتخاب وب سایت",
-        "NbRequestsPerSec": "درخواست بر ثانیه",
+        "ChoiceYes": "بلی",
         "DaysToCompute": "محاسبه تعداد روزها",
-        "NumberOfGeneratedActions": "تعداد اعمال تولید شده"
+        "NbRequestsPerSec": "درخواست بر ثانیه",
+        "NumberOfGeneratedActions": "تعداد اعمال تولید شده",
+        "SelectWebsite": "انتخاب وب سایت",
+        "Submit": "ارسال",
+        "VisitorGenerator": "افزایشگر بازدیدکننده",
+        "Warning": "شما در مورد تولید بازدیدکننده داشته است جعلی است که در پایگاه داده Matomo شما ثبت خواهد شد."
     }
 }

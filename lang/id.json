@@ -2,7 +2,7 @@
     "VisitorGenerator": {
         "AreYouSure": "Buat kunjungan palsu?",
         "AutomaticReprocess": "Laporan akan diproses ulang saat Anda mengunjungi laporan Matomo lagi, mungkin memerlukan waktu beberapa menit.",
-        "ChoiceYes": "Ya, tambahkan data yang dibuat-buat ke basis data.",
+        "ChoiceYes": "Ya",
         "CliToolUsage": "Dengan menggunakan %1$salat Matomo CLI%2$s Anda tidak hanya dapat menghasilkan lebih banyak kunjungan tetapi juga pengguna, situs web, dan sasaran.",
         "ConfirmVisitorGeneration": "Harap konfirmasikan generasi pengunjung dengan mencentang kotak yang disediakan",
         "CustomMatomoUrl": "URL Matomo Khusus",

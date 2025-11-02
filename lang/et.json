@@ -1,12 +1,12 @@
 {
     "VisitorGenerator": {
-        "VisitorGenerator": "Külastuste generaator",
-        "Warning": "Sa oled genereerimas võltse külastusi, mis salvestatakse sinu Matomou andmebaasis.",
-        "ChoiceYes": "Jah, olen kindel!",
-        "Submit": "Jätka",
-        "SelectWebsite": "Vali veebileht",
-        "NbRequestsPerSec": "Päringut sekundis",
+        "ChoiceYes": "Jah",
         "DaysToCompute": "Loodavate päevade arv",
-        "NumberOfGeneratedActions": "Genereeritud tegevuste arv"
+        "NbRequestsPerSec": "Päringut sekundis",
+        "NumberOfGeneratedActions": "Genereeritud tegevuste arv",
+        "SelectWebsite": "Vali veebileht",
+        "Submit": "Jätka",
+        "VisitorGenerator": "Külastuste generaator",
+        "Warning": "Sa oled genereerimas võltse külastusi, mis salvestatakse sinu Matomou andmebaasis."
     }
 }
