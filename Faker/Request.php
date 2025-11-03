@@ -767,7 +767,7 @@ class Request extends \Faker\Provider\Base
         '/blog/tasks/',
         '/blog/2013/09/piwik-mobile-1-9-8-with-full-support-for-ios-7/',
         '/FAQ/',
-        '/blog/tasks/graphs-list-of-improvements-jqplotjs/'
+        '/blog/tasks/graphs-list-of-improvements-jqplotjs/',
     );
 
     protected static $campaignNames = [
@@ -849,7 +849,7 @@ class Request extends \Faker\Provider\Base
         '2048x1152',
         '600x912',
         '320x240',
-        '320x568'
+        '320x568',
     );
 
     public function pageURL()
@@ -878,7 +878,7 @@ class Request extends \Faker\Provider\Base
             'Test Product',
             'Product Name',
             'Awesome Product',
-            'Helpful Product'
+            'Helpful Product',
         ));
     }
 
@@ -981,7 +981,7 @@ class Request extends \Faker\Provider\Base
             'http://www.bing.com/search?q=',
             'http://uk.search.yahoo.com/search?ei=UTF-8&fr=moz35&q=',
             'http://search.yahoo.com/search;?p=',
-            'http://uk.ask.com/web?l=dis&prt=NIS&chn=retail&geo=GB&ver=19&odn=&dm=all&q='
+            'http://uk.ask.com/web?l=dis&prt=NIS&chn=retail&geo=GB&ver=19&odn=&dm=all&q=',
         ));
 
         return $url . $keyword;
@@ -998,7 +998,7 @@ class Request extends \Faker\Provider\Base
             'http://search.yahoo.co.jp/r/FOR=wJjKBrpV3iiyQ9OVtYIAEFhwB6F4X7nB3uwubUjurHLqwT8oFNO7dNiZBXYbmgNENZz8yKntTR'
                 . '5X_chrfaAcSOgPUyuK.Y5mOUs5tzKNLuq42vgCKLHdBH3gavAtCoKeCKOItwbkCN10nMDO9gO8MW9zdH9TOyAul7u1sqXEE0wTNp'
                 . 'Y6DW.EFfagOL54JzI3OBVfIin7/_ylt=A2RAyhx.wOZaQWsATEuDTwx.;_ylu=X3oDMTBtNHJhZXRnBHBvcwMxBHNlYwNzcgRzbGsDdGl0bGU-/SIG=11fhbagaq/EXP=1525172798/**https%3A//matomo.jp/news/7540',
-            'https://yandex.ru/'
+            'https://yandex.ru/',
         ));
 
         return $url;
@@ -1102,7 +1102,20 @@ class Request extends \Faker\Provider\Base
             'http://www.example.com/5-great-google-analytics-alternatives/?utm_content=ourfake&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer',
             'http://www.example.org/blog/15-google-analytics-alternatives?utm_source=twitter&utm_medium=social&utm_campaign=blog',
             'http://t.co/itFSLvPlqW',
-            'http://t.co/g0Alwc83T6'
+            'http://t.co/g0Alwc83T6',
             ));
+    }
+
+    public function aiAssistantBotUserAgent()
+    {
+        return static::randomElement([
+            'Mozilla/5.0 (compatible; ChatGPT-User/1.0; +https://openai.com)',
+            'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; MistralAI-User/1.0; +https://docs.mistral.ai/robots)',
+            'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Gemini-Deep-Research; +https://gemini.google/overview/deep-research/) Chrome/135.0.0.0 Safari/537.36',
+            'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Claude-User/1.0; +Claude-User@anthropic.com)',
+            'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Perplexity-User/1.0; +https://perplexity.ai/perplexity-user)',
+            'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36; Devin/1.0; +devin.ai',
+            'Google-NotebookLM',
+        ]);
     }
 }
