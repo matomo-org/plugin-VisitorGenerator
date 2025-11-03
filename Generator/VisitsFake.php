@@ -49,11 +49,13 @@ class VisitsFake extends Generator
             $tracker->setTokenAuth($tokenAuth);
             $tracker->setUserAgent($this->faker->userAgent);
 
-            // Mark visit randomly as ChatGPT Agent
-            if ($this->faker->boolean(10)) {
+            // Mark visit randomly as ChatGPT Agent or NovaAct Agent
+            if ($this->faker->boolean(8)) {
                 $tracker->setCustomTrackingParameter('ai_s', 'request specific, value not relevant');
                 $tracker->setCustomTrackingParameter('ai_sa', '"https://chatgpt.com"');
                 $tracker->setCustomTrackingParameter('ai_si', 'request specific, value not relevant');
+            } elseif ($this->faker->boolean(2)) {
+                $tracker->setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.7339.16 Safari/537.36 Agent-NovaAct/0.9');
             }
 
             $tracker->setBrowserLanguage($this->faker->locale);
