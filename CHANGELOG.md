@@ -65,3 +65,6 @@
   * Started generating AI referrer URLs 
 - 5.1.3 - 2025-09-01
   * Fix for generation of ecommerce order ID 0
+- 5.1.4 - 2025-11-10
+  * Randomly mark visits as NovaAct agent also
+  * Added new command to send fake AI Bot Requests
