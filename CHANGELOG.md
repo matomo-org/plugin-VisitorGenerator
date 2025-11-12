@@ -68,3 +68,5 @@
 - 5.1.4 - 2025-11-10
   * Randomly mark visits as NovaAct agent also
   * Added new command to send fake AI Bot Requests
+- 5.1.5 - 2025-11-24
+  * Generate string order IDs occasionally
