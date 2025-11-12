@@ -186,11 +186,11 @@ class VisitsFake extends Generator
                 if ($this->faker->boolean(50)) {
                     $tracker->doTrackEcommerceCartUpdate(50);
                 } else {
-                    $orderId = $this->faker->randomNumber(5);
-                    // randomNumber() can produce 0, which is an invalid order number.
-                    if (0 === $orderId) {
-                        $orderId = 1;
-                    }
+                    do {
+                        $randomNumber = (string) $this->faker->randomNumber(5);
+                        $orderId = $this->faker->boolean(50) ? ($this->faker->word() . '-' . $randomNumber) : $randomNumber;
+                    } while ('0' === $orderId);
+
                     $subtotal = $price * $quantity;
                     $tax = $subtotal * 0.19;
                     $shipping = $subtotal * 0.05;
