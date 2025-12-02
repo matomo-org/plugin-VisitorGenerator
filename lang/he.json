@@ -1,7 +1,7 @@
 {
     "VisitorGenerator": {
         "AreYouSure": "בטוח שאתה רוצה לחולל ביקורים מזויפים?",
-        "ChoiceYes": "כן, אני בטוח!",
+        "ChoiceYes": "כן",
         "DaysToCompute": "ימים לחישוב",
         "NbRequestsPerSec": "בקשות לשניה",
         "NumberOfGeneratedActions": "מספורת פעולות שחוללו",
