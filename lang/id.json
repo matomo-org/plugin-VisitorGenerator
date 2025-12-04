@@ -11,7 +11,7 @@
         "GeneratedVisitsFor": "Membuat kunjungan untuk %1$s dan untuk %2$s hari terakhir",
         "LogImporterNote": "Ada juga alat yang lebih cepat yang akan mengimpor data pengujian besar di Matomo, seperti yang dijelaskan di dalam %1$sREADME%2$s.",
         "NbRequestsPerSec": "Permintaan tiap detik",
-        "NotReversible": "Ini %1$stidak%2$s mungkin menghapus dengan mudahnya kunjungan tersebut dari catatan Matomo.",
+        "NotReversible": "Ini %1$s tidak%2$s mungkin mudah menghapus kunjungan tersebut dari catatan Matomo.",
         "NumberOfGeneratedActions": "Jumlah tindakan yang dihasilkan",
         "OverwriteLogFiles": "Anda dapat menimpa berkas log yang digunakan untuk menghasilkan kunjungan palsu (mengubah atau menambahkan berkas di %s). Permintaan akan dicatat di \"matomo.php\" dalam format \"Log gabungan Apache\". Pengembang pengaya dapat menyediakan berkas log mereka sendiri dengan menempatkan berkas '*.log' di dalam direktori \"data\" pengaya mereka.",
         "PleaseBePatient": "Catatan: Mungkin perlu waktu beberapa menit untuk membuat kunjungan dan tindakan, mohon bersabar…",
