@@ -4,6 +4,6 @@
         "fakerphp/faker": "^1.24"
     },
     "config": {
-        "platform-check": "false"
+        "platform-check": false
     }
 }
