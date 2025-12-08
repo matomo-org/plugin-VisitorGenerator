@@ -13,6 +13,7 @@ namespace Piwik\Plugins\VisitorGenerator\Commands;
 use Piwik\Access;
 use Piwik\Date;
 use Piwik\Plugin\ConsoleCommand;
+use Piwik\Plugins\VisitorGenerator\Generator\VisitsMalicious;
 use Piwik\Plugins\VisitorGenerator\Generator\VisitsFake;
 use Piwik\Plugins\VisitorGenerator\Generator\VisitsFromLogs;
 use Piwik\Site;
@@ -39,6 +40,8 @@ class GenerateVisits extends ConsoleCommand
         $this->addRequiredValueOption('custom-matomo-url', null, "Defines an alternate Matomo URL, e.g. if Matomo is installed behind a Load-Balancer.");
         $this->addRequiredValueOption('timeout', null, "Sets how long, in seconds, the timeout should be for the request.", 10);
         $this->addNoValueOption('non-profilable', null, "If supplied, tracks data without visitor IDs so it will be considered 'not profilable'.");
+        $this->addNoValueOption('with-malicious-payloads', null, "If supplied, generate visits filled with malicious-style payloads (SQLi/XSS/template injection) in addition to normal fake traffic.");
+        $this->addRequiredValueOption('limit-malicious-visits', null, 'Limits the number of malicious payload visits', null);
     }
 
     /**
@@ -88,6 +91,15 @@ class GenerateVisits extends ConsoleCommand
                 });
             }
 
+            if ($input->getOption('with-malicious-payloads')) {
+                $maliciousLimit = $this->getLimitMaliciousVisits();
+                Access::doAsSuperUser(function () use ($time, $idSite, &$nbActionsTotal, $customMatomoUrl, $trackNonProfilable, $maliciousLimit) {
+                    $maliciousVisits = new VisitsMalicious($customMatomoUrl);
+                    $maliciousVisits->setTrackNonProfilable($trackNonProfilable);
+                    $nbActionsTotal += $maliciousVisits->generate($time, $idSite, $maliciousLimit);
+                });
+            }
+
             $time += 86400;
         }
 
@@ -109,6 +121,17 @@ class GenerateVisits extends ConsoleCommand
         }
 
         return rand(400, 1000);
+    }
+
+    private function getLimitMaliciousVisits()
+    {
+        $input = $this->getInput();
+
+        if ($input->getOption('limit-malicious-visits')) {
+            return $input->getOption('limit-malicious-visits');
+        }
+
+        return rand(20, 60);
     }
 
     protected function checkDays()
