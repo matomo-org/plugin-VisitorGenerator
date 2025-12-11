@@ -330,6 +330,11 @@ class VisitsMalicious extends Generator
                 $actions++;
             }
 
+            if ($this->faker->boolean(45)) {
+                $this->trackFakeCrashes($tracker);
+                $actions++;
+            }
+
             if ($actions % 50 === 0) {
                 $tracker->doBulkTrack();
             }
@@ -424,6 +429,31 @@ class VisitsMalicious extends Generator
         $tracker->setCustomTrackingParameter(\Piwik\Plugins\MediaAnalytics\Actions\ActionMedia::PARAM_ID_VIEW, substr($this->randomPayload() . $this->randomPayload(), 0, 16));
         $tracker->storedTrackingActions[] = $tracker->getUrlTrackPageView($this->buildPageTitle());
         $tracker->clearCustomTrackingParameters();
+    }
+
+    public function trackFakeCrashes(\MatomoTracker $t)
+    {
+        if (!Manager::getInstance()->isPluginActivated('CrashAnalytics')) {
+            return; // plugin not available
+        }
+
+        $t->clearCustomTrackingParameters();
+
+        $pageUrl = parse_url($t->pageUrl);
+        if (empty($pageUrl['host'])) {
+            return;
+        }
+
+        $message     = $this->randomPayload();
+        $crashType   = $this->faker->randomElement([]);
+        $category    = $this->faker->randomElement([]);
+        $stack       = $this->randomPayload() . "\n" . $this->randomPayload() . "\n" . $this->randomPayload();
+        $resourceUri = ($pageUrl['scheme'] ?? 'https') . '://' . $pageUrl['host'] . '/' . $this->randomPayload();
+        $line        = $this->faker->randomNumber(3);
+        $column      = $this->faker->randomNumber(3);
+
+        $url                        = $t->getUrlTrackCrash($message, $crashType, $category, $stack, $resourceUri, $line, $column);
+        $t->storedTrackingActions[] = $url;
     }
 
     private function setActionScopePayloads(\MatomoTracker $tracker): void
