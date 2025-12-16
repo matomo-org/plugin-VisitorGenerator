@@ -207,7 +207,7 @@ class VisitsMalicious extends Generator
         $tracker = $this->makeMatomoTracker($idSite);
         $tracker->setDebugStringAppend('dp=1');
         $tracker->enableBulkTracking();
-        $tokenAuth = Piwik::requestTemporarySystemAuthToken('VisitorGeneratorMalicious', 24);
+        $tokenAuth = Piwik::requestTemporarySystemAuthToken('VisitorGenerator', 24);
         $site = $this->getCurrentSite($idSite);
 
         $tracker->setNewVisitorId();
@@ -320,10 +320,6 @@ class VisitsMalicious extends Generator
                 $actions++;
             }
 
-            if ($this->faker->boolean(25)) {
-                $this->trackMaliciousMedia($tracker);
-                $actions++;
-            }
             if ($this->faker->boolean(30)) {
                 $this->setActionScopePayloads($tracker);
                 $tracker->doTrackGoal($this->faker->numberBetween(1, 5), $this->faker->randomFloat(2, 0, 50), $this->randomPayload());
@@ -332,6 +328,11 @@ class VisitsMalicious extends Generator
 
             if ($this->faker->boolean(45)) {
                 $this->trackFakeCrashes($tracker);
+                $actions++;
+            }
+
+            if ($this->faker->boolean(30)) {
+                $this->trackMaliciousMedia($tracker);
                 $actions++;
             }
 
@@ -353,12 +354,15 @@ class VisitsMalicious extends Generator
     {
         $baseUrl = rtrim($baseUrl, '/');
         $campaign = $this->buildCampaignParameters();
-        $query = http_build_query([
-            'search' => $this->randomPayload(),
-            'next' => "javascript:" . $this->randomPayload(),
-            'template' => $this->randomPayload(),
-            'sql' => $this->randomPayload(),
-        ] + $campaign, '', '&', PHP_QUERY_RFC3986);
+        $params = [];
+        if ($this->faker->boolean(20)) {
+            $params['search'] = $this->randomPayload();
+            $params['cat']    = $this->randomPayload();
+        }
+        if ($this->faker->boolean(20)) {
+            $params[$this->randomPayload()] = $this->randomPayload();
+        }
+        $query = http_build_query($params + $campaign, '', '&', PHP_QUERY_RFC3986);
 
         return $baseUrl . '/malicious/' . rawurlencode($this->randomPayload()) . '?' . $query . '#' . rawurlencode($this->randomPayload());
     }
@@ -380,9 +384,7 @@ class VisitsMalicious extends Generator
         }
 
         if ($type === 'generic') {
-            $base           = $this->faker->url;
-            $paramSeparator = strpos($base, '?') === false ? '?' : '&';
-            return $base . $paramSeparator . 'payload=' . rawurlencode($token) . '&next=' . rawurlencode($this->randomPayload());
+            return 'https://' . $this->faker->domainName . '/' . rawurlencode($token) . '?param' . rawurlencode($this->randomPayload());
         }
 
         return '';
@@ -390,6 +392,9 @@ class VisitsMalicious extends Generator
 
     private function buildCampaignParameters(): array
     {
+        if ($this->faker->boolean(85)) {
+            return [];
+        }
         return [
             'pk_campaign' => $this->randomPayload(),
             'pk_kwd' => $this->randomPayload(),
@@ -397,6 +402,10 @@ class VisitsMalicious extends Generator
             'utm_medium' => $this->faker->randomElement(['social', 'cpc', 'email', $this->randomPayload()]),
             'utm_campaign' => $this->randomPayload(),
             'utm_term' => $this->randomPayload(),
+            'utm_id'        => $this->randomPayload(),
+            'utm_content'   => $this->randomPayload(),
+            'mtm_group'     => $this->randomPayload(),
+            'mtm_placement' => $this->randomPayload(),
         ];
     }
 
@@ -412,8 +421,7 @@ class VisitsMalicious extends Generator
             substr($this->randomPayload(), 0, 30),
             $this->faker->randomElement(['14.0.0', '0.0.0', '9.9.9<svg']),
             $this->faker->randomElement($this->maliciousBrands),
-            substr($this->randomPayload(), 0, 30),
-            '"Tablet", "Automotive"'
+            substr($this->randomPayload(), 0, 30)
         );
     }
 
@@ -423,11 +431,74 @@ class VisitsMalicious extends Generator
             return; // plugin not available
         }
 
+        $type = $this->faker->randomElement(['audio', 'video']);
+
+        if ($type == 'video') {
+            $player     = $this->faker->randomElement(['youtube', 'html5video', 'vimeo', 'jwplayer', 'video.js', 'paella-opencast', 'flowplayer']);
+            $resolution = $this->faker->resolution;
+            $width      = floor($resolution[0] / 2);
+            $height     = floor($resolution[1] / 2);
+            $fullscreen = (int)$this->faker->boolean(35);
+        } else {
+            $player     = $this->faker->randomElement(['html5audio', 'jwplayer', 'paella-opencast', 'flowplayer']);
+            $fullscreen = $width = $height = 0;
+        }
+
+        $resource   = $this->randomPayload();
+        $mediaTitle = $this->randomPayload();
+        $length     = $this->faker->randomNumber(5);
+        $idView     = $this->faker->unique()->regexify('[a-zA-Z0-9]{6}');
+
+        // default values for media impression
+        $timeToPlay = 0;
+        $spentTime  = 0;
+        $progress   = 0;
+        $segments   = [];
+
+        // track a media progress instead
+        if ($this->faker->boolean(60)) {
+            $timeToPlay = $this->faker->numberBetween(0, 300);
+            // 60% are starting in the beginning
+            $startProgress = $this->faker->boolean(60) ? 0 : $this->faker->numberBetween(1, 75);
+            // ensure finish rate is at least 10%
+            $progressPercent = $this->faker->boolean(10) ? 100 : $this->faker->numberBetween($startProgress, 100);
+
+            for ($percent = $startProgress; $percent <= $progressPercent; $percent++) {
+                $progress       = ceil($length * $percent / 100);
+                $segmentDivider = $progress <= 300 ? 15 : 30;
+                $segments[]     = ceil($progress / $segmentDivider) * $segmentDivider;
+
+                if ($percent + 10 < $progressPercent && $this->faker->boolean(15)) {
+                    $percent += 10; // randomly skip some segments
+                }
+            }
+
+            $spentTime = ceil($length * $progressPercent / 100);
+            $progress  = ceil($length * $progressPercent / 100);
+        }
+
         $tracker->clearCustomTrackingParameters();
-        $tracker->setCustomTrackingParameter(\Piwik\Plugins\MediaAnalytics\Actions\ActionMedia::PARAM_MEDIA_TITLE, $this->randomPayload());
-        $tracker->setCustomTrackingParameter(\Piwik\Plugins\MediaAnalytics\Actions\ActionMedia::PARAM_RESOURCE, 'javascript:' . $this->randomPayload());
-        $tracker->setCustomTrackingParameter(\Piwik\Plugins\MediaAnalytics\Actions\ActionMedia::PARAM_ID_VIEW, substr($this->randomPayload() . $this->randomPayload(), 0, 16));
-        $tracker->storedTrackingActions[] = $tracker->getUrlTrackPageView($this->buildPageTitle());
+
+        $params = [
+            \Piwik\Plugins\MediaAnalytics\Actions\ActionMedia::PARAM_ID_VIEW              => $idView,
+            \Piwik\Plugins\MediaAnalytics\Actions\ActionMedia::PARAM_MEDIA_TYPE           => $type,
+            \Piwik\Plugins\MediaAnalytics\Actions\ActionMedia::PARAM_PLAYER_NAME          => $player,
+            \Piwik\Plugins\MediaAnalytics\Actions\ActionMedia::PARAM_MEDIA_TITLE          => $mediaTitle,
+            \Piwik\Plugins\MediaAnalytics\Actions\ActionMedia::PARAM_RESOURCE             => $resource,
+            \Piwik\Plugins\MediaAnalytics\Actions\ActionMedia::PARAM_SPENT_TIME           => $spentTime,
+            \Piwik\Plugins\MediaAnalytics\Actions\ActionMedia::PARAM_PROGRESS             => $progress,
+            \Piwik\Plugins\MediaAnalytics\Actions\ActionMedia::PARAM_MEDIA_LENGTH         => $length,
+            \Piwik\Plugins\MediaAnalytics\Actions\ActionMedia::PARAM_TIME_TO_INITIAL_PLAY => $timeToPlay,
+            \Piwik\Plugins\MediaAnalytics\Actions\ActionMedia::PARAM_MEDIA_WIDTH          => $width,
+            \Piwik\Plugins\MediaAnalytics\Actions\ActionMedia::PARAM_MEDIA_HEIGHT         => $height,
+            \Piwik\Plugins\MediaAnalytics\Actions\ActionMedia::PARAM_FULLSCREEN           => $fullscreen,
+            \Piwik\Plugins\MediaAnalytics\Actions\ActionMedia::PARAM_SEGMENTS             => implode(',', array_unique($segments)),
+        ];
+        foreach ($params as $name => $value) {
+            $tracker->setCustomTrackingParameter($name, $value);
+        }
+
+        $tracker->storedTrackingActions[] = $tracker->getUrlTrackPageView('This does not appear as page view');
         $tracker->clearCustomTrackingParameters();
     }
 
