@@ -1,1 +1,5 @@
-{}
+{
+    "VisitorGenerator": {
+        "PluginDescription": "Matomoda saxta ziyarətlər və əməliyyatlar yaradın. Matomo hesabatlarını doldurmaq üçün saxta məlumatlar yaradın."
+    }
+}
