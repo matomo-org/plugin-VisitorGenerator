@@ -83,12 +83,11 @@ var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
   };
   const _hoisted_1$1 = ["innerHTML"];
   const _hoisted_2$1 = ["action"];
-  const _hoisted_3$1 = ["value"];
-  const _hoisted_4$1 = ["innerHTML"];
-  const _hoisted_5$1 = ["value"];
-  const _hoisted_6$1 = /* @__PURE__ */ vue.createElementVNode("br", null, null, -1);
-  const _hoisted_7 = ["innerHTML"];
-  const _hoisted_8 = ["value"];
+  const _hoisted_3 = ["value"];
+  const _hoisted_4 = ["innerHTML"];
+  const _hoisted_5 = ["value"];
+  const _hoisted_6 = ["innerHTML"];
+  const _hoisted_7 = ["value"];
   function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_Alert = vue.resolveComponent("Alert");
     const _component_Field = vue.resolveComponent("Field");
@@ -115,7 +114,7 @@ var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
             type: "hidden",
             name: "idSite",
             value: _ctx.idSite
-          }, null, 8, _hoisted_3$1),
+          }, null, 8, _hoisted_3),
           vue.createVNode(_component_Field, {
             uicontrol: "text",
             name: "daysToCompute",
@@ -134,7 +133,7 @@ var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
                 innerHTML: _ctx.$sanitize(
                   _ctx.translate("VisitorGenerator_NotReversible", "<strong>", "</strong>")
                 )
-              }, null, 8, _hoisted_4$1)
+              }, null, 8, _hoisted_4)
             ]),
             _: 1
           }),
@@ -149,20 +148,20 @@ var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
             type: "hidden",
             value: _ctx.formNonce,
             name: "form_nonce"
-          }, null, 8, _hoisted_5$1),
+          }, null, 8, _hoisted_5),
           vue.createElementVNode("p", null, [
             vue.createTextVNode(vue.toDisplayString(_ctx.translate("VisitorGenerator_PleaseBePatient")), 1),
-            _hoisted_6$1,
+            _cache[2] || (_cache[2] = vue.createElementVNode("br", null, null, -1)),
             vue.createElementVNode("span", {
               innerHTML: _ctx.$sanitize(_ctx.logImporterNoteText)
-            }, null, 8, _hoisted_7)
+            }, null, 8, _hoisted_6)
           ]),
           vue.createElementVNode("input", {
             type: "submit",
             value: _ctx.translate("VisitorGenerator_Submit"),
             name: "submit",
             class: "btn"
-          }, null, 8, _hoisted_8)
+          }, null, 8, _hoisted_7)
         ], 8, _hoisted_2$1)
       ]),
       _: 1
@@ -206,12 +205,8 @@ var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
       }
     }
   });
-  const _hoisted_1 = /* @__PURE__ */ vue.createElementVNode("br", null, null, -1);
-  const _hoisted_2 = /* @__PURE__ */ vue.createElementVNode("br", null, null, -1);
-  const _hoisted_3 = /* @__PURE__ */ vue.createElementVNode("br", null, null, -1);
-  const _hoisted_4 = /* @__PURE__ */ vue.createElementVNode("br", null, null, -1);
-  const _hoisted_5 = { key: 0 };
-  const _hoisted_6 = ["innerHTML"];
+  const _hoisted_1 = { key: 0 };
+  const _hoisted_2 = ["innerHTML"];
   function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_ContentBlock = vue.resolveComponent("ContentBlock");
     return vue.openBlock(), vue.createBlock(_component_ContentBlock, {
@@ -219,19 +214,19 @@ var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
     }, {
       default: vue.withCtx(() => [
         vue.createTextVNode(vue.toDisplayString(_ctx.translate("VisitorGenerator_GeneratedVisitsFor", _ctx.siteName, _ctx.days)), 1),
-        _hoisted_1,
+        _cache[0] || (_cache[0] = vue.createElementVNode("br", null, null, -1)),
         vue.createTextVNode(" " + vue.toDisplayString(_ctx.translate("VisitorGenerator_NumberOfGeneratedActions")) + ": " + vue.toDisplayString(_ctx.nbActionsTotal), 1),
-        _hoisted_2,
+        _cache[1] || (_cache[1] = vue.createElementVNode("br", null, null, -1)),
         vue.createTextVNode(" " + vue.toDisplayString(_ctx.translate("VisitorGenerator_NbRequestsPerSec")) + ": " + vue.toDisplayString(_ctx.nbRequestsPerSec), 1),
-        _hoisted_3,
+        _cache[2] || (_cache[2] = vue.createElementVNode("br", null, null, -1)),
         vue.createTextVNode(" " + vue.toDisplayString(_ctx.timer), 1),
-        _hoisted_4,
+        _cache[3] || (_cache[3] = vue.createElementVNode("br", null, null, -1)),
         vue.createElementVNode("p", null, [
           vue.createElementVNode("strong", null, [
-            _ctx.browserArchivingEnabled ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_5, vue.toDisplayString(_ctx.translate("VisitorGenerator_AutomaticReprocess")), 1)) : (vue.openBlock(), vue.createElementBlock("span", {
+            _ctx.browserArchivingEnabled ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_1, vue.toDisplayString(_ctx.translate("VisitorGenerator_AutomaticReprocess")), 1)) : (vue.openBlock(), vue.createElementBlock("span", {
               key: 1,
               innerHTML: _ctx.$sanitize(_ctx.reRunArchiveScriptText)
-            }, null, 8, _hoisted_6))
+            }, null, 8, _hoisted_2))
           ])
         ])
       ]),
