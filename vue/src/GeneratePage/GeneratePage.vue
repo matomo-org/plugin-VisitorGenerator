@@ -8,7 +8,7 @@
   <ContentBlock
     :content-title="translate('VisitorGenerator_VisitorGenerator')"
   >
-    {{ translate('VisitorGenerator_GeneratedVisitsFor', siteName, days) }}<br/>
+    {{ translate('VisitorGenerator_GeneratedVisitsFor', siteName, String(days)) }}<br/>
     {{ translate('VisitorGenerator_NumberOfGeneratedActions') }}: {{ nbActionsTotal }}<br/>
     {{ translate('VisitorGenerator_NbRequestsPerSec') }}: {{ nbRequestsPerSec }}<br/>
     {{ timer }}<br/>

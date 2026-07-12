@@ -123,7 +123,7 @@ var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
             title: _ctx.translate("VisitorGenerator_DaysToCompute")
           }, null, 8, ["modelValue", "title"]),
           vue.createElementVNode("p", null, [
-            vue.createElementVNode("strong", null, vue.toDisplayString(_ctx.translate("VisitorGenerator_GenerateFakeActions", _ctx.countMinActionsPerRun)), 1)
+            vue.createElementVNode("strong", null, vue.toDisplayString(_ctx.translate("VisitorGenerator_GenerateFakeActions", String(_ctx.countMinActionsPerRun))), 1)
           ]),
           vue.createElementVNode("p", null, vue.toDisplayString(_ctx.translate("VisitorGenerator_AreYouSure")), 1),
           vue.createVNode(_component_Alert, { severity: "danger" }, {
@@ -213,7 +213,7 @@ var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
       "content-title": _ctx.translate("VisitorGenerator_VisitorGenerator")
     }, {
       default: vue.withCtx(() => [
-        vue.createTextVNode(vue.toDisplayString(_ctx.translate("VisitorGenerator_GeneratedVisitsFor", _ctx.siteName, _ctx.days)), 1),
+        vue.createTextVNode(vue.toDisplayString(_ctx.translate("VisitorGenerator_GeneratedVisitsFor", _ctx.siteName, String(_ctx.days))), 1),
         _cache[0] || (_cache[0] = vue.createElementVNode("br", null, null, -1)),
         vue.createTextVNode(" " + vue.toDisplayString(_ctx.translate("VisitorGenerator_NumberOfGeneratedActions")) + ": " + vue.toDisplayString(_ctx.nbActionsTotal), 1),
         _cache[1] || (_cache[1] = vue.createElementVNode("br", null, null, -1)),

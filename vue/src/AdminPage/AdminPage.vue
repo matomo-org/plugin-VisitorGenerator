@@ -26,7 +26,7 @@
 
       <p>
         <strong>
-          {{ translate('VisitorGenerator_GenerateFakeActions', countMinActionsPerRun) }}
+          {{ translate('VisitorGenerator_GenerateFakeActions', String(countMinActionsPerRun)) }}
         </strong>
       </p>
 
