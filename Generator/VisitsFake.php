@@ -77,7 +77,7 @@ class VisitsFake extends Generator
                 if ($this->faker->boolean(50)) {
                     $tracker->setUserId($this->faker->firstName);
                 } else {
-                    $tracker->setUserId(false);
+                    $tracker->setUserId(null);
                 }
             }
 

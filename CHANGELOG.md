@@ -70,3 +70,5 @@
   * Added new command to send fake AI Bot Requests
 - 5.1.5 - 2025-11-24
   * Generate string order IDs occasionally
+- 6.0.0 - 2026-08-09
+  * Compatibility with Matomo 6
