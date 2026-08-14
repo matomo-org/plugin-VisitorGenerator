@@ -2,10 +2,6 @@ name: PHPCS check
 
 on:
   pull_request:
-  push:
-    branches:
-      - 5.x-dev
-      - 6.x-dev
   workflow_dispatch:
 
 permissions:
