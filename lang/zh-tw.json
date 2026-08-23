@@ -1,25 +1,25 @@
 {
     "VisitorGenerator": {
-        "AreYouSure": "你確定要產生偽造訪客嗎？",
+        "AreYouSure": "要產生虛擬訪問嗎？",
         "AutomaticReprocess": "報表將會在你下次查看 Matomo 報表時重新處理，可能會花上幾分鐘。",
         "ChoiceYes": "是",
         "CliToolUsage": "透過 %1$sMatomo CLI 工具%2$s你不僅能產生更多訪問，也能產生使用者、網站及目標。",
-        "ConfirmVisitorGeneration": "請勾選核取框來確認訪客產生",
+        "ConfirmVisitorGeneration": "請勾選核取方塊以確認產生訪客",
         "CustomMatomoUrl": "自訂 Matomo 網址",
         "DaysToCompute": "計算天數",
-        "GenerateFakeActions": "這將每天為這個網站至少產生 %d 個偽造活動。",
-        "GeneratedVisitsFor": "為 %1$s 產生過去 %2$s 天的訪問。",
+        "GenerateFakeActions": "這將每天為這個網站至少產生 %d 個虛擬活動。",
+        "GeneratedVisitsFor": "已為 %1$s 產生過去 %2$s 天的訪問",
         "LogImporterNote": "Matomo 有更快的工具來匯入大型測試資料，查看%1$sREADME%2$s。",
         "NbRequestsPerSec": "每秒請求數",
-        "NotReversible": "它可能將%1$s無法%2$s輕易地從 Matomo 記錄中刪除。",
+        "NotReversible": "這些訪問將%1$s無法%2$s輕易地從 Matomo 紀錄中刪除。",
         "NumberOfGeneratedActions": "已產生的活動數",
-        "OverwriteLogFiles": "你可以覆蓋產生偽造訪客的紀錄檔案（在 %s 修改或增加檔案）。請求「matomo.php」的記錄檔案使用格式為「Apache combined log」。外掛開發者可以透過在「data」資料夾下放置「*.log」檔案來提供他們的外掛紀錄檔案。",
-        "PleaseBePatient": "注意：可能需要花上幾分鐘來產生訪客和活動，請耐心等候…",
-        "PluginDescription": "在 Matomo 中產生虛擬訪客及活動資料。虛擬資料可用作填充 Matomo 報表。",
-        "ReRunArchiveScript": "請重新執行工作排程「./console core:archive」指令來重新整理報表。%1$s「查看如何設定報表自動彙整」%2$s",
+        "OverwriteLogFiles": "覆寫「matomo.php」紀錄檔，以「Apache combined log」格式產生虛擬訪問（在 %s 修改或新增檔案）。外掛開發者可以在外掛的「data」資料夾中放置「*.log」檔案，來加入自己的紀錄檔。",
+        "PleaseBePatient": "產生訪問與活動可能需要幾分鐘的時間。",
+        "PluginDescription": "在 Matomo 中產生虛擬訪問與活動。產生虛擬資料來填入 Matomo 報表。",
+        "ReRunArchiveScript": "請重新執行工作排程「./console core:archive」指令來重新整理報表，詳見%1$s「如何設定報表自動彙整」%2$s",
         "SelectWebsite": "選擇網站",
         "Submit": "送出",
         "VisitorGenerator": "訪客產生器",
-        "Warning": "你即將產生的偽造訪客將會記錄到你的 Matomo 資料庫中。"
+        "Warning": "你即將為你的 Matomo 資料庫產生虛擬訪問。"
     }
 }
