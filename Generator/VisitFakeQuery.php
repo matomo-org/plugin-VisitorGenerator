@@ -4,12 +4,15 @@ namespace Piwik\Plugins\VisitorGenerator\Generator;
 
 use Faker\Generator;
 use Piwik\Common;
+use Piwik\Plugins\VisitorGenerator\Faker\Location;
 use Faker\Provider\Miscellaneous as FakerMisc;
 use Faker\Provider\Internet as FakerInternet;
 use Piwik\Plugins\VisitorGenerator\Faker\Request as FakerRequest;
 
 class VisitFakeQuery
 {
+    private Location $fakerLocation;
+
     private $returnUserIds = [];
     private $actionsUrl = [];
     private $campaigns = [];
@@ -29,6 +32,7 @@ class VisitFakeQuery
         $this->returnVisitorPoolSize = $returnVisitorPoolSize;
         $this->fakerInternet = new FakerInternet(new Generator());
         $this->fakerRequest = new FakerRequest(new Generator());
+        $this->fakerLocation = new Location(new Generator());
 
         $keywords = ['books','reading','pages','story','fiction','author'];
         $medium = ['ppc','website','email'];
@@ -60,6 +64,11 @@ class VisitFakeQuery
 
             $this->referers[] = $referer;
         }
+    }
+
+    public function setLocationFilter(?string $country = null, ?string $region = null): void
+    {
+        $this->fakerLocation = new Location(new Generator(), $country, $region);
     }
 
     public function getRandomActionURL(): string
@@ -185,7 +194,7 @@ class VisitFakeQuery
                                       config_device_type, config_os, config_os_version, visit_total_events, visitor_localtime, 
                                       visitor_seconds_since_last, config_resolution, config_cookie, config_flash, config_java, 
                                       config_pdf, config_quicktime, config_realplayer, config_silverlight, config_windowsmedia, 
-                                      visit_total_time, location_country) 
+                                      visit_total_time, location_country, location_region, location_city, location_latitude, location_longitude)
         VALUES (:idvisitor, :config_id, :location_ip, :idsite, :profilable, :visit_first_action_time, 
                                       :visit_goal_buyer, :visit_goal_converted, :visit_last_action_time, :visitor_returning,
                                       :visitor_seconds_since_first, :visitor_seconds_since_order, :visitor_count_visits, 
@@ -196,7 +205,7 @@ class VisitFakeQuery
                                       :config_device_type, :config_os, :config_os_version, :visit_total_events, :visitor_localtime, 
                                       :visitor_seconds_since_last, :config_resolution, :config_cookie, :config_flash, :config_java, 
                                       :config_pdf, :config_quicktime, :config_realplayer, :config_silverlight, :config_windowsmedia, 
-                                      :visit_total_time, :location_country)
+                                      :visit_total_time, :location_country, :location_region, :location_city, :location_latitude, :location_longitude)
         ";
 
         $campaign = null;
@@ -208,6 +217,8 @@ class VisitFakeQuery
         if (rand(0, 100) < 33) {
             $referer = $this->referers[array_rand($this->referers)];
         }
+
+        $location = $this->fakerLocation->location();
 
         $bind = [':idvisitor' => $idvisitor,
                  ':config_id' => random_bytes(8),
@@ -239,7 +250,11 @@ class VisitFakeQuery
                  ':referer_type' => ($referer ? $referer['type'] : null),
                  ':referer_url' => ($referer ? $referer['url'] : null),
 
-                 ':location_country' => $this->getRandomCountryA2(),
+                 ':location_country' => $location['country'],
+                 ':location_region' => $location['region'],
+                 ':location_city' => $location['city'],
+                 ':location_latitude' => $location['latitude'],
+                 ':location_longitude' => $location['longitude'],
                  ':location_browser_lang' => $this->getRandomLang(),
                  ':config_browser_engine' => '',
                  ':config_browser_name' => '',

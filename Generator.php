@@ -28,6 +28,7 @@ class Generator
     {
         $this->faker = \Faker\Factory::create('en_EN');
         $this->faker->addProvider(new Faker\Request($this->faker));
+        $this->faker->addProvider(new Faker\Location($this->faker));
         $this->setMatomoUrl($matomoUrl);
     }
 
@@ -67,6 +68,11 @@ class Generator
         // this is a workaround when force_ssl=1, and the HTTPS URL is not fetchable from CLI
         $url = str_replace('https://localhost', 'http://localhost', $url);
         return $url;
+    }
+
+    public function setLocationFilter(?string $country = null, ?string $region = null): void
+    {
+        $this->faker->addProvider(new Faker\Location($this->faker, $country, $region));
     }
 
     public function setTrackNonProfilable(bool $trackNonProfilable): void
