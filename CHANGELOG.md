@@ -72,3 +72,6 @@
   * Generate string order IDs occasionally
 - 6.0.0 - 2026-08-09
   * Compatibility with Matomo 6
+
+- 6.0.1
+  * Generate consistent, population-balanced locations for synthetic visits, with optional country and region CLI filters.

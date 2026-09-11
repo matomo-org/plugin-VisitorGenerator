@@ -43,6 +43,36 @@ It also adds the following commands to the [Matomo CLI tool](http://developer.ma
 * `./console visitorgenerator:generate-visits --idsite 5 --custom-matomo-url=http://example.com/` Uses 'http://example.com/' as Matomo-URL and generates many visits for site with id 5 for today
 * * `./console visitorgenerator:generate-visits-db --idsite 5 --limit-visits=200 --days=3 --threads=8` generate 200 visits per day for the last three days directly in the database, using 8 threaded processes
 
+#### Synthetic visit locations
+
+Synthetic visits use 5,000 predefined places grouped by country and region. Each
+visit receives a matching country, region, city and coordinates rounded to two
+decimal places, as in normal Matomo geolocation. The list roughly follows population
+distribution; individual places are selected equally. It works without a GeoIP database.
+
+Both synthetic commands accept a two-letter `--country` code and an optional ISO
+region suffix in `--region`. Codes are case-insensitive. A region requires a country,
+and both must have places in the bundled list. For example:
+
+```
+./console visitorgenerator:generate-visits --idsite=1 --no-logs --country=US --region=CA
+./console visitorgenerator:generate-visits-db --idsite=1 --limit-visits=200 --country=DE --threads=2
+```
+
+Location filters on `generate-visits` require `--no-logs` and cannot be combined
+with `--no-fake`. Imported logs retain their original behaviour. IP addresses and
+browser languages are generated independently of the selected place. Places without a resolved region are omitted, so the available countries and regions
+are limited to those represented in the list.
+
+The location list contains an adapted subset of the June 2026
+[DB-IP City Lite database](https://db-ip.com/db/lite.php), with region normalization
+and coordinate rounding by Matomo. Population-based selection uses
+[GeoNames](https://www.geonames.org/). Both sources are licensed under
+[Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/).
+IP geolocation by [DB-IP](https://db-ip.com/). The data is supplied as is and describes
+approximate locations. Retain the source attribution when redistributing the list;
+DB-IP also requests a link on web pages displaying or using its results.
+
 #### Other notes
 
 VisitorGenerator makes a lot of requests to the Matomo tracking API to send the visits, so if your server blocks requests based on rules (e.g. with mod_security), you might want to create an exception rule for VisitorGenerator.

@@ -59,12 +59,12 @@ class VisitsFake extends Generator
             }
 
             $tracker->setBrowserLanguage($this->faker->locale);
-            $tracker->setCity($this->faker->city);
-            $countryCode = $this->faker->countryCode;
-            $tracker->setCountry(strtolower($countryCode));
-            $tracker->setRegion($this->faker->region($countryCode));
-            $tracker->setLatitude($this->faker->latitude);
-            $tracker->setLongitude($this->faker->longitude);
+            $location = $this->faker->location;
+            $tracker->setCountry($location['country']);
+            $tracker->setRegion($location['region']);
+            $tracker->setCity($location['city']);
+            $tracker->setLatitude($location['latitude']);
+            $tracker->setLongitude($location['longitude']);
             $tracker->setIp($this->faker->boolean(77) ? $this->faker->ipv4 : $this->faker->ipv6);
             $tracker->setLocalTime($this->faker->time());
             $tracker->setIdSite($idSite);
