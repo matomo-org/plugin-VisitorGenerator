@@ -50,7 +50,7 @@ class LocationTest extends TestCase
                 }
             }
         }
-        self::assertSame(5000, $count);
+        self::assertGreaterThanOrEqual(10000, $count);
         self::assertGreaterThan(200, count($data));
         self::assertArrayNotHasKey('aq', $data);
         $counts = array_map(static fn ($regions) => array_sum(array_map('count', $regions)), $data);
@@ -60,6 +60,33 @@ class LocationTest extends TestCase
         foreach (['us', 'br', 'de', 'ng', 'in', 'cn', 'au'] as $country) {
             self::assertArrayHasKey($country, $data);
         }
+    }
+
+    /** @dataProvider geographicallyDispersedCountries */
+    public function testLargeCountriesHaveBroadCoverage(string $country, int $minimumRegions, float $minimumShare): void
+    {
+        $data = json_decode(file_get_contents(__DIR__ . '/../../data/locations.json'), true, 512, JSON_THROW_ON_ERROR);
+        $counts = array_map(static fn ($regions) => array_sum(array_map('count', $regions)), $data);
+        self::assertGreaterThanOrEqual($minimumRegions, count($data[$country]));
+        // Selection is uniform, so the dataset's share is also the expected visit share.
+        self::assertGreaterThanOrEqual($minimumShare, $counts[$country] / array_sum($counts));
+        $cells = [];
+        foreach ($data[$country] as $cities) {
+            foreach ($cities as $city) {
+                $cells[floor($city['latitude'] / 2) . ':' . floor($city['longitude'] / 2)] = true;
+            }
+        }
+        self::assertGreaterThanOrEqual(50, count($cells), 'Locations must cover distinct geographic areas.');
+    }
+
+    public function geographicallyDispersedCountries(): array
+    {
+        return [
+            ['ru', 80, 0.03],
+            ['au', 8, 0.005],
+            ['us', 51, 0.044],
+            ['ca', 13, 0.01],
+        ];
     }
 
     public function testLocationsAreCompleteRecordsFromTheDataset(): void

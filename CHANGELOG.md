@@ -74,4 +74,4 @@
   * Compatibility with Matomo 6
 
 - 6.0.1
-  * Generate consistent, population-balanced locations for synthetic visits, with optional country and region CLI filters.
+  * Generate consistent locations for synthetic visits with population-based selection and broad geographic coverage, including supplemental towns in sparsely represented countries, with optional country and region CLI filters.

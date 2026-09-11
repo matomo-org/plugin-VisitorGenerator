@@ -45,10 +45,11 @@ It also adds the following commands to the [Matomo CLI tool](http://developer.ma
 
 #### Synthetic visit locations
 
-Synthetic visits use 5,000 predefined places grouped by country and region. Each
+Synthetic visits use over 13,000 predefined places grouped by country and region. Each
 visit receives a matching country, region, city and coordinates rounded to two
-decimal places, as in normal Matomo geolocation. The list roughly follows population
-distribution; individual places are selected equally. It works without a GeoIP database.
+decimal places, as in normal Matomo geolocation. The list combines population-based
+selection with coverage of available regions and geographically dispersed populated
+places. Additional towns fill gaps in countries with sparse source coverage. Individual places are selected equally. It works without a GeoIP database.
 
 Both synthetic commands accept a two-letter `--country` code and an optional ISO
 region suffix in `--region`. Codes are case-insensitive. A region requires a country,
@@ -63,15 +64,6 @@ Location filters on `generate-visits` require `--no-logs` and cannot be combined
 with `--no-fake`. Imported logs retain their original behaviour. IP addresses and
 browser languages are generated independently of the selected place. Places without a resolved region are omitted, so the available countries and regions
 are limited to those represented in the list.
-
-The location list contains an adapted subset of the June 2026
-[DB-IP City Lite database](https://db-ip.com/db/lite.php), with region normalization
-and coordinate rounding by Matomo. Population-based selection uses
-[GeoNames](https://www.geonames.org/). Both sources are licensed under
-[Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/).
-IP geolocation by [DB-IP](https://db-ip.com/). The data is supplied as is and describes
-approximate locations. Retain the source attribution when redistributing the list;
-DB-IP also requests a link on web pages displaying or using its results.
 
 #### Other notes
 
@@ -118,3 +110,8 @@ With all that in place, you should be able to run Rector like so: `vendor/bin/re
 This plugin is released under the GPLv3+ license.
 
 This plugin uses the [Faker](libs/Faker/readme.md) library which is released under the [MIT license](libs/Faker/LICENSE).
+
+The bundled location dataset in `data/locations.json` is derived from the
+[DB-IP City Lite](https://db-ip.com/db/download/ip-to-city-lite) database and
+from [GeoNames](https://www.geonames.org/), both released under the
+[Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by/4.0/).
