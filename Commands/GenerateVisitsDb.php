@@ -18,6 +18,7 @@ use Piwik\Container\StaticContainer;
 use Piwik\Date;
 use Piwik\Metrics\Formatter;
 use Piwik\NumberFormatter;
+use Piwik\Plugins\VisitorGenerator\Faker\Location;
 use Piwik\Plugins\VisitorGenerator\Generator\VisitFakeQuery;
 use Piwik\Process;
 use Piwik\Timer;
@@ -42,6 +43,8 @@ class GenerateVisitsDb extends GenerateVisits
         $this->setName('visitorgenerator:generate-visits-db');
         $this->setDescription('Generates many visits for a given amount of days in the past, directly inserted into the database. This command is intended for developers.');
         $this->addRequiredValueOption('idsite', null, 'Defines the site the visits should be generated for');
+        $this->addRequiredValueOption('country', null, 'Generate synthetic visits in this country (two-letter code, e.g. US).');
+        $this->addRequiredValueOption('region', null, 'Restrict locations to this ISO region code (e.g. CA); requires --country.');
         $this->addRequiredValueOption('days', null, 'Defines for how many days in the past visits should be generated', 1);
         $this->addRequiredValueOption('start-date', null, 'Date to start generating on.');
         $this->addRequiredValueOption('limit-visits', null, 'Limits the number of generated visits', null);
@@ -70,6 +73,11 @@ class GenerateVisitsDb extends GenerateVisits
         // Get input options
         $input = $this->getInput();
         $output = $this->getOutput();
+        $country = $input->getOption('country');
+        $region = $input->getOption('region');
+        // Validate before generating visits or starting worker processes.
+        new Location(new \Faker\Generator(), $country, $region);
+
         $threads = $input->getOption('threads');
         $days = $this->checkDays();
         $idSite = $this->getIdSite();
@@ -258,6 +266,12 @@ class GenerateVisitsDb extends GenerateVisits
             '--days=' . $days
             ];
 
+        foreach (['country', 'region'] as $option) {
+            if ($input->getOption($option) !== null) {
+                $command[] = '--' . $option . '=' . $input->getOption($option);
+            }
+        }
+
         $randomPercent = $input->getOption('limit-random-percent');
         if ($randomPercent) {
             $command[] = '--limit-random-percent=' . $randomPercent;
@@ -375,6 +389,7 @@ class GenerateVisitsDb extends GenerateVisits
 
         $requestCount = 0;
         $queryGenerator = new VisitFakeQuery($this->actionsPoolSize);
+        $queryGenerator->setLocationFilter($input->getOption('country'), $input->getOption('region'));
 
         $this->log(".", 0, false, true);
 

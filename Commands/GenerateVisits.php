@@ -13,6 +13,7 @@ namespace Piwik\Plugins\VisitorGenerator\Commands;
 use Piwik\Access;
 use Piwik\Date;
 use Piwik\Plugin\ConsoleCommand;
+use Piwik\Plugins\VisitorGenerator\Faker\Location;
 use Piwik\Plugins\VisitorGenerator\Generator\VisitsFake;
 use Piwik\Plugins\VisitorGenerator\Generator\VisitsFromLogs;
 use Piwik\Site;
@@ -31,6 +32,8 @@ class GenerateVisits extends ConsoleCommand
         $this->setName('visitorgenerator:generate-visits');
         $this->setDescription('Generates many visits for a given amount of days in the past. This command is intended for developers.');
         $this->addRequiredValueOption('idsite', null, 'Defines the site the visits should be generated for');
+        $this->addRequiredValueOption('country', null, 'Generate synthetic visits in this country (two-letter code, e.g. US).');
+        $this->addRequiredValueOption('region', null, 'Restrict locations to this ISO region code (e.g. CA); requires --country.');
         $this->addRequiredValueOption('days', null, 'Defines for how many days in the past visits should be generated', 1);
         $this->addRequiredValueOption('start-date', null, 'Date to start generating on.');
         $this->addNoValueOption('no-fake', null, 'If set, no fake visits will be generated', null);
@@ -48,6 +51,14 @@ class GenerateVisits extends ConsoleCommand
     {
         $input = $this->getInput();
         $output = $this->getOutput();
+        $country = $input->getOption('country');
+        $region = $input->getOption('region');
+        // Validate before generating visits or starting worker processes.
+        new Location(new \Faker\Generator(), $country, $region);
+        if (($country !== null || $region !== null) && (!$input->getOption('no-logs') || $input->getOption('no-fake'))) {
+            throw new \InvalidArgumentException('Location filters require --no-logs and cannot be combined with --no-fake.');
+        }
+
         $this->timeout =  $input->getOption('timeout');
         $timer = new Timer();
         $days = $this->checkDays();
@@ -73,9 +84,10 @@ class GenerateVisits extends ConsoleCommand
 
             if (!$input->getOption('no-fake')) {
                 $limit = $this->getLimitFakeVisits();
-                Access::doAsSuperUser(function () use ($time, $idSite, $limit, &$nbActionsTotal, $customMatomoUrl, $trackNonProfilable) {
+                Access::doAsSuperUser(function () use ($time, $idSite, $limit, &$nbActionsTotal, $customMatomoUrl, $trackNonProfilable, $country, $region) {
                     $fakeVisits = new VisitsFake($customMatomoUrl);
                     $fakeVisits->setTrackNonProfilable($trackNonProfilable);
+                    $fakeVisits->setLocationFilter($country, $region);
                     $nbActionsTotal += $fakeVisits->generate($time, $idSite, $limit);
                 });
             }
