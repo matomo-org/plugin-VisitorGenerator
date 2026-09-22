@@ -106,7 +106,7 @@ class GenerateVisits extends ConsoleCommand
         $this->writeSuccessMessage(array(
             'idsite = ' . $idSite,
             $nbActionsTotal . ' Visits generated',
-            round($nbActionsTotal / $timer->getTime(), 0) . ' requests per second'
+            round($nbActionsTotal / (float) $timer->getTime(), 0) . ' requests per second'
         ));
 
         return self::SUCCESS;

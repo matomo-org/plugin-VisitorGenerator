@@ -112,8 +112,6 @@ class GenerateLiveVisits extends ConsoleCommand
                 return self::SUCCESS;
             }
         }
-
-        return self::SUCCESS; // should never occur
     }
 
     private function getPostiveIntegerOption($optionName)

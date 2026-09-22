@@ -1,0 +1,32 @@
+parameters:
+    level: 5
+    phpVersion: 80100
+    tmpDir: /tmp/phpstan/VisitorGenerator/main
+    paths:
+        - .
+    excludePaths:
+        analyse:
+            - tests/*
+            - vendor/*
+    bootstrapFiles:
+        - ../../bootstrap-phpstan.php
+    universalObjectCratesClasses:
+        - Piwik\Config
+        - Piwik\View
+        - Piwik\ViewDataTable\Config
+    scanDirectories:
+        - ../../
+    ignoreErrors:
+        # These symbols are supplied by the separate Matomo for WordPress environment.
+        -
+            identifier: function.notFound
+            path: Generator.php
+            count: 1
+        -
+            identifier: class.notFound
+            path: Generator.php
+            count: 1
+        -
+            identifier: constant.notFound
+            path: Generator.php
+            count: 1

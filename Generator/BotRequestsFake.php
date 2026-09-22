@@ -92,7 +92,7 @@ class BotRequestsFake extends Generator
             $tracker->doBulkTrack();
         }
 
-        CoreAdminHomeApi::getInstance()->invalidateArchivedReports($idSite, $date);
+        CoreAdminHomeApi::getInstance()->invalidateArchivedReports((string) $idSite, $date);
 
         return $i;
     }
