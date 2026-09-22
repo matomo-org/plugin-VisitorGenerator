@@ -30,3 +30,8 @@ parameters:
             identifier: constant.notFound
             path: Generator.php
             count: 1
+        # MediaAnalytics is optional and is not installed in the plugin CI environment.
+        -
+            identifier: class.notFound
+            path: Generator/VisitsFake.php
+            count: 13
