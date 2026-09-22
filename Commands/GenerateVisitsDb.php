@@ -22,8 +22,8 @@ use Piwik\Plugins\VisitorGenerator\Faker\Location;
 use Piwik\Plugins\VisitorGenerator\Generator\VisitFakeQuery;
 use Piwik\Process;
 use Piwik\Timer;
-use Symfony\Component\Console\Input\Input;
-use Symfony\Component\Console\Output\Output;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
 
 class GenerateVisitsDb extends GenerateVisits
 {
@@ -167,7 +167,7 @@ class GenerateVisitsDb extends GenerateVisits
         return self::SUCCESS;
     }
 
-    private function doThreadedRun(Input $input, Output $output, int $idSite, int $days, int $threads)
+    private function doThreadedRun(InputInterface $input, OutputInterface $output, int $idSite, int $days, int $threads)
     {
         $overallTimer = new Timer();
         $command = $this->buildThreadCommand($input, $output, $idSite, $days, $threads);
@@ -193,7 +193,7 @@ class GenerateVisitsDb extends GenerateVisits
 
             $process = new Process($command);
             $processList[$t] = $process;
-            $process->start(function ($type, $buffer) use ($threadsComplete, $output, &$grandSummary) {
+            $process->start(function ($type, $buffer) use ($output, &$grandSummary) {
 
                 if (strpos($buffer, '|') !== false) {
                     // Record summary
@@ -236,15 +236,15 @@ class GenerateVisitsDb extends GenerateVisits
     /**
      * Build the command line used for thread sub-processes
      *
-     * @param Input  $input
-     * @param Output $output
+     * @param InputInterface  $input
+     * @param OutputInterface $output
      * @param int    $idSite
      * @param int    $days
      * @param int    $threads
      *
      * @return array|null
      */
-    private function buildThreadCommand(Input $input, Output $output, int $idSite, int $days, int $threads): ?array
+    private function buildThreadCommand(InputInterface $input, OutputInterface $output, int $idSite, int $days, int $threads): ?array
     {
         // Find php binary
         $cliPhp = new CliPhp();
@@ -333,7 +333,7 @@ class GenerateVisitsDb extends GenerateVisits
     private function writeSummary(int $idSite, array $summaryInfo): void
     {
         $summary = [
-            'Site Id                  ' . str_pad($idSite, 12, ' ', STR_PAD_LEFT),
+            'Site Id                  ' . str_pad((string) $idSite, 12, ' ', STR_PAD_LEFT),
             'Time taken               ' . str_pad($this->metricFormatter->getPrettyTimeFromSeconds($summaryInfo['timeTaken'], true), 12, ' ', STR_PAD_LEFT),
             'Visits generated         ' . str_pad($this->formatter->format($summaryInfo['visits']), 12, ' ', STR_PAD_LEFT),
             'Visits actions generated ' . str_pad($this->formatter->format($summaryInfo['visitActions']), 12, ' ', STR_PAD_LEFT),
@@ -359,7 +359,10 @@ class GenerateVisitsDb extends GenerateVisits
             $limit = $input->getOption('limit-visits');
             $randomPercent = $input->getOption('limit-random-percent');
             if ($randomPercent > 0) {
-                $limit = rand(floor($limit - ($limit * ($randomPercent / 100))), ceil($limit + ($limit * ($randomPercent / 100))));
+                $limit = rand(
+                    (int) floor($limit - ($limit * ($randomPercent / 100))),
+                    (int) ceil($limit + ($limit * ($randomPercent / 100)))
+                );
             }
             return (int) $limit;
         }

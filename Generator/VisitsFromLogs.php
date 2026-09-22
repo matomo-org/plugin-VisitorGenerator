@@ -37,7 +37,7 @@ class VisitsFromLogs extends Generator
      * All log lines will be replayed having the same day of the month as the one of the given time. If the same day of
      * the month is not present in any log line then one of the following days will be used.
      *
-     * @param string|boolean $time  If false, defaults to "now"
+     * @param int|string|boolean $time  If false, defaults to "now"
      * @param int $idSite
      * @param int $timeout
      *
@@ -75,7 +75,7 @@ class VisitsFromLogs extends Generator
             }
         }
 
-        CoreAdminHomeAPI::getInstance()->invalidateArchivedReports($idSite, $date);
+        CoreAdminHomeAPI::getInstance()->invalidateArchivedReports((string) $idSite, $date);
 
         return $count;
     }

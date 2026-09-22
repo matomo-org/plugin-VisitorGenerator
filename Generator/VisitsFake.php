@@ -28,7 +28,7 @@ class VisitsFake extends Generator
         $tokenAuth = Piwik::requestTemporarySystemAuthToken('VistorGenerator', 24);
         $site = $this->getCurrentSite($idSite);
 
-        $numSearches = rand(floor($limit / 40), ceil($limit / 20));
+        $numSearches = rand((int) floor($limit / 40), (int) ceil($limit / 20));
         $numSearchesDone = 0;
 
         $tracker->setNewVisitorId();
@@ -188,7 +188,9 @@ class VisitsFake extends Generator
                 } else {
                     do {
                         $randomNumber = (string) $this->faker->randomNumber(5);
-                        $orderId = $this->faker->boolean(50) ? ($this->faker->word() . '-' . $randomNumber) : $randomNumber;
+                        $orderId = $this->faker->numberBetween(1, 100) <= 50
+                            ? ($this->faker->word() . '-' . $randomNumber)
+                            : $randomNumber;
                     } while ('0' === $orderId);
 
                     $subtotal = $price * $quantity;
@@ -303,7 +305,7 @@ class VisitsFake extends Generator
         if ($this->faker->boolean(60)) {
             $timeToPlay = $this->faker->numberBetween(0, 300);
             // 60% are starting in the beginning
-            $startProgress = $this->faker->boolean(60) ? 0 : $this->faker->numberBetween(1, 75);
+            $startProgress = $this->faker->numberBetween(1, 100) <= 60 ? 0 : $this->faker->numberBetween(1, 75);
             // ensure finish rate is at least 10%
             $progressPercent = $this->faker->boolean(10) ? 100 : $this->faker->numberBetween($startProgress, 100);
 
