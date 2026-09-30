@@ -19,3 +19,4 @@ jobs:
     with:
       plugin-name: VisitorGenerator
       verify-hook: true
+      timezone-regression-exempt: 'Generated visits go through the tracker, which invalidates the site-local day of each visit, so each generator also invalidating the UTC date is only an extra; the direct-to-database generator stores UTC timestamps and invalidates nothing'
