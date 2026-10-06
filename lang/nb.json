@@ -1,25 +1,25 @@
 {
     "VisitorGenerator": {
-        "AreYouSure": "Er du sikker på at du vil generere falske besøk?",
-        "AutomaticReprocess": "Rapportene vil bli behandlet igjen neste gang du besøker Matomo-rapporter. Det kan ta noen minutter.",
+        "AreYouSure": "Generere falske besøk?",
+        "AutomaticReprocess": "Neste gang du åpner rapportene i Matomo, blir de behandlet på nytt. Dette kan ta noen minutter.",
         "ChoiceYes": "Ja",
-        "CliToolUsage": "Ved å bruke %1$sMatomo-kommandolinjeverktøyet%2$s kan du ikke kun generere flere besøk, men også brukere, nettsider og mål.",
-        "ConfirmVisitorGeneration": "Bekreft besøksgenerering ved å krysse av i boksen",
+        "CliToolUsage": "Med %1$skommandolinjeverktøyet for Matomo%2$s kan du generere ikke bare enda flere besøk, men også brukere, nettsteder og mål.",
+        "ConfirmVisitorGeneration": "Huk av i boksen for å bekrefte genereringen av besøkende",
         "CustomMatomoUrl": "Egendefinert Matomo-URL",
         "DaysToCompute": "Dager å beregne",
         "GenerateFakeActions": "Dette genererer minst %d falske handlinger på denne siden for hver dag.",
-        "GeneratedVisitsFor": "Genererte besøk for %1$s og de siste %2$s dagene.",
-        "LogImporterNote": "Det er også et raskere verktøy som importere mye testdata i Matomo, sjekk %1$sREADME%2$s.",
+        "GeneratedVisitsFor": "Genererte besøk for %1$s og for de siste %2$s dagene",
+        "LogImporterNote": "%1$sREADME%2$s har informasjon om et raskere verktøy som importerer store mengder testdata i Matomo.",
         "NbRequestsPerSec": "Forespørsler per sekund",
         "NotReversible": "Det er %1$sikke%2$s enkelt å slette disse besøkene fra Matomo-loggene.",
         "NumberOfGeneratedActions": "Antall genererte handlinger",
-        "OverwriteLogFiles": "Du kan overskrive loggfilene som brukes til å generere falske besøk (endre eller legg til filer i %s). Det er loggfiler av forespørsler til «matomo.php» i formatet «Apache combined log». Programtilleggsutviklere kan angi egne loggfiler ved å plassere «*.log»-filer i en «data»-mappe i programtillegget sitt.",
-        "PleaseBePatient": "Merk: Det kan ta noen minutter å generere besøk og handlinger …",
-        "PluginDescription": "Opprett falske besøk og handlinger. Kan brukes av Matomo.org-brukere eller utviklere som vil generere falsk data for å fylle ut Matomo-rapporter.",
-        "ReRunArchiveScript": "Kjør crontab-«./console core:archive»-kommandoen igjen for å gjenoppfriske rapportene. %1$sSjekk «Oppsett av automatisk arkivering for rapportene dine»%2$s",
+        "OverwriteLogFiles": "Du kan overskrive loggfilene som brukes til å generere falske besøk (endre eller legg til filer i %s). Det er loggfiler av forespørsler til «matomo.php» i formatet «Apache combined log». Tilleggsutviklere kan angi egne loggfiler ved å plassere «*.log»-filer i en «data»-mappe i tillegget sitt.",
+        "PleaseBePatient": "Det kan ta noen minutter å generere besøk og handlinger.",
+        "PluginDescription": "Lag falske besøk og handlinger i Matomo. Generer falske data for å fylle Matomo-rapportene.",
+        "ReRunArchiveScript": "Kjør crontab-kommandoen './console core:archive' på nytt for å oppdatere rapportene, som beskrevet i %1$s«Slik setter du opp automatisk arkivering av rapportene»%2$s",
         "SelectWebsite": "Velg nettsted",
         "Submit": "Send",
         "VisitorGenerator": "Besøksgenerator",
-        "Warning": "Du er i ferd med å generere falske besøk som vil bli registrert i din Matomo-database."
+        "Warning": "Du er i ferd med å generere falske besøk i Matomo-databasen din."
     }
 }
