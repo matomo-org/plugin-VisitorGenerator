@@ -1,7 +1,25 @@
 {
     "VisitorGenerator": {
-        "AreYouSure": "Er du sikker på at du vil generera falske vitjingar?",
+        "AreYouSure": "Vil du lage falske besøk?",
+        "AutomaticReprocess": "Neste gong du ser Matomo-rapportane, blir dei handsama på nytt. Det kan ta nokre minutt.",
         "ChoiceYes": "Ja",
-        "SelectWebsite": "Vel nettstad"
+        "CliToolUsage": "%1$sMatomo CLI-verktøyet%2$s kan ikkje berre lage endå fleire besøk, men òg brukarar, nettstader og mål.",
+        "ConfirmVisitorGeneration": "Kryss av i boksen for å stadfeste at du vil lage besøk",
+        "CustomMatomoUrl": "Eigendefinert Matomo-URL",
+        "DaysToCompute": "Dagar som skal reknast ut",
+        "GenerateFakeActions": "Dette lagar minst %d falske handlingar på denne nettstaden for kvar dag.",
+        "GeneratedVisitsFor": "Laga besøk for %1$s og for dei siste %2$s dagane",
+        "LogImporterNote": "%1$sREADME%2$s-fila har informasjon om eit raskare verktøy som importerer store testdatasett i Matomo.",
+        "NbRequestsPerSec": "Førespurnader per sekund",
+        "NotReversible": "Det vil %1$s ikkje%2$s vere enkelt å slette desse besøka frå Matomo-loggane.",
+        "NumberOfGeneratedActions": "Tal på laga handlingar",
+        "OverwriteLogFiles": "Overskriv «matomo.php»-loggfilene for å lage falske besøk i formatet «Apache combined log» (endre eller legg til filer i %s). Innstikkutviklarar legg til sine eigne loggfiler som «*.log»-filer i ei «data»-mappe i innstikket sitt.",
+        "PleaseBePatient": "Det kan ta nokre minutt å lage besøk og handlingar.",
+        "PluginDescription": "Lag falske besøk og handlingar i Matomo. Lag falske data for å fylle Matomo-rapportar.",
+        "ReRunArchiveScript": "Køyr crontab-kommandoen './console core:archive' på nytt for å oppdatere rapportane, slik det står i %1$s«Korleis setje opp automatisk arkivering av rapportane dine»%2$s",
+        "SelectWebsite": "Vel nettstad",
+        "Submit": "Send",
+        "VisitorGenerator": "Besøksgenerator",
+        "Warning": "Du er i ferd med å lage falske besøk i Matomo-databasen din."
     }
 }
