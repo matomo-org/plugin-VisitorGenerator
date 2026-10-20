@@ -35,3 +35,12 @@ parameters:
             identifier: class.notFound
             path: Generator/VisitsFake.php
             count: 13
+        # Faker's magic methods are treated as pure, so a second random boolean() call reads as decided.
+        -
+            identifier: ternary.alwaysFalse
+            path: Generator/VisitsFake.php
+            count: 1
+        -
+            identifier: ternary.alwaysTrue
+            path: Generator/VisitsFake.php
+            count: 1

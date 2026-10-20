@@ -1,0 +1,11 @@
+includes:
+    - phpstan.neon
+
+parameters:
+    tmpDir: /tmp/phpstan/VisitorGenerator/min-matomo
+    ignoreErrors:
+        # The minimum Matomo release documents getRequestVar()'s default as string|null; later releases document it as mixed.
+        -
+            identifier: argument.type
+            path: Controller.php
+            count: 3

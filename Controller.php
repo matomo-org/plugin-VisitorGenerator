@@ -91,7 +91,7 @@ class Controller extends ControllerAdmin
         $view->timer = $timer;
         $view->days = $daysToCompute;
         $view->nbActionsTotal = $nbActionsTotal;
-        $view->nbRequestsPerSec = round($nbActionsTotal / $timer->getTime(), 0);
+        $view->nbRequestsPerSec = round($nbActionsTotal / (float) $timer->getTime(), 0);
         $view->siteName = $siteName;
 
         return $view->render();

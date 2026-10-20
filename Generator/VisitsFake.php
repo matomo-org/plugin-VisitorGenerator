@@ -28,7 +28,7 @@ class VisitsFake extends Generator
         $tokenAuth = Piwik::requestTemporarySystemAuthToken('VistorGenerator', 24);
         $site = $this->getCurrentSite($idSite);
 
-        $numSearches = rand(floor($limit / 40), ceil($limit / 20));
+        $numSearches = rand((int) floor($limit / 40), (int) ceil($limit / 20));
         $numSearchesDone = 0;
 
         $tracker->setNewVisitorId();

@@ -47,7 +47,7 @@ class LiveVisitsFromLog extends VisitsFromLogs
     private $dayOfMonth;
 
     /**
-     * @var \SeekableIterator
+     * @var \SeekableIterator|null
      */
     private $fileIterator;
 
@@ -145,8 +145,6 @@ class LiveVisitsFromLog extends VisitsFromLogs
                 return [$count, null]; // if next log is for the next day, we're done replaying for now
             }
         }
-
-        return [$count, null]; // no more logs
     }
 
     public function close()
