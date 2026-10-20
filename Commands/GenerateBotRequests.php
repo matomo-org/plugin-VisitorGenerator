@@ -70,7 +70,7 @@ class GenerateBotRequests extends ConsoleCommand
         $this->writeSuccessMessage([
             'idsite = ' . $idSite,
             $nbActionsTotal . ' Requests generated',
-            round($nbActionsTotal / $timer->getTime(), 0) . ' requests per second',
+            round($nbActionsTotal / (float) $timer->getTime(), 0) . ' requests per second',
         ]);
 
         return self::SUCCESS;
