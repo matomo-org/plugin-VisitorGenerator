@@ -1,0 +1,22 @@
+name: Plugins CI
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
+  push:
+    branches:
+      - '**.x-dev'
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+  pull-requests: read
+
+jobs:
+  ci:
+    uses: matomo-org/plugin-ci-workflows/.github/workflows/plugin-ci.yml@main
+    with:
+      plugin-name: VisitorGenerator
+      verify-hook: true
+      timezone-regression-exempt: 'Generated visits go through the tracker, which invalidates the site-local day of each visit, so each generator also invalidating the UTC date is only an extra; the direct-to-database generator stores UTC timestamps and invalidates nothing'
