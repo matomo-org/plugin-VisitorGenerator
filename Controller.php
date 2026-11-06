@@ -12,6 +12,7 @@ namespace Piwik\Plugins\VisitorGenerator;
 
 use Piwik\ArchiveProcessor\Rules;
 use Piwik\Common;
+use Piwik\Http\BadRequestException;
 use Piwik\Nonce;
 use Piwik\Notification;
 use Piwik\Piwik;
@@ -102,7 +103,7 @@ class Controller extends ControllerAdmin
         $daysToCompute = Common::getRequestVar('daysToCompute', false, 'int');
 
         if ($daysToCompute < 1) {
-            throw new \Exception('Days to compute must be greater or equal to 1.');
+            throw new BadRequestException('Days to compute must be greater or equal to 1.');
         }
 
         return $daysToCompute;
