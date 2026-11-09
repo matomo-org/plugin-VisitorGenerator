@@ -75,3 +75,6 @@
 
 - 6.0.1
   * Generate consistent locations for synthetic visits with population-based selection and broad geographic coverage, including supplemental towns in sparsely represented countries, with optional country and region CLI filters.
+
+- 6.0.2
+  * Answered requests to generate fewer than one day of visits with HTTP 400, instead of HTTP 500
