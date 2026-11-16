@@ -42,13 +42,6 @@ class SyntheticLocationTest extends IntegrationTestCase
         self::assertSame(2, (int) $updated['visit_total_actions']);
     }
 
-    /**
-     * The generator caches its authentication token for the process, but later
-     * test classes recreate the database and invalidate that token.
-     *
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
-     */
     public function testTrackerGeneratorStoresCompleteLocations(): void
     {
         Fixture::createSuperUser();
@@ -57,6 +50,13 @@ class SyntheticLocationTest extends IntegrationTestCase
             protected function makeMatomoTracker($idSite)
             {
                 return Fixture::getTracker($idSite, '2020-01-02 12:00:00', true, true);
+            }
+
+            // Core caches the real token for the whole process, which would go stale
+            // once a later test class recreates the database.
+            protected function getTokenAuth(): ?string
+            {
+                return Fixture::getTokenAuth();
             }
         };
         $generator->setLocationFilter('US', 'CA');

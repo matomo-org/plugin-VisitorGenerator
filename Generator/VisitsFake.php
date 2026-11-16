@@ -25,7 +25,7 @@ class VisitsFake extends Generator
         $tracker = $this->makeMatomoTracker($idSite);
         $tracker->setDebugStringAppend('dp=1');
         $tracker->enableBulkTracking();
-        $tokenAuth = Piwik::requestTemporarySystemAuthToken('VistorGenerator', 24);
+        $tokenAuth = $this->getTokenAuth();
         $site = $this->getCurrentSite($idSite);
 
         $numSearches = rand((int) floor($limit / 40), (int) ceil($limit / 20));
@@ -351,5 +351,10 @@ class VisitsFake extends Generator
     private function getCurrentSite($idSite)
     {
         return SitesManagerApi::getInstance()->getSiteFromId($idSite);
+    }
+
+    protected function getTokenAuth(): ?string
+    {
+        return Piwik::requestTemporarySystemAuthToken('VistorGenerator', 24);
     }
 }
