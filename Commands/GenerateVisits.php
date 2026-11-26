@@ -138,8 +138,9 @@ class GenerateVisits extends ConsoleCommand
     private function checkTimeout(): int
     {
         $timeout = (string) $this->getInput()->getOption('timeout');
-        if (!ctype_digit($timeout)) {
-            throw new \InvalidArgumentException('The --timeout option must be a whole number of seconds, 0 or more.');
+        // 0 would mean no limit at all for log replay over curl.
+        if (!ctype_digit($timeout) || (int) $timeout < 1) {
+            throw new \InvalidArgumentException('The --timeout option must be a whole number of seconds, 1 or more.');
         }
 
         return (int) $timeout;

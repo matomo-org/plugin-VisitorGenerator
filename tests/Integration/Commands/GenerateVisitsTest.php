@@ -44,6 +44,7 @@ class GenerateVisitsTest extends ConsoleCommandTestCase
 
     public function getInvalidTimeouts(): iterable
     {
+        yield 'zero' => ['0'];
         yield 'negative' => ['-1'];
         yield 'not a number' => ['abc'];
         yield 'fraction' => ['1.5'];
