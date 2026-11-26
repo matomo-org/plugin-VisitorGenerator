@@ -78,3 +78,6 @@
 
 - 6.0.2 - 2026-11-16
   * Answered requests to generate fewer than one day of visits with HTTP 400, instead of HTTP 500
+
+- 6.0.3
+  * Applied the `--timeout` option of `visitorgenerator:generate-visits` to fake visits too, and rejected invalid values
