@@ -9,37 +9,26 @@
 
 namespace Piwik\Plugins\VisitorGenerator\tests\Integration\Commands;
 
-use Piwik\Piwik;
 use Piwik\Tests\Framework\Fixture;
 use Piwik\Tests\Framework\TestCase\ConsoleCommandTestCase;
 
 /**
+ * Runs with --no-fake and --no-logs: generating would cache a system token that core reuses for
+ * the rest of the process, after a later test class has recreated the database.
+ *
  * @group VisitorGenerator
  * @group GenerateVisitsTest
  * @group Integration
  */
 class GenerateVisitsTest extends ConsoleCommandTestCase
 {
-    public function setUp(): void
+    private static int $idSite;
+
+    public static function setUpBeforeClass(): void
     {
-        parent::setUp();
+        parent::setUpBeforeClass();
 
-        Fixture::createSuperUser();
-        Fixture::createWebsite('2020-01-01 00:00:00');
-    }
-
-    public function testFakeVisitsUseTimeoutOption(): void
-    {
-        $requestTimeout = null;
-        // Stop at the first tracked visit, so nothing is sent to Matomo.
-        Piwik::addAction('VisitorGenerator.VisitsFake.trackVisit', function (\MatomoTracker $tracker) use (&$requestTimeout) {
-            $requestTimeout = $tracker->getRequestTimeout();
-            throw new \RuntimeException('stop generating');
-        });
-
-        $this->runGenerateVisits('120');
-
-        self::assertSame(120, $requestTimeout);
+        self::$idSite = Fixture::createWebsite('2020-01-01 00:00:00');
     }
 
     /**
@@ -64,11 +53,10 @@ class GenerateVisitsTest extends ConsoleCommandTestCase
     {
         return $this->applicationTester->run([
             'command' => 'visitorgenerator:generate-visits',
-            '--idsite' => 1,
+            '--idsite' => self::$idSite,
             '--days' => 1,
+            '--no-fake' => true,
             '--no-logs' => true,
-            '--limit-fake-visits' => 1,
-            '--custom-matomo-url' => 'http://matomo.test/',
             '--timeout' => $timeout,
         ]);
     }
