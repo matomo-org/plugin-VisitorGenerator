@@ -20,6 +20,7 @@ class Generator
     protected $faker;
     protected $matomoUrl;
     protected $trackNonProfilable = false;
+    protected ?int $requestTimeout = null;
 
     /**
      * @param null $matomoUrl
@@ -43,7 +44,13 @@ class Generator
                 throw new \Exception('The visitor generator in Matomo for WordPress works only when the plugin is installed from Git and is only intended for development.');
             }
         }
-        return new \MatomoTracker($idSite, $this->getMatomoUrl());
+
+        $tracker = new \MatomoTracker($idSite, $this->getMatomoUrl());
+        if ($this->requestTimeout !== null) {
+            $tracker->setRequestTimeout($this->requestTimeout);
+        }
+
+        return $tracker;
     }
 
     /**
@@ -78,5 +85,13 @@ class Generator
     public function setTrackNonProfilable(bool $trackNonProfilable): void
     {
         $this->trackNonProfilable = $trackNonProfilable;
+    }
+
+    /**
+     * Bulk tracking requests still wait at least MatomoTracker::DEFAULT_BULK_REQUEST_TIMEOUT seconds.
+     */
+    public function setRequestTimeout(int $requestTimeout): void
+    {
+        $this->requestTimeout = $requestTimeout;
     }
 }

@@ -40,7 +40,7 @@ class GenerateVisits extends ConsoleCommand
         $this->addNoValueOption('no-logs', null, 'If set, no visits from logs will be generated', null);
         $this->addRequiredValueOption('limit-fake-visits', null, 'Limits the number of fake visits', null);
         $this->addRequiredValueOption('custom-matomo-url', null, "Defines an alternate Matomo URL, e.g. if Matomo is installed behind a Load-Balancer.");
-        $this->addRequiredValueOption('timeout', null, "Sets how long, in seconds, the timeout should be for the request.", 10);
+        $this->addRequiredValueOption('timeout', null, "Sets how long, in seconds, to wait for each tracking request. Bulk requests of fake visits always wait at least 30 seconds.", 10);
         $this->addNoValueOption('non-profilable', null, "If supplied, tracks data without visitor IDs so it will be considered 'not profilable'.");
     }
 
@@ -59,7 +59,7 @@ class GenerateVisits extends ConsoleCommand
             throw new \InvalidArgumentException('Location filters require --no-logs and cannot be combined with --no-fake.');
         }
 
-        $this->timeout =  $input->getOption('timeout');
+        $this->timeout = $this->checkTimeout();
         $timer = new Timer();
         $days = $this->checkDays();
         $customMatomoUrl = $this->checkCustomMatomoUrl();
@@ -88,6 +88,7 @@ class GenerateVisits extends ConsoleCommand
                     $fakeVisits = new VisitsFake($customMatomoUrl);
                     $fakeVisits->setTrackNonProfilable($trackNonProfilable);
                     $fakeVisits->setLocationFilter($country, $region);
+                    $fakeVisits->setRequestTimeout($this->timeout);
                     $nbActionsTotal += $fakeVisits->generate($time, $idSite, $limit);
                 });
             }
@@ -132,6 +133,17 @@ class GenerateVisits extends ConsoleCommand
         }
 
         return $days;
+    }
+
+    private function checkTimeout(): int
+    {
+        $timeout = (string) $this->getInput()->getOption('timeout');
+        // 0 would mean no limit at all for log replay over curl.
+        if (!ctype_digit($timeout) || (int) $timeout < 1) {
+            throw new \InvalidArgumentException('The --timeout option must be a whole number of seconds, 1 or more.');
+        }
+
+        return (int) $timeout;
     }
 
     private function checkCustomMatomoUrl()
